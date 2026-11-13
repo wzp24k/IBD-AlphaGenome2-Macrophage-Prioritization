@@ -1,0 +1,606 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "primary_variants_395": true,
+    "independent_loci_281": true,
+    "tier1_10": true,
+    "tier2_57": true,
+    "final_validated_tier1_10": true,
+    "final_persistent_tier1_9": true,
+    "final_attenuated_tier1_1": true,
+    "lead_rows_281": true,
+    "tier1_target_uncertain_3": true,
+    "tier1_external_supported_1": true,
+    "external_two_cohort_clusters": true,
+    "external_bootstrap_2000": true,
+    "external_pathways_4": true,
+    "external_pathways_fdr_significant": true,
+    "prkcq_classified_attenuated": true,
+    "tier1_exact_variant_experimental_1": true,
+    "tier1_gene_level_experimental_5": true,
+    "tier1_tested_neutral_3": true,
+    "tier1_perturbseq_effective_2": true,
+    "tier1_perturbseq_inconclusive_1": true,
+    "tier1_gut_scatac_ccre_1": true,
+    "gtex_prkcb_direction_concordant": true,
+    "eqtl_catalogue_8_datasets": true,
+    "eqtl_catalogue_5_variants": true,
+    "camk2a_nominal_discordant_only": true,
+    "four_remaining_myeloid_eqtl_uncovered": true,
+    "bootstrap_uses_276_informative_loci": true,
+    "atlas_missing_breakdown_22_13_9": true,
+    "tnfaip3_is_response_control_not_knockdown": true,
+    "macrophage_comparator_wording_precise": true,
+    "model_benchmark_limitation_reported": true,
+    "clinical_use_boundary_reported": true,
+    "all_tables_cited": true,
+    "all_figures_cited": true,
+    "positive_control_pass": true,
+    "docx_has_text": true,
+    "docx_has_eleven_tables": true,
+    "docx_has_ten_figures": true,
+    "docx_has_table11_caption": true,
+    "docx_has_figure10_caption": true,
+    "xlsx_has_expected_sheets": true,
+    "perturbseq_thresholds_3_5_10": true,
+    "pdgfb_self_threshold_stable": true,
+    "il23r_no_knockdown_stable": true,
+    "prkcq_lps_il23_direction_stable": true,
+    "donor_models_56": true,
+    "donor_model_types_valid": true,
+    "pdgfb_self_donor_blocked_negative": true,
+    "prkcq_lps_il23_donor_blocked": true,
+    "camk2a_coloc_not_supported": true,
+    "gsea_prkcb_jak_and_il6_positive": true,
+    "gsea_chsy3_tnf_and_il6_positive": true,
+    "claim_calibration_7_rows": true,
+    "gsea_growth_pc1_fraction": true,
+    "gsea_only_chsy3_tnf_survives_residualization": true,
+    "gsea_prkcb_nonsignificant_after_residualization": true,
+    "pdgfb_topic15_specific": true,
+    "manuscript_uses_nonoverlapping_language": true,
+    "manuscript_marks_target_uncertainty": true,
+    "manuscript_reports_prkcq_attenuated": true,
+    "manuscript_reports_external_experiments": true,
+    "manuscript_reports_perturbseq": true,
+    "manuscript_reports_full_library_direction_fix": true,
+    "manuscript_avoids_estimable_claim": true,
+    "manuscript_reports_camk2a_noncolocalization": true,
+    "manuscript_reports_claim_calibration": true,
+    "manuscript_reports_growth_sensitivity": true,
+    "manuscript_reports_interval_boundary": true,
+    "no_false_independent_replication_language": true,
+    "figures_nonblank": true,
+    "abstract_250_words_or_less": true,
+    "abstract_structured_four_sections": true,
+    "keywords_five_or_fewer": true,
+    "keywords_title_case": true,
+    "sentences_30_words_or_less": true,
+    "p_value_format_consistent": true,
+    "no_collapse_symbols": true,
+    "reference_count_42": true,
+    "citation_order_1_to_42": true,
+    "citation_groups_sorted_unique": true,
+    "all_references_cited": true,
+    "reference_bookmarks_and_hyperlinks": true,
+    "figure1_drawio_valid": true,
+    "all_reference_dois_verified": true,
+    "all_references_are_journal_articles": true,
+    "declarations_complete": true,
+    "technical_roadmap_caption": true,
+    "central_figure_palette_present": true,
+    "legacy_figure_colors_removed": true,
+    "all_figure_scripts_use_palette": true,
+    "no_api_key_in_deliverables": true
+  },
+  "analysis_summary": {
+    "primary_variants": 395,
+    "variants_with_atlas_target": 373,
+    "variants_with_live_target": 386,
+    "variants_with_custom_macrophage": 384,
+    "independent_loci": 281,
+    "tier_1": 10,
+    "tier_2": 57,
+    "median_priority_score": 51.85808978052703,
+    "positive_control": "chr21:39094644:G>A (rs2836882, ETS2)"
+  },
+  "external_gwas_summary": {
+    "bootstrap_replicates": 2000,
+    "loci": 276,
+    "genes": 510,
+    "externally_supported_genes": 73,
+    "external_clusters": [
+      "UKB_WGS_2025",
+      "MVP_2024"
+    ],
+    "pathways": [
+      {
+        "pathway": "IL-23",
+        "library": "Reactome_2022",
+        "term": "Interleukin-23 Signaling R-HSA-9020933",
+        "members": 4,
+        "external_supported_members": 3,
+        "observed_auc_difference": 0.32164031620553357,
+        "bootstrap_ci_low": 0.23600287820830868,
+        "bootstrap_ci_high": 0.47983934169278997,
+        "bootstrap_p": 0.0005042864346949068,
+        "bootstrap_fdr": 0.002017145738779627
+      },
+      {
+        "pathway": "IL-2/STAT5",
+        "library": "MSigDB_Hallmark_2020",
+        "term": "IL-2/STAT5 Signaling",
+        "members": 19,
+        "external_supported_members": 1,
+        "observed_auc_difference": 0.1451924107621395,
+        "bootstrap_ci_low": 0.03069509336473683,
+        "bootstrap_ci_high": 0.22604871958002268,
+        "bootstrap_p": 0.00849575212393803,
+        "bootstrap_fdr": 0.01699150424787606
+      },
+      {
+        "pathway": "JAK-STAT",
+        "library": "KEGG_2021_Human",
+        "term": "JAK-STAT signaling pathway",
+        "members": 26,
+        "external_supported_members": 5,
+        "observed_auc_difference": 0.09726636999364269,
+        "bootstrap_ci_low": -0.0029614685328190624,
+        "bootstrap_ci_high": 0.2049216956712846,
+        "bootstrap_p": 0.031484257871064465,
+        "bootstrap_fdr": 0.037481259370314844
+      },
+      {
+        "pathway": "IL-6/JAK/STAT3",
+        "library": "MSigDB_Hallmark_2020",
+        "term": "IL-6/JAK/STAT3 Signaling",
+        "members": 15,
+        "external_supported_members": 1,
+        "observed_auc_difference": 0.17595959595959598,
+        "bootstrap_ci_low": -0.011665728213447598,
+        "bootstrap_ci_high": 0.240649665819349,
+        "bootstrap_p": 0.037481259370314844,
+        "bootstrap_fdr": 0.037481259370314844
+      }
+    ]
+  },
+  "candidate_evidence_summary": {
+    "final_tier1_total": 10,
+    "tier1_target_uncertain": 3,
+    "target_confidence_counts": {
+      "high": 94,
+      "low": 88,
+      "moderate": 75,
+      "very low": 24
+    },
+    "tier1_external_supported": 1
+  },
+  "experimental_evidence_summary": {
+    "tier1_total": 10,
+    "tier1_variant_level_experimental": 1,
+    "tier1_gene_level_experimental": 5,
+    "tier1_target_engagement": 1,
+    "tier1_tested_neutral": 3,
+    "tier1_not_covered": 5,
+    "tier1_perturbseq_effective": 2,
+    "tier1_perturbseq_inconclusive": 1,
+    "tier1_scatac_ccre": 1,
+    "gtex_prkcb_p": 3.0230326881651897e-05,
+    "gtex_prkcb_nes": -0.17135509848594666,
+    "ets2_mpra": {
+      "experiment": "primary_human_macrophage_MPRA",
+      "accession": "GSE229472",
+      "variant": "rs2836882",
+      "target": "ETS2",
+      "construct_contexts": 3,
+      "rna_pools_per_context": 8,
+      "mean_risk_allele_log2_effect": 0.16930549598170583,
+      "context_effects": [
+        {
+          "construct_context": "A",
+          "mean_log2_risk_vs_nonrisk": -0.10761307906821496
+        },
+        {
+          "construct_context": "B",
+          "mean_log2_risk_vs_nonrisk": 0.23127280440893125
+        },
+        {
+          "construct_context": "C",
+          "mean_log2_risk_vs_nonrisk": 0.38425676260440117
+        }
+      ],
+      "all_contexts_positive": false
+    },
+    "crispr_tnf_selected": [
+      {
+        "Gene": "PDGFB",
+        "guides": 4,
+        "median_log2_high_low": 0.005398456567439749,
+        "screen_z": 0.4995891382737827,
+        "screen_p": 0.5703485930281395,
+        "screen_fdr": 0.9062995020423041
+      },
+      {
+        "Gene": "PRKCQ",
+        "guides": 4,
+        "median_log2_high_low": 0.01837349116903057,
+        "screen_z": 0.9726330215832452,
+        "screen_p": 0.2778144437111258,
+        "screen_fdr": 0.7301623664496406
+      },
+      {
+        "Gene": "IL23R",
+        "guides": 4,
+        "median_log2_high_low": -0.018187121666514726,
+        "screen_z": -0.3602940035038151,
+        "screen_p": 0.6810263794724105,
+        "screen_fdr": 0.9222148890355526
+      },
+      {
+        "Gene": "MAP3K8",
+        "guides": 4,
+        "median_log2_high_low": -0.38491944019519864,
+        "screen_z": -13.730622901942478,
+        "screen_p": 5.999880002399952e-05,
+        "screen_fdr": 0.004379912401751965
+      }
+    ],
+    "thp1_target_engagement": [
+      {
+        "gene": "PRKCB",
+        "accession": "GSE175685",
+        "replicates": 3,
+        "empty_controls": 11,
+        "self_expression_delta": 2.680849450973537,
+        "self_expression_p": 1.2064577497167097e-15,
+        "differential_genes_q05_absdelta1": 15,
+        "differential_genes_up": 11,
+        "differential_genes_down": 4
+      },
+      {
+        "gene": "CHSY3",
+        "accession": "GSE175685",
+        "replicates": 3,
+        "empty_controls": 11,
+        "self_expression_delta": 6.823268695237742,
+        "self_expression_p": 1.1686435605848065e-09,
+        "differential_genes_q05_absdelta1": 43,
+        "differential_genes_up": 35,
+        "differential_genes_down": 8
+      },
+      {
+        "gene": "ETS2",
+        "accession": "GSE175685",
+        "replicates": 3,
+        "empty_controls": 11,
+        "self_expression_delta": 2.124208842044297,
+        "self_expression_p": 6.717875860825082e-13,
+        "differential_genes_q05_absdelta1": 71,
+        "differential_genes_up": 49,
+        "differential_genes_down": 22
+      },
+      {
+        "gene": "JAK2",
+        "accession": "GSE175685",
+        "replicates": 3,
+        "empty_controls": 11,
+        "self_expression_delta": 1.9929805482088492,
+        "self_expression_p": 4.216199473358927e-15,
+        "differential_genes_q05_absdelta1": 109,
+        "differential_genes_up": 93,
+        "differential_genes_down": 16
+      },
+      {
+        "gene": "STAT3",
+        "accession": "GSE175685",
+        "replicates": 3,
+        "empty_controls": 11,
+        "self_expression_delta": 1.7685731490119876,
+        "self_expression_p": 1.9074087578709478e-12,
+        "differential_genes_q05_absdelta1": 180,
+        "differential_genes_up": 136,
+        "differential_genes_down": 44
+      }
+    ]
+  },
+  "eqtl_catalogue_summary": {
+    "datasets_queried": 8,
+    "variants_queried": 5,
+    "dataset_names": [
+      "Alasoo_2018:macrophage_naive",
+      "Alasoo_2018:macrophage_IFNg",
+      "BLUEPRINT:monocyte_naive",
+      "Nedelec_2016:macrophage_naive",
+      "Quach_2016:monocyte_naive",
+      "Quach_2016:monocyte_LPS",
+      "Schmiedel_2018:monocyte_CD16_naive",
+      "Schmiedel_2018:monocyte_naive"
+    ],
+    "coverage": [
+      {
+        "target": "ERGIC1",
+        "rsid": "rs564109",
+        "datasets_queried": 8,
+        "eQTL_hits_nominal_p05": 0,
+        "minimum_pvalue": 0.077815,
+        "classification": "public_myeloid_eqtl_not_covered"
+      },
+      {
+        "target": "GCKR",
+        "rsid": "rs780094",
+        "datasets_queried": 8,
+        "eQTL_hits_nominal_p05": 0,
+        "minimum_pvalue": 0.662516,
+        "classification": "public_myeloid_eqtl_not_covered"
+      },
+      {
+        "target": "ABCB5",
+        "rsid": "rs76380568",
+        "datasets_queried": 8,
+        "eQTL_hits_nominal_p05": 0,
+        "minimum_pvalue": 0.750557,
+        "classification": "public_myeloid_eqtl_not_covered"
+      },
+      {
+        "target": "IRF2BP2",
+        "rsid": "rs10910476",
+        "datasets_queried": 8,
+        "eQTL_hits_nominal_p05": 0,
+        "minimum_pvalue": 0.0729162,
+        "classification": "public_myeloid_eqtl_not_covered"
+      },
+      {
+        "target": "CAMK2A",
+        "rsid": "rs1549913",
+        "datasets_queried": 8,
+        "eQTL_hits_nominal_p05": 1,
+        "minimum_pvalue": 0.00775412,
+        "classification": "nominal_colon_or_myeloid_eQTL"
+      }
+    ],
+    "note": "Exact-variant nominal eQTL lookup; formal colocalization is only appropriate for pairs with nominal signal."
+  },
+  "prkcq_repeated_pool": {
+    "variant": "chr10:6607973:C>T",
+    "target": "PRKCQ",
+    "classification": "attenuated",
+    "max_active_abs_median": 0.0011064410209655762,
+    "all_active_ci_cross_zero": false
+  },
+  "positive_control_validation": {
+    "all_checks_pass": true,
+    "checks": {
+      "atlas_quantile_above_0_99": true,
+      "colon_macrophage_rna_down": true,
+      "colon_macrophage_sc_down": true,
+      "colon_t_cell_effect_near_zero": true,
+      "colon_epithelial_effect_near_zero": true,
+      "custom_macrophage_down": true
+    },
+    "colon_macrophage_effects": {
+      "rna_seq": -0.1468283236026764,
+      "single_cell": -0.19717271625995636
+    },
+    "custom_colorectal_macrophage_effect": -0.3065362,
+    "atlas_max_abs_quantile": 0.9945102334022522
+  },
+  "figures": {
+    "figure10_evidence_robustness.png": {
+      "dimensions": [
+        4629,
+        2675
+      ],
+      "nonblank": true
+    },
+    "figure1_analysis_flow.png": {
+      "dimensions": [
+        2617,
+        1749
+      ],
+      "nonblank": true
+    },
+    "figure2_quantile_vs_specificity.png": {
+      "dimensions": [
+        2076,
+        1444
+      ],
+      "nonblank": true
+    },
+    "figure3_top_candidate_heatmap.png": {
+      "dimensions": [
+        2167,
+        2057
+      ],
+      "nonblank": true
+    },
+    "figure4_ets2_positive_control.png": {
+      "dimensions": [
+        2750,
+        1131
+      ],
+      "nonblank": true
+    },
+    "figure5_ets2_background_null.png": {
+      "dimensions": [
+        3030,
+        1229
+      ],
+      "nonblank": true
+    },
+    "figure6_active_ibd_validation.png": {
+      "dimensions": [
+        4651,
+        1925
+      ],
+      "nonblank": true
+    },
+    "figure7_all_l2g_pathways.png": {
+      "dimensions": [
+        3637,
+        1442
+      ],
+      "nonblank": true
+    },
+    "figure8_external_experimental_evidence.png": {
+      "dimensions": [
+        3627,
+        2732
+      ],
+      "nonblank": true
+    },
+    "figure9_perturbseq_validation.png": {
+      "dimensions": [
+        3625,
+        2739
+      ],
+      "nonblank": true
+    }
+  },
+  "docx": {
+    "paragraphs": 223,
+    "tables": 11,
+    "inline_shapes": 10
+  },
+  "xlsx_sheets": [
+    "Overview",
+    "Top20",
+    "All_candidates",
+    "Variant_sets",
+    "Controls",
+    "Positive_control_atlas",
+    "Active_IBD_summary",
+    "Active_IBD_leads",
+    "Pathway_corrected_ORA",
+    "Pathway_all_L2G_ranks",
+    "Pathway_prerank",
+    "Pathway_weighted_tests",
+    "All_variant_pathway",
+    "Cross_study_L2G_counts",
+    "External_GWAS_studies",
+    "External_gene_rankings",
+    "External_GWAS_bootstrap",
+    "PRKCQ_repeated_scores",
+    "PRKCQ_repeated_summary",
+    "Candidate_evidence",
+    "Experimental_evidence",
+    "GTEx_PRKCB_eQTL",
+    "ETS2_macrophage_MPRA",
+    "Macrophage_CRISPR_genes",
+    "Macrophage_CRISPR_guides",
+    "THP1_OE_engagement",
+    "Experimental_summary",
+    "eQTL_Catalogue_hits",
+    "eQTL_Catalogue_coverage",
+    "PerturbSeq_targets",
+    "PerturbSeq_DE_summary",
+    "PerturbSeq_guides",
+    "PerturbSeq_pathways",
+    "PerturbSeq_UMI_thresholds",
+    "PerturbSeq_leave_guide",
+    "PerturbSeq_leave_donor",
+    "PerturbSeq_mixed_models",
+    "CAMK2A_coloc_sensitivity",
+    "Gut_scATAC_variants",
+    "scATAC_topic_percentiles",
+    "GSE175685_GSEA",
+    "GSEA_growth_sensitivity",
+    "Claim_calibration",
+    "Negative_control",
+    "Threshold_sensitivity",
+    "Score_overlap",
+    "Atlas_top_genes",
+    "Live_summary"
+  ],
+  "api_key_leaks": [],
+  "format_compliance": {
+    "abstract_words": 229,
+    "keywords": [
+      "Inflammatory Bowel Disease",
+      "Non-coding Variants",
+      "AlphaGenome",
+      "Intestinal Macrophage",
+      "Regulatory Genomics"
+    ],
+    "max_sentence_words": 30,
+    "citation_order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "citation_groups": 31,
+    "reference_bookmarks": 42,
+    "reference_hyperlinks": 99,
+    "cited_tables": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "cited_figures": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "references": 42,
+    "doi_audit": {
+      "references": 42,
+      "with_doi": 42,
+      "verified_journal_articles": 42,
+      "all_verified": true,
+      "failures": []
+    }
+  }
+}

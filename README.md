@@ -18,10 +18,14 @@ prioritization of non-coding inflammatory bowel disease variants.
 
 - `scripts/`: numbered analysis, figure and audit scripts.
 - `config/`: analysis configuration.
-- `results/figures/`: final Figure 1-10 files.
+- `results/figures/`: final Figure 1-10 files, including the editable
+  `figure1_analysis_flow.drawio` source.
 - `results/tables/`: aggregate results smaller than 20 MB.
 - `results/*.md`: evidence and quality-control audits.
 - `run_core_pipeline.ps1`: pipeline entry point for a prepared local data tree.
+
+The manuscript citation audit verifies sequential use of references 1-42,
+ascending de-duplicated citation groups and Word bookmarks for every entry.
 
 The 37 MB Perturb-seq pseudobulk matrix is excluded from version control.
 Target-knockdown summaries, differential-expression outputs and robustness

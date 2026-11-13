@@ -11,7 +11,7 @@ from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Inches, Pt
+from docx.shared import Inches, Pt, RGBColor
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -69,15 +69,40 @@ def clean_inline(text: str) -> str:
     return text.strip()
 
 
+def add_internal_hyperlink(paragraph, text: str, anchor: str, number: int) -> None:
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("w:anchor"), anchor)
+    hyperlink.set(qn("w:history"), "1")
+    hyperlink.set(qn("w:tooltip"), f"Jump to reference {number}")
+    run = paragraph.add_run(text)
+    run.font.color.rgb = RGBColor(0x1F, 0x4E, 0x79)
+    run.underline = True
+    paragraph._p.remove(run._r)
+    hyperlink.append(run._r)
+    paragraph._p.append(hyperlink)
+
+
+def add_citation_links(paragraph, token: str) -> None:
+    numbers = [int(value) for value in token[1:-1].split(",")]
+    paragraph.add_run("[")
+    for index, number in enumerate(numbers):
+        if index:
+            paragraph.add_run(",")
+        add_internal_hyperlink(paragraph, str(number), f"ref_{number}", number)
+    paragraph.add_run("]")
+
+
 def add_inline(paragraph, text: str) -> None:
     text = renumber_crossrefs(clean_inline(text))
-    pattern = re.compile(r"(\*\*[^*]+\*\*|\*[^*]+\*)")
+    pattern = re.compile(r"(\[[0-9][0-9,]*\]|\*\*[^*]+\*\*|\*[^*]+\*)")
     cursor = 0
     for match in pattern.finditer(text):
         if match.start() > cursor:
             paragraph.add_run(text[cursor : match.start()])
         token = match.group(0)
-        if token.startswith("**"):
+        if token.startswith("["):
+            add_citation_links(paragraph, token)
+        elif token.startswith("**"):
             run = paragraph.add_run(token[2:-2])
             run.bold = True
         else:
@@ -254,6 +279,16 @@ def add_subheading(document, text: str) -> None:
     run.bold = True
 
 
+def add_reference_bookmark(paragraph, number: int, bookmark_id: int) -> None:
+    bookmark_start = OxmlElement("w:bookmarkStart")
+    bookmark_start.set(qn("w:id"), str(bookmark_id))
+    bookmark_start.set(qn("w:name"), f"ref_{number}")
+    bookmark_end = OxmlElement("w:bookmarkEnd")
+    bookmark_end.set(qn("w:id"), str(bookmark_id))
+    paragraph._p.insert(0, bookmark_start)
+    paragraph._p.append(bookmark_end)
+
+
 def main() -> None:
     title, sections = parse_markdown(SOURCE)
     document = Document(TEMPLATE)
@@ -428,10 +463,24 @@ def main() -> None:
 
     add_section_heading(document, "7. References")
     references = sections.get("References", {"intro": []})["intro"]
+    existing_bookmark_ids = []
+    for bookmark in document.element.body.iter(qn("w:bookmarkStart")):
+        value = bookmark.get(qn("w:id"))
+        if value and value.isdigit():
+            existing_bookmark_ids.append(int(value))
+    next_bookmark_id = max(existing_bookmark_ids, default=0) + 1
     for line in references:
         if line.strip():
             paragraph = document.add_paragraph(style="RefEntry")
             add_inline(paragraph, line.strip())
+            reference_match = re.match(r"^(\d+)\.\s+", line.strip())
+            if reference_match:
+                add_reference_bookmark(
+                    paragraph,
+                    int(reference_match.group(1)),
+                    next_bookmark_id,
+                )
+                next_bookmark_id += 1
 
     # Ensure any tables/figures not anchored to a detected subsection are appended
     # before the declarations, preserving captions and notes.

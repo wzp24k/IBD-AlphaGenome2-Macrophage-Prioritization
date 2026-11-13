@@ -6,6 +6,7 @@ import re
 import sys
 import zipfile
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
 import pandas as pd
 from docx import Document
@@ -161,6 +162,16 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    citation_audit = json.loads(
+        (table_dir / "reference_citation_audit_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    template_qc = json.loads(
+        (ROOT / "results" / "template_docx_qc.json").read_text(
+            encoding="utf-8"
+        )
+    )
     document = Document(manuscript)
     workbook = load_workbook(workbook_path, read_only=True)
     document_text = "\n".join(paragraph.text for paragraph in document.paragraphs)
@@ -202,6 +213,20 @@ def main() -> None:
     figure_source_text = "\n".join(
         path.read_text(encoding="utf-8") for path in figure_scripts
     )
+    drawio_path = figure_dir / "figure1_analysis_flow.drawio"
+    try:
+        drawio_text = drawio_path.read_text(encoding="utf-8")
+        ET.fromstring(drawio_text)
+        figure1_drawio_valid = all(
+            phrase in drawio_text
+            for phrase in [
+                "Technical roadmap for macrophage-focused variant prioritization",
+                "Independent evidence",
+                "Calibrated output",
+            ]
+        )
+    except (OSError, ET.ParseError):
+        figure1_drawio_valid = False
 
     threshold_self = threshold_effects[
         threshold_effects["condition"].eq("Combined")
@@ -602,6 +627,17 @@ def main() -> None:
         ),
         "reference_count_42": len(reference_numbers) == 42,
         "citation_order_1_to_42": citation_order == list(range(1, 43)),
+        "citation_groups_sorted_unique": citation_audit["all_checks_pass"]
+        and citation_audit["duplicate_groups_before_normalization"] == 0
+        and citation_audit["unsorted_groups_before_normalization"] == 0,
+        "all_references_cited": not citation_audit["uncited_references"],
+        "reference_bookmarks_and_hyperlinks": template_qc["checks"][
+            "forty_two_reference_bookmarks"
+        ]
+        and template_qc["checks"]["all_references_hyperlink_targets"]
+        and template_qc["checks"]["citation_hyperlink_text_matches_anchor"]
+        and template_qc["checks"]["citation_hyperlinks_sorted_within_group"],
+        "figure1_drawio_valid": figure1_drawio_valid,
         "all_reference_dois_verified": doi_audit["all_verified"],
         "all_references_are_journal_articles": doi_audit[
             "verified_journal_articles"
@@ -675,6 +711,13 @@ def main() -> None:
             "keywords": keywords,
             "max_sentence_words": max(sentence_lengths),
             "citation_order": citation_order,
+            "citation_groups": citation_audit["citation_groups"],
+            "reference_bookmarks": template_qc["counts"][
+                "reference_bookmarks"
+            ],
+            "reference_hyperlinks": template_qc["counts"][
+                "reference_hyperlinks"
+            ],
             "cited_tables": sorted(cited_tables),
             "cited_figures": sorted(cited_figures),
             "references": len(reference_numbers),
@@ -713,6 +756,9 @@ def main() -> None:
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
         "- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography",
+        "- Citation structure: 42 sequential reference entries, all 42 cited, every citation group ascending and de-duplicated",
+        "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
+        "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",
     ]
     status_path = ROOT / "results" / "FINAL_STATUS.md"
@@ -735,6 +781,7 @@ def main() -> None:
         ROOT / "results" / "RESOURCE_SEARCH_AUDIT.md",
         ROOT / "results" / "FIGURE_STYLE_AUDIT.md",
         ROOT / "results" / "FORMAT_COMPLIANCE_1113.md",
+        ROOT / "results" / "CITATION_CROSSREF_AUDIT.md",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,

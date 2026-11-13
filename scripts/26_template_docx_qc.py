@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
+import zipfile
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
 from docx import Document
 from docx.enum.text import WD_LINE_SPACING
@@ -30,6 +33,30 @@ def is_three_line_table(table) -> bool:
         and values["insideH"] == "none"
         and values["insideV"] == "none"
     )
+
+
+def hyperlink_groups(document_xml, namespace) -> list[list[int]]:
+    groups = []
+    for paragraph in document_xml.findall(".//w:p", namespace):
+        current = None
+        for child in paragraph:
+            if child.tag == f"{{{namespace['w']}}}r":
+                text = "".join(
+                    node.text or "" for node in child.findall(".//w:t", namespace)
+                )
+                if text == "[":
+                    current = []
+                elif text == "]" and current is not None:
+                    groups.append(current)
+                    current = None
+            elif (
+                child.tag == f"{{{namespace['w']}}}hyperlink"
+                and current is not None
+            ):
+                anchor = child.get(f"{{{namespace['w']}}}anchor", "")
+                if anchor.startswith("ref_"):
+                    current.append(int(anchor.removeprefix("ref_")))
+    return groups
 
 
 def main() -> None:
@@ -114,6 +141,45 @@ def main() -> None:
     checks["three_line_tables"] = bool(manuscript.tables) and all(
         is_three_line_table(table) for table in manuscript.tables
     )
+    with zipfile.ZipFile(
+        ROOT / "manuscript" / "Manuscript_AlphaGenome2_IBD.docx"
+    ) as archive:
+        document_xml = ET.fromstring(archive.read("word/document.xml"))
+    namespace = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+    bookmarks = {
+        element.get(f"{{{namespace['w']}}}name")
+        for element in document_xml.findall(".//w:bookmarkStart", namespace)
+        if element.get(f"{{{namespace['w']}}}name", "").startswith("ref_")
+    }
+    hyperlinks = document_xml.findall(".//w:hyperlink", namespace)
+    reference_hyperlinks = [
+        element
+        for element in hyperlinks
+        if element.get(f"{{{namespace['w']}}}anchor", "").startswith("ref_")
+    ]
+    linked_numbers = []
+    valid_link_text = True
+    for hyperlink in reference_hyperlinks:
+        anchor = hyperlink.get(f"{{{namespace['w']}}}anchor", "")
+        text = "".join(
+            node.text or ""
+            for node in hyperlink.findall(".//w:t", namespace)
+        )
+        number = int(anchor.removeprefix("ref_"))
+        linked_numbers.append(number)
+        valid_link_text = valid_link_text and text == str(number)
+    expected_numbers = set(range(1, 43))
+    checks["forty_two_reference_bookmarks"] = bookmarks == {
+        f"ref_{number}" for number in expected_numbers
+    }
+    checks["all_references_hyperlink_targets"] = set(linked_numbers) == expected_numbers
+    checks["citation_hyperlink_text_matches_anchor"] = valid_link_text
+    checks["citation_hyperlinks_sorted_within_group"] = all(
+        group
+        and len(group) == len(set(group))
+        and group == sorted(group)
+        for group in hyperlink_groups(document_xml, namespace)
+    )
     report = {
         "all_checks_pass": all(checks.values()),
         "checks": checks,
@@ -122,6 +188,8 @@ def main() -> None:
             "paragraphs": len(manuscript.paragraphs),
             "tables": len(manuscript.tables),
             "figures": len(manuscript.inline_shapes),
+            "reference_bookmarks": len(bookmarks),
+            "reference_hyperlinks": len(reference_hyperlinks),
         },
         "page": {
             "width": str(manuscript_section.page_width),

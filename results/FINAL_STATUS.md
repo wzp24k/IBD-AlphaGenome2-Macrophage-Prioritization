@@ -20,4 +20,7 @@
 - GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization
 - Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
 - Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography
+- Citation structure: 42 sequential reference entries, all 42 cited, every citation group ascending and de-duplicated
+- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
+- Editable Figure 1: results/figures/figure1_analysis_flow.drawio
 - Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level

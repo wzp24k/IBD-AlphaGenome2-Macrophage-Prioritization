@@ -1,0 +1,64 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "page_width_matches": true,
+    "page_height_matches": true,
+    "top_margin_matches": true,
+    "bottom_margin_matches": true,
+    "left_margin_matches": true,
+    "right_margin_matches": true,
+    "body_font_matches": true,
+    "body_size_matches": true,
+    "body_line_spacing_matches": true,
+    "eleven_tables": true,
+    "ten_figures": true,
+    "letter_page_size": true,
+    "no_header": true,
+    "no_footer": true,
+    "title_18pt_bold": true,
+    "headings_match_template": true,
+    "table_font_9pt": true,
+    "three_line_tables": true,
+    "forty_two_reference_bookmarks": true,
+    "all_references_hyperlink_targets": true,
+    "citation_hyperlink_text_matches_anchor": true,
+    "citation_hyperlinks_sorted_within_group": true,
+    "author_block_matches_template": true
+  },
+  "section_headings": [
+    "Abstract",
+    "1. Introduction",
+    "2. Materials and Methods",
+    "3. Results",
+    "4. Discussion",
+    "5. Conclusion",
+    "6. Declarations",
+    "7. References"
+  ],
+  "counts": {
+    "paragraphs": 223,
+    "tables": 11,
+    "figures": 10,
+    "reference_bookmarks": 42,
+    "reference_hyperlinks": 99
+  },
+  "page": {
+    "width": "7772400",
+    "height": "10058400",
+    "margins": {
+      "top": "914400",
+      "bottom": "914400",
+      "left": "914400",
+      "right": "914400"
+    }
+  },
+  "author_block": [
+    "Zhipeng Wang1*, Luning Wang2*, Changsong Wang1, Xiyu Xu3, Pengli Zhai4, Zejun Liu1, Hui Feng1, Qian Hou1, Ming Guo1",
+    "1 Department of TCM, Zhongda Hospital, Southeast University, Nanjing, China",
+    "2 Department of Rehabilitation Medicine, Zhongda Hospital, Southeast University, Nanjing, China",
+    "3 School of Medicine, Southeast University, Nanjing, China",
+    "4 Jiangbei Campus, Jiangsu Provincial Traditional Chinese Medicine Hospital, Nanjing, China",
+    "* These authors contributed equally to this work and are co-first authors.",
+    "Corresponding author: Zhipeng Wang, Department of TCM, Zhongda Hospital, Southeast University, China. Email: 311000687@seu.edu.cn"
+  ]
+}

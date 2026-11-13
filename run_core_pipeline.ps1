@@ -27,6 +27,7 @@ $scripts = @(
     "40_gse175685_gsea.py",
     "43_claim_calibration_and_gsea_sensitivity.py",
     "44_verify_references.py",
+    "45_audit_and_normalize_citations.py",
     "31_integrate_external_experimental_data.py",
     "33_eqtl_catalogue_remaining_variants.py",
     "32_external_experimental_figure.py",
