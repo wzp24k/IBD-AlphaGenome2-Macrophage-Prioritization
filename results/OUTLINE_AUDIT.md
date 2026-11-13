@@ -15,7 +15,8 @@ Audit date: 2026-11-12
   comparator.
 - Frequency-matched 71-variant external background.
 - All-target L2G pathway reconstruction using 2,328 predictions across 293
-  credible-set loci.
+  credible-set identifiers, including 276 loci with usable target evidence for
+  locus-block resampling.
 - Locus-block bootstrap with 2,000 resamples and Benjamini-Hochberg adjustment
   across four pre-specified pathways.
 - Six resampled donor-balanced PRKCQ pools per condition.

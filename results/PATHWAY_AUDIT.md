@@ -6,7 +6,8 @@ Targets studies.
 ## Design
 
 - Primary evidence: all L2G targets from 395 variants across 293 credible-set
-  loci.
+  identifiers. Of these, 276 loci had usable target evidence and were used for
+  locus-block resampling.
 - External clusters: UKB WGS 2025 and MVP 2024, each counted once.
 - Gene score: maximum primary priority times L2G, multiplied by
   `1 + log2(1 + external cluster count)`.
