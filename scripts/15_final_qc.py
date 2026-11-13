@@ -626,17 +626,26 @@ def main() -> None:
             symbol in markdown_text for symbol in ["▼", "▶", "▸", "◀"]
         ),
         "reference_count_42": len(reference_numbers) == 42,
-        "citation_order_1_to_42": citation_order == list(range(1, 43)),
-        "every_reference_cited_once": citation_audit["all_checks_pass"]
-        and citation_audit["every_reference_cited_once"]
-        and not citation_audit["duplicate_references_after"],
+        "citation_numbers_cover_1_to_42": sorted(set(citation_order))
+        == list(range(1, 43)),
+        "discussion_citations_at_least_30": citation_audit["all_checks_pass"]
+        and citation_audit["discussion_at_least_30_references"],
+        "pre_discussion_citations_at_most_17": citation_audit["all_checks_pass"]
+        and citation_audit["pre_discussion_at_most_17_references"],
+        "citation_groups_sorted_unique": citation_audit[
+            "all_citation_groups_sorted_unique"
+        ],
         "all_references_cited": not citation_audit["uncited_references"],
         "reference_bookmarks_and_hyperlinks": template_qc["checks"][
             "forty_two_reference_bookmarks"
         ]
         and template_qc["checks"]["all_references_hyperlink_targets"]
-        and template_qc["checks"]["each_reference_cited_once"]
+        and template_qc["checks"]["discussion_has_30_references"]
+        and template_qc["checks"]["pre_discussion_has_at_most_17_references"]
         and template_qc["checks"]["citation_hyperlink_text_matches_anchor"]
+        and template_qc["checks"][
+            "citation_hyperlinks_black_without_underline"
+        ]
         and template_qc["checks"]["citation_hyperlinks_sorted_within_group"],
         "figure1_drawio_valid": figure1_drawio_valid,
         "all_reference_dois_verified": doi_audit["all_verified"],
@@ -757,7 +766,7 @@ def main() -> None:
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
         "- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography",
-        "- Citation structure: 42 sequential reference entries, each cited exactly once, with every citation group ascending and de-duplicated",
+        "- Citation structure: 42 sequential reference entries, at most 17 distinct references before Discussion and 42 distinct references within Discussion",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",

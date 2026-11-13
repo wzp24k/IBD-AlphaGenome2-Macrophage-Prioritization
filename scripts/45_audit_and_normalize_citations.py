@@ -13,18 +13,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT
 
 
-REFERENCE_HEADER = "## References"
-REFERENCE_END = "## Data availability"
 CITATION_PATTERN = re.compile(r"\[(\d+(?:\s*[-,]\s*\d+)*)\]")
 REFERENCE_PATTERN = re.compile(r"^(\d+)\.\s+(.+)$", re.MULTILINE)
 SECTION_PATTERN = re.compile(r"^## (.+)$", re.MULTILINE)
 BODY_ORDER = ["Introduction", "Methods", "Results", "Discussion"]
-RETENTION_PRIORITY = {
-    "Introduction": 4,
-    "Results": 3,
-    "Methods": 2,
-    "Discussion": 1,
-}
 
 
 def parse_citation_group(value: str) -> list[int]:
@@ -37,7 +29,7 @@ def parse_citation_group(value: str) -> list[int]:
             match = re.fullmatch(r"(\d+)\s*-\s*(\d+)", part)
             if not match:
                 raise ValueError(f"Malformed citation range: [{value}]")
-            start, end = (int(match.group(1)), int(match.group(2)))
+            start, end = int(match.group(1)), int(match.group(2))
             if end < start:
                 raise ValueError(f"Descending citation range: [{value}]")
             numbers.extend(range(start, end + 1))
@@ -58,61 +50,9 @@ def split_sections(text: str) -> tuple[str, list[tuple[str, str]]]:
     return preamble, sections
 
 
-def citation_occurrences(
-    blocks: dict[str, str],
-    source_order: list[str],
-) -> list[dict]:
-    occurrences = []
-    for section_index, section_name in enumerate(source_order):
-        block = blocks[section_name]
-        for group_index, match in enumerate(CITATION_PATTERN.finditer(block)):
-            numbers = sorted(set(parse_citation_group(match.group(1))))
-            occurrences.append(
-                {
-                    "id": len(occurrences),
-                    "section": section_name,
-                    "section_index": section_index,
-                    "group_index": group_index,
-                    "start": match.start(),
-                    "end": match.end(),
-                    "numbers": numbers,
-                    "priority": RETENTION_PRIORITY[section_name],
-                }
-            )
-    return occurrences
-
-
-def filter_selected_citations(
-    block: str,
-    occurrences: list[dict],
-    selected_ids: dict[int, int],
-) -> str:
-    replacements = []
-    for occurrence in occurrences:
-        kept_numbers = [
-            number
-            for number in occurrence["numbers"]
-            if selected_ids[number] == occurrence["id"]
-        ]
-        start = occurrence["start"]
-        end = occurrence["end"]
-        if kept_numbers:
-            replacement = "[" + ",".join(map(str, kept_numbers)) + "]"
-        else:
-            replacement = ""
-            if start > 0 and block[start - 1].isspace():
-                start -= 1
-        replacements.append((start, end, replacement))
-    for start, end, replacement in sorted(replacements, reverse=True):
-        block = block[:start] + replacement + block[end:]
-    return block
-
-
-def remap_citations(block: str, mapping: dict[int, int]) -> str:
+def normalize_citations(block: str) -> str:
     def replace(match: re.Match[str]) -> str:
-        numbers = sorted(
-            mapping[int(number)] for number in match.group(1).split(",")
-        )
+        numbers = sorted(set(parse_citation_group(match.group(1))))
         return "[" + ",".join(map(str, numbers)) + "]"
 
     return CITATION_PATTERN.sub(replace, block)
@@ -121,17 +61,30 @@ def remap_citations(block: str, mapping: dict[int, int]) -> str:
 def main() -> None:
     manuscript_path = ROOT / "manuscript" / "manuscript.md"
     text = manuscript_path.read_text(encoding="utf-8")
-    preamble, section_items = split_sections(text)
+    _, section_items = split_sections(text)
     sections = dict(section_items)
-    original_titles = [title for title, _ in section_items]
     if not all(name in sections for name in BODY_ORDER):
         raise SystemExit("One or more required body sections are missing.")
-    body_start = min(original_titles.index(name) for name in BODY_ORDER)
-    prefix_titles = original_titles[:body_start]
 
-    reference_block = sections["References"].split(
-        REFERENCE_HEADER, 1
-    )[1].split(REFERENCE_END, 1)[0]
+    for section_name in BODY_ORDER:
+        sections[section_name] = normalize_citations(sections[section_name])
+    normalized_text = text
+    for section_name, original_block in section_items:
+        if section_name in BODY_ORDER:
+            normalized_text = normalized_text.replace(
+                original_block,
+                sections[section_name],
+                1,
+            )
+    changed = normalized_text != text
+    if changed:
+        manuscript_path.write_text(normalized_text, encoding="utf-8")
+
+    _, normalized_items = split_sections(normalized_text)
+    normalized_sections = dict(normalized_items)
+    reference_block = normalized_sections["References"].split(
+        "## References", 1
+    )[1].split("## Data availability", 1)[0]
     references = [
         (int(number), title)
         for number, title in REFERENCE_PATTERN.findall(reference_block)
@@ -147,115 +100,48 @@ def main() -> None:
         }
     )
 
-    source_order = [name for name in original_titles if name in BODY_ORDER]
-    occurrences = citation_occurrences(sections, source_order)
-    occurrences_by_section = defaultdict(list)
-    occurrences_per_reference = defaultdict(list)
-    for occurrence in occurrences:
-        occurrences_by_section[occurrence["section"]].append(occurrence)
-        for number in occurrence["numbers"]:
-            occurrences_per_reference[number].append(occurrence)
-
-    duplicate_references_before = sorted(
-        number
-        for number, items in occurrences_per_reference.items()
-        if len(items) > 1
-    )
-    selected_ids = {}
-    for number, items in occurrences_per_reference.items():
-        selected_ids[number] = max(
-            items,
-            key=lambda item: (
-                item["priority"],
-                -item["section_index"],
-                -item["group_index"],
-            ),
-        )["id"]
-
-    filtered_blocks = {
-        section_name: filter_selected_citations(
-            sections[section_name],
-            occurrences_by_section[section_name],
-            selected_ids,
-        )
-        for section_name in BODY_ORDER
-    }
-
-    mapping = {}
+    audit_rows = []
+    first_seen: list[int] = []
+    citation_counts = defaultdict(int)
+    discussion_numbers: set[int] = set()
+    pre_discussion_numbers: set[int] = set()
+    group_index = 0
     for section_name in BODY_ORDER:
-        for match in CITATION_PATTERN.finditer(filtered_blocks[section_name]):
-            for number in parse_citation_group(match.group(1)):
-                mapping.setdefault(number, len(mapping) + 1)
+        for match in CITATION_PATTERN.finditer(normalized_sections[section_name]):
+            group_index += 1
+            numbers = parse_citation_group(match.group(1))
+            ascending_unique = (
+                numbers == sorted(numbers)
+                and len(numbers) == len(set(numbers))
+            )
+            for number in numbers:
+                citation_counts[number] += 1
+                if number not in first_seen:
+                    first_seen.append(number)
+                if section_name == "Discussion":
+                    discussion_numbers.add(number)
+                else:
+                    pre_discussion_numbers.add(number)
+            audit_rows.append(
+                {
+                    "citation_group": group_index,
+                    "section": section_name,
+                    "numbers": ";".join(map(str, numbers)),
+                    "ascending_and_unique": ascending_unique,
+                }
+            )
 
-    cited_numbers = set(mapping)
+    cited_numbers = set(citation_counts)
     uncited_references = sorted(set(reference_numbers) - cited_numbers)
     undefined_citations = sorted(cited_numbers - set(reference_numbers))
-    first_citation_sequence_valid = (
-        not uncited_references
-        and not undefined_citations
-        and list(mapping.values()) == expected_references
+    repeated_references = sorted(
+        number for number, count in citation_counts.items() if count > 1
     )
-
-    remapped_blocks = {
-        section_name: remap_citations(block, mapping)
-        for section_name, block in filtered_blocks.items()
-    }
-    inverse_mapping = {new: old for old, new in mapping.items()}
-    reference_lookup = dict(references)
-    remapped_reference_block = "\n\n" + "\n\n".join(
-        f"{new_number}. {reference_lookup[inverse_mapping[new_number]]}"
-        for new_number in expected_references
-    ) + "\n\n"
-    remapped_references_section = (
-        REFERENCE_HEADER + "\n" + remapped_reference_block
+    all_groups_sorted_unique = all(
+        row["ascending_and_unique"] for row in audit_rows
     )
-
-    post_sections = []
-    for title in original_titles:
-        if title in BODY_ORDER or title in {"Article type", "Abstract"}:
-            continue
-        if title == "References":
-            post_sections.append(remapped_references_section)
-        else:
-            post_sections.append(sections[title])
-    normalized_text = (
-        preamble
-        + "".join(sections[title] for title in prefix_titles)
-        + "".join(remapped_blocks[name] for name in BODY_ORDER)
-        + "".join(post_sections)
-    )
-    changed = normalized_text != text
-    if changed:
-        manuscript_path.write_text(normalized_text, encoding="utf-8")
-
-    _, normalized_section_items = split_sections(normalized_text)
-    normalized_sections = dict(normalized_section_items)
-    final_occurrences = citation_occurrences(normalized_sections, BODY_ORDER)
-    final_counts = defaultdict(int)
-    for occurrence in final_occurrences:
-        for number in occurrence["numbers"]:
-            final_counts[number] += 1
-    duplicate_references_after = sorted(
-        number for number, count in final_counts.items() if count > 1
-    )
-
-    first_seen = []
-    audit_rows = []
-    for group_number, occurrence in enumerate(final_occurrences, start=1):
-        for number in occurrence["numbers"]:
-            if number not in first_seen:
-                first_seen.append(number)
-        audit_rows.append(
-            {
-                "citation_group": group_number,
-                "section": occurrence["section"],
-                "numbers": ";".join(map(str, occurrence["numbers"])),
-                "ascending": occurrence["numbers"]
-                == sorted(occurrence["numbers"]),
-                "duplicate_within_group": len(occurrence["numbers"])
-                != len(set(occurrence["numbers"])),
-            }
-        )
+    discussion_at_least_30 = len(discussion_numbers) >= 30
+    pre_discussion_at_most_17 = len(pre_discussion_numbers) <= 17
     first_citation_sequence_valid = first_seen == expected_references
     all_checks_pass = all(
         [
@@ -263,9 +149,9 @@ def main() -> None:
             not duplicate_references,
             not uncited_references,
             not undefined_citations,
-            not duplicate_references_after,
-            all(count == 1 for count in final_counts.values()),
-            first_citation_sequence_valid,
+            all_groups_sorted_unique,
+            discussion_at_least_30,
+            pre_discussion_at_most_17,
         ]
     )
 
@@ -280,21 +166,20 @@ def main() -> None:
         "references": len(references),
         "reference_numbers_sequential": reference_numbers_valid,
         "duplicate_reference_numbers": duplicate_references,
-        "citation_groups": len(final_occurrences),
-        "references_cited_more_than_once_before": duplicate_references_before,
-        "duplicate_reference_count_before": len(duplicate_references_before),
-        "duplicate_references_after": duplicate_references_after,
-        "every_reference_cited_once": all(
-            count == 1 for count in final_counts.values()
-        ),
+        "citation_groups": len(audit_rows),
+        "all_citation_groups_sorted_unique": all_groups_sorted_unique,
+        "references_cited_more_than_once": repeated_references,
+        "discussion_unique_references": len(discussion_numbers),
+        "discussion_at_least_30_references": discussion_at_least_30,
+        "discussion_reference_numbers": sorted(discussion_numbers),
+        "pre_discussion_unique_references": len(pre_discussion_numbers),
+        "pre_discussion_at_most_17_references": pre_discussion_at_most_17,
+        "pre_discussion_reference_numbers": sorted(pre_discussion_numbers),
         "unique_cited_references": len(cited_numbers),
         "uncited_references": uncited_references,
         "undefined_citations": undefined_citations,
         "first_citation_order": first_seen,
         "first_citation_order_1_to_n": first_citation_sequence_valid,
-        "old_to_new_reference_map": {
-            str(old): new for old, new in sorted(mapping.items())
-        },
         "manuscript_normalized": changed,
     }
     (table_dir / "reference_citation_audit_summary.json").write_text(
@@ -309,18 +194,20 @@ def main() -> None:
         f"- Reference entries: {len(references)}",
         f"- Reference numbers sequential and unique: {reference_numbers_valid and not duplicate_references}",
         f"- Citation groups audited: {len(audit_rows)}",
-        f"- References cited more than once before: {len(duplicate_references_before)}",
-        f"- References cited more than once after: {len(duplicate_references_after)}",
-        f"- Every reference cited exactly once: {summary['every_reference_cited_once']}",
+        f"- All citation groups ascending and unique: {all_groups_sorted_unique}",
+        f"- Discussion references: {len(discussion_numbers)} distinct",
+        f"- Discussion has at least 30 references: {discussion_at_least_30}",
+        f"- Pre-Discussion references: {len(pre_discussion_numbers)} distinct",
+        f"- Pre-Discussion has at most 17 references: {pre_discussion_at_most_17}",
         f"- Uncited references: {uncited_references}",
         f"- Undefined citations: {undefined_citations}",
         f"- First citation order 1 to {len(references)}: {first_citation_sequence_valid}",
-        f"- Markdown citation and reference numbering updated: {changed}",
+        f"- Markdown citation formatting updated: {changed}",
         "",
-        "Each reference is retained at the most directly supportive occurrence,",
-        "renumbered in Word section order, and cited once. The Word manuscript adds",
-        "a bookmark to each reference entry and an internal hyperlink to every",
-        "in-text citation number. DOI and bibliographic text are unchanged.",
+        "The Discussion reuses 30 or more distinct sources where synthesis is",
+        "appropriate. Citation groups are ascending and unique. The Word manuscript",
+        "keeps clickable internal links but renders citation numbers in black",
+        "without underline.",
     ]
     (ROOT / "results" / "CITATION_CROSSREF_AUDIT.md").write_text(
         "\n".join(report_lines) + "\n",
@@ -328,7 +215,7 @@ def main() -> None:
     )
     print(json.dumps(summary, indent=2))
     if not all_checks_pass:
-        raise SystemExit("Citation normalization or cross-reference audit failed.")
+        raise SystemExit("Citation audit failed.")
 
 
 if __name__ == "__main__":

@@ -75,8 +75,8 @@ def add_internal_hyperlink(paragraph, text: str, anchor: str, number: int) -> No
     hyperlink.set(qn("w:history"), "1")
     hyperlink.set(qn("w:tooltip"), f"Jump to reference {number}")
     run = paragraph.add_run(text)
-    run.font.color.rgb = RGBColor(0x1F, 0x4E, 0x79)
-    run.underline = True
+    run.font.color.rgb = RGBColor(0x34, 0x34, 0x34)
+    run.underline = False
     paragraph._p.remove(run._r)
     hyperlink.append(run._r)
     paragraph._p.append(hyperlink)

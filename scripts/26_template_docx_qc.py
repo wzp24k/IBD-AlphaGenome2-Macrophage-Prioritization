@@ -159,6 +159,7 @@ def main() -> None:
     ]
     linked_numbers = []
     valid_link_text = True
+    citation_link_style_valid = True
     for hyperlink in reference_hyperlinks:
         anchor = hyperlink.get(f"{{{namespace['w']}}}anchor", "")
         text = "".join(
@@ -168,15 +169,55 @@ def main() -> None:
         number = int(anchor.removeprefix("ref_"))
         linked_numbers.append(number)
         valid_link_text = valid_link_text and text == str(number)
+        underline = hyperlink.find(".//w:rPr/w:u", namespace)
+        color = hyperlink.find(".//w:rPr/w:color", namespace)
+        citation_link_style_valid = (
+            citation_link_style_valid
+            and underline is not None
+            and underline.get(f"{{{namespace['w']}}}val") == "none"
+            and color is not None
+            and color.get(f"{{{namespace['w']}}}val") == "343434"
+        )
     expected_numbers = set(range(1, 43))
     checks["forty_two_reference_bookmarks"] = bookmarks == {
         f"ref_{number}" for number in expected_numbers
     }
     checks["all_references_hyperlink_targets"] = set(linked_numbers) == expected_numbers
-    checks["each_reference_cited_once"] = sorted(linked_numbers) == list(
-        range(1, 43)
+    discussion_start = next(
+        index
+        for index, paragraph in enumerate(manuscript.paragraphs)
+        if paragraph.text.strip() == "4. Discussion"
+    )
+    introduction_start = next(
+        index
+        for index, paragraph in enumerate(manuscript.paragraphs)
+        if paragraph.text.strip() == "1. Introduction"
+    )
+    conclusion_start = next(
+        index
+        for index, paragraph in enumerate(manuscript.paragraphs)
+        if paragraph.text.strip() == "5. Conclusion"
+    )
+    discussion_numbers = set()
+    for paragraph in manuscript.paragraphs[discussion_start:conclusion_start]:
+        for hyperlink in paragraph._p.findall(".//w:hyperlink", namespace):
+            anchor = hyperlink.get(f"{{{namespace['w']}}}anchor", "")
+            if anchor.startswith("ref_"):
+                discussion_numbers.add(int(anchor.removeprefix("ref_")))
+    checks["discussion_has_30_references"] = len(discussion_numbers) >= 30
+    pre_discussion_numbers = set()
+    for paragraph in manuscript.paragraphs[introduction_start:discussion_start]:
+        for hyperlink in paragraph._p.findall(".//w:hyperlink", namespace):
+            anchor = hyperlink.get(f"{{{namespace['w']}}}anchor", "")
+            if anchor.startswith("ref_"):
+                pre_discussion_numbers.add(int(anchor.removeprefix("ref_")))
+    checks["pre_discussion_has_at_most_17_references"] = (
+        len(pre_discussion_numbers) <= 17
     )
     checks["citation_hyperlink_text_matches_anchor"] = valid_link_text
+    checks["citation_hyperlinks_black_without_underline"] = (
+        citation_link_style_valid
+    )
     checks["citation_hyperlinks_sorted_within_group"] = all(
         group
         and len(group) == len(set(group))
@@ -193,6 +234,8 @@ def main() -> None:
             "figures": len(manuscript.inline_shapes),
             "reference_bookmarks": len(bookmarks),
             "reference_hyperlinks": len(reference_hyperlinks),
+            "discussion_unique_references": len(discussion_numbers),
+            "pre_discussion_unique_references": len(pre_discussion_numbers),
         },
         "page": {
             "width": str(manuscript_section.page_width),
