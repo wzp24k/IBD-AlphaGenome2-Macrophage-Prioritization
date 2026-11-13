@@ -23,6 +23,10 @@ prioritization of non-coding inflammatory bowel disease variants.
 - `results/*.md`: evidence and quality-control audits.
 - `run_core_pipeline.ps1`: pipeline entry point for a prepared local data tree.
 
+The 37 MB Perturb-seq pseudobulk matrix is excluded from version control.
+Target-knockdown summaries, differential-expression outputs and robustness
+tables remain available in `results/tables/`.
+
 ## Data boundary
 
 This repository does not redistribute raw credentialed data, large single-cell

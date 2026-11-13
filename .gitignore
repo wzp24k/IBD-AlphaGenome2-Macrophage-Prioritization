@@ -9,3 +9,4 @@ manuscript/
 *.docx
 __pycache__/
 *.pyc
+results/tables/perturbseq_gse327644_pseudobulk.csv.gz
