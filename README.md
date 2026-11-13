@@ -25,9 +25,9 @@ prioritization of non-coding inflammatory bowel disease variants.
 - `run_core_pipeline.ps1`: pipeline entry point for a prepared local data tree.
 
 The manuscript citation audit verifies all references 1-42, ascending
-de-duplicated citation groups, at most 17 distinct references before
-Discussion, at least 30 distinct references within Discussion and Word
-bookmarks for every entry.
+de-duplicated citation groups containing at most two references, 27 distinct
+references before Discussion, 15 distinct references within Discussion and
+Word bookmarks for every entry.
 
 The 37 MB Perturb-seq pseudobulk matrix is excluded from version control.
 Target-knockdown summaries, differential-expression outputs and robustness

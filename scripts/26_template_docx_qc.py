@@ -204,15 +204,17 @@ def main() -> None:
             anchor = hyperlink.get(f"{{{namespace['w']}}}anchor", "")
             if anchor.startswith("ref_"):
                 discussion_numbers.add(int(anchor.removeprefix("ref_")))
-    checks["discussion_has_30_references"] = len(discussion_numbers) >= 30
+    checks["discussion_has_exactly_15_references"] = (
+        len(discussion_numbers) == 15
+    )
     pre_discussion_numbers = set()
     for paragraph in manuscript.paragraphs[introduction_start:discussion_start]:
         for hyperlink in paragraph._p.findall(".//w:hyperlink", namespace):
             anchor = hyperlink.get(f"{{{namespace['w']}}}anchor", "")
             if anchor.startswith("ref_"):
                 pre_discussion_numbers.add(int(anchor.removeprefix("ref_")))
-    checks["pre_discussion_has_at_most_17_references"] = (
-        len(pre_discussion_numbers) <= 17
+    checks["pre_discussion_has_exactly_27_references"] = (
+        len(pre_discussion_numbers) == 27
     )
     checks["citation_hyperlink_text_matches_anchor"] = valid_link_text
     checks["citation_hyperlinks_black_without_underline"] = (
@@ -222,6 +224,10 @@ def main() -> None:
         group
         and len(group) == len(set(group))
         and group == sorted(group)
+        for group in hyperlink_groups(document_xml, namespace)
+    )
+    checks["citation_groups_have_at_most_two_references"] = all(
+        len(group) <= 2
         for group in hyperlink_groups(document_xml, namespace)
     )
     report = {

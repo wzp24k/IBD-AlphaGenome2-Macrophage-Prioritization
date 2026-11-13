@@ -21,11 +21,12 @@
     "three_line_tables": true,
     "forty_two_reference_bookmarks": true,
     "all_references_hyperlink_targets": true,
-    "discussion_has_30_references": true,
-    "pre_discussion_has_at_most_17_references": true,
+    "discussion_has_exactly_15_references": true,
+    "pre_discussion_has_exactly_27_references": true,
     "citation_hyperlink_text_matches_anchor": true,
     "citation_hyperlinks_black_without_underline": true,
     "citation_hyperlinks_sorted_within_group": true,
+    "citation_groups_have_at_most_two_references": true,
     "author_block_matches_template": true
   },
   "section_headings": [
@@ -43,9 +44,9 @@
     "tables": 11,
     "figures": 10,
     "reference_bookmarks": 42,
-    "reference_hyperlinks": 77,
-    "discussion_unique_references": 42,
-    "pre_discussion_unique_references": 17
+    "reference_hyperlinks": 56,
+    "discussion_unique_references": 15,
+    "pre_discussion_unique_references": 27
   },
   "page": {
     "width": "7772400",

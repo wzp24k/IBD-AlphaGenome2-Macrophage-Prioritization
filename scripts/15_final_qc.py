@@ -628,10 +628,16 @@ def main() -> None:
         "reference_count_42": len(reference_numbers) == 42,
         "citation_numbers_cover_1_to_42": sorted(set(citation_order))
         == list(range(1, 43)),
-        "discussion_citations_at_least_30": citation_audit["all_checks_pass"]
-        and citation_audit["discussion_at_least_30_references"],
-        "pre_discussion_citations_at_most_17": citation_audit["all_checks_pass"]
-        and citation_audit["pre_discussion_at_most_17_references"],
+        "discussion_citations_exactly_15": citation_audit["all_checks_pass"]
+        and citation_audit["discussion_exactly_15_references"],
+        "pre_discussion_citations_exactly_27": citation_audit["all_checks_pass"]
+        and citation_audit["pre_discussion_exactly_27_references"],
+        "citation_groups_at_most_two": citation_audit[
+            "citation_groups_at_most_two"
+        ],
+        "discussion_majority_citations_in_middle": citation_audit[
+            "discussion_majority_in_middle"
+        ],
         "citation_groups_sorted_unique": citation_audit[
             "all_citation_groups_sorted_unique"
         ],
@@ -640,8 +646,11 @@ def main() -> None:
             "forty_two_reference_bookmarks"
         ]
         and template_qc["checks"]["all_references_hyperlink_targets"]
-        and template_qc["checks"]["discussion_has_30_references"]
-        and template_qc["checks"]["pre_discussion_has_at_most_17_references"]
+        and template_qc["checks"]["discussion_has_exactly_15_references"]
+        and template_qc["checks"]["pre_discussion_has_exactly_27_references"]
+        and template_qc["checks"][
+            "citation_groups_have_at_most_two_references"
+        ]
         and template_qc["checks"]["citation_hyperlink_text_matches_anchor"]
         and template_qc["checks"][
             "citation_hyperlinks_black_without_underline"
@@ -766,7 +775,7 @@ def main() -> None:
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
         "- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography",
-        "- Citation structure: 42 sequential reference entries, at most 17 distinct references before Discussion and 42 distinct references within Discussion",
+        "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",

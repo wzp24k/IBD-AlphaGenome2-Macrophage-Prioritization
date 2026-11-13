@@ -105,6 +105,8 @@ def main() -> None:
     citation_counts = defaultdict(int)
     discussion_numbers: set[int] = set()
     pre_discussion_numbers: set[int] = set()
+    discussion_middle_citations = 0
+    discussion_end_citations = 0
     group_index = 0
     for section_name in BODY_ORDER:
         for match in CITATION_PATTERN.finditer(normalized_sections[section_name]):
@@ -122,6 +124,19 @@ def main() -> None:
                     discussion_numbers.add(number)
                 else:
                     pre_discussion_numbers.add(number)
+            if section_name == "Discussion":
+                line_end = normalized_sections[section_name].find(
+                    "\n", match.end()
+                )
+                if line_end == -1:
+                    line_end = len(normalized_sections[section_name])
+                suffix = normalized_sections[section_name][
+                    match.end() : line_end
+                ].strip().strip(".")
+                if suffix:
+                    discussion_middle_citations += 1
+                else:
+                    discussion_end_citations += 1
             audit_rows.append(
                 {
                     "citation_group": group_index,
@@ -140,8 +155,16 @@ def main() -> None:
     all_groups_sorted_unique = all(
         row["ascending_and_unique"] for row in audit_rows
     )
-    discussion_at_least_30 = len(discussion_numbers) >= 30
-    pre_discussion_at_most_17 = len(pre_discussion_numbers) <= 17
+    discussion_exactly_15 = len(discussion_numbers) == 15
+    pre_discussion_exactly_27 = len(pre_discussion_numbers) == 27
+    citation_groups_at_most_two = all(
+        len(parse_citation_group(match.group(1))) <= 2
+        for section_name in BODY_ORDER
+        for match in CITATION_PATTERN.finditer(normalized_sections[section_name])
+    )
+    discussion_majority_in_middle = (
+        discussion_middle_citations > discussion_end_citations
+    )
     first_citation_sequence_valid = first_seen == expected_references
     all_checks_pass = all(
         [
@@ -150,8 +173,10 @@ def main() -> None:
             not uncited_references,
             not undefined_citations,
             all_groups_sorted_unique,
-            discussion_at_least_30,
-            pre_discussion_at_most_17,
+            citation_groups_at_most_two,
+            discussion_exactly_15,
+            pre_discussion_exactly_27,
+            discussion_majority_in_middle,
         ]
     )
 
@@ -168,12 +193,16 @@ def main() -> None:
         "duplicate_reference_numbers": duplicate_references,
         "citation_groups": len(audit_rows),
         "all_citation_groups_sorted_unique": all_groups_sorted_unique,
+        "citation_groups_at_most_two": citation_groups_at_most_two,
         "references_cited_more_than_once": repeated_references,
         "discussion_unique_references": len(discussion_numbers),
-        "discussion_at_least_30_references": discussion_at_least_30,
+        "discussion_exactly_15_references": discussion_exactly_15,
         "discussion_reference_numbers": sorted(discussion_numbers),
+        "discussion_middle_citations": discussion_middle_citations,
+        "discussion_end_citations": discussion_end_citations,
+        "discussion_majority_in_middle": discussion_majority_in_middle,
         "pre_discussion_unique_references": len(pre_discussion_numbers),
-        "pre_discussion_at_most_17_references": pre_discussion_at_most_17,
+        "pre_discussion_exactly_27_references": pre_discussion_exactly_27,
         "pre_discussion_reference_numbers": sorted(pre_discussion_numbers),
         "unique_cited_references": len(cited_numbers),
         "uncited_references": uncited_references,
@@ -195,10 +224,13 @@ def main() -> None:
         f"- Reference numbers sequential and unique: {reference_numbers_valid and not duplicate_references}",
         f"- Citation groups audited: {len(audit_rows)}",
         f"- All citation groups ascending and unique: {all_groups_sorted_unique}",
+        f"- All citation groups contain at most two references: {citation_groups_at_most_two}",
         f"- Discussion references: {len(discussion_numbers)} distinct",
-        f"- Discussion has at least 30 references: {discussion_at_least_30}",
+        f"- Discussion has exactly 15 references: {discussion_exactly_15}",
+        f"- Discussion citations in paragraph middle/end: {discussion_middle_citations}/{discussion_end_citations}",
+        f"- Most Discussion citation groups are in paragraph middle: {discussion_majority_in_middle}",
         f"- Pre-Discussion references: {len(pre_discussion_numbers)} distinct",
-        f"- Pre-Discussion has at most 17 references: {pre_discussion_at_most_17}",
+        f"- Pre-Discussion has exactly 27 references: {pre_discussion_exactly_27}",
         f"- Uncited references: {uncited_references}",
         f"- Undefined citations: {undefined_citations}",
         f"- First citation order 1 to {len(references)}: {first_citation_sequence_valid}",
