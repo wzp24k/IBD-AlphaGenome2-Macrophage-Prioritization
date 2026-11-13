@@ -1,0 +1,23 @@
+# Final status
+
+- All checks passed: True
+- External genetic cohorts: UKB_WGS_2025 and MVP_2024, counted once each
+- Locus-block bootstrap replicates: 2000
+- Pathway FDRs: IL-23=0.002017; IL-2/STAT5=0.01699; JAK-STAT=0.03748; IL-6/JAK/STAT3=0.03748
+- PRKCQ repeated-pool classification: attenuated
+- Tier 1 targets: 10
+- Tier 1 target-uncertain: 3
+- Tier 1 externally supported: 1
+- Tier 1 exact-variant experimental: 1
+- Tier 1 gene-level experimental: 5
+- Tier 1 tested-neutral for cytokine selection: 3
+- Tier 1 Perturb-seq effective: 2
+- Tier 1 Perturb-seq inconclusive: 1
+- Tier 1 variants in gut scATAC cCRE: 1
+- Public myeloid eQTL screen: 4/5 uncovered; CAMK2A has a nominal IFN-gamma signal with discordant direction and Bonferroni P approximately 0.31
+- CAMK2A colocalization: no support; primary H4=0.09 and maximum sensitivity H4 below 0.80
+- Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth
+- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization
+- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
+- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography
+- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level

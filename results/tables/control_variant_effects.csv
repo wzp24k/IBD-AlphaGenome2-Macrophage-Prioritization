@@ -1,0 +1,30 @@
+control,expected_pattern,variant,target_gene,output_type,biosample_name,condition_role,raw_score,tracks
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,colon T cell,immune_control,0.0002696275769267231,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,colon colonic epithelial cell,epithelial_sensitivity,0.0023514986969530582,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,colon epithelial cell,epithelial_control,0.0009255647892132401,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,colon macrophage,primary_target,-0.1468283236026764,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,ileum T cell,ileum_immune_control,-4.8208235966740176e-05,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,ileum epithelial cell,ileum_epithelial_control,-8.331537537742406e-05,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,RNA_SEQ,ileum macrophage,macrophage_replication,-0.1533813327550888,5
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,colon T cell,immune_control,0.00013828277587890625,1
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,colon colonic epithelial cell,epithelial_sensitivity,0.003963947296142578,7
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,colon epithelial cell,epithelial_control,0.00033596582943573594,7
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,colon macrophage,primary_target,-0.19717271625995636,7
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,ileum T cell,ileum_immune_control,-0.00036019086837768555,2
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,ileum epithelial cell,ileum_epithelial_control,0.00024199485778808594,2
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION,ileum macrophage,macrophage_replication,-0.22764134407043457,2
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,colon T cell,immune_control,-0.0004333973047323525,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,colon colonic epithelial cell,epithelial_sensitivity,-0.00042085646418854594,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,colon epithelial cell,epithelial_control,0.00034208298893645406,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,colon macrophage,primary_target,-0.00037021638127043843,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,ileum T cell,ileum_immune_control,0.00023746490478515625,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,ileum epithelial cell,ileum_epithelial_control,0.0005113601800985634,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,RNA_SEQ,ileum macrophage,macrophage_replication,0.0003528594970703125,5
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,colon T cell,immune_control,1.4066696166992188e-05,1
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,colon colonic epithelial cell,epithelial_sensitivity,-0.003219211706891656,7
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,colon epithelial cell,epithelial_control,-0.002412384143099189,7
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,colon macrophage,primary_target,-0.0015356199583038688,7
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,ileum T cell,ileum_immune_control,-0.0018069744110107422,2
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,ileum epithelial cell,ileum_epithelial_control,-0.0012918412685394287,2
+non_macrophage_IL2RA,strong Atlas score without macrophage-selective live effect,chr10:6060049:C>T,IL2RA,SC_GENE_EXPRESSION,ileum macrophage,macrophage_replication,-0.002059340476989746,2
+positive_ETS2,macrophage-selective down-regulation,chr21:39094644:G>A,ETS2,SC_GENE_EXPRESSION_DENOISED,healthy_colorectal_macrophage,custom_primary_macrophage,-0.3065362,1

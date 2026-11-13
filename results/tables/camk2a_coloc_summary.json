@@ -1,0 +1,29 @@
+{
+  "method": "coloc.abf single-causal-variant approximation",
+  "eqtl_dataset": "Alasoo_2018 macrophage IFN-gamma",
+  "gwas_dataset": "GCST90292538",
+  "region": "chr5:149500000-151000000",
+  "eqtl_gene": "CAMK2A",
+  "variants_harmonized": 3395,
+  "primary_sd_prior": 0.15,
+  "primary_p12": 1e-05,
+  "primary_posterior": {
+    "H0": 5.293133812070413e-26,
+    "H1": 1.796677595133315e-26,
+    "H2": 0.9098185799891794,
+    "H3": 9.009132868213851e-05,
+    "H4": 0.09009132868213851
+  },
+  "exact_variant": {
+    "rsid": "rs1549913",
+    "position": 150230409,
+    "gwas_beta": 0.0764,
+    "gwas_se": 0.0093,
+    "eql_beta": -0.369881,
+    "eql_se": 0.134854,
+    "gwas_p": 2.605e-16,
+    "eql_p": 0.00775412,
+    "gwas_labf": 30.91618464064021,
+    "eql_labf": 0.39020536150693974
+  }
+}

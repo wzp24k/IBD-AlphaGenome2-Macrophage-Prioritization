@@ -1,0 +1,96 @@
+{
+  "status": "designed_not_performed",
+  "genome": "hg38",
+  "window_length_bp": 251,
+  "window_offsets_bp": [
+    -75,
+    0,
+    75
+  ],
+  "candidate_variants": [
+    {
+      "label": "PDGFB",
+      "rsid": "rs2143178",
+      "chromosome": "chr22",
+      "position": 39264824,
+      "reference": "T",
+      "alternate": "C",
+      "target_gene": "PDGFB",
+      "priority_rank": 3
+    },
+    {
+      "label": "PRKCB",
+      "rsid": "rs7404003",
+      "chromosome": "chr16",
+      "position": 23853326,
+      "reference": "C",
+      "alternate": "A",
+      "target_gene": "PRKCB",
+      "priority_rank": 5
+    },
+    {
+      "label": "CHSY3",
+      "rsid": "rs971891",
+      "chromosome": "chr5",
+      "position": 130237973,
+      "reference": "C",
+      "alternate": "T",
+      "target_gene": "CHSY3",
+      "priority_rank": 8
+    }
+  ],
+  "constructs": 32,
+  "candidate_constructs": 18,
+  "control_constructs": 12,
+  "scramble_constructs": 2,
+  "proposed_barcodes": 256,
+  "barcodes_per_construct": 8,
+  "reference_checks": [
+    {
+      "rsid": "rs2143178",
+      "chromosome": "chr22",
+      "position_1based": 39264824,
+      "expected_reference": "T",
+      "observed_reference": "T",
+      "reference_match": true
+    },
+    {
+      "rsid": "rs7404003",
+      "chromosome": "chr16",
+      "position_1based": 23853326,
+      "expected_reference": "C",
+      "observed_reference": "C",
+      "reference_match": true
+    },
+    {
+      "rsid": "rs971891",
+      "chromosome": "chr5",
+      "position_1based": 130237973,
+      "expected_reference": "C",
+      "observed_reference": "C",
+      "reference_match": true
+    },
+    {
+      "rsid": "rs2836882",
+      "chromosome": "chr21",
+      "position_1based": 39094644,
+      "expected_reference": "G",
+      "observed_reference": "G",
+      "reference_match": true
+    },
+    {
+      "rsid": "rs12722489",
+      "chromosome": "chr10",
+      "position_1based": 6060049,
+      "expected_reference": "C",
+      "observed_reference": "C",
+      "reference_match": true
+    }
+  ],
+  "outputs": [
+    "experimental_design/top3_mdmpra/construct_manifest.csv",
+    "experimental_design/top3_mdmpra/synthesis_order.csv",
+    "experimental_design/top3_mdmpra/construct_sequences.fasta",
+    "experimental_design/top3_mdmpra/barcode_manifest.csv"
+  ]
+}

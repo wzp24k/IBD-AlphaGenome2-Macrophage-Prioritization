@@ -1,0 +1,11 @@
+target,rsid,chromosome,position,present_in_gut_scatac_variant_table,locus_info,finemap_susie_pip,overlapped_cCRE,cCRE_celltype,overlapped_ABCmaxPeak,ABC_max_gene,overlapped_withQTL,overlapped_withQTL_inCApeak,nearest_gene,interpretation
+PDGFB,rs2143178,chr22,39264824,True,chr22:39264824:T/C,0.42400944,chr22_39264648_39265148,DC-Macrophage,chr22_39264480_39265062,PDGFB,False,False,PDGFB,exact_variant_in_gut_cCRE
+PRKCB,rs7404003,chr16,23853326,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+CHSY3,rs971891,chr5,130237973,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+ERGIC1,rs564109,chr5,172897894,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+GCKR,rs780094,chr2,27518370,True,chr2:27518370:T/C,0.112851932,,,,,False,False,GCKR,present_without_cCRE_overlap
+PRKCQ,rs4748198,chr10,6607973,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+ABCB5,rs76380568,chr7,20542073,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+IRF2BP2,rs10910476,chr1,234599210,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+IL23R,rs1008193,chr1,67254228,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table
+CAMK2A,rs1549913,chr5,150230409,False,,,,,,,,,,not_present_in_gut_scATAC_variant_table

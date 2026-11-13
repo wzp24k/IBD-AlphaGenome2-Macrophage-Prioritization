@@ -1,0 +1,2 @@
+variant,rsid,target_gene,atlas_max_abs_quantile,atlas_signed_quantile,atlas_raw_score,atlas_biosample
+chr21:39094644:G>A,rs2836882,ETS2,0.99451023,-0.99451023,-0.009505689,venous blood

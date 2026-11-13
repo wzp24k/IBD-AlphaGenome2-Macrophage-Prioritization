@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "species": "Homo sapiens",
+  "genome_build": "GRCh38",
+  "studies": [
+    {
+      "id": "GCST90292538",
+      "role": "primary_ibd",
+      "label": "Combined IBD discovery"
+    },
+    {
+      "id": "GCST90446792",
+      "role": "crohn_discovery",
+      "label": "Crohn disease discovery"
+    },
+    {
+      "id": "GCST90446794",
+      "role": "ulcerative_colitis_discovery",
+      "label": "Ulcerative colitis discovery"
+    },
+    {
+      "id": "GCST004131",
+      "role": "ibd_replication",
+      "label": "IBD replication"
+    },
+    {
+      "id": "GCST004132",
+      "role": "crohn_replication",
+      "label": "Crohn disease replication"
+    },
+    {
+      "id": "GCST004133",
+      "role": "ulcerative_colitis_replication",
+      "label": "Ulcerative colitis replication"
+    }
+  ],
+  "conditions": {
+    "colon_macrophage": {
+      "curie": "UBERON:0001155_CL:0000235",
+      "role": "primary_target"
+    },
+    "colon_t_cell": {
+      "curie": "UBERON:0001155_CL:0000084",
+      "role": "immune_control"
+    },
+    "colon_epithelial_cell": {
+      "curie": "UBERON:0001155_CL:0000066",
+      "role": "epithelial_control"
+    },
+    "colon_colonic_epithelial_cell": {
+      "curie": "UBERON:0001155_CL:0011108",
+      "role": "epithelial_sensitivity"
+    },
+    "ileum_macrophage": {
+      "curie": "UBERON:0002116_CL:0000235",
+      "role": "macrophage_replication"
+    },
+    "ileum_t_cell": {
+      "curie": "UBERON:0002116_CL:0000084",
+      "role": "ileum_immune_control"
+    },
+    "ileum_epithelial_cell": {
+      "curie": "UBERON:0002116_CL:0000066",
+      "role": "ileum_epithelial_control"
+    }
+  },
+  "positive_controls": [
+    {
+      "id": "rs2836882",
+      "variant": "chr21:39094644:G>A",
+      "target_gene": "ETS2",
+      "source": "Stankey et al., Nature 2024"
+    }
+  ],
+  "thresholds": {
+    "pip_min": 0.1,
+    "credible_set_95": true,
+    "macrophage_quantile_high": 0.95,
+    "control_quantile_low": 0.5,
+    "specificity_delta_min": 0.25
+  },
+  "alphascores": {
+    "live_outputs": [
+      "RNA_SEQ",
+      "SC_GENE_EXPRESSION"
+    ],
+    "atlas_outputs": [
+      "RNA_SEQ"
+    ],
+    "sequence_length": 1000000
+  }
+}

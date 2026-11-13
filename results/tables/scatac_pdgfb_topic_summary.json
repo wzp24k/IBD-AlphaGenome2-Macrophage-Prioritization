@@ -1,0 +1,201 @@
+{
+  "variant": "rs2143178",
+  "cCRE": "chr22_39264648_39265148",
+  "celltype": "DC-Macrophage",
+  "top_variant_topics": [
+    {
+      "topic": "Topic15",
+      "score": 2.79e-05,
+      "percentile": 0.9835680751173709
+    },
+    {
+      "topic": "Topic18",
+      "score": 2.38e-05,
+      "percentile": 0.9788732394366197
+    },
+    {
+      "topic": "Topic21",
+      "score": 4.62e-06,
+      "percentile": 0.9154929577464789
+    },
+    {
+      "topic": "Topic1",
+      "score": 7.75e-06,
+      "percentile": 0.9131455399061033
+    },
+    {
+      "topic": "Topic20",
+      "score": 5.1e-15,
+      "percentile": 0.823943661971831
+    },
+    {
+      "topic": "Topic40",
+      "score": 9.34e-07,
+      "percentile": 0.6807511737089202
+    },
+    {
+      "topic": "Topic8",
+      "score": 6.46e-07,
+      "percentile": 0.6690140845070423
+    },
+    {
+      "topic": "Topic11",
+      "score": 6.88e-15,
+      "percentile": 0.6596244131455399
+    },
+    {
+      "topic": "Topic9",
+      "score": 1.4e-06,
+      "percentile": 0.6455399061032864
+    },
+    {
+      "topic": "Topic2",
+      "score": 7.52e-15,
+      "percentile": 0.6384976525821596
+    }
+  ],
+  "top_macrophage_topics": [
+    {
+      "topic": "Topic15",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 50.40070645354546,
+      "genes_used": 11,
+      "within_set_rank": 1.0
+    },
+    {
+      "topic": "Topic18",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 15.775467292999998,
+      "genes_used": 11,
+      "within_set_rank": 2.0
+    },
+    {
+      "topic": "Topic21",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 8.489781177545455,
+      "genes_used": 11,
+      "within_set_rank": 3.0
+    },
+    {
+      "topic": "Topic9",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 4.548953634272727,
+      "genes_used": 11,
+      "within_set_rank": 4.0
+    },
+    {
+      "topic": "Topic8",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 4.285509960727273,
+      "genes_used": 11,
+      "within_set_rank": 5.0
+    },
+    {
+      "topic": "Topic42",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 4.231434459545454,
+      "genes_used": 11,
+      "within_set_rank": 6.0
+    },
+    {
+      "topic": "Topic31",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 3.7675635693636362,
+      "genes_used": 11,
+      "within_set_rank": 7.0
+    },
+    {
+      "topic": "Topic25",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 2.5632791081818187,
+      "genes_used": 11,
+      "within_set_rank": 8.0
+    },
+    {
+      "topic": "Topic7",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 2.335549715272727,
+      "genes_used": 11,
+      "within_set_rank": 9.0
+    },
+    {
+      "topic": "Topic33",
+      "marker_set": "Macrophage",
+      "mean_gene_score": 2.2814750265454546,
+      "genes_used": 11,
+      "within_set_rank": 10.0
+    }
+  ],
+  "top_dc_topics": [
+    {
+      "topic": "Topic15",
+      "marker_set": "DC",
+      "mean_gene_score": 34.879395376000005,
+      "genes_used": 5,
+      "within_set_rank": 1.0
+    },
+    {
+      "topic": "Topic18",
+      "marker_set": "DC",
+      "mean_gene_score": 25.878596161999997,
+      "genes_used": 5,
+      "within_set_rank": 2.0
+    },
+    {
+      "topic": "Topic45",
+      "marker_set": "DC",
+      "mean_gene_score": 18.6752175968,
+      "genes_used": 5,
+      "within_set_rank": 3.0
+    },
+    {
+      "topic": "Topic14",
+      "marker_set": "DC",
+      "mean_gene_score": 17.515058044,
+      "genes_used": 5,
+      "within_set_rank": 4.0
+    },
+    {
+      "topic": "Topic10",
+      "marker_set": "DC",
+      "mean_gene_score": 12.797472033199998,
+      "genes_used": 5,
+      "within_set_rank": 5.0
+    },
+    {
+      "topic": "Topic19",
+      "marker_set": "DC",
+      "mean_gene_score": 7.926551657,
+      "genes_used": 5,
+      "within_set_rank": 6.0
+    },
+    {
+      "topic": "Topic28",
+      "marker_set": "DC",
+      "mean_gene_score": 5.3271019702,
+      "genes_used": 5,
+      "within_set_rank": 7.0
+    },
+    {
+      "topic": "Topic42",
+      "marker_set": "DC",
+      "mean_gene_score": 5.2561766846,
+      "genes_used": 5,
+      "within_set_rank": 8.0
+    },
+    {
+      "topic": "Topic21",
+      "marker_set": "DC",
+      "mean_gene_score": 4.839295394800001,
+      "genes_used": 5,
+      "within_set_rank": 9.0
+    },
+    {
+      "topic": "Topic30",
+      "marker_set": "DC",
+      "mean_gene_score": 3.8473398932,
+      "genes_used": 5,
+      "within_set_rank": 10.0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+lead_rank,variant,target,experimental_evidence_level,experimental_support,variant_level_experimental_sources,gene_level_experimental_sources,experimental_effect_summary,experimentally_evaluated
+1,chr22:39264824:T>C,PDGFB,variant_annotation_and_gene_perturbation,perturbseq_transcriptome,GSE273194_gut_scATAC,GSE327124_primary_macrophage_TNF_CRISPR;GSE327644_primary_macrophage_PerturbSeq,exact cCRE=chr22_39264648_39265148; celltype=DC-Macrophage; ABC gene=PDGFB; TNF screen log2(high/low)=0.005; P=0.57; Perturb-seq self log2FC=-0.636; FDR=0.00879; responsive genes=460,True
+2,chr16:23853326:C>A,PRKCB,variant_and_gene,directional_variant_eqtl,GTEx_v10_Colon_Sigmoid_eQTL,GSE175685_THP1_overexpression,PRKCB eQTL P=3.02e-5; NES=-0.171; self-expression delta=2.68; P=1.2e-15,True
+3,chr5:130237973:C>T,CHSY3,gene_level,target_engagement,,GSE175685_THP1_overexpression,self-expression delta=6.82; P=1.2e-09,True
+4,chr5:172897894:A>T,ERGIC1,not_covered,not_covered,,,,False
+5,chr2:27518370:T>C,GCKR,not_covered,not_covered,,,,False
+6,chr10:6607973:C>T,PRKCQ,gene_level_perturbation,perturbseq_lps_pathway,,GSE327124_primary_macrophage_TNF_CRISPR;GSE327644_primary_macrophage_PerturbSeq,TNF screen log2(high/low)=0.018; P=0.278; Perturb-seq self log2FC=-0.104; FDR=0.826; responsive genes=548; LPS IL-23 FDR=0.0021; LPS IL-6/JAK/STAT3 FDR=0.0201,True
+7,chr7:20542073:T>C,ABCB5,not_covered,not_covered,,,,False
+8,chr1:234599210:C>T,IRF2BP2,not_covered,not_covered,,,,False
+9,chr1:67254228:C>G,IL23R,gene_level_tested,inconclusive_editing,,GSE327124_primary_macrophage_TNF_CRISPR;GSE327124_primary_macrophage_CD80_CRISPR;GSE327644_primary_macrophage_PerturbSeq,TNF screen log2(high/low)=-0.018; P=0.681; CD80 screen log2(high/low)=-0.012; P=0.817; Perturb-seq self log2FC=0.107; FDR=0.845; responsive genes=575,True
+10,chr5:150230409:G>A,CAMK2A,not_covered,not_covered,,,,False

@@ -1,0 +1,4 @@
+variant,construct_context,risk_allele,nonrisk_allele,mean_log2_risk_vs_nonrisk,sd_across_rna_pools,positive_rna_pools,rna_pools
+rs2836882,A,G,A,-0.10761307906821496,0.07558720504947393,0,8
+rs2836882,B,G,A,0.23127280440893125,0.06129755376227587,8,8
+rs2836882,C,G,A,0.38425676260440117,0.16419378302189835,8,8

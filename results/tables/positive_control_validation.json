@@ -1,0 +1,17 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "atlas_quantile_above_0_99": true,
+    "colon_macrophage_rna_down": true,
+    "colon_macrophage_sc_down": true,
+    "colon_t_cell_effect_near_zero": true,
+    "colon_epithelial_effect_near_zero": true,
+    "custom_macrophage_down": true
+  },
+  "colon_macrophage_effects": {
+    "rna_seq": -0.1468283236026764,
+    "single_cell": -0.19717271625995636
+  },
+  "custom_colorectal_macrophage_effect": -0.3065362,
+  "atlas_max_abs_quantile": 0.9945102334022522
+}

@@ -1,0 +1,17 @@
+{
+  "variants": 396,
+  "conditions": [
+    "colon_macrophage",
+    "colon_t_cell",
+    "colon_epithelial_cell",
+    "colon_colonic_epithelial_cell",
+    "ileum_macrophage",
+    "ileum_t_cell",
+    "ileum_epithelial_cell"
+  ],
+  "scorers": [
+    "RNA_SEQ",
+    "SC_GENE_EXPRESSION"
+  ],
+  "rows": 444542
+}

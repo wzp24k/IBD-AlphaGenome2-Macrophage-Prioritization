@@ -1,0 +1,2 @@
+snpId,pos,snpIdUpper,variantId,geneSymbol,pValue,geneSymbolUpper,datasetId,tissueSiteDetailId,ontologyId,chromosome,gencodeId,nes,experiment,variant,target
+rs7404003,23853326,RS7404003,chr16_23853326_C_A_b38,PRKCB,3.0230326881651897e-05,PRKCB,gtex_v10,Colon_Sigmoid,UBERON:0001159,chr16,ENSG00000166501.14,-0.17135509848594666,GTEx_v10_colon_eQTL,chr16:23853326:C>A,PRKCB

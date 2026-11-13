@@ -1,0 +1,839 @@
+{
+  "samples": 8,
+  "selected_guides": 28,
+  "selected_targets": [
+    "IL23R",
+    "MAP3K8",
+    "PDGFB",
+    "PRKCQ",
+    "TNF",
+    "TNFAIP3",
+    "TNFSF15"
+  ],
+  "total_assigned_cells": 124959,
+  "target_knockdown": [
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.6236578440554696,
+      "median_log2fc_vs_ntc": -0.5825916964591396,
+      "p_value": 0.027637190394089666,
+      "fdr": 0.3660644390894908
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.6490470798498962,
+      "median_log2fc_vs_ntc": -0.6090963689035922,
+      "p_value": 0.0007555645912126433,
+      "fdr": 0.10892474150446232
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": -0.6363524619526829,
+      "median_log2fc_vs_ntc": -0.6090963689035922,
+      "p_value": 6.254885039283613e-05,
+      "fdr": 0.008790295416835087
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.20113990134824444,
+      "median_log2fc_vs_ntc": -0.2038540241890951,
+      "p_value": 0.0037252939637703896,
+      "fdr": 0.13079074144909075
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.007732425159672374,
+      "median_log2fc_vs_ntc": -0.24922007119888492,
+      "p_value": 0.9773810505325844,
+      "fdr": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": -0.10443616325395844,
+      "median_log2fc_vs_ntc": -0.2314858205400422,
+      "p_value": 0.4218836853521463,
+      "fdr": 0.8255615957010826
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.026756889857359148,
+      "median_log2fc_vs_ntc": -0.021956370481808478,
+      "p_value": 0.07779769808029653,
+      "fdr": 0.552445933606618
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": 0.2403695191210699,
+      "median_log2fc_vs_ntc": -0.025171745108900852,
+      "p_value": 0.43821555871447515,
+      "fdr": 0.8770600423862575
+    },
+    {
+      "target": "IL23R",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": 0.10680631463185536,
+      "median_log2fc_vs_ntc": -0.021956370481808478,
+      "p_value": 0.4537939901196976,
+      "fdr": 0.8450776832953261
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.9531515375554132,
+      "median_log2fc_vs_ntc": -1.1659103558022514,
+      "p_value": 0.07989624066118442,
+      "fdr": 0.5263445824645443
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.4166696581740076,
+      "median_log2fc_vs_ntc": -0.30900248642162453,
+      "p_value": 0.050275024497793655,
+      "fdr": 0.43278058837630634
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": -0.6849105978647104,
+      "median_log2fc_vs_ntc": -0.5705533245327989,
+      "p_value": 0.01280294859562396,
+      "fdr": 0.15463334782815907
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.2609248760218086,
+      "median_log2fc_vs_ntc": -0.2617933209953196,
+      "p_value": 0.00889421627716732,
+      "fdr": 0.18814847945013577
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.11402197582299989,
+      "median_log2fc_vs_ntc": -0.14069128825842903,
+      "p_value": 0.18746691212855623,
+      "fdr": 0.6436142727255435
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": -0.18747342592240424,
+      "median_log2fc_vs_ntc": -0.19979844152368553,
+      "p_value": 0.0047785542755352,
+      "fdr": 0.0985670214470532
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": -0.7687024834803692,
+      "median_log2fc_vs_ntc": -0.9198357285827793,
+      "p_value": 0.09151356046870358,
+      "fdr": 0.5458930395136116
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": 0.13565288132654563,
+      "median_log2fc_vs_ntc": 0.13126270732319734,
+      "p_value": 0.3845229782779507,
+      "fdr": 0.8128057823012458
+    },
+    {
+      "target": "TNF",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": -0.3165248010769118,
+      "median_log2fc_vs_ntc": -0.09105023653520439,
+      "p_value": 0.21571456240131365,
+      "fdr": 0.6708253756149501
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": 0.5609429127459347,
+      "median_log2fc_vs_ntc": 0.5446067802586136,
+      "p_value": 0.0024995475391592996,
+      "fdr": 0.06928791641807179
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "pairs": 4,
+      "mean_log2fc_vs_ntc": 0.07717826667311778,
+      "median_log2fc_vs_ntc": 0.06910323755930392,
+      "p_value": 0.11240146329278557,
+      "fdr": 0.31010898311290663
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Combined",
+      "pairs": 8,
+      "mean_log2fc_vs_ntc": 0.3190605897095262,
+      "median_log2fc_vs_ntc": 0.30588309941259295,
+      "p_value": 0.01318541056768278,
+      "fdr": 0.07828701328208332
+    }
+  ],
+  "pathway_effects": [
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.0174391712782054,
+      "median_log2fc": 0.0063795836935940375,
+      "pathway_z": 0.03484822957008006,
+      "pathway_p": 0.9697030296970303,
+      "pathway_fdr": 0.9697030296970303
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.069564598581872,
+      "median_log2fc": 0.010842149190061878,
+      "pathway_z": 1.7990894476277253,
+      "pathway_p": 0.07289271072892711,
+      "pathway_fdr": 0.21867813218678134
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.02700365903100165,
+      "median_log2fc": 0.0019170181971261968,
+      "pathway_z": 1.1771901687765454,
+      "pathway_p": 0.22777722227777222,
+      "pathway_fdr": 0.34166583341665835
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.012438253042917059,
+      "median_log2fc": 0.000265027858434852,
+      "pathway_z": 0.13416011001931077,
+      "pathway_p": 0.8875112488751125,
+      "pathway_fdr": 0.8875112488751125
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.09889714947771835,
+      "median_log2fc": 0.018160016095182918,
+      "pathway_z": 2.6253287507902527,
+      "pathway_p": 0.0150984901509849,
+      "pathway_fdr": 0.045295470452954706
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.018179950572353422,
+      "median_log2fc": 0.009299576706963908,
+      "pathway_z": 1.0193696088040554,
+      "pathway_p": 0.2862713728627137,
+      "pathway_fdr": 0.4294070592940706
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.07410134590502866,
+      "median_log2fc": -0.01686351841882494,
+      "pathway_z": -1.235502032993315,
+      "pathway_p": 0.202979702029797,
+      "pathway_fdr": 0.30446955304469553
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": -0.015389531066888989,
+      "median_log2fc": -0.010165456101306512,
+      "pathway_z": 0.18314542110996787,
+      "pathway_p": 0.8361163883611639,
+      "pathway_fdr": 0.8361163883611639
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.032461225702795374,
+      "median_log2fc": -0.0025204816907105076,
+      "pathway_z": 1.4089449366515838,
+      "pathway_p": 0.1483851614838516,
+      "pathway_fdr": 0.30446955304469553
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": 0.05543532344330926,
+      "median_log2fc": 0.005698222785509688,
+      "pathway_z": 1.4518110496554872,
+      "pathway_p": 0.1377862213778622,
+      "pathway_fdr": 0.20667933206679331
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": -0.027743317339963467,
+      "median_log2fc": 0.0076749763392254255,
+      "pathway_z": -0.4188244514987585,
+      "pathway_p": 0.6375362463753624,
+      "pathway_fdr": 0.6375362463753624
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.09216324041754125,
+      "median_log2fc": 0.08341950464327152,
+      "pathway_z": 2.439065287497758,
+      "pathway_p": 0.021897810218978103,
+      "pathway_fdr": 0.06569343065693431
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.010423152381421798,
+      "median_log2fc": -0.038013099341272394,
+      "pathway_z": 0.12661160977262406,
+      "pathway_p": 0.8908109189081092,
+      "pathway_fdr": 0.8908109189081092
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": -0.026848655233881476,
+      "median_log2fc": -0.026756889857359148,
+      "pathway_z": -0.2589509198161056,
+      "pathway_p": 0.7683231676832317,
+      "pathway_fdr": 0.8908109189081092
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.0072386478241014,
+      "median_log2fc": -0.0012549738735989635,
+      "pathway_z": 0.6072648218354189,
+      "pathway_p": 0.515948405159484,
+      "pathway_fdr": 0.8908109189081092
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.022150222703312704,
+      "median_log2fc": -0.009806271005565192,
+      "pathway_z": -0.4122121900594879,
+      "pathway_p": 0.6574342565743425,
+      "pathway_fdr": 0.6574342565743425
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.028985330257154947,
+      "median_log2fc": -0.008622427944290134,
+      "pathway_z": 0.8528161822282767,
+      "pathway_p": 0.35006499350064996,
+      "pathway_fdr": 0.6263373662633738
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": -0.032296394048524274,
+      "median_log2fc": -0.03244431456614216,
+      "pathway_z": -0.7646902069987377,
+      "pathway_p": 0.41755824417558246,
+      "pathway_fdr": 0.6263373662633738
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.00461147890878835,
+      "median_log2fc": 0.010454968956842281,
+      "pathway_z": 0.20349023586214668,
+      "pathway_p": 0.8233176682331766,
+      "pathway_fdr": 0.8233176682331766
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.028845075211311213,
+      "median_log2fc": 0.004157840363888887,
+      "pathway_z": 0.8585007019750265,
+      "pathway_p": 0.3564643535646435,
+      "pathway_fdr": 0.8233176682331766
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.004967778545134991,
+      "median_log2fc": 0.004157840363888887,
+      "pathway_z": 0.44778004322197157,
+      "pathway_p": 0.6322367763223677,
+      "pathway_fdr": 0.8233176682331766
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.10200490353663569,
+      "median_log2fc": -0.05260616132046836,
+      "pathway_z": -2.639879110537774,
+      "pathway_p": 0.013398660133986601,
+      "pathway_fdr": 0.020097990200979902
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": -0.21483461090233266,
+      "median_log2fc": -0.057299177201352025,
+      "pathway_z": -4.739312928768527,
+      "pathway_p": 0.0006999300069993001,
+      "pathway_fdr": 0.0020997900209979003
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": -0.03305659275839578,
+      "median_log2fc": -0.02026147225909458,
+      "pathway_z": -0.7748949613591848,
+      "pathway_p": 0.41285871412858716,
+      "pathway_fdr": 0.41285871412858716
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.02176869984829808,
+      "median_log2fc": 0.023407208411139635,
+      "pathway_z": 0.002483834556443436,
+      "pathway_p": 0.998000199980002,
+      "pathway_fdr": 0.998000199980002
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": -0.03227201083558575,
+      "median_log2fc": -0.010165456101306512,
+      "pathway_z": -0.19445012691659977,
+      "pathway_p": 0.824017598240176,
+      "pathway_fdr": 0.998000199980002
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.02491253173216511,
+      "median_log2fc": -0.0019428191724504273,
+      "pathway_z": 1.0339411637326301,
+      "pathway_p": 0.28277172282771723,
+      "pathway_fdr": 0.8483151684831517
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": 0.07566194042586664,
+      "median_log2fc": 0.056207391438505505,
+      "pathway_z": 2.3699431005931344,
+      "pathway_p": 0.024997500249975,
+      "pathway_fdr": 0.07019298070192981
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.07836885529915112,
+      "median_log2fc": 0.010692822035453187,
+      "pathway_z": 2.0311825067929696,
+      "pathway_p": 0.046795320467953205,
+      "pathway_fdr": 0.07019298070192981
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.026551555988024864,
+      "median_log2fc": 0.008545989141002686,
+      "pathway_z": 1.349202021634616,
+      "pathway_p": 0.1678832116788321,
+      "pathway_fdr": 0.1678832116788321
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": 0.06950636208712757,
+      "median_log2fc": 0.031941530931546835,
+      "pathway_z": 1.5332206978992504,
+      "pathway_p": 0.1110888911108889,
+      "pathway_fdr": 0.1110888911108889
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.13969486552943072,
+      "median_log2fc": -0.010165456101306512,
+      "pathway_z": 2.1470151484480584,
+      "pathway_p": 0.042995700429957005,
+      "pathway_fdr": 0.06449355064493552
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.24347014146477636,
+      "median_log2fc": 0.12926693777469866,
+      "pathway_z": 4.451737916149579,
+      "pathway_p": 0.0014998500149985001,
+      "pathway_fdr": 0.004499550044995501
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": 0.5170785066084077,
+      "median_log2fc": -0.03275758911274307,
+      "pathway_z": 9.357686041499331,
+      "pathway_p": 9.999000099990002e-05,
+      "pathway_fdr": 0.00014998500149985004
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.7370419168780071,
+      "median_log2fc": -0.024373055564696877,
+      "pathway_z": 10.634804575353785,
+      "pathway_p": 9.999000099990002e-05,
+      "pathway_fdr": 0.00014998500149985004
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": -0.002662731461754805,
+      "median_log2fc": -0.06491518903773241,
+      "pathway_z": 1.266725564671196,
+      "pathway_p": 0.18468153184681532,
+      "pathway_fdr": 0.18468153184681532
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": -0.022286224521345616,
+      "median_log2fc": -0.03686522915338153,
+      "pathway_z": 0.17515972141788483,
+      "pathway_p": 0.8558144185581442,
+      "pathway_fdr": 0.8558144185581442
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": 0.06258051572936643,
+      "median_log2fc": 0.08712169662313474,
+      "pathway_z": 1.4889898186392936,
+      "pathway_p": 0.1257874212578742,
+      "pathway_fdr": 0.3638636136386361
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": 0.023088692111265387,
+      "median_log2fc": 0.012729524334252229,
+      "pathway_z": 1.125839498526307,
+      "pathway_p": 0.2425757424257574,
+      "pathway_fdr": 0.3638636136386361
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "pathway": "IL-6/JAK/STAT3",
+      "members": 10,
+      "mean_log2fc": 0.03406953237726338,
+      "median_log2fc": 0.0074274833377316885,
+      "pathway_z": 1.2748415806258828,
+      "pathway_p": 0.18758124187581243,
+      "pathway_fdr": 0.2813718628137187
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "pathway": "IL-23",
+      "members": 7,
+      "mean_log2fc": -0.1824376366630415,
+      "median_log2fc": 0.009217811921541585,
+      "pathway_z": -2.925078245351481,
+      "pathway_p": 0.0084991500849915,
+      "pathway_fdr": 0.0254974502549745
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "pathway": "JAK-STAT",
+      "members": 11,
+      "mean_log2fc": -0.011977281401793428,
+      "median_log2fc": -0.0060749563905602155,
+      "pathway_z": 0.26029167946544596,
+      "pathway_p": 0.7825217478252174,
+      "pathway_fdr": 0.7825217478252174
+    }
+  ],
+  "differential_summary": [
+    {
+      "target": "IL23R",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 575,
+      "fdr05_abs05_genes": 2
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 10,
+      "fdr05_abs05_genes": 3
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 79,
+      "fdr05_abs05_genes": 2
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 556,
+      "fdr05_abs05_genes": 4
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 9,
+      "fdr05_abs05_genes": 0
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 39,
+      "fdr05_abs05_genes": 0
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 460,
+      "fdr05_abs05_genes": 1
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 0,
+      "fdr05_abs05_genes": 0
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 1,
+      "fdr05_abs05_genes": 0
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 548,
+      "fdr05_abs05_genes": 0
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 22,
+      "fdr05_abs05_genes": 1
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 1,
+      "fdr05_abs05_genes": 0
+    },
+    {
+      "target": "TNF",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 762,
+      "fdr05_abs05_genes": 6
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 77,
+      "fdr05_abs05_genes": 5
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 137,
+      "fdr05_abs05_genes": 10
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 2291,
+      "fdr05_abs05_genes": 236
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 340,
+      "fdr05_abs05_genes": 92
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 403,
+      "fdr05_abs05_genes": 71
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Combined",
+      "pairs": 8,
+      "genes_tested": 18129,
+      "fdr05_genes": 835,
+      "fdr05_abs05_genes": 12
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 293,
+      "fdr05_abs05_genes": 42
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "pairs": 4,
+      "genes_tested": 18129,
+      "fdr05_genes": 189,
+      "fdr05_abs05_genes": 10
+    }
+  ]
+}

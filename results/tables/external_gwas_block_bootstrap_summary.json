@@ -1,0 +1,60 @@
+{
+  "bootstrap_replicates": 2000,
+  "loci": 276,
+  "genes": 510,
+  "externally_supported_genes": 73,
+  "external_clusters": [
+    "UKB_WGS_2025",
+    "MVP_2024"
+  ],
+  "pathways": [
+    {
+      "pathway": "IL-23",
+      "library": "Reactome_2022",
+      "term": "Interleukin-23 Signaling R-HSA-9020933",
+      "members": 4,
+      "external_supported_members": 3,
+      "observed_auc_difference": 0.32164031620553357,
+      "bootstrap_ci_low": 0.23600287820830868,
+      "bootstrap_ci_high": 0.47983934169278997,
+      "bootstrap_p": 0.0005042864346949068,
+      "bootstrap_fdr": 0.002017145738779627
+    },
+    {
+      "pathway": "IL-2/STAT5",
+      "library": "MSigDB_Hallmark_2020",
+      "term": "IL-2/STAT5 Signaling",
+      "members": 19,
+      "external_supported_members": 1,
+      "observed_auc_difference": 0.1451924107621395,
+      "bootstrap_ci_low": 0.03069509336473683,
+      "bootstrap_ci_high": 0.22604871958002268,
+      "bootstrap_p": 0.00849575212393803,
+      "bootstrap_fdr": 0.01699150424787606
+    },
+    {
+      "pathway": "JAK-STAT",
+      "library": "KEGG_2021_Human",
+      "term": "JAK-STAT signaling pathway",
+      "members": 26,
+      "external_supported_members": 5,
+      "observed_auc_difference": 0.09726636999364269,
+      "bootstrap_ci_low": -0.0029614685328190624,
+      "bootstrap_ci_high": 0.2049216956712846,
+      "bootstrap_p": 0.031484257871064465,
+      "bootstrap_fdr": 0.037481259370314844
+    },
+    {
+      "pathway": "IL-6/JAK/STAT3",
+      "library": "MSigDB_Hallmark_2020",
+      "term": "IL-6/JAK/STAT3 Signaling",
+      "members": 15,
+      "external_supported_members": 1,
+      "observed_auc_difference": 0.17595959595959598,
+      "bootstrap_ci_low": -0.011665728213447598,
+      "bootstrap_ci_high": 0.240649665819349,
+      "bootstrap_p": 0.037481259370314844,
+      "bootstrap_fdr": 0.037481259370314844
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+comparison,spearman_rho,p_value,n
+priority_score_vs_atlas_gi_q,0.5630552132296925,1.4496134802621053e-23,265
+genetics_weighted_score_vs_atlas_gi_q,0.3402631668667913,1.3205480130509059e-08,265
+macrophage_weighted_score_vs_atlas_gi_q,0.48146041052110095,8.775675266731673e-17,265

@@ -1,0 +1,128 @@
+{
+  "tier1_total": 10,
+  "tier1_variant_level_experimental": 1,
+  "tier1_gene_level_experimental": 5,
+  "tier1_target_engagement": 1,
+  "tier1_tested_neutral": 3,
+  "tier1_not_covered": 5,
+  "tier1_perturbseq_effective": 2,
+  "tier1_perturbseq_inconclusive": 1,
+  "tier1_scatac_ccre": 1,
+  "gtex_prkcb_p": 3.0230326881651897e-05,
+  "gtex_prkcb_nes": -0.17135509848594666,
+  "ets2_mpra": {
+    "experiment": "primary_human_macrophage_MPRA",
+    "accession": "GSE229472",
+    "variant": "rs2836882",
+    "target": "ETS2",
+    "construct_contexts": 3,
+    "rna_pools_per_context": 8,
+    "mean_risk_allele_log2_effect": 0.16930549598170583,
+    "context_effects": [
+      {
+        "construct_context": "A",
+        "mean_log2_risk_vs_nonrisk": -0.10761307906821496
+      },
+      {
+        "construct_context": "B",
+        "mean_log2_risk_vs_nonrisk": 0.23127280440893125
+      },
+      {
+        "construct_context": "C",
+        "mean_log2_risk_vs_nonrisk": 0.38425676260440117
+      }
+    ],
+    "all_contexts_positive": false
+  },
+  "crispr_tnf_selected": [
+    {
+      "Gene": "PDGFB",
+      "guides": 4,
+      "median_log2_high_low": 0.005398456567439749,
+      "screen_z": 0.4995891382737827,
+      "screen_p": 0.5703485930281395,
+      "screen_fdr": 0.9062995020423041
+    },
+    {
+      "Gene": "PRKCQ",
+      "guides": 4,
+      "median_log2_high_low": 0.01837349116903057,
+      "screen_z": 0.9726330215832452,
+      "screen_p": 0.2778144437111258,
+      "screen_fdr": 0.7301623664496406
+    },
+    {
+      "Gene": "IL23R",
+      "guides": 4,
+      "median_log2_high_low": -0.018187121666514726,
+      "screen_z": -0.3602940035038151,
+      "screen_p": 0.6810263794724105,
+      "screen_fdr": 0.9222148890355526
+    },
+    {
+      "Gene": "MAP3K8",
+      "guides": 4,
+      "median_log2_high_low": -0.38491944019519864,
+      "screen_z": -13.730622901942478,
+      "screen_p": 5.999880002399952e-05,
+      "screen_fdr": 0.004379912401751965
+    }
+  ],
+  "thp1_target_engagement": [
+    {
+      "gene": "PRKCB",
+      "accession": "GSE175685",
+      "replicates": 3,
+      "empty_controls": 11,
+      "self_expression_delta": 2.680849450973537,
+      "self_expression_p": 1.2064577497167097e-15,
+      "differential_genes_q05_absdelta1": 15,
+      "differential_genes_up": 11,
+      "differential_genes_down": 4
+    },
+    {
+      "gene": "CHSY3",
+      "accession": "GSE175685",
+      "replicates": 3,
+      "empty_controls": 11,
+      "self_expression_delta": 6.823268695237742,
+      "self_expression_p": 1.1686435605848065e-09,
+      "differential_genes_q05_absdelta1": 43,
+      "differential_genes_up": 35,
+      "differential_genes_down": 8
+    },
+    {
+      "gene": "ETS2",
+      "accession": "GSE175685",
+      "replicates": 3,
+      "empty_controls": 11,
+      "self_expression_delta": 2.124208842044297,
+      "self_expression_p": 6.717875860825082e-13,
+      "differential_genes_q05_absdelta1": 71,
+      "differential_genes_up": 49,
+      "differential_genes_down": 22
+    },
+    {
+      "gene": "JAK2",
+      "accession": "GSE175685",
+      "replicates": 3,
+      "empty_controls": 11,
+      "self_expression_delta": 1.9929805482088492,
+      "self_expression_p": 4.216199473358927e-15,
+      "differential_genes_q05_absdelta1": 109,
+      "differential_genes_up": 93,
+      "differential_genes_down": 16
+    },
+    {
+      "gene": "STAT3",
+      "accession": "GSE175685",
+      "replicates": 3,
+      "empty_controls": 11,
+      "self_expression_delta": 1.7685731490119876,
+      "self_expression_p": 1.9074087578709478e-12,
+      "differential_genes_q05_absdelta1": 180,
+      "differential_genes_up": 136,
+      "differential_genes_down": 44
+    }
+  ]
+}

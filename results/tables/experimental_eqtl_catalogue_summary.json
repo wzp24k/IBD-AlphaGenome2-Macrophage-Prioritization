@@ -1,0 +1,57 @@
+{
+  "datasets_queried": 8,
+  "variants_queried": 5,
+  "dataset_names": [
+    "Alasoo_2018:macrophage_naive",
+    "Alasoo_2018:macrophage_IFNg",
+    "BLUEPRINT:monocyte_naive",
+    "Nedelec_2016:macrophage_naive",
+    "Quach_2016:monocyte_naive",
+    "Quach_2016:monocyte_LPS",
+    "Schmiedel_2018:monocyte_CD16_naive",
+    "Schmiedel_2018:monocyte_naive"
+  ],
+  "coverage": [
+    {
+      "target": "ERGIC1",
+      "rsid": "rs564109",
+      "datasets_queried": 8,
+      "eQTL_hits_nominal_p05": 0,
+      "minimum_pvalue": 0.077815,
+      "classification": "public_myeloid_eqtl_not_covered"
+    },
+    {
+      "target": "GCKR",
+      "rsid": "rs780094",
+      "datasets_queried": 8,
+      "eQTL_hits_nominal_p05": 0,
+      "minimum_pvalue": 0.662516,
+      "classification": "public_myeloid_eqtl_not_covered"
+    },
+    {
+      "target": "ABCB5",
+      "rsid": "rs76380568",
+      "datasets_queried": 8,
+      "eQTL_hits_nominal_p05": 0,
+      "minimum_pvalue": 0.750557,
+      "classification": "public_myeloid_eqtl_not_covered"
+    },
+    {
+      "target": "IRF2BP2",
+      "rsid": "rs10910476",
+      "datasets_queried": 8,
+      "eQTL_hits_nominal_p05": 0,
+      "minimum_pvalue": 0.0729162,
+      "classification": "public_myeloid_eqtl_not_covered"
+    },
+    {
+      "target": "CAMK2A",
+      "rsid": "rs1549913",
+      "datasets_queried": 8,
+      "eQTL_hits_nominal_p05": 1,
+      "minimum_pvalue": 0.00775412,
+      "classification": "nominal_colon_or_myeloid_eQTL"
+    }
+  ],
+  "note": "Exact-variant nominal eQTL lookup; formal colocalization is only appropriate for pairs with nominal signal."
+}

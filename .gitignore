@@ -1,0 +1,11 @@
+API.txt
+*.h5ad
+*.tar
+*.zip
+.venv/
+work/
+data/external/
+manuscript/
+*.docx
+__pycache__/
+*.pyc

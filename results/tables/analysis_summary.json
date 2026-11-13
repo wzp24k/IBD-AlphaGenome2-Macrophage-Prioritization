@@ -1,0 +1,11 @@
+{
+  "primary_variants": 395,
+  "variants_with_atlas_target": 373,
+  "variants_with_live_target": 386,
+  "variants_with_custom_macrophage": 384,
+  "independent_loci": 281,
+  "tier_1": 10,
+  "tier_2": 57,
+  "median_priority_score": 51.85808978052703,
+  "positive_control": "chr21:39094644:G>A (rs2836882, ETS2)"
+}

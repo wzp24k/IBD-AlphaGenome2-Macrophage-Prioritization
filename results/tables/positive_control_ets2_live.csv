@@ -1,0 +1,15 @@
+output_type,biosample_name,condition_role,raw_score,tracks
+RNA_SEQ,colon T cell,immune_control,0.00026962758,5
+RNA_SEQ,colon colonic epithelial cell,epithelial_sensitivity,0.0023514987,5
+RNA_SEQ,colon epithelial cell,epithelial_control,0.0009255648,5
+RNA_SEQ,colon macrophage,primary_target,-0.14682832,5
+RNA_SEQ,ileum T cell,ileum_immune_control,-4.8208236e-05,5
+RNA_SEQ,ileum epithelial cell,ileum_epithelial_control,-8.3315375e-05,5
+RNA_SEQ,ileum macrophage,macrophage_replication,-0.15338133,5
+SC_GENE_EXPRESSION,colon T cell,immune_control,0.00013828278,1
+SC_GENE_EXPRESSION,colon colonic epithelial cell,epithelial_sensitivity,0.0039639473,7
+SC_GENE_EXPRESSION,colon epithelial cell,epithelial_control,0.00033596583,7
+SC_GENE_EXPRESSION,colon macrophage,primary_target,-0.19717272,7
+SC_GENE_EXPRESSION,ileum T cell,ileum_immune_control,-0.00036019087,2
+SC_GENE_EXPRESSION,ileum epithelial cell,ileum_epithelial_control,0.00024199486,2
+SC_GENE_EXPRESSION,ileum macrophage,macrophage_replication,-0.22764134,2

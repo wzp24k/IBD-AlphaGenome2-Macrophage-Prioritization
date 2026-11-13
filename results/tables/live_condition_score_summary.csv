@@ -1,0 +1,15 @@
+output_type,biosample_name,biosample_curie,condition_role,rows,variants,genes
+RNA_SEQ,colon T cell,UBERON:0001155_CL:0000084,immune_control,27050,392,2465
+RNA_SEQ,colon colonic epithelial cell,UBERON:0001155_CL:0011108,epithelial_sensitivity,27050,392,2465
+RNA_SEQ,colon epithelial cell,UBERON:0001155_CL:0000066,epithelial_control,27050,392,2465
+RNA_SEQ,colon macrophage,UBERON:0001155_CL:0000235,primary_target,27050,392,2465
+RNA_SEQ,ileum T cell,UBERON:0002116_CL:0000084,ileum_immune_control,27050,392,2465
+RNA_SEQ,ileum epithelial cell,UBERON:0002116_CL:0000066,ileum_epithelial_control,27050,392,2465
+RNA_SEQ,ileum macrophage,UBERON:0002116_CL:0000235,macrophage_replication,27050,392,2465
+SC_GENE_EXPRESSION,colon T cell,UBERON:0001155_CL:0000084,immune_control,36456,390,2383
+SC_GENE_EXPRESSION,colon colonic epithelial cell,UBERON:0001155_CL:0011108,epithelial_sensitivity,36456,390,2383
+SC_GENE_EXPRESSION,colon epithelial cell,UBERON:0001155_CL:0000066,epithelial_control,36456,390,2383
+SC_GENE_EXPRESSION,colon macrophage,UBERON:0001155_CL:0000235,primary_target,36456,390,2383
+SC_GENE_EXPRESSION,ileum T cell,UBERON:0002116_CL:0000084,ileum_immune_control,36456,390,2383
+SC_GENE_EXPRESSION,ileum epithelial cell,UBERON:0002116_CL:0000066,ileum_epithelial_control,36456,390,2383
+SC_GENE_EXPRESSION,ileum macrophage,UBERON:0002116_CL:0000235,macrophage_replication,36456,390,2383

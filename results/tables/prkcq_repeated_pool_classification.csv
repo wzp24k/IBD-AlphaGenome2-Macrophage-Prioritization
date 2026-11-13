@@ -1,0 +1,2 @@
+variant,target,classification,max_active_abs_median,all_active_ci_cross_zero
+chr10:6607973:C>T,PRKCQ,attenuated,0.0011064410209655762,False

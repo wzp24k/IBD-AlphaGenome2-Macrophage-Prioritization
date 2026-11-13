@@ -1,0 +1,988 @@
+{
+  "assignment_thresholds": [
+    3,
+    5,
+    10
+  ],
+  "threshold_primary_metrics": [
+    {
+      "umi_threshold": 3,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "IL-23",
+      "pairs": 8,
+      "mean_log2fc": 0.08328719182717134,
+      "p_value": 0.44821687791550374
+    },
+    {
+      "umi_threshold": 10,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "IL-23",
+      "pairs": 8,
+      "mean_log2fc": 0.08306309952063712,
+      "p_value": 0.44776417967652404
+    },
+    {
+      "umi_threshold": 3,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "IL-6/JAK/STAT3",
+      "pairs": 8,
+      "mean_log2fc": -0.015765532147758318,
+      "p_value": 0.4347304231998702
+    },
+    {
+      "umi_threshold": 10,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "IL-6/JAK/STAT3",
+      "pairs": 8,
+      "mean_log2fc": -0.011783726191032736,
+      "p_value": 0.5695627173879089
+    },
+    {
+      "umi_threshold": 3,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": 0.10697016885911662,
+      "p_value": 0.45307140051631745
+    },
+    {
+      "umi_threshold": 5,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": 0.10680631463185536,
+      "p_value": 0.4537939901196976
+    },
+    {
+      "umi_threshold": 10,
+      "target": "IL23R",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": 0.10696605599164238,
+      "p_value": 0.4555133560655865
+    },
+    {
+      "umi_threshold": 3,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "IL-23",
+      "pairs": 8,
+      "mean_log2fc": 0.00011744810209118883,
+      "p_value": 0.998753256601605
+    },
+    {
+      "umi_threshold": 10,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "IL-23",
+      "pairs": 8,
+      "mean_log2fc": 0.0015941183660206776,
+      "p_value": 0.982938320489777
+    },
+    {
+      "umi_threshold": 3,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "IL-6/JAK/STAT3",
+      "pairs": 8,
+      "mean_log2fc": -0.017334338226684846,
+      "p_value": 0.5524771652067775
+    },
+    {
+      "umi_threshold": 10,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "IL-6/JAK/STAT3",
+      "pairs": 8,
+      "mean_log2fc": -0.013924752182056353,
+      "p_value": 0.6327824666242196
+    },
+    {
+      "umi_threshold": 3,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": -0.6348760244297637,
+      "p_value": 6.03423013427452e-05
+    },
+    {
+      "umi_threshold": 5,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": -0.6363524619526829,
+      "p_value": 6.254885039283613e-05
+    },
+    {
+      "umi_threshold": 10,
+      "target": "PDGFB",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": -0.6424494551074613,
+      "p_value": 6.46122078678473e-05
+    },
+    {
+      "umi_threshold": 3,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "IL-23",
+      "pairs": 8,
+      "mean_log2fc": -0.0886631141256739,
+      "p_value": 0.13296429788154773
+    },
+    {
+      "umi_threshold": 10,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "IL-23",
+      "pairs": 8,
+      "mean_log2fc": -0.09430829324679377,
+      "p_value": 0.09558737882685094
+    },
+    {
+      "umi_threshold": 3,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "IL-6/JAK/STAT3",
+      "pairs": 8,
+      "mean_log2fc": -0.05427838871661168,
+      "p_value": 0.13626664668345104
+    },
+    {
+      "umi_threshold": 10,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "IL-6/JAK/STAT3",
+      "pairs": 8,
+      "mean_log2fc": -0.05199983829998946,
+      "p_value": 0.15384172131102264
+    },
+    {
+      "umi_threshold": 3,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": -0.10439423695037031,
+      "p_value": 0.42007687557503204
+    },
+    {
+      "umi_threshold": 5,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": -0.10443616325395844,
+      "p_value": 0.4218836853521463
+    },
+    {
+      "umi_threshold": 10,
+      "target": "PRKCQ",
+      "condition": "Combined",
+      "metric": "self",
+      "pairs": 8,
+      "mean_log2fc": -0.10168066431904811,
+      "p_value": 0.43043242038350166
+    }
+  ],
+  "leave_one_guide_same_direction_fraction": [
+    {
+      "target": "IL23R",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "IL23R",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "IL23R",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "IL23R",
+      "metric": "self",
+      "same_direction_as_full": 0.8333333333333334
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PDGFB",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PDGFB",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 0.9166666666666666
+    },
+    {
+      "target": "PDGFB",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 0.9166666666666666
+    },
+    {
+      "target": "PDGFB",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 0.9166666666666666
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "self",
+      "same_direction_as_full": 0.9166666666666666
+    }
+  ],
+  "leave_one_donor_same_direction_fraction": [
+    {
+      "target": "IL23R",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "IL23R",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "IL23R",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "IL23R",
+      "metric": "self",
+      "same_direction_as_full": 0.8333333333333334
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "MAP3K8",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PDGFB",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PDGFB",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PDGFB",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PDGFB",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "PRKCQ",
+      "metric": "self",
+      "same_direction_as_full": 0.8333333333333334
+    },
+    {
+      "target": "TNF",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNF",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFAIP3",
+      "metric": "self",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "IL-23",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "IL-6/JAK/STAT3",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "JAK-STAT",
+      "same_direction_as_full": 1.0
+    },
+    {
+      "target": "TNFSF15",
+      "metric": "self",
+      "same_direction_as_full": 0.8333333333333334
+    }
+  ],
+  "mixed_model": [
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": -0.6137824208501372,
+      "p_value": 0.012614653259639253,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.07718253216026924,
+      "p_value": 0.37215659928253064,
+      "random_intercept_variance": 0.006392478057980642,
+      "model_type": "mixedlm_donor_random_intercept"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": -0.07361885660849943,
+      "p_value": 0.4645235571994674,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": -0.03998337208657876,
+      "p_value": 0.5635553862542019,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": -0.7527993634991854,
+      "p_value": 0.02207004658675046,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.09501743101668536,
+      "p_value": 0.3522384137624411,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": -0.1096577032721755,
+      "p_value": 0.5774690022704788,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PDGFB",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": -0.04294794706479066,
+      "p_value": 0.30087541984205024,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": -0.2011399013482444,
+      "p_value": 1.0088340709278809e-11,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.1023736386092553,
+      "p_value": 0.36392845894111353,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": -0.056705668209341864,
+      "p_value": 0.5552134269488179,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": -0.0416837048875891,
+      "p_value": 0.4160206636897893,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": -0.06445943080466879,
+      "p_value": 0.7914969113275571,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.16194039741006172,
+      "p_value": 0.22325776258056407,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": -0.274395787748382,
+      "p_value": 0.014418705026692409,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "PRKCQ",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": -0.046782562999447164,
+      "p_value": 0.16969478082205255,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": -0.02675688985735914,
+      "p_value": 2.924426430110997e-05,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.0430658060468776,
+      "p_value": 0.7427862197683907,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": -0.0863624557842887,
+      "p_value": 0.5542838928097213,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": -0.0944429937149196,
+      "p_value": 0.4355977234516984,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": 0.08543914458781987,
+      "p_value": 0.7101207311799808,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.25446230893255484,
+      "p_value": 0.25285209119174384,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": -0.2425381427835871,
+      "p_value": 0.38743671771257987,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "IL23R",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": -0.0699988233873643,
+      "p_value": 0.541551087632674,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": -1.1349917655229884,
+      "p_value": 0.019013580675504214,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.10138977642791414,
+      "p_value": 0.43484821615190816,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": -0.02285537328616638,
+      "p_value": 0.8390679940274001,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": -0.013702215495072556,
+      "p_value": 0.840189457324595,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": -0.49183032691513484,
+      "p_value": 0.3530172787019753,
+      "random_intercept_variance": 3.400431485916643e-05,
+      "model_type": "mixedlm_donor_random_intercept"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.09735842819781437,
+      "p_value": 0.55141510117184,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": -0.24328858799733366,
+      "p_value": 0.015221690742698614,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFSF15",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": -0.021753970067804884,
+      "p_value": 0.612919633813943,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": -0.23079742477972331,
+      "p_value": 0.2619212798887764,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.0871390523987916,
+      "p_value": 0.1530977864099791,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": -0.12237886554232946,
+      "p_value": 0.4231083805436148,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": -0.027404413991427123,
+      "p_value": 0.7878347993212849,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": -0.10503039404184955,
+      "p_value": 0.5964437831955494,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.01240992960283993,
+      "p_value": 0.8847655274457437,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": -0.14094436177032854,
+      "p_value": 0.24845181795397295,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "MAP3K8",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": 0.07168880859478088,
+      "p_value": 0.0656160133391133,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": -1.177300977581178,
+      "p_value": 0.14680124260007593,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.068477006670697,
+      "p_value": 0.3091100744432472,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": -0.18264008647274688,
+      "p_value": 0.3288219807332649,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": -0.10787606909286018,
+      "p_value": 0.2750161875007111,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": -0.14644764935293053,
+      "p_value": 0.656179833474925,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.029924560380653498,
+      "p_value": 0.8834929230132532,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": -0.11603061009880711,
+      "p_value": 0.5755851082500996,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNF",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": -0.008805132266120008,
+      "p_value": 0.8731626275562976,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "metric": "self",
+      "coefficient": 0.5276408574762532,
+      "p_value": 0.016786225170622157,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": -0.023042047894629825,
+      "p_value": 0.8050071540302791,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "metric": "IL-23",
+      "coefficient": 0.08528839345846706,
+      "p_value": 0.34402800633746644,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "Ctrl",
+      "metric": "JAK-STAT",
+      "coefficient": 0.21731777376166428,
+      "p_value": 0.0008441836825844569,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "metric": "self",
+      "coefficient": 0.11015064031411237,
+      "p_value": 0.47446935971440635,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "metric": "IL-6/JAK/STAT3",
+      "coefficient": 0.49996158204282115,
+      "p_value": 1.0789161943747386e-07,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "metric": "IL-23",
+      "coefficient": 0.5706198099385522,
+      "p_value": 0.00398548002852994,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    },
+    {
+      "target": "TNFAIP3",
+      "condition": "LPS",
+      "metric": "JAK-STAT",
+      "coefficient": -0.018975554774714798,
+      "p_value": 0.6823252249537256,
+      "random_intercept_variance": 0.0,
+      "model_type": "donor_fixed_effect_fallback"
+    }
+  ]
+}

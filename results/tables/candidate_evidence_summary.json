@@ -1,0 +1,11 @@
+{
+  "final_tier1_total": 10,
+  "tier1_target_uncertain": 3,
+  "target_confidence_counts": {
+    "high": 94,
+    "low": 88,
+    "moderate": 75,
+    "very low": 24
+  },
+  "tier1_external_supported": 1
+}

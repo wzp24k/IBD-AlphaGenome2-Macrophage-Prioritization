@@ -1,0 +1,2 @@
+variant,rsid,target_gene,pip,l2g_score,atlas_gi_max_abs_q,rna_macrophage_effect,rna_control_abs_max,sc_macrophage_effect,sc_control_abs_max,custom_macrophage_effect,custom_macrophage_abs_percentile,evidence_tier
+chr10:6060049:C>T,rs12722489,IL2RA,0.9992090621241132,0.7742957472801208,0.973301887512207,-0.00037021638127043843,0.0004333973047323525,-0.0015356199583038688,0.003219211706891656,0.0013049841,0.37711538461538463,Tier 2

@@ -1,0 +1,21 @@
+{
+  "scored_variants": 390,
+  "lead_targets_with_oliver_active": 272,
+  "lead_active_healthy_direction_concordance": 0.4227941176470588,
+  "spearman_active_vs_healthy_all_leads": {
+    "rho": 0.24786405060385022,
+    "p": 3.569072979253078e-05,
+    "n": 272
+  },
+  "spearman_active_vs_healthy_top28": {
+    "rho": 0.8308702791461413,
+    "p": 4.420139384104567e-08,
+    "n": 28
+  },
+  "top28_multicohort_supported": 21,
+  "top28_strictly_replicated": 17,
+  "tier1_active_multicohort_supported": 9,
+  "final_validated_tier1": 10,
+  "final_persistent_tier1": 9,
+  "final_attenuated_tier1": 1
+}

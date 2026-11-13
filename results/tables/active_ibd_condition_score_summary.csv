@@ -1,0 +1,7 @@
+cohort,disease_state,cell_pool_type,biosample_name,rows,variants,genes
+Crohn2023,active,colon_macrophage,active_crohn_macrophage_independent,380,29,338
+Crohn2023,healthy,colon_macrophage,healthy_colon_macrophage_crohn2023,380,29,338
+Garrido2023,active,ibd_myeloid,active_ibd_myeloid_garrido,380,29,338
+Garrido2023,healthy,ibd_myeloid,healthy_myeloid_garrido,380,29,338
+Oliver2024,active,colon_macrophage,active_colitis_macrophage_oliver,5208,390,2383
+Oliver2024,healthy,colon_macrophage,healthy_colorectal_macrophage_oliver,5208,390,2383

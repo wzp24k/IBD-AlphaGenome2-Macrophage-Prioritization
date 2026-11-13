@@ -1,0 +1,6 @@
+rsid,chromosome,position_1based,expected_reference,observed_reference,reference_match
+rs2143178,chr22,39264824,T,T,True
+rs7404003,chr16,23853326,C,C,True
+rs971891,chr5,130237973,C,C,True
+rs2836882,chr21,39094644,G,G,True
+rs12722489,chr10,6060049,C,C,True

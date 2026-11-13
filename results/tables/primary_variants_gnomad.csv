@@ -1,0 +1,397 @@
+canonical_variant,gnomad_variant_id,gnomad_found,gnomad_rsid,gnomad_af,gnomad_ac,gnomad_an,gnomad_filters,gnomad_error,gnomad_common
+chr10:102219168:T>A,10-102219168-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:102476221:C>T,10-102476221-C-T,True,rs11595149,0.49986148670931996,75784.0,151610.0,,,True
+chr10:102486934:G>A,10-102486934-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:110422950:A>C,10-110422950-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:110425838:G>A,10-110425838-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:30433979:G>C,10-30433979-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:35146999:A>T,10-35146999-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:35251392:A>C,10-35251392-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:48182406:G>T,10-48182406-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:58243611:T>C,10-58243611-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:6060049:C>T,10-6060049-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:62636282:C>T,10-62636282-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:62685804:A>G,10-62685804-A-G,True,rs10761659,0.4383361616480524,66642.0,152034.0,,,True
+chr10:6607693:C>T,10-6607693-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:6607973:C>T,10-6607973-C-T,True,rs4748198,0.1836509251587959,27930.0,152082.0,,,True
+chr10:6608798:C>T,10-6608798-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:6611789:G>C,10-6611789-G-C,True,rs10904620,0.17034629756328615,25894.0,152008.0,,,True
+chr10:73911404:G>T,10-73911404-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:79272775:A>G,10-79272775-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:79283615:G>C,10-79283615-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:80508189:A>C,10-80508189-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:89201149:T>A,10-89201149-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:89201743:A>T,10-89201743-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:89202042:G>A,10-89202042-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:89203771:C>CT,10-89203771-C-CT,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:92634204:T>C,10-92634204-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:92713872:G>A,10-92713872-G-A,True,rs7087591,0.39472290273455607,59615.0,151030.0,,,True
+chr10:99518059:C>T,10-99518059-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr10:99543306:C>T,10-99543306-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:114559688:A>G,11-114559688-A-G,True,rs661054,0.38337534477980284,58099.0,151546.0,,,True
+chr11:1852002:A>T,11-1852002-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:1852842:G>A,11-1852842-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:1853062:G>A,11-1853062-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:1854927:G>A,11-1854927-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:1855637:C>T,11-1855637-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:1855715:G>A,11-1855715-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:56459528:C>T,11-56459528-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:56504734:A>G,11-56504734-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:56679337:A>T,11-56679337-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:61009309:T>C,11-61009309-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:61033838:C>A,11-61033838-C-A,True,rs999297,0.2676674608084451,40671.0,151946.0,,,True
+chr11:61036116:G>A,11-61036116-G-A,True,rs3016171,0.2980733800073696,45300.0,151976.0,,,True
+chr11:61037238:G>A,11-61037238-G-A,True,rs2051770,0.26769684365704055,40676.0,151948.0,,,True
+chr11:61869877:C>T,11-61869877-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr11:76582761:G>C,11-76582761-G-C,True,rs7936434,0.4394775228749503,66282.0,150820.0,,,True
+chr12:112172910:G>A,12-112172910-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:112433568:A>G,12-112433568-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:112468611:A>G,12-112468611-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:119655135:G>A,12-119655135-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:119709120:G>A,12-119709120-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:40613304:T>A,12-40613304-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:56073885:T>C,12-56073885-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:68081220:C>G,12-68081220-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:68082885:G>A,12-68082885-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr12:68085433:G>A,12-68085433-G-A,True,rs12815372,0.2625062531265633,39881.0,151924.0,,,True
+chr13:26967893:T>C,13-26967893-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:26968139:C>A,13-26968139-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:26968710:C>T,13-26968710-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:26972665:C>T,13-26972665-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:40705988:T>TTTTAA,13-40705988-T-TTTTAA,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:40891596:C>A,13-40891596-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:43899730:G>T,13-43899730-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:52062509:C>T,13-52062509-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:99332932:C>CA,13-99332932-C-CA,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:99341776:A>G,13-99341776-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:99348586:A>T,13-99348586-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr13:99449183:G>A,13-99449183-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:104097826:A>G,14-104097826-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:34953247:C>T,14-34953247-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:68816170:C>T,14-68816170-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:75279441:C>T,14-75279441-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:75280415:G>T,14-75280415-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:75303322:G>T,14-75303322-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:75535714:C>A,14-75535714-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:75539214:T>C,14-75539214-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:75540230:C>T,14-75540230-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:87912493:C>G,14-87912493-C-G,True,rs113146181,0.23695262922295074,35995.0,151908.0,,,True
+chr14:88004037:A>C,14-88004037-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:88009660:C>T,14-88009660-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:88012483:T>C,14-88012483-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr14:88080668:T>A,14-88080668-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr15:60777789:C>T,15-60777789-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr15:67155843:C>T,15-67155843-C-T,True,rs28434383,0.355710497499967,53925.0,151598.0,,,True
+chr15:67163292:C>T,15-67163292-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr15:80424141:G>A,15-80424141-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr15:80675204:T>C,15-80675204-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr15:90600362:C>T,15-90600362-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:10871269:G>A,16-10871269-G-A,True,rs12922863,0.2213839373807801,33657.0,152030.0,,,True
+chr16:10871744:G>T,16-10871744-G-T,True,rs10445003,0.21802574541813247,33095.0,151794.0,,,True
+chr16:11291247:G>C,16-11291247-G-C,True,rs243314,0.5013323132123259,76010.0,151616.0,,,True
+chr16:11601441:A>G,16-11601441-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:11605864:G>T,16-11605864-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:11610795:C>A,16-11610795-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:11610900:G>A,16-11610900-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:11610960:G>A,16-11610960-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:2117121:C>T,16-2117121-C-T,True,rs191241541,0.036018564779510376,5479.0,152116.0,,,True
+chr16:23853326:C>A,16-23853326-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:28475735:A>G,16-28475735-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:28853721:T>C,16-28853721-T-C,True,rs62037363,0.34105079833552693,51307.0,150438.0,,,True
+chr16:30458598:C>T,16-30458598-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:30501122:G>A,16-30501122-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:50377862:T>C,16-50377862-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:50722863:C>T,16-50722863-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:50786495:C>T,16-50786495-C-T,True,rs13337656,0.3809272988240871,57856.0,151882.0,,,True
+chr16:80742984:G>A,16-80742984-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:80804680:G>T,16-80804680-G-T,True,rs187975120,0.06118137709207872,8978.0,146744.0,,,True
+chr16:81884916:C>T,16-81884916-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr16:85980635:T>C,16-85980635-T-C,True,rs16940202,0.15218020388030254,23139.0,152050.0,,,True
+chr16:85984057:G>A,16-85984057-G-A,True,rs17445836,0.15193530131739993,23089.0,151966.0,,,True
+chr17:34279205:C>A,17-34279205-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:34298364:T>A,17-34298364-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:39884510:G>A,17-39884510-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:40598769:A>G,17-40598769-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:40599413:C>T,17-40599413-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:40600717:G>T,17-40600717-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:40601477:A>T,17-40601477-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:40601537:C>T,17-40601537-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:42347140:C>T,17-42347140-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:48245604:G>A,17-48245604-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr17:48268286:C>T,17-48268286-C-T,True,rs1470831,0.7902711855367713,118547.0,150008.0,,,True
+chr17:72640841:T>A,17-72640841-T-A,True,rs58953467,0.2148326995697425,32655.0,152002.0,,,True
+chr17:72643045:G>A,17-72643045-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr18:12775296:T>G,18-12775296-T-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr18:12779948:G>T,18-12779948-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr18:12787248:T>G,18-12787248-T-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr18:12829066:T>G,18-12829066-T-G,True,rs12957037,0.3511461450245838,53278.0,151726.0,,,True
+chr18:12860799:T>TA,18-12860799-T-TA,True,rs11376832,0.7353321033210332,111594.0,151760.0,,,True
+chr18:12863841:T>G,18-12863841-T-G,True,rs34799913,0.08621097601051594,13117.0,152150.0,,,True
+chr18:48868651:A>G,18-48868651-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr18:48868788:C>T,18-48868788-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:10479832:C>G,19-10479832-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:1073410:C>G,19-1073410-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:33244575:T>C,19-33244575-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:33245197:G>C,19-33245197-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:33257415:C>T,19-33257415-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:33260443:G>A,19-33260443-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:40712706:G>A,19-40712706-G-A,True,rs2604913,0.565938692277332,86034.0,152020.0,,,True
+chr19:40720510:C>G,19-40720510-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:40727393:C>T,19-40727393-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:48751698:C>T,19-48751698-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr19:48765849:C>T,19-48765849-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:108103935:G>T,1-108103935-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:108110534:C>T,1-108110534-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:108112400:A>C,1-108112400-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:108116235:G>A,1-108116235-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:108116577:G>A,1-108116577-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:120097192:C>T,1-120097192-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:120125306:C>T,1-120125306-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:120968247:T>C,1-120968247-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:1309988:G>A,1-1309988-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:1473990:A>G,1-1473990-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:151820698:G>T,1-151820698-G-T,True,rs11204894,0.2200089496058225,33433.0,151962.0,,,True
+chr1:151829204:G>A,1-151829204-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:155194689:A>C,1-155194689-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:160879203:G>A,1-160879203-G-A,True,rs3766357,0.5812295557665929,88133.0,151632.0,,,True
+chr1:161499264:G>C,1-161499264-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:161531085:T>C,1-161531085-T-C,True,rs10919347,0.07894563600215929,11992.0,151902.0,,,True
+chr1:172877652:A>G,1-172877652-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:179134699:T>C,1-179134699-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:179254807:A>G,1-179254807-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:197405685:T>C,1-197405685-T-C,True,rs113109508,0.3321090864818798,49101.0,147846.0,,,True
+chr1:197735587:C>T,1-197735587-C-T,True,rs17641524,0.14855067696477678,22580.0,152002.0,,,True
+chr1:19815777:G>A,1-19815777-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:19816188:A>G,1-19816188-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:19845367:G>A,1-19845367-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:198687277:C>T,1-198687277-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:198689168:TA>T,1-198689168-TA-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:19899046:A>G,1-19899046-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:200908434:C>A,1-200908434-C-A,True,rs7554511,0.21344102287525815,32452.0,152042.0,,,True
+chr1:206753120:G>A,1-206753120-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:206766559:G>A,1-206766559-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:206769068:C>T,1-206769068-C-T,True,rs3024495,0.10920877878154299,16610.0,152094.0,,,True
+chr1:206770623:C>A,1-206770623-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:206796432:G>A,1-206796432-G-A,True,rs4845136,0.4490719395081082,68179.0,151822.0,,,True
+chr1:22375232:C>T,1-22375232-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:22376542:T>C,1-22376542-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:234598544:A>T,1-234598544-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:234599210:C>T,1-234599210-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:2777410:T>C,1-2777410-T-C,True,rs10909957,0.6653797090435349,98061.0,147376.0,,,True
+chr1:67251268:C>T,1-67251268-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:67254228:C>G,1-67254228-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:67264372:A>G,1-67264372-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:7982342:A>T,1-7982342-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:7986318:C>T,1-7986318-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr1:93389131:C>T,1-93389131-C-T,True,rs1081521,0.8367325469775271,127262.0,152094.0,,,True
+chr1:93389437:G>A,1-93389437-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:32394916:G>T,20-32394916-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:44433517:C>T,20-44433517-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:44436388:A>C,20-44436388-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:46103450:T>C,20-46103450-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:50338887:T>C,20-50338887-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:50339058:A>G,20-50339058-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:50340417:A>G,20-50340417-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:59277492:G>A,20-59277492-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:59277750:C>T,20-59277750-C-T,True,rs6123879,0.2883215522120865,43807.0,151938.0,,,True
+chr20:59280653:G>A,20-59280653-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:63596839:A>G,20-63596839-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr20:63722792:C>T,20-63722792-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:15417360:A>G,21-15417360-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:33404389:A>G,21-33404389-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:33446742:T>C,21-33446742-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:33494277:C>T,21-33494277-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:33534011:A>G,21-33534011-A-G,True,rs62227703,0.18232044198895028,27720.0,152040.0,,,True
+chr21:33534122:T>C,21-33534122-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:33539620:TAGG>T,21-33539620-TAGG-T,True,rs71942989,0.18252263718198572,27535.0,150858.0,,,True
+chr21:39094644:G>A,21-39094644-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:39094818:G>A,21-39094818-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr21:44195803:T>G,21-44195803-T-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr22:21610472:G>A,22-21610472-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr22:29877405:C>T,22-29877405-C-T,True,rs8139994,0.21675824537823984,32900.0,151782.0,,,True
+chr22:30112286:C>G,22-30112286-C-G,True,rs9625921,0.4470307410289211,67794.0,151654.0,,,True
+chr22:30130643:G>T,22-30130643-G-T,True,rs5763793,0.44157114515595725,64102.0,145168.0,,,True
+chr22:30143832:C>T,22-30143832-C-T,True,rs2412974,0.4466772151898734,67752.0,151680.0,,,True
+chr22:35272059:T>C,22-35272059-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr22:36874460:A>G,22-36874460-A-G,True,rs738148,0.5672726315373781,86188.0,151934.0,,,True
+chr22:36882318:C>A,22-36882318-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr22:39264824:T>C,22-39264824-T-C,True,rs2143178,0.19124534009047853,28831.0,150754.0,,,True
+chr22:39298220:A>C,22-39298220-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr22:39305698:G>A,22-39305698-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr22:50003556:A>C,22-50003556-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:102410151:G>C,2-102410151-G-C,True,rs4851008,0.7725070943047582,117058.0,151530.0,,,True
+chr2:102442343:C>T,2-102442343-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:111263239:C>G,2-111263239-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:144673069:A>G,2-144673069-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:162232496:G>T,2-162232496-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:181463487:G>A,2-181463487-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:186780461:G>A,2-186780461-G-A,True,rs10211436,0.9271132040725053,140962.0,152044.0,,,True
+chr2:186797298:T>C,2-186797298-T-C,True,rs4603726,0.9272158141859456,140998.0,152066.0,,,True
+chr2:198744074:T>C,2-198744074-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:198828721:A>G,2-198828721-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:203727298:G>A,2-203727298-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:218123338:G>A,2-218123338-G-A,True,rs4672872,0.6138141550821925,92902.0,151352.0,,,True
+chr2:227784178:G>T,2-227784178-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:227784520:G>A,2-227784520-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:227787631:A>G,2-227787631-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:227788448:C>T,2-227788448-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:227799564:C>T,2-227799564-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:227805760:C>G,2-227805760-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:227806707:C>T,2-227806707-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:233264200:A>G,2-233264200-A-G,True,rs6708373,0.43574043348871505,66182.0,151884.0,,,True
+chr2:240623934:G>T,2-240623934-G-T,True,rs78818937,0.04237545164438115,6427.0,151668.0,,,True
+chr2:240624322:G>A,2-240624322-G-A,True,rs4676410,0.25811675487795244,39210.0,151908.0,,,True
+chr2:240635802:C>G,2-240635802-C-G,True,rs72484043,0.031091877496671104,4670.0,150200.0,,,True
+chr2:240645337:G>C,2-240645337-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:24813989:C>A,2-24813989-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:27375230:T>C,2-27375230-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:27518370:T>C,2-27518370-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:27519736:T>C,2-27519736-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:28391534:T>C,2-28391534-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:43265994:C>T,2-43265994-C-T,True,rs13388722,0.11655237879346009,16453.0,141164.0,,,True
+chr2:60892336:G>A,2-60892336-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:60940865:G>T,2-60940865-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:60960280:G>C,2-60960280-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:65441318:C>T,2-65441318-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr2:65475669:T>C,2-65475669-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:141525974:G>A,3-141525974-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:188702557:A>C,3-188702557-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:46426979:G>A,3-46426979-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:46427780:T>C,3-46427780-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:46428470:C>G,3-46428470-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:47263535:C>T,3-47263535-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:47508360:C>T,3-47508360-C-T,True,rs151213353,0.012513801987486198,1904.0,152152.0,,,True
+chr3:47511820:TC>T,3-47511820-TC-T,True,rs143493246,0.025654168145198386,3904.0,152178.0,,,True
+chr3:47522280:G>A,3-47522280-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:49433235:G>A,3-49433235-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr3:71126344:C>T,3-71126344-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:101816779:C>G,4-101816779-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:101834221:G>A,4-101834221-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:101836421:C>A,4-101836421-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:105178652:T>C,4-105178652-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:105181249:G>C,4-105181249-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:122408359:T>C,4-122408359-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:122589611:A>G,4-122589611-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:36061370:A>G,4-36061370-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:36129298:C>T,4-36129298-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:36189812:T>C,4-36189812-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:38333446:G>A,4-38333446-G-A,True,rs73243351,0.14566115702479338,22137.0,151976.0,,,True
+chr4:38334202:C>T,4-38334202-C-T,True,rs1487630,0.14157114091309897,21514.0,151966.0,,,True
+chr4:38335493:C>T,4-38335493-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:38417529:A>T,4-38417529-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:38417569:T>C,4-38417569-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr4:38417596:T>A,4-38417596-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:10692233:CTT>C,5-10692233-CTT-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:10704685:T>C,5-10704685-T-C,True,rs2918392,0.4614593903612235,70032.0,151762.0,,,True
+chr5:130237973:C>T,5-130237973-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:130440872:C>T,5-130440872-C-T,True,rs763787,0.20681145113524185,31425.0,151950.0,,,True
+chr5:131087576:A>G,5-131087576-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:131087866:G>A,5-131087866-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:131726714:T>C,5-131726714-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:132358384:T>C,5-132358384-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:135107916:G>A,5-135107916-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:135109292:C>A,5-135109292-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:142104784:G>A,5-142104784-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:142146492:C>A,5-142146492-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:142160452:C>T,5-142160452-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:142866576:C>T,5-142866576-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:150220956:G>A,5-150220956-G-A,True,rs34266615,0.44199062368310155,67126.0,151872.0,,,True
+chr5:150223261:C>T,5-150223261-C-T,True,rs2241695,0.46942889137737964,71264.0,151810.0,,,True
+chr5:150226431:C>T,5-150226431-C-T,True,rs17656349,0.45267893606650245,68723.0,151814.0,,,True
+chr5:150229101:C>A,5-150229101-C-A,True,rs1549914,0.4512066603435557,68504.0,151824.0,,,True
+chr5:150230409:G>A,5-150230409-G-A,True,rs1549913,0.4506142636109972,68150.0,151238.0,,,True
+chr5:150849574:A>G,5-150849574-A-G,True,rs80249982,0.09449597690395359,14140.0,149636.0,,,True
+chr5:150865009:C>T,5-150865009-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:159395637:G>C,5-159395637-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:159397502:G>T,5-159397502-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:159400761:C>A,5-159400761-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:159407359:G>T,5-159407359-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:159460964:T>C,5-159460964-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172715548:C>A,5-172715548-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172722071:A>G,5-172722071-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172726338:T>C,5-172726338-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172897894:A>T,5-172897894-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172897975:G>A,5-172897975-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172898112:C>G,5-172898112-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:172900358:T>C,5-172900358-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:177372991:T>C,5-177372991-T-C,True,rs10051765,0.38640647448824916,58631.0,151734.0,,,True
+chr5:38867630:C>T,5-38867630-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:40410482:T>C,5-40410482-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:40540767:T>C,5-40540767-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr5:96912106:T>C,5-96912106-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:105991197:C>G,6-105991197-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:106039417:G>A,6-106039417-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:106041095:T>G,6-106041095-T-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:111550755:G>A,6-111550755-G-A,True,rs79052344,0.05783923100188042,8797.0,152094.0,,,True
+chr6:117512198:T>A,6-117512198-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:117516853:G>A,6-117516853-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:117520796:G>A,6-117520796-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:117522909:A>G,6-117522909-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:137638098:T>C,6-137638098-T-C,True,rs6933404,0.15889994871862304,24169.0,152102.0,,,True
+chr6:137643560:A>G,6-137643560-A-G,True,rs62432712,0.1530902015434574,23289.0,152126.0,,,True
+chr6:137652695:C>T,6-137652695-C-T,True,rs928722,0.159155207579446,24190.0,151990.0,,,True
+chr6:137681038:C>G,6-137681038-C-G,True,rs6927172,0.15829089521403286,24058.0,151986.0,,,True
+chr6:137684378:A>G,6-137684378-A-G,True,rs17264332,0.1580308153840081,24021.0,152002.0,,,True
+chr6:137685367:G>A,6-137685367-G-A,True,rs6920220,0.1582134347808917,24038.0,151934.0,,,True
+chr6:143569432:T>C,6-143569432-T-C,True,rs12664485,0.05928438099744985,9020.0,152148.0,,,True
+chr6:143570283:A>G,6-143570283-A-G,True,rs12191421,0.059291290975526406,9022.0,152164.0,,,True
+chr6:14721666:T>C,6-14721666-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:167018548:A>G,6-167018548-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:20674580:G>T,6-20674580-G-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:20678199:G>C,6-20678199-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:20689714:G>A,6-20689714-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:20715630:G>A,6-20715630-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:21382534:T>G,6-21382534-T-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:21428226:A>T,6-21428226-A-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:21867474:G>A,6-21867474-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:21884209:G>A,6-21884209-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:21886258:T>C,6-21886258-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:21887950:G>A,6-21887950-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22064410:T>C,6-22064410-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22064973:G>A,6-22064973-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22065748:C>A,6-22065748-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22065988:G>A,6-22065988-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22067050:T>A,6-22067050-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22079297:A>G,6-22079297-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:22097146:T>C,6-22097146-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:246629:G>A,6-246629-G-A,True,rs77688705,0.03347277582645987,5089.0,152034.0,,,True
+chr6:33585900:G>C,6-33585900-G-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:90207595:G>A,6-90207595-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr6:90274316:C>T,6-90274316-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:107920710:T>C,7-107920710-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:128936032:T>C,7-128936032-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:148741180:CT>C,7-148741180-CT-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:20334668:C>G,7-20334668-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:20542073:T>C,7-20542073-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:20546549:C>T,7-20546549-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:20546947:A>C,7-20546947-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:2743672:T>C,7-2743672-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:2767614:T>TA,7-2767614-T-TA,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:2783352:T>A,7-2783352-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:4401126:G>A,7-4401126-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:50283860:C>CT,7-50283860-C-CT,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:5311037:T>C,7-5311037-T-C,True,rs34022406,0.01534975369458128,2337.0,152250.0,,,True
+chr7:5317273:G>A,7-5317273-G-A,True,rs182333768,0.0024470786354247524,372.0,152018.0,,,False
+chr7:5526855:ACCT>A,7-5526855-ACCT-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:6120836:G>A,7-6120836-G-A,True,rs541903352,0.002058289712497041,313.0,152068.0,,,False
+chr7:6223157:C>G,7-6223157-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:6429837:G>A,7-6429837-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:6464812:T>G,7-6464812-T-G,True,rs113913301,0.22354639680745292,32826.0,146842.0,,,True
+chr7:6586630:C>A,7-6586630-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:74606017:G>A,7-74606017-G-A,True,rs150724213,0.008862308542554872,1347.0,151992.0,,,False
+chr7:74632648:C>CCACACA,7-74632648-C-CCACACA,True,rs112396995,0.0097151303413061,1446.0,148840.0,,,False
+chr7:74711703:C>T,7-74711703-C-T,True,rs117026326,0.013883225696134267,2111.0,152054.0,,,True
+chr7:959508:C>T,7-959508-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:99158974:C>T,7-99158974-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr7:99171665:G>A,7-99171665-G-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr8:125522429:A>G,8-125522429-A-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr8:128550184:A>C,8-128550184-A-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr8:128550212:C>T,8-128550212-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr9:114789323:T>A,9-114789323-T-A,True,rs10117785,0.3366503670704222,51084.0,151742.0,,,True
+chr9:114795706:G>A,9-114795706-G-A,True,rs12235514,0.04489176294310161,6831.0,152166.0,,,True
+chr9:114796423:C>T,9-114796423-C-T,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr9:114826977:C>A,9-114826977-C-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr9:114881082:C>T,9-114881082-C-T,True,rs13300483,0.2096096056516238,31807.0,151744.0,,,True
+chr9:136345414:C>G,9-136345414-C-G,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr9:5131312:T>A,9-5131312-T-A,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False
+chr9:92684037:T>C,9-92684037-T-C,False,,,,,,GraphQL request failed: 429 Client Error: Too Many Requests for url: https://gnomad.broadinstitute.org/api,False

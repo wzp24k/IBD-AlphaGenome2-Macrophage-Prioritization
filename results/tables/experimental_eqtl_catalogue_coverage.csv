@@ -1,0 +1,6 @@
+target,rsid,datasets_queried,eQTL_hits_nominal_p05,minimum_pvalue,classification
+ERGIC1,rs564109,8,0,0.077815,public_myeloid_eqtl_not_covered
+GCKR,rs780094,8,0,0.662516,public_myeloid_eqtl_not_covered
+ABCB5,rs76380568,8,0,0.750557,public_myeloid_eqtl_not_covered
+IRF2BP2,rs10910476,8,0,0.0729162,public_myeloid_eqtl_not_covered
+CAMK2A,rs1549913,8,1,0.00775412,nominal_colon_or_myeloid_eQTL
