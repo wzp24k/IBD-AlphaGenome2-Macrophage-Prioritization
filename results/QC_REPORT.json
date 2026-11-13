@@ -80,7 +80,7 @@
     "no_collapse_symbols": true,
     "reference_count_42": true,
     "citation_order_1_to_42": true,
-    "citation_groups_sorted_unique": true,
+    "every_reference_cited_once": true,
     "all_references_cited": true,
     "reference_bookmarks_and_hyperlinks": true,
     "figure1_drawio_valid": true,
@@ -566,9 +566,9 @@
       41,
       42
     ],
-    "citation_groups": 31,
+    "citation_groups": 20,
     "reference_bookmarks": 42,
-    "reference_hyperlinks": 99,
+    "reference_hyperlinks": 42,
     "cited_tables": [
       1,
       2,

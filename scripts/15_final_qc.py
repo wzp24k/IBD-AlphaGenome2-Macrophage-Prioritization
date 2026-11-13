@@ -627,14 +627,15 @@ def main() -> None:
         ),
         "reference_count_42": len(reference_numbers) == 42,
         "citation_order_1_to_42": citation_order == list(range(1, 43)),
-        "citation_groups_sorted_unique": citation_audit["all_checks_pass"]
-        and citation_audit["duplicate_groups_before_normalization"] == 0
-        and citation_audit["unsorted_groups_before_normalization"] == 0,
+        "every_reference_cited_once": citation_audit["all_checks_pass"]
+        and citation_audit["every_reference_cited_once"]
+        and not citation_audit["duplicate_references_after"],
         "all_references_cited": not citation_audit["uncited_references"],
         "reference_bookmarks_and_hyperlinks": template_qc["checks"][
             "forty_two_reference_bookmarks"
         ]
         and template_qc["checks"]["all_references_hyperlink_targets"]
+        and template_qc["checks"]["each_reference_cited_once"]
         and template_qc["checks"]["citation_hyperlink_text_matches_anchor"]
         and template_qc["checks"]["citation_hyperlinks_sorted_within_group"],
         "figure1_drawio_valid": figure1_drawio_valid,
@@ -756,7 +757,7 @@ def main() -> None:
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
         "- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography",
-        "- Citation structure: 42 sequential reference entries, all 42 cited, every citation group ascending and de-duplicated",
+        "- Citation structure: 42 sequential reference entries, each cited exactly once, with every citation group ascending and de-duplicated",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",

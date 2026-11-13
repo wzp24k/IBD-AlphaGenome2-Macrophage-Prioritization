@@ -173,6 +173,9 @@ def main() -> None:
         f"ref_{number}" for number in expected_numbers
     }
     checks["all_references_hyperlink_targets"] = set(linked_numbers) == expected_numbers
+    checks["each_reference_cited_once"] = sorted(linked_numbers) == list(
+        range(1, 43)
+    )
     checks["citation_hyperlink_text_matches_anchor"] = valid_link_text
     checks["citation_hyperlinks_sorted_within_group"] = all(
         group

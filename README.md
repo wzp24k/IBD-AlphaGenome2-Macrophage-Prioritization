@@ -25,7 +25,8 @@ prioritization of non-coding inflammatory bowel disease variants.
 - `run_core_pipeline.ps1`: pipeline entry point for a prepared local data tree.
 
 The manuscript citation audit verifies sequential use of references 1-42,
-ascending de-duplicated citation groups and Word bookmarks for every entry.
+one citation per reference, ascending citation groups and Word bookmarks for
+every entry.
 
 The 37 MB Perturb-seq pseudobulk matrix is excluded from version control.
 Target-knockdown summaries, differential-expression outputs and robustness

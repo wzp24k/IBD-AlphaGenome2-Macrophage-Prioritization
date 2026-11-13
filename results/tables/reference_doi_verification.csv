@@ -11,33 +11,33 @@ number,doi,crossref_status,crossref_type,crossref_journal,crossref_title,verifie
 10,10.1111/rssb.12388,200,journal-article,Journal of the Royal Statistical Society Series B: Statistical Methodology,"A Simple New Approach to Variable Selection in Regression, with Application to Genetic Fine Mapping",True
 11,10.1038/s41586-025-10014-0,200,journal-article,Nature,Advancing regulatory variant effect prediction with AlphaGenome,True
 12,10.1038/s41586-020-2308-7,200,journal-article,Nature,"The mutational constraint spectrum quantified from variation in 141,456 humans",True
-13,10.1038/s41586-024-07571-1,200,journal-article,Nature,Single-cell integration reveals metaplasia in inflammatory gut diseases,True
-14,10.1016/j.immuni.2023.01.002,200,journal-article,Immunity,The landscape of immune dysregulation in Crohn’s disease revealed through single-cell transcriptomic profiling in the ileum and colon,True
-15,10.1038/s41467-023-40156-6,200,journal-article,Nature Communications,Macrophage and neutrophil heterogeneity at single-cell spatial resolution in human inflammatory bowel disease,True
-16,10.1016/j.cell.2019.06.029,200,journal-article,Cell,Intra- and Inter-cellular Rewiring of the Human Colon during Ulcerative Colitis,True
-17,10.1016/j.cell.2019.08.008,200,journal-article,Cell,Single-Cell Analysis of Crohn’s Disease Lesions Identifies a Pathogenic Cellular Module Associated with Resistance to Anti-TNF Therapy,True
-18,10.1038/s41588-021-00924-w,200,journal-article,Nature Genetics,A compendium of uniformly processed human gene expression and splicing quantitative trait loci,True
-19,10.1016/j.cell.2018.10.022,200,journal-article,Cell,Impact of Genetic Polymorphisms on Human Immune Cell Gene Expression,True
-20,10.1016/j.cell.2016.09.025,200,journal-article,Cell,Genetic Ancestry and Natural Selection Drive Population Differences in Immune Responses to Pathogens,True
-21,10.1038/s41588-018-0046-7,200,journal-article,Nature Genetics,Shared genetic effects on chromatin and gene expression indicate a role for enhancer priming in immune response,True
-22,10.1016/j.cell.2021.03.056,200,journal-article,Cell,Dynamic landscape of immune cell-specific gene regulation in immune-mediated diseases,True
-23,10.1038/s41586-022-04713-1,200,journal-article,Nature,Single-cell eQTL models reveal dynamic T cell state dependence of disease loci,True
-24,10.1371/journal.pgen.1004383,200,journal-article,PLoS Genetics,Bayesian Test for Colocalisation between Pairs of Genetic Association Studies Using Summary Statistics,True
-25,10.1038/s41588-026-02755-z,200,journal-article,Nature Genetics,Single-cell analysis of chromatin accessibility in the human intestine identifies regulatory programs and clarifies genetic associations in Crohn’s disease,True
-26,10.1038/s41586-024-07501-1,200,journal-article,Nature,A disease-associated gene desert directs macrophage inflammation through ETS2,True
-27,10.1016/j.cell.2016.04.027,200,journal-article,Cell,Direct Identification of Hundreds of Expression-Modulating Variants using a Multiplexed Reporter Assay,True
-28,10.1038/s41467-019-11526-w,200,journal-article,Nature Communications,Saturation mutagenesis of twenty disease-associated regulatory elements at single base-pair resolution,True
-29,10.1016/j.cell.2022.05.013,200,journal-article,Cell,Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq,True
-30,10.1038/nmeth.4177,200,journal-article,Nature Methods,Pooled CRISPR screening with single-cell transcriptome readout,True
-31,10.1038/s41587-026-03258-2,200,journal-article,Nature Biotechnology,Virus-like particles enable targeted gene engineering and pooled CRISPR screening in primary human myeloid cells,True
-32,10.1093/bioinformatics/btv722,200,journal-article,Bioinformatics,Fast and efficient QTL mapper for thousands of molecular phenotypes,True
-33,10.1126/science.aag2445,200,journal-article,Science,Systematic mapping of functional enhancer–promoter connections with CRISPR interference,True
-34,10.1093/nar/gkaa1027,200,journal-article,Nucleic Acids Research,Open Targets Platform: supporting systematic drug–target identification and prioritisation,True
-35,10.1371/journal.pgen.1010299,200,journal-article,PLOS Genetics,Fine-mapping from summary data with the “Sum of Single Effects” model,True
-36,10.1038/s41586-021-03852-1,200,journal-article,Nature,Cells of the human intestinal tract mapped across space and time,True
-37,10.1038/s41586-025-09272-9,200,journal-article,Nature,"Whole-genome sequencing of 490,640 UK Biobank participants",True
-38,10.1126/science.adj1182,200,journal-article,Science,Diversity and scale: Genetic architecture of 2068 traits in the VA Million Veteran Program,True
-39,10.1126/science.aaz1776,200,journal-article,Science,The GTEx Consortium atlas of genetic regulatory effects across human tissues,True
-40,10.1038/ng.3467,200,journal-article,Nature Genetics,Fine-mapping cellular QTLs with RASQUAL and ATAC-seq,True
-41,10.1016/j.cell.2019.02.027,200,journal-article,Cell,A Genome-wide Framework for Mapping Gene Regulation via Cellular Genetic Screens,True
-42,10.1371/journal.pgen.1010189,200,journal-article,PLOS Genetics,Prostaglandins and calprotectin are genetically and functionally linked to the Inflammatory Bowel Diseases,True
+13,10.1093/nar/gkaa1027,200,journal-article,Nucleic Acids Research,Open Targets Platform: supporting systematic drug–target identification and prioritisation,True
+14,10.1371/journal.pgen.1010299,200,journal-article,PLOS Genetics,Fine-mapping from summary data with the “Sum of Single Effects” model,True
+15,10.1038/s41586-021-03852-1,200,journal-article,Nature,Cells of the human intestinal tract mapped across space and time,True
+16,10.1038/s41586-025-09272-9,200,journal-article,Nature,"Whole-genome sequencing of 490,640 UK Biobank participants",True
+17,10.1126/science.adj1182,200,journal-article,Science,Diversity and scale: Genetic architecture of 2068 traits in the VA Million Veteran Program,True
+18,10.1126/science.aaz1776,200,journal-article,Science,The GTEx Consortium atlas of genetic regulatory effects across human tissues,True
+19,10.1093/bioinformatics/btv722,200,journal-article,Bioinformatics,Fast and efficient QTL mapper for thousands of molecular phenotypes,True
+20,10.1038/ng.3467,200,journal-article,Nature Genetics,Fine-mapping cellular QTLs with RASQUAL and ATAC-seq,True
+21,10.1126/science.aag2445,200,journal-article,Science,Systematic mapping of functional enhancer–promoter connections with CRISPR interference,True
+22,10.1016/j.cell.2019.02.027,200,journal-article,Cell,A Genome-wide Framework for Mapping Gene Regulation via Cellular Genetic Screens,True
+23,10.1371/journal.pgen.1010189,200,journal-article,PLOS Genetics,Prostaglandins and calprotectin are genetically and functionally linked to the Inflammatory Bowel Diseases,True
+24,10.1038/s41586-024-07571-1,200,journal-article,Nature,Single-cell integration reveals metaplasia in inflammatory gut diseases,True
+25,10.1016/j.immuni.2023.01.002,200,journal-article,Immunity,The landscape of immune dysregulation in Crohn’s disease revealed through single-cell transcriptomic profiling in the ileum and colon,True
+26,10.1038/s41467-023-40156-6,200,journal-article,Nature Communications,Macrophage and neutrophil heterogeneity at single-cell spatial resolution in human inflammatory bowel disease,True
+27,10.1016/j.cell.2019.06.029,200,journal-article,Cell,Intra- and Inter-cellular Rewiring of the Human Colon during Ulcerative Colitis,True
+28,10.1016/j.cell.2019.08.008,200,journal-article,Cell,Single-Cell Analysis of Crohn’s Disease Lesions Identifies a Pathogenic Cellular Module Associated with Resistance to Anti-TNF Therapy,True
+29,10.1038/s41588-021-00924-w,200,journal-article,Nature Genetics,A compendium of uniformly processed human gene expression and splicing quantitative trait loci,True
+30,10.1016/j.cell.2018.10.022,200,journal-article,Cell,Impact of Genetic Polymorphisms on Human Immune Cell Gene Expression,True
+31,10.1016/j.cell.2016.09.025,200,journal-article,Cell,Genetic Ancestry and Natural Selection Drive Population Differences in Immune Responses to Pathogens,True
+32,10.1038/s41588-018-0046-7,200,journal-article,Nature Genetics,Shared genetic effects on chromatin and gene expression indicate a role for enhancer priming in immune response,True
+33,10.1016/j.cell.2021.03.056,200,journal-article,Cell,Dynamic landscape of immune cell-specific gene regulation in immune-mediated diseases,True
+34,10.1038/s41586-022-04713-1,200,journal-article,Nature,Single-cell eQTL models reveal dynamic T cell state dependence of disease loci,True
+35,10.1371/journal.pgen.1004383,200,journal-article,PLoS Genetics,Bayesian Test for Colocalisation between Pairs of Genetic Association Studies Using Summary Statistics,True
+36,10.1038/s41588-026-02755-z,200,journal-article,Nature Genetics,Single-cell analysis of chromatin accessibility in the human intestine identifies regulatory programs and clarifies genetic associations in Crohn’s disease,True
+37,10.1038/s41586-024-07501-1,200,journal-article,Nature,A disease-associated gene desert directs macrophage inflammation through ETS2,True
+38,10.1016/j.cell.2016.04.027,200,journal-article,Cell,Direct Identification of Hundreds of Expression-Modulating Variants using a Multiplexed Reporter Assay,True
+39,10.1038/s41467-019-11526-w,200,journal-article,Nature Communications,Saturation mutagenesis of twenty disease-associated regulatory elements at single base-pair resolution,True
+40,10.1016/j.cell.2022.05.013,200,journal-article,Cell,Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq,True
+41,10.1038/nmeth.4177,200,journal-article,Nature Methods,Pooled CRISPR screening with single-cell transcriptome readout,True
+42,10.1038/s41587-026-03258-2,200,journal-article,Nature Biotechnology,Virus-like particles enable targeted gene engineering and pooled CRISPR screening in primary human myeloid cells,True
