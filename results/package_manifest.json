@@ -1,11 +1,11 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "614c5cdc94859a659afdd5d7a14cbf8e8f249e5ea565c323d3f7c6b67d963306",
+  "package_sha256": "1fd61fedb582ae5483f78b43eebe82d032e0d03a3a1a039491321ebd1da257cb",
   "files": [
     {
       "path": "README.md",
-      "sha256": "ea26bb652023e2b2ca750fbbf067538dcb7003e829cbfa2143b419fc056dccfd",
-      "bytes": 6499
+      "sha256": "f39a213ee3c20ced54ac3328f41deb8016993254a3817c908500921e0a3a990f",
+      "bytes": 6543
     },
     {
       "path": "requirements.txt",
@@ -24,23 +24,23 @@
     },
     {
       "path": "manuscript\\manuscript.md",
-      "sha256": "902da0d62001ed877496d9561c0fb88660d22a8f10a3eb7c86e1eb82945182b1",
-      "bytes": 82637
+      "sha256": "e9c7e9f3fc0e1f89a6e83c614c323206b8667fb5277f9e98bf2733cfcca4997f",
+      "bytes": 79737
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "sha256": "b2d92de27a62dc356770f34a2176cce3dd184f96108e060a2544b7eac2b80118",
-      "bytes": 5955730
+      "sha256": "20ecfe919aee91f0f8d24b1c799cc9056104dfdd875d8cd1d567a7b5c33b65fc",
+      "bytes": 5954703
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-      "sha256": "dfce3b2b73e46933297fbdb6c475d14a46846d949f2c192a6a2944024284b899",
-      "bytes": 2129414
+      "sha256": "841b9f3931d9be5e1b9a392e6eced8ab4e6c3988c498c5902ba78c77b70734a6",
+      "bytes": 2129413
     },
     {
       "path": "results\\OUTLINE_AUDIT.md",
-      "sha256": "9a24ddc0d6fbbb67790939651a796118de0af74f2c5617048a8425b9b54703fe",
-      "bytes": 4472
+      "sha256": "be98e80cd3cc6fe2cdb1bf4a9f8241eee54e359d8e4c8feacc1ae15f942267af",
+      "bytes": 5187
     },
     {
       "path": "results\\PATHWAY_AUDIT.md",
@@ -79,7 +79,7 @@
     },
     {
       "path": "results\\FORMAT_COMPLIANCE_1113.md",
-      "sha256": "801375d28ea02b0a5336c8a1efa95593d3fbc08d92c04381ab2d384251070ac2",
+      "sha256": "ec2e06017081a92660d1284bfd0c36d163819aa685f13a1cea14a2a3097145a9",
       "bytes": 2316
     },
     {
@@ -103,6 +103,11 @@
       "bytes": 3606
     },
     {
+      "path": "results\\MAIN_NARRATIVE_REBUILD_AUDIT.md",
+      "sha256": "8e915991e07553c90c4bd0adfabeb1b10d1704b888dce46791d9f86a36cb3c9e",
+      "bytes": 2257
+    },
+    {
       "path": "results\\REVIEWER1_AUDIT_1113.md",
       "sha256": "6bd49de3c7aba1f02cd0001e060e4240ebbcd7346ebd4560d987c4e3f80c90a9",
       "bytes": 3984
@@ -114,17 +119,17 @@
     },
     {
       "path": "results\\FINAL_STATUS.md",
-      "sha256": "2eea9405590acc0b21a1ada78be5f537aae38d5ddd1f95402c41c1adcfc6f7e8",
-      "bytes": 3122
+      "sha256": "2601d3b00312b85228010682fd2ef5abdca836b23f51756edbe251c6e96be338",
+      "bytes": 3227
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "bd58734a6048018a317811d2b9f2e3ee9d0ffee8c4de12106ce9046d4afa7637",
-      "bytes": 20340
+      "sha256": "5e98c99013d1f861d3d65360068708f25e33bc535d234bdefd76d1c448706f7d",
+      "bytes": 20489
     },
     {
       "path": "results\\template_docx_qc.json",
-      "sha256": "876029a9121e868fc87040d9cb092d000e6a09ed42d80dc15f62629092c09f6b",
+      "sha256": "e69bd87792ed3b00fd671b46b2d4a65ec791715deec4d2732c179f26056ba52d",
       "bytes": 2459
     },
     {
@@ -209,8 +214,8 @@
     },
     {
       "path": "scripts\\15_final_qc.py",
-      "sha256": "7f3239bfc63bef0972b26ebccc11753f7d969ad19e44ec861b5d409f340578e3",
-      "bytes": 46744
+      "sha256": "8f8300345a2305c09b58a9f343195e059ca4acc7c0c6002b179ae6ac81f785ca",
+      "bytes": 47676
     },
     {
       "path": "scripts\\16_build_active_ibd_conditioning.py",
@@ -259,8 +264,8 @@
     },
     {
       "path": "scripts\\25_build_template_docx.py",
-      "sha256": "627657e0d1cf3caec4b4dff36543891ce93d1eed0a37217985787bf5bd8e75ea",
-      "bytes": 18574
+      "sha256": "3693fad684b551b199110847840fe39111760162df8198e6da45cd50d5c93446",
+      "bytes": 18747
     },
     {
       "path": "scripts\\26_template_docx_qc.py",
@@ -431,11 +436,6 @@
       "path": "scripts\\figure_palette.py",
       "sha256": "aeacce5e3ddeeeb5fd16d720b17377ad9173c6c536fcc2675c39d1cf5e0792bd",
       "bytes": 2668
-    },
-    {
-      "path": "scripts\\inspect_open_targets_schema.py",
-      "sha256": "318c4a7321d557572d71511e9d29c600429e96fd286c6c0eb0629877876dc323",
-      "bytes": 2957
     },
     {
       "path": "scripts\\remote_tabix.py",

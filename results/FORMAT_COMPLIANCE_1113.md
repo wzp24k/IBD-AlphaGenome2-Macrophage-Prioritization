@@ -15,7 +15,7 @@ Date: 2026-11-13
 
 ## Text and statistics
 
-- Structured abstract: 249 words.
+- Structured abstract: 225 words.
 - Abstract labels: Background, Methods, Results and Conclusion.
 - Keywords: five title-case terms.
 - No prose sentence exceeds 30 words.

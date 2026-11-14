@@ -1,6 +1,6 @@
 # Outline and evidence audit
 
-Audit date: 2026-11-12
+Audit date: 2026-11-14
 
 ## Completed outline requirements
 
@@ -38,7 +38,11 @@ Audit date: 2026-11-12
 - Growth-PC1-residualized GSEA sensitivity and a seven-boundary claim
   calibration table.
 - scATAC topic specificity analysis for the PDGFB cCRE.
-- Reproducible scripts, tables, ten figures, eleven Word tables and final QC.
+- Five-layer narrative rebuild covering discovery, calibrated prediction,
+  donor-state stability, independent validation, mechanism and translation.
+- LD-aware PRKCB MR, SMR/HEIDI-style testing, SuSiE-colocalization, molecular
+  QTL coverage, public signature reversal and virtual knockdown.
+- Reproducible scripts, twelve figures, eleven Word tables and final QC.
 
 ## Corrected evidence interpretation
 
@@ -64,6 +68,13 @@ Audit date: 2026-11-12
   LPS pathway support for PRKCQ, and an inconclusive editing result for IL23R.
 - CAMK2A lacks colocalization support: primary H4 = 0.09 and maximum sensitivity
   H4 is approximately 0.33, below the prespecified 0.80 threshold.
+- PRKCB IVW and weighted-median MR are directionally positive and SMR is
+  significant. MR-Egger and full-region HEIDI-style tests prevent a uniform
+  causal interpretation.
+- PRKCB SuSiE-colocalization identifies shared credible-set pairs, but exact
+  sQTL, pQTL and caQTL layers remain uncovered.
+- PDGFB is framed as the leading macrophage-regulatory archetype. PRKCB is
+  framed as the mechanistic-triangulation archetype.
 
 ## Final statistical results
 

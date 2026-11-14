@@ -19,6 +19,7 @@
 - Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth
 - GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization
 - Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
+- Main narrative: five-layer evidence ladder with PDGFB and PRKCB as complementary candidate archetypes
 - Figure style: all Figure 1-12 scripts use the centralized six-color palette and shared typography
 - External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10
 - Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8

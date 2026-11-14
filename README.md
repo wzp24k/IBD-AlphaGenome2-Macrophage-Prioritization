@@ -97,6 +97,7 @@ is never included in generated outputs.
 - `results\BENCHMARK_AND_TRANSLATION_AUDIT.md`
 - `results\PRKCB_MAP3K8_CLINICAL_FOLLOWUP_AUDIT.md`
 - `results\PRKCB_CAUSAL_MECHANISM_AUDIT.md`
+- `results\MAIN_NARRATIVE_REBUILD_AUDIT.md`
 - `results\tables\prkcb_ibd_trial_results.csv`
 - `results\tables\prkcb_map3k8_drug_selectivity.csv`
 - `results\tables\all_l2g_pathway_ora_targeted.csv`

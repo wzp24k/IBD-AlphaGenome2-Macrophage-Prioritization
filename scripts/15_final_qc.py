@@ -481,6 +481,27 @@ def main() -> None:
         in markdown_text,
         "clinical_use_boundary_reported": "not a diagnostic, prognostic or treatment-selection tool"
         in markdown_text,
+        "manuscript_uses_evidence_ladder": (
+            "evidence ladder" in document_text.lower()
+            and sum(
+                heading in document_text
+                for heading in [
+                    "Layer 1:",
+                    "Layer 2:",
+                    "Layer 3:",
+                    "Layer 4:",
+                    "Layer 5:",
+                ]
+            )
+            == 5
+        ),
+        "manuscript_distinguishes_candidate_archetypes": (
+            "leading macrophage-regulatory archetype" in document_text
+            and "mechanistic-triangulation archetype" in document_text
+        ),
+        "main_narrative_audit_present": (
+            ROOT / "results" / "MAIN_NARRATIVE_REBUILD_AUDIT.md"
+        ).exists(),
         "all_tables_cited": cited_tables == set(range(1, 12)),
         "all_figures_cited": cited_figures == set(range(1, 13)),
         "positive_control_pass": positive["all_checks_pass"],
@@ -687,7 +708,7 @@ def main() -> None:
         not in document_text,
         "manuscript_reports_camk2a_noncolocalization": "lacks colocalization support"
         in document_text,
-        "manuscript_reports_claim_calibration": "Evidence ceiling and claim calibration"
+        "manuscript_reports_claim_calibration": "Evidence boundary and claim calibration"
         in document_text
         and "seven evidence boundaries" in document_text,
         "manuscript_reports_growth_sensitivity": "growth-PC1-residualized"
@@ -1064,6 +1085,7 @@ def main() -> None:
         "- Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth",
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
+        "- Main narrative: five-layer evidence ladder with PDGFB and PRKCB as complementary candidate archetypes",
         "- Figure style: all Figure 1-12 scripts use the centralized six-color palette and shared typography",
         "- External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10",
         "- Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8",
@@ -1105,6 +1127,7 @@ def main() -> None:
         ROOT / "results" / "BENCHMARK_AND_TRANSLATION_AUDIT.md",
         ROOT / "results" / "PRKCB_MAP3K8_CLINICAL_FOLLOWUP_AUDIT.md",
         ROOT / "results" / "PRKCB_CAUSAL_MECHANISM_AUDIT.md",
+        ROOT / "results" / "MAIN_NARRATIVE_REBUILD_AUDIT.md",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,
