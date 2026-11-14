@@ -1,7 +1,7 @@
 ﻿{
-    "generated":  "2026-11-14T19:36:36.9796806+08:00",
-    "commit":  "ed727d3fcbc1c0693b63e4f3751d2c708d0db3f6",
-    "remote_status":  "pending",
+    "generated":  "2026-11-14T19:43:47.9724300+08:00",
+    "commit":  "5523a952b08da423c25e489474c1904ea3cc7014",
+    "remote_status":  "pushed",
     "narrative":  "five-layer evidence ladder",
     "robustness":  "MR leave-one-out, HEIDI windows, shrinkage and 1000 bootstrap",
     "qc_checks":  135,
@@ -12,27 +12,27 @@
     "files":  [
                   {
                       "path":  "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-                      "bytes":  5954892,
-                      "sha256":  "2693D35EB62ED3FF0C0D20BA20FFE75FAA8C0DB1EB927E82420177BDC8715A76",
-                      "modified":  "2026-11-14T19:36:05.1675089+08:00"
+                      "bytes":  5954556,
+                      "sha256":  "215DA451D852EA06C82E27D49A6669C733502A7EBE93AAA6E53B07F70228D8C4",
+                      "modified":  "2026-11-14T19:43:18.5295311+08:00"
                   },
                   {
                       "path":  "1113manuscript_revised.docx",
-                      "bytes":  5954892,
-                      "sha256":  "2693D35EB62ED3FF0C0D20BA20FFE75FAA8C0DB1EB927E82420177BDC8715A76",
-                      "modified":  "2026-11-14T19:36:05.1675089+08:00"
+                      "bytes":  5954556,
+                      "sha256":  "215DA451D852EA06C82E27D49A6669C733502A7EBE93AAA6E53B07F70228D8C4",
+                      "modified":  "2026-11-14T19:43:18.5295311+08:00"
                   },
                   {
                       "path":  "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-                      "bytes":  2135648,
-                      "sha256":  "AED418AB62071D071BDB033CE3CD8FFE39186B97335A39AA635F3BA727A30A5D",
-                      "modified":  "2026-11-14T19:36:02.8945096+08:00"
+                      "bytes":  2135646,
+                      "sha256":  "26173448997E19805E6BE23999FB6B46B31D675B53579158111C3F6401F39F7B",
+                      "modified":  "2026-11-14T19:43:16.2319051+08:00"
                   },
                   {
                       "path":  "IBD_AlphaGenome2_submission_package.zip",
-                      "bytes":  94503681,
-                      "sha256":  "7BE2842408CABC4A32AE498FFDA309B372284E17C177C9E07904CF7F976CCE37",
-                      "modified":  "2026-11-14T19:36:13.9867752+08:00"
+                      "bytes":  94503092,
+                      "sha256":  "ABFF5F486047FF377C4A6901421CFFAB693101362313931AEB56E127DCE4AB71",
+                      "modified":  "2026-11-14T19:43:27.0692404+08:00"
                   },
                   {
                       "path":  "results\\figures\\figure12_prkcb_mechanism.png",
@@ -42,9 +42,9 @@
                   },
                   {
                       "path":  "results\\QC_REPORT.json",
-                      "bytes":  20806,
-                      "sha256":  "36C5CF4677BDF45FBBE73369F72ECDA6BFBC901D370A5B08BFBFDB95E8834ABE",
-                      "modified":  "2026-11-14T19:36:08.2899671+08:00"
+                      "bytes":  20811,
+                      "sha256":  "DC67A41CD617C73EED4506EEFA28E9D75BD6D378E5738731A282AC0D905E0510",
+                      "modified":  "2026-11-14T19:43:21.5667308+08:00"
                   }
               ]
 }
