@@ -72,6 +72,10 @@ if (Test-Path $rscript) {
     if ($LASTEXITCODE -ne 0) {
         throw "Pipeline step failed: 58_prkcb_mechanism_figure.py"
     }
+    & $python (Join-Path $PSScriptRoot "scripts\59_prkcb_mechanism_robustness.py")
+    if ($LASTEXITCODE -ne 0) {
+        throw "Pipeline step failed: 59_prkcb_mechanism_robustness.py"
+    }
 } else {
     throw "Rscript is required for SuSiE-colocalization."
 }

@@ -1,0 +1,55 @@
+{
+  "mr_leave_one_out_all_positive": true,
+  "heidi_window_p": [
+    {
+      "window_half_width_kb": 50.0,
+      "heterogeneity_p": 0.0,
+      "status": "heterogeneous"
+    },
+    {
+      "window_half_width_kb": 100.0,
+      "heterogeneity_p": 0.0,
+      "status": "heterogeneous"
+    },
+    {
+      "window_half_width_kb": 150.0,
+      "heterogeneity_p": 0.0,
+      "status": "heterogeneous"
+    },
+    {
+      "window_half_width_kb": 250.0,
+      "heterogeneity_p": 0.0,
+      "status": "heterogeneous"
+    }
+  ],
+  "virtual_shrinkage_jak_stat": [
+    {
+      "shrinkage": 0.02,
+      "mean_delta_z": -0.024890996464770002
+    },
+    {
+      "shrinkage": 0.05,
+      "mean_delta_z": -0.024558121782456244
+    },
+    {
+      "shrinkage": 0.1,
+      "mean_delta_z": -0.023957292627312124
+    },
+    {
+      "shrinkage": 0.2,
+      "mean_delta_z": -0.02259539217411267
+    },
+    {
+      "shrinkage": 0.3,
+      "mean_delta_z": -0.021027314567678066
+    }
+  ],
+  "virtual_bootstrap_1000_active_jak_stat": {
+    "mean": -0.0241311286713626,
+    "ci_low": -0.035646448247673476,
+    "ci_high": -0.012599142456563836,
+    "positive_fraction": 0.0
+  },
+  "bootstrap_replicates_per_state": 1000,
+  "workers": 32
+}

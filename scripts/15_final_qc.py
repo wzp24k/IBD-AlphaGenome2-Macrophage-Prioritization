@@ -238,6 +238,21 @@ def main() -> None:
     prkcb_virtual_bootstrap = pd.read_csv(
         table_dir / "prkcb_virtual_pathway_bootstrap_summary.csv"
     )
+    prkcb_robustness = json.loads(
+        (
+            table_dir / "prkcb_mechanism_robustness_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    prkcb_mr_loo = pd.read_csv(table_dir / "prkcb_mr_leave_one_out.csv")
+    prkcb_heidi_windows = pd.read_csv(
+        table_dir / "prkcb_heidi_window_sensitivity.csv"
+    )
+    prkcb_virtual_shrinkage = pd.read_csv(
+        table_dir / "prkcb_virtual_shrinkage_sensitivity.csv"
+    )
+    prkcb_bootstrap_1000 = pd.read_csv(
+        table_dir / "prkcb_virtual_bootstrap_1000_summary.csv"
+    )
     template_qc = json.loads(
         (ROOT / "results" / "template_docx_qc.json").read_text(
             encoding="utf-8"
@@ -576,6 +591,10 @@ def main() -> None:
                 "PRKCB_signature_reversal",
                 "PRKCB_virtual_pathways",
                 "PRKCB_virtual_bootstrap",
+                "PRKCB_MR_leave_one_out",
+                "PRKCB_HEIDI_windows",
+                "PRKCB_virtual_shrinkage",
+                "PRKCB_virtual_bootstrap1000",
             ]
         ),
         "perturbseq_thresholds_3_5_10": robustness["assignment_thresholds"]
@@ -928,6 +947,31 @@ def main() -> None:
         "prkcb_virtual_jak_stat_negative_ci": bool(
             prkcb_jak_virtual["ci_high"] < 0
         ),
+        "prkcb_mr_leave_one_out_positive": bool(
+            (prkcb_mr_loo["ivw_beta"] > 0).all()
+            and (prkcb_mr_loo["weighted_median_beta"] > 0).all()
+            and prkcb_robustness["mr_leave_one_out_all_positive"]
+        ),
+        "prkcb_heidi_windows_heterogeneous": bool(
+            (prkcb_heidi_windows["heterogeneity_p"] < 0.05).all()
+        ),
+        "prkcb_virtual_shrinkage_stable": bool(
+            (
+                prkcb_virtual_shrinkage[
+                    prkcb_virtual_shrinkage["state"].eq("active")
+                    & prkcb_virtual_shrinkage["pathway"].eq("JAK/STAT")
+                ]["mean_delta_z"]
+                < 0
+            ).all()
+        ),
+        "prkcb_virtual_bootstrap1000_negative": bool(
+            prkcb_bootstrap_1000.loc[
+                prkcb_bootstrap_1000["state"].eq("active")
+                & prkcb_bootstrap_1000["pathway"].eq("JAK/STAT"),
+                "ci_high",
+            ].iloc[0]
+            < 0
+        ),
         "prkcb_virtual_labeled_prediction": (
             "not CellOracle, Perturb-seq or primary CRISPR evidence"
             in document_text
@@ -1098,6 +1142,8 @@ def main() -> None:
         "- PRKCB SuSiE-coloc: primary L=5 shared credible-set H4 = 1.0",
         "- PRKCB molecular QTL coverage: exact mRNA support only; sQTL, pQTL and caQTL were not covered",
         "- PRKCB public signature reversal: 2/3 cohorts positive but weak; virtual knockdown predicts lower active-macrophage JAK/STAT",
+        "- PRKCB robustness: leave-one-instrument-out MR remains positive; local HEIDI windows remain heterogeneous",
+        "- PRKCB virtual JAK/STAT: negative across shrinkage 0.02-0.30 and 1,000 donor bootstrap replicates",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",

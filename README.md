@@ -74,6 +74,10 @@ is never included in generated outputs.
 - `results\tables\prkcb_molecular_qtl_coverage.csv`
 - `results\tables\prkcb_signature_reversal.csv`
 - `results\tables\prkcb_virtual_pathway_bootstrap_summary.csv`
+- `results\tables\prkcb_mr_leave_one_out.csv`
+- `results\tables\prkcb_heidi_window_sensitivity.csv`
+- `results\tables\prkcb_virtual_shrinkage_sensitivity.csv`
+- `results\tables\prkcb_virtual_bootstrap_1000_summary.csv`
 - `results\tables\candidate_evidence_summary.json`
 - `results\tables\external_experimental_evidence.csv`
 - `results\tables\experimental_gtex_prkcb_eqtl.csv`

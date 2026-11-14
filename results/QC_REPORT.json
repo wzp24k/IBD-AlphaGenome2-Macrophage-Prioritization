@@ -119,6 +119,10 @@
     "prkcb_qtl_mrna_only_two_layers": true,
     "prkcb_signature_reversal_two_of_three": true,
     "prkcb_virtual_jak_stat_negative_ci": true,
+    "prkcb_mr_leave_one_out_positive": true,
+    "prkcb_heidi_windows_heterogeneous": true,
+    "prkcb_virtual_shrinkage_stable": true,
+    "prkcb_virtual_bootstrap1000_negative": true,
     "prkcb_virtual_labeled_prediction": true,
     "prkcb_mechanism_audit_present": true,
     "clinical_translation_ten_targets": true,
@@ -511,7 +515,7 @@
     }
   },
   "docx": {
-    "paragraphs": 263,
+    "paragraphs": 264,
     "tables": 11,
     "inline_shapes": 12
   },
@@ -592,7 +596,11 @@
     "PRKCB_QTL_coverage",
     "PRKCB_signature_reversal",
     "PRKCB_virtual_pathways",
-    "PRKCB_virtual_bootstrap"
+    "PRKCB_virtual_bootstrap",
+    "PRKCB_MR_leave_one_out",
+    "PRKCB_HEIDI_windows",
+    "PRKCB_virtual_shrinkage",
+    "PRKCB_virtual_bootstrap1000"
   ],
   "api_key_leaks": [],
   "format_compliance": {

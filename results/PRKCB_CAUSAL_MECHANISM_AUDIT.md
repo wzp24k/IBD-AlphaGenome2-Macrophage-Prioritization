@@ -31,6 +31,7 @@ At r2 < 0.01, three approximately independent instruments were retained.
 - MR-Egger beta: -0.178 (P = 0.032).
 - MR-Egger intercept P = 0.025.
 - Correct Steiger-style direction: 3/3 instruments.
+- Leave-one-instrument-out IVW and weighted median: positive for all omissions.
 
 The IVW and weighted-median directions agree. The Egger result and nonzero
 intercept show that a single pleiotropy-free causal model is not established.
@@ -41,6 +42,7 @@ intercept show that a single pleiotropy-free causal model is not established.
 - SMR P = 3.43e-9.
 - Full-region LD-aware heterogeneity P < 1e-300.
 - LD-pruned three-instrument heterogeneity P = 0.368.
+- Local HEIDI windows of 50, 100, 150 and 250 kb remained heterogeneous.
 
 The heterogeneity pattern supports a directional signal in a restricted
 subset and argues against applying one effect size uniformly across the whole
@@ -75,8 +77,12 @@ treated as negative associations.
 - Median permutation P: 0.096.
 - State-specific virtual network: 50 shared genes.
 - Donor-blocked bootstrap: 200 replicates.
+- Extended donor-blocked bootstrap: 1,000 replicates.
 - Active-macrophage JAK/STAT virtual effect: -0.0246
   (95% CI -0.0355 to -0.0149).
+- Extended active-macrophage JAK/STAT bootstrap: -0.0241
+  (95% CI -0.0356 to -0.0126).
+- JAK/STAT direction remained negative across shrinkage 0.02-0.30.
 - Active-macrophage TNF/NF-kB virtual effect: -0.0104
   (95% CI -0.0258 to 0.0018).
 

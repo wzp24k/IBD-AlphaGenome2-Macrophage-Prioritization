@@ -208,6 +208,11 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
             encoding="utf-8"
         )
     )
+    prkcb_robustness = json.loads(
+        (table_dir / "prkcb_mechanism_robustness_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
     transport = pd.read_csv(
         table_dir / "benchmark_cohort_transportability.csv"
     )
@@ -348,6 +353,15 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
                 [
                     "PRKCB virtual active JAK/STAT",
                     prkcb_virtual["pathways"]["active"]["JAK/STAT"],
+                ],
+                [
+                    "PRKCB MR leave-one-out direction",
+                    "positive for all held-out instruments",
+                ],
+                [
+                    "PRKCB virtual active JAK/STAT 1000-bootstrap CI",
+                    f"{prkcb_robustness['virtual_bootstrap_1000_active_jak_stat']['ci_low']:.4f} "
+                    f"to {prkcb_robustness['virtual_bootstrap_1000_active_jak_stat']['ci_high']:.4f}",
                 ],
             ],
             columns=["Metric", "Value"],
@@ -571,6 +585,18 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         ),
         "PRKCB_virtual_bootstrap": pd.read_csv(
             table_dir / "prkcb_virtual_pathway_bootstrap_summary.csv"
+        ),
+        "PRKCB_MR_leave_one_out": pd.read_csv(
+            table_dir / "prkcb_mr_leave_one_out.csv"
+        ),
+        "PRKCB_HEIDI_windows": pd.read_csv(
+            table_dir / "prkcb_heidi_window_sensitivity.csv"
+        ),
+        "PRKCB_virtual_shrinkage": pd.read_csv(
+            table_dir / "prkcb_virtual_shrinkage_sensitivity.csv"
+        ),
+        "PRKCB_virtual_bootstrap1000": pd.read_csv(
+            table_dir / "prkcb_virtual_bootstrap_1000_summary.csv"
         ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:

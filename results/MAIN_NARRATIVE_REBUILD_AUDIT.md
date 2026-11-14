@@ -43,6 +43,9 @@ PRKCB is the mechanistic-triangulation archetype:
 - Nonzero MR-Egger intercept and regional heterogeneity.
 - No exact sQTL, pQTL or caQTL coverage.
 - Virtual JAK/STAT prediction without experimental causal closure.
+- MR leave-one-out direction is positive.
+- Local HEIDI windows remain heterogeneous.
+- Virtual JAK/STAT remains negative across shrinkage and 1,000 bootstrap replicates.
 
 ## Results structure
 
