@@ -1,6 +1,7 @@
 ﻿{
-    "generated":  "2026-11-14T19:33:07.0733186+08:00",
-    "commit":  "35fc8ae56bddaacd160ad049f04cb2f64f1b435d",
+    "generated":  "2026-11-14T19:33:19.9243689+08:00",
+    "commit":  "8656ad658ba845b312e03f95a181b18badabb44d",
+    "remote_status":  "pending",
     "narrative":  "five-layer evidence ladder",
     "qc_checks":  131,
     "qc_all_pass":  true,
