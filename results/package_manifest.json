@@ -1,6 +1,6 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "7be2842408cabc4a32ae498ffda309b372284e17c177c9e07904cf7f976cce37",
+  "package_sha256": "abff5f486047ff377c4a6901421cffab693101362313931aeb56e127dce4ab71",
   "files": [
     {
       "path": "README.md",
@@ -24,18 +24,18 @@
     },
     {
       "path": "manuscript\\manuscript.md",
-      "sha256": "8eab17f33e4bb6cb8425acb0048c7c1ea92e1864cf69120ed1906bde3b0fa9d9",
-      "bytes": 80260
+      "sha256": "f038ddc7d963c91e455a3bd63d28a59dfa93c53fe49780b2e860ceb300339340",
+      "bytes": 79390
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "sha256": "2693d35eb62ed3ff0c0d20ba20ffe75faa8c0db1eb927e82420177bdc8715a76",
-      "bytes": 5954892
+      "sha256": "215da451d852ea06c82e27d49a6669c733502a7ebe93aaa6e53b07f70228d8c4",
+      "bytes": 5954556
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-      "sha256": "aed418ab62071d071bdb033ce3cd8ffe39186b97335a39aa635f3ba727a30a5d",
-      "bytes": 2135648
+      "sha256": "26173448997e19805e6be23999fb6b46b31d675b53579158111c3f6401f39f7b",
+      "bytes": 2135646
     },
     {
       "path": "results\\OUTLINE_AUDIT.md",
@@ -124,8 +124,8 @@
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "36c5cf4677bdf45fbbe73369f72ecda6bfbc901d370a5b08bfbfdb95e8834abe",
-      "bytes": 20806
+      "sha256": "dc67a41cd617c73eed4506eefa28e9d75bd6d378e5738731a282ac0d905e0510",
+      "bytes": 20811
     },
     {
       "path": "results\\template_docx_qc.json",
@@ -214,8 +214,8 @@
     },
     {
       "path": "scripts\\15_final_qc.py",
-      "sha256": "aed27b4ce2b38df251c4481275daa35248c04e87638d09777d63f3b74a244445",
-      "bytes": 49612
+      "sha256": "68c1945e348acb6313bb57ead928ea71b61c384650bc2d3f4cfbf19280500117",
+      "bytes": 49635
     },
     {
       "path": "scripts\\16_build_active_ibd_conditioning.py",

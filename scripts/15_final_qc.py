@@ -494,7 +494,7 @@ def main() -> None:
         and "reference-condition macrophage specificity" not in markdown_text,
         "model_benchmark_limitation_reported": "not benchmarked against a matched variant-level macrophage gold standard"
         in markdown_text,
-        "clinical_use_boundary_reported": "not a diagnostic, prognostic or treatment-selection tool"
+        "clinical_evidence_boundary_reported": "Prospective efficacy and target-selective safety data were not established"
         in markdown_text,
         "manuscript_uses_evidence_ladder": (
             "evidence ladder" in document_text.lower()

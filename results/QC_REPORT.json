@@ -32,7 +32,7 @@
     "tnfaip3_is_response_control_not_knockdown": true,
     "macrophage_comparator_wording_precise": true,
     "model_benchmark_limitation_reported": true,
-    "clinical_use_boundary_reported": true,
+    "clinical_evidence_boundary_reported": true,
     "manuscript_uses_evidence_ladder": true,
     "manuscript_distinguishes_candidate_archetypes": true,
     "main_narrative_audit_present": true,
@@ -604,7 +604,7 @@
   ],
   "api_key_leaks": [],
   "format_compliance": {
-    "abstract_words": 225,
+    "abstract_words": 220,
     "keywords": [
       "Inflammatory Bowel Disease",
       "Non-coding Variants",
