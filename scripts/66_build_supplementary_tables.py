@@ -5,10 +5,10 @@ import json
 import math
 import re
 import sys
-from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import datetime
 from pathlib import Path
 
+import pandas as pd
 from docx import Document
 from docx.enum.section import WD_ORIENT
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
@@ -30,626 +30,280 @@ INDEX_CSV = ROOT / "results" / "tables" / "supplementary_table_index.csv"
 AUDIT_JSON = ROOT / "results" / "supplementary_tables_audit.json"
 
 
-@dataclass(frozen=True)
-class TableSpec:
-    source: str
-    title: str
-    note: str
-    columns: tuple[str, ...] | None = None
-    sort_by: str | None = None
-    descending: bool = False
-    max_rows: int | None = None
-
-
-SPECS = [
-    TableSpec(
-        "Overview",
-        "Analysis summary metrics",
-        "Values are the primary counts and analysis settings retained in the source workbook.",
-    ),
-    TableSpec(
-        "Live_summary",
-        "Live AlphaGenome 2 prediction inventory",
-        "Counts summarize returned predictions by output type, biosample and control role.",
-    ),
-    TableSpec(
-        "Controls",
-        "Live-model positive and negative control predictions",
-        "Control effects are prediction outputs and are not count-based hypothesis tests.",
-    ),
-    TableSpec(
-        "GTEx_PRKCB_eQTL",
-        "GTEx v10 PRKCB colon eQTL",
-        "NES is the normalized effect size for the ALT allele in sigmoid colon.",
-        columns=(
-            "snpId",
-            "variant",
-            "target",
-            "tissueSiteDetailId",
-            "pValue",
-            "nes",
-            "datasetId",
-            "experiment",
-        ),
-    ),
-    TableSpec(
-        "ETS2_macrophage_MPRA",
-        "ETS2 positive-control macrophage MPRA",
-        "Effects are mean log2 risk-versus-nonrisk reporter output across RNA pools.",
-    ),
-    TableSpec(
-        "THP1_OE_engagement",
-        "THP-1 overexpression target engagement",
-        "Self-expression deltas compare each overexpressed gene with empty-vector controls.",
-    ),
-    TableSpec(
-        "eQTL_Catalogue_hits",
-        "Nominal eQTL Catalogue hits",
-        "Rows report nominal macrophage or monocyte associations queried for Tier 1 targets.",
-    ),
-    TableSpec(
-        "eQTL_Catalogue_coverage",
-        "eQTL Catalogue dataset coverage",
-        "Missing coverage is classified as absence of a usable public record, not a negative association.",
-    ),
-    TableSpec(
-        "PerturbSeq_targets",
-        "Macrophage Perturb-seq target-transcript effects",
-        "Values compare guide pseudobulk profiles with matched non-targeting controls.",
-    ),
-    TableSpec(
-        "PerturbSeq_DE_summary",
-        "Macrophage Perturb-seq differential-expression summary",
-        "Responsive-gene counts require FDR < 0.05; absolute-effect counts use an additional 0.5 threshold.",
-    ),
-    TableSpec(
-        "PerturbSeq_pathways",
-        "Macrophage Perturb-seq pathway effects",
-        "Pathway tests used equal-size empirical resampling from expressed genes.",
-    ),
-    TableSpec(
-        "PerturbSeq_mixed_models",
-        "Donor-aware Perturb-seq models",
-        "The fallback label indicates a donor fixed-effect model when the random-intercept variance was singular.",
-    ),
-    TableSpec(
-        "CAMK2A_coloc_sensitivity",
-        "CAMK2A colocalization sensitivity",
-        "Posterior probabilities vary the prior standard deviation and shared-causal-variant prior.",
-    ),
-    TableSpec(
-        "Gut_scATAC_variants",
-        "Gut single-cell ATAC annotation of Tier 1 variants",
-        "Chromatin overlap is regulatory annotation, not allele-specific perturbation.",
-        columns=(
-            "target",
-            "rsid",
-            "chromosome",
-            "position",
-            "finemap_susie_pip",
-            "overlapped_cCRE",
-            "cCRE_celltype",
-            "ABC_max_gene",
-            "nearest_gene",
-            "interpretation",
-        ),
-    ),
-    TableSpec(
-        "scATAC_topic_percentiles",
-        "scATAC topic percentiles for the PDGFB regulatory element",
-        "Percentiles rank the element score among the available gut chromatin topics.",
-    ),
-    TableSpec(
-        "GSEA_growth_sensitivity",
-        "GSEA sensitivity to proliferation residualization",
-        "Residualized enrichment removes a sample-level E2F, G2-M and MYC principal component.",
-    ),
-    TableSpec(
-        "PRKCQ_repeated_summary",
-        "PRKCQ repeated-pool stability summary",
-        "Repeated pools quantify sampling stability within available donors and are not biological replicates.",
-    ),
-    TableSpec(
-        "External_GWAS_studies",
-        "External IBD GWAS cohort and credible-set summary",
-        "The UK Biobank and Million Veteran Program clusters were counted as non-overlapping external evidence.",
-    ),
-    TableSpec(
-        "External_GWAS_bootstrap",
-        "External IBD pathway locus-block bootstrap",
-        "Intervals and FDR values use locus-block resampling of credible-set loci.",
-    ),
-    TableSpec(
-        "Pathway_weighted_tests",
-        "Pathway member-score comparisons",
-        "Tests compare member and non-member target scores in the external-weighted gene ranking.",
-        columns=(
-            "pathway",
-            "library",
-            "members_in_background",
-            "median_member_score",
-            "median_nonmember_score",
-            "p_value",
-            "fdr_bh",
-        ),
-    ),
-    TableSpec(
-        "All_variant_pathway",
-        "Variant-set pathway sensitivity",
-        "Rows compare pathway scores under alternative supported-variant definitions.",
-        columns=(
-            "method",
-            "pathway",
-            "library",
-            "members_in_background",
-            "median_member_score",
-            "median_nonmember_score",
-            "p_value",
-            "fdr_bh",
-        ),
-    ),
-    TableSpec(
-        "Benchmark_metrics",
-        "Benchmark discrimination metrics",
-        "AUROC and AUPRC intervals use locus-block bootstrap replicates.",
-    ),
-    TableSpec(
-        "Benchmark_deltas",
-        "Benchmark paired differences",
-        "Deltas compare the combined score with each prespecified baseline on the same benchmark rows.",
-    ),
-    TableSpec(
-        "Benchmark_calibration",
-        "Benchmark calibration metrics",
-        "Brier score, expected calibration error and grouped cross-validation metrics assess probability calibration.",
-    ),
-    TableSpec(
-        "Benchmark_transport",
-        "Cross-cohort benchmark transport",
-        "Models were fitted to one cohort's feature labels and tested on the other cohort's labels.",
-    ),
-    TableSpec(
-        "Benchmark_heldout",
-        "Held-out credible-set and target-gene validation",
-        "Grouped folds prevent the same credible set or target from contributing to both training and testing.",
-    ),
-    TableSpec(
-        "Benchmark_coverage",
-        "Benchmark label and feature coverage",
-        "This two-column table summarizes the rows available for each benchmark task.",
-    ),
-    TableSpec(
-        "Benchmark_priority_sensitivity",
-        "Original-priority versus benchmark-score sensitivity",
-        "Both scores were evaluated on the same rows to test construction dependence.",
-    ),
-    TableSpec(
-        "Strict_eqtl_sensitivity",
-        "Strict exact-variant eQTL sensitivity",
-        "The strict label requires an exact-variant nominal association in the prespecified myeloid datasets.",
-    ),
-    TableSpec(
-        "Top10_eQTL_triangulation",
-        "Top 10 exact-variant eQTL triangulation",
-        "Matched and mismatched target pairs were queried across eight myeloid datasets.",
-        columns=(
-            "target",
-            "variant_id",
-            "pair_type",
-            "query_group",
-            "datasets_queried",
-            "nominal_datasets",
-            "minimum_pvalue",
-            "minimum_qvalue",
-            "replicated_nominal",
-            "any_nominal",
-        ),
-    ),
-    TableSpec(
-        "Top10_coloc",
-        "Top 10 myeloid eQTL colocalization",
-        "H4 is the posterior probability of a shared causal variant.",
-        columns=(
-            "target",
-            "variant",
-            "rsid",
-            "eqtl_study",
-            "eqtl_condition",
-            "variants_harmonized",
-            "eqtl_pvalue",
-            "coloc_status",
-            "H4",
-            "coloc_supported",
-        ),
-    ),
-    TableSpec(
-        "Top10_coloc_sensitivity",
-        "Top 10 colocalization prior sensitivity",
-        "Support requires H4 >= 0.80 across the reported prior settings.",
-    ),
-    TableSpec(
-        "Clinical_translation",
-        "Indication-aware translational annotation",
-        "Clinical-stage annotations describe hypotheses and do not establish treatment recommendations.",
-        columns=(
-            "priority_rank",
-            "target",
-            "variant",
-            "external_cluster_count",
-            "experimental_support",
-            "exact_variant_eqtl",
-            "formal_colocalization",
-            "clinical_stage",
-            "ibd_indication_drugs",
-            "risk_effect_on_target",
-            "translational_priority",
-            "clinical_treatment_recommendation_supported",
-            "clinical_recommendation_boundary",
-        ),
-    ),
-    TableSpec(
-        "PRKCB_drug_selectivity",
-        "PRKCB drug-family selectivity annotation",
-        "PRKCB-specific means the annotated drug targets PRKCB without the broader PKC family.",
-    ),
-    TableSpec(
-        "PRKCB_IBD_trial_search",
-        "PRKCB and PKC inhibitor IBD trial search",
-        "Records were identified from ClinicalTrials.gov and the public trial report.",
-    ),
-    TableSpec(
-        "PRKCB_IBD_trial_results",
-        "Sotrastaurin ulcerative colitis trial results",
-        "The credibility interval for clinical-remission difference crosses zero.",
-    ),
-    TableSpec(
-        "PRKCB_CEDAR2_eQTL",
-        "CEDAR2 PRKCB gut eQTL nodes",
-        "Macrophage-like nodes are annotated explicitly; exact rs7404003 status is retained.",
-        columns=(
-            "dataset",
-            "node_or_leaf",
-            "annotated_cell_type",
-            "cell_abbreviation",
-            "gene",
-            "top_variant",
-            "beta",
-            "nominal_pvalue",
-            "window_adjusted_pvalue",
-            "qvalue",
-            "macrophage_like",
-            "exact_rs7404003",
-        ),
-    ),
-    TableSpec(
-        "PRKCB_MAP3K8_direction",
-        "PRKCB and MAP3K8 risk-allele direction",
-        "The expected action follows the sign of the risk-allele effect on target expression.",
-    ),
-    TableSpec(
-        "PRKCB_MR_estimates",
-        "PRKCB two-sample Mendelian randomization estimates",
-        "Estimates are reported per one-standard-deviation change in PRKCB expression.",
-    ),
-    TableSpec(
-        "PRKCB_MR_instruments",
-        "PRKCB Mendelian randomization instruments",
-        "The F statistic and ratio summarize instrument strength and the Wald effect estimate.",
-        columns=(
-            "rsid",
-            "gwas_beta",
-            "gwas_se",
-            "eql_beta",
-            "eql_se",
-            "gwas_p",
-            "eql_p",
-            "f_statistic",
-            "ratio",
-            "ratio_se",
-            "r2_with_lead",
-        ),
-    ),
-    TableSpec(
-        "PRKCB_MR_Steiger",
-        "PRKCB Steiger direction checks",
-        "Correct direction indicates that the exposure explains more variance than the outcome.",
-    ),
-    TableSpec(
-        "PRKCB_MR_leave_one_out",
-        "PRKCB leave-one-instrument-out sensitivity",
-        "Each row omits one approximately independent instrument and refits the MR summary.",
-    ),
-    TableSpec(
-        "PRKCB_SMR_HEIDI",
-        "PRKCB SMR and HEIDI-style sensitivity",
-        "These are summary-statistic implementations and were not run with the official SMR executable.",
-        columns=(
-            "method",
-            "variant",
-            "eqtl_beta",
-            "eqtl_se",
-            "gwas_beta",
-            "gwas_se",
-            "smr_beta",
-            "smr_se",
-            "smr_p",
-            "q",
-            "p",
-            "heterogeneity_status",
-        ),
-    ),
-    TableSpec(
-        "PRKCB_HEIDI_windows",
-        "PRKCB HEIDI-style local-window sensitivity",
-        "Each window limits the heterogeneity analysis to variants near the lead eQTL.",
-    ),
-    TableSpec(
-        "PRKCB_SuSiE_credible_sets",
-        "PRKCB SuSiE credible sets",
-        "Fine-mapping used the external 1000 Genomes European LD reference.",
-        columns=(
-            "L",
-            "trait",
-            "credible_set",
-            "n_snps",
-            "top_snp",
-            "top_pip",
-            "credible_set_coverage",
-        ),
-    ),
-    TableSpec(
-        "PRKCB_SuSiE_coloc",
-        "PRKCB SuSiE colocalization pair summary",
-        "Only the eight credible-set pairs with the largest H4 values are shown; the full matrix remains in the workbook.",
-        columns=(
-            "nsnps",
-            "hit1",
-            "hit2",
-            "PP.H0.abf",
-            "PP.H1.abf",
-            "PP.H2.abf",
-            "PP.H3.abf",
-            "PP.H4.abf",
-        ),
-        sort_by="PP.H4.abf",
-        descending=True,
-        max_rows=8,
-    ),
-    TableSpec(
-        "PRKCB_QTL_coverage",
-        "PRKCB molecular QTL coverage",
-        "Absent sQTL, pQTL or caQTL records are classified as resource non-coverage.",
-    ),
-    TableSpec(
-        "PRKCB_signature_reversal",
-        "PRKCB public signature-reversal analysis",
-        "Correlations and permutation tests compare PRKCB knockdown and disease signatures.",
-    ),
-    TableSpec(
-        "PRKCB_virtual_pathways",
-        "PRKCB virtual pathway effects",
-        "Values are computational predictions from a shrunken co-expression network.",
-    ),
-    TableSpec(
-        "PRKCB_virtual_bootstrap1000",
-        "PRKCB virtual-knockdown donor bootstrap",
-        "Intervals and positive fractions use 1,000 donor-block bootstrap replicates.",
-    ),
-    TableSpec(
-        "PRKCB_virtual_shrinkage",
-        "PRKCB virtual-network shrinkage sensitivity",
-        "Each row varies the network shrinkage parameter and recomputes pathway effects.",
-    ),
-    TableSpec(
-        "PRKCB_followup_summary",
-        "PRKCB clinical and direction follow-up metrics",
-        "The summary records drug selectivity, trial availability and risk-direction boundaries.",
-    ),
-]
-
-
-MAIN_SHEET_DISPOSITION = {
-    "Variant_sets": "Main Table 2",
-    "Positive_control_atlas": "Main Table 4 support",
-    "Active_IBD_summary": "Main text summary",
-    "Candidate_evidence": "Main Table 11 support",
-    "Experimental_evidence": "Main Table 8 support",
-    "Experimental_summary": "Main text summary",
-    "Claim_calibration": "Main Table 11",
-    "Negative_control": "Main Table 5 support",
-    "Threshold_sensitivity": "Main Table 6",
-    "Score_overlap": "Main text summary",
-}
-
-
-FULL_DATA_DISPOSITION = {
-    "Top20": "Full data only",
-    "All_candidates": "Full data only",
-    "Active_IBD_leads": "Full data only",
-    "Pathway_corrected_ORA": "Full data only",
-    "Pathway_all_L2G_ranks": "Full data only",
-    "Pathway_prerank": "Full data only",
-    "Cross_study_L2G_counts": "Full data only",
-    "External_gene_rankings": "Full data only",
-    "PRKCQ_repeated_scores": "Full data only",
-    "Macrophage_CRISPR_genes": "Full data only",
-    "Macrophage_CRISPR_guides": "Full data only",
-    "PerturbSeq_UMI_thresholds": "Full data only",
-    "PerturbSeq_guides": "Full data only",
-    "PerturbSeq_leave_guide": "Full data only",
-    "PerturbSeq_leave_donor": "Full data only",
-    "GSE175685_GSEA": "Full data only",
-    "Atlas_top_genes": "Full data only",
-    "eQTL_variant_benchmark": "Full data only",
-    "PRKCB_virtual_bootstrap": "Full data only",
-}
-
-
-HEADER_LABELS = {
-    "p": "P",
-    "p_value": "P",
-    "pvalue": "P",
-    "pValue": "P",
-    "fdr": "FDR",
-    "fdr_bh": "FDR",
-    "qvalue": "q value",
-    "auroc": "AUROC",
-    "auprc": "AUPRC",
-    "ci_low": "Lower 95% CI",
-    "ci_high": "Upper 95% CI",
-    "delta_auroc": "Delta AUROC",
-    "delta_auprc": "Delta AUPRC",
-    "prkcb": "PRKCB",
-    "rsid": "rsID",
-    "p_value": "P",
-    "log2fc": "log2FC",
-    "eqtl": "eQTL",
-}
-
-
-def clean_header(value: object, index: int) -> str:
-    if value is None or str(value).strip() == "":
-        return f"Column {index}"
-    text = str(value).strip()
-    if text in HEADER_LABELS:
-        return HEADER_LABELS[text]
-    replacements = [
-        ("mean_log2fc", "Mean log2FC"),
-        ("median_log2fc", "Median log2FC"),
-        ("bootstrap_ci_low", "Bootstrap lower 95% CI"),
-        ("bootstrap_ci_high", "Bootstrap upper 95% CI"),
-        ("ci_low", "Lower 95% CI"),
-        ("ci_high", "Upper 95% CI"),
-        ("p_value", "P"),
-        ("pvalue", "P"),
-        ("p_val", "P"),
-        ("fdr", "FDR"),
-        ("auroc", "AUROC"),
-        ("auprc", "AUPRC"),
-        ("eqtl", "eQTL"),
-        ("pqtl", "pQTL"),
-        ("sqtl", "sQTL"),
-        ("caqtl", "caQTL"),
-        ("prkcb", "PRKCB"),
-        ("prkcq", "PRKCQ"),
-        ("map3k8", "MAP3K8"),
-        ("rsid", "rsID"),
-        ("nct_id", "NCT ID"),
-        ("log2fc", "log2FC"),
-        ("log2", "log2"),
-        ("celltype", "Cell type"),
-        ("nsnps", "N SNPs"),
-    ]
-    for old, new in replacements:
-        text = text.replace(old, new)
-    text = text.replace("_", " ")
-    text = re.sub(r"\s+", " ", text).strip()
-    if text and text[0].islower():
-        text = text[0].upper() + text[1:]
-    return text
-
-
-def format_value(value: object) -> str:
-    if value is None:
+def value_text(value: object) -> str:
+    if value is None or (isinstance(value, float) and math.isnan(value)):
         return ""
     if isinstance(value, bool):
         return "Yes" if value else "No"
-    if isinstance(value, (datetime, date)):
-        return value.isoformat()[:10]
     if isinstance(value, float):
-        if not math.isfinite(value):
-            return ""
         absolute = abs(value)
         if absolute == 0:
             return "0.000"
-        if absolute < 0.001 or absolute >= 10000:
-            return f"{value:.3e}"
+        if absolute < 0.001:
+            return f"{value:.2e}"
         if absolute < 0.01:
-            return f"{value:.5f}"
-        if absolute < 1:
             return f"{value:.4f}"
-        if absolute < 100:
+        if absolute < 10:
             return f"{value:.3f}"
         return f"{value:.1f}"
-    text = str(value).strip()
-    if text.lower() == "true":
-        return "Yes"
-    if text.lower() == "false":
-        return "No"
-    return re.sub(r"\s+", " ", text)
+    return str(value)
 
 
-def read_sheet(workbook, source: str) -> tuple[list[str], list[list[object]]]:
-    worksheet = workbook[source]
-    raw_rows = list(worksheet.iter_rows(values_only=True))
-    if not raw_rows:
-        return [], []
-    header_count = len(raw_rows[0])
-    headers = [
-        str(value).strip() if value is not None and str(value).strip() else f"Column {index + 1}"
-        for index, value in enumerate(raw_rows[0])
+def interval_text(low: object, high: object) -> str:
+    return f"{value_text(low)}-{value_text(high)}"
+
+
+def build_benchmark_table(
+    source: pd.DataFrame,
+    calibration: pd.DataFrame,
+) -> list[list[str]]:
+    task_order = [
+        "External genetic support, both cohorts",
+        "Exact-variant eQTL, replicated",
     ]
-    rows = [list(row[:header_count]) for row in raw_rows[1:] if any(value is not None for value in row)]
-    while headers and headers[-1].startswith("Column "):
-        column_index = len(headers) - 1
-        if any(
-            row[column_index] is not None
-            for row in rows
-            if column_index < len(row)
-        ):
-            break
-        headers.pop()
-    rows = [row[: len(headers)] for row in rows]
-    return headers, rows
+    model_order = ["PIP-only", "L2G-only", "Atlas-only", "Live-only", "Combined"]
+    calibration_index = calibration.set_index(["task", "model"])
+    rows = []
+    for task in task_order:
+        for model in model_order:
+            metric = source[
+                source["task"].eq(task) & source["model"].eq(model)
+            ].iloc[0]
+            calibration_row = calibration_index.loc[(task, model)]
+            rows.append(
+                [
+                    task,
+                    model,
+                    f'{int(metric["positives"])}/{int(metric["negatives"])}',
+                    f'{value_text(metric["auroc"])} '
+                    f'({interval_text(metric["auroc_ci_low"], metric["auroc_ci_high"])})',
+                    f'{value_text(metric["auprc"])} '
+                    f'({interval_text(metric["auprc_ci_low"], metric["auprc_ci_high"])})',
+                    value_text(calibration_row["brier_score"]),
+                    value_text(calibration_row["expected_calibration_error"]),
+                ]
+            )
+    return rows
 
 
-def select_rows(
-    headers: list[str],
-    rows: list[list[object]],
-    spec: TableSpec,
-) -> tuple[list[str], list[list[object]], int]:
-    selected_headers = headers
-    if spec.columns:
-        missing = [column for column in spec.columns if column not in headers]
-        if missing:
-            raise KeyError(f"{spec.source}: missing columns {missing}")
-        indices = [headers.index(column) for column in spec.columns]
-        selected_headers = [clean_header(column, index + 1) for index, column in enumerate(spec.columns)]
-        selected_rows = [
-            [row[index] if index < len(row) else None for index in indices]
-            for row in rows
-        ]
-    else:
-        selected_headers = [
-            clean_header(header, index + 1)
-            for index, header in enumerate(selected_headers)
-        ]
-        selected_rows = [row[:] for row in rows]
+def build_eqtl_table(
+    triangulation: pd.DataFrame,
+    coloc: pd.DataFrame,
+    sensitivity: pd.DataFrame,
+    translation: pd.DataFrame,
+) -> list[list[str]]:
+    matched = triangulation[
+        triangulation["pair_type"].eq("matched_target")
+    ].set_index("target")
+    mismatched = triangulation[
+        triangulation["pair_type"].eq("mismatched_target_control")
+    ].set_index("target")
+    coloc_index = coloc.set_index("target")
+    sensitivity_index = sensitivity.set_index("target")
+    rows = []
+    for _, clinical in translation.sort_values("priority_rank").iterrows():
+        target = clinical["target"]
+        match_row = matched.loc[target]
+        mismatch_row = mismatched.loc[target]
+        if target in coloc_index.index:
+            primary_h4 = value_text(coloc_index.loc[target, "H4"])
+        else:
+            primary_h4 = "Not evaluable"
+        if target in sensitivity_index.index:
+            sensitivity_row = sensitivity_index.loc[target]
+            h4_range = interval_text(
+                sensitivity_row["minimum_H4"],
+                sensitivity_row["maximum_H4"],
+            )
+            supported = "Yes" if sensitivity_row["sensitivity_supported"] else "No"
+        else:
+            h4_range = "Not evaluable"
+            supported = "Not evaluable"
+        rows.append(
+            [
+                str(int(clinical["priority_rank"])),
+                target,
+                match_row["canonical_variant"],
+                str(int(match_row["nominal_datasets"])),
+                value_text(match_row["minimum_pvalue"]),
+                str(int(mismatch_row["nominal_datasets"])),
+                primary_h4,
+                h4_range,
+                supported,
+            ]
+        )
+    return rows
 
-    if spec.sort_by:
-        if spec.sort_by not in headers:
-            raise KeyError(f"{spec.source}: missing sort column {spec.sort_by}")
-        source_index = headers.index(spec.sort_by)
 
-        def sort_value(row: list[object]) -> float:
-            value = row[source_index]
-            return float(value) if isinstance(value, (int, float)) else float("-inf")
+def build_prkcb_table(
+    mr: pd.DataFrame,
+    smr: pd.DataFrame,
+    qtl: pd.DataFrame,
+    signatures: pd.DataFrame,
+    virtual: pd.DataFrame,
+) -> list[list[str]]:
+    mr_001 = mr[mr["clump_r2_threshold"].eq(0.01)]
+    ivw = mr_001[mr_001["method"].eq("IVW_random_effects")].iloc[0]
+    median = mr_001[mr_001["method"].eq("weighted_median")].iloc[0]
+    egger = mr_001[mr_001["method"].eq("MR_Egger")].iloc[0]
+    smr_single = smr[
+        smr["method"].eq("SMR_style_single_instrument")
+    ].iloc[0]
+    heidi_full = smr[smr["variant_set"].eq("all_ld_matched")].iloc[0]
+    heidi_pruned = smr[
+        smr["variant_set"].eq("ld_pruned_r2_0.1")
+    ].iloc[0]
+    prkcb_signatures = signatures[signatures["target"].eq("PRKCB")]
+    positive_signatures = int(prkcb_signatures["correlation"].gt(0).sum())
+    median_signature_p = float(prkcb_signatures["p_permutation"].median())
+    active_jak = virtual[
+        virtual["state"].eq("active") & virtual["pathway"].eq("JAK/STAT")
+    ].iloc[0]
+    mrna_colon = qtl[qtl["source"].eq("GTEx_v10_colon_eQTL")].iloc[0]
+    mrna_myeloid = qtl[
+        qtl["source"].eq("eight_myeloid_eQTL_datasets")
+    ].iloc[0]
+    sqtl = qtl[qtl["source"].eq("GTEx_v10_sQTL")].iloc[0]
+    return [
+        [
+            "Two-sample MR, IVW",
+            "3 approximately independent eQTL instruments",
+            f'beta = {value_text(ivw["estimate"])} per eQTL SD',
+            f'SE = {value_text(ivw["se"])}; P < 0.001; '
+            f'mean F = {value_text(ivw["mean_f_statistic"])}',
+            "Directional mediation supported; MR-Egger is discordant",
+        ],
+        [
+            "Two-sample MR, weighted median",
+            "3 instruments",
+            f'beta = {value_text(median["estimate"])}',
+            f'SE = {value_text(median["se"])}; P < 0.001',
+            "Concordant with IVW",
+        ],
+        [
+            "Two-sample MR, MR-Egger",
+            "3 instruments",
+            f'beta = {value_text(egger["estimate"])}',
+            f'P = {value_text(egger["p"])}; '
+            f'intercept P = {value_text(egger["intercept_p"])}',
+            "Directional inconsistency limits a strict causal claim",
+        ],
+        [
+            "SMR-style single instrument",
+            "rs7404003",
+            f'beta = {value_text(smr_single["smr_beta"])}',
+            f'SE = {value_text(smr_single["smr_se"])}; '
+            f'P = {value_text(smr_single["smr_p"])}',
+            "Summary-statistic implementation, not official SMR software",
+        ],
+        [
+            "HEIDI-style heterogeneity",
+            f'{int(heidi_full["nsnp"])} LD-matched variants',
+            f'P = {value_text(heidi_full["p"])}',
+            f'status = {heidi_full["heterogeneity_status"]}',
+            "Full region contains multiple or context-dependent signals",
+        ],
+        [
+            "HEIDI-style heterogeneity",
+            f'{int(heidi_pruned["nsnp"])} pruned instruments',
+            f'P = {value_text(heidi_pruned["p"])}',
+            f'status = {heidi_pruned["heterogeneity_status"]}',
+            "Pruned subset supports directional consistency",
+        ],
+        [
+            "SuSiE-colocalization",
+            "GWAS and eQTL credible sets",
+            "H4 = 1.000",
+            "H4 = 1.000 across reported priors",
+            "Shared credible-set signal",
+        ],
+        [
+            "Molecular QTL coverage",
+            "GTEx colon and eight myeloid datasets",
+            f'Colon NES = {value_text(mrna_colon["observed_direction"])}; '
+            f'myeloid = {mrna_myeloid["observed_direction"]}',
+            f'sQTL covered = {value_text(sqtl["exact_variant_coverage"])}; '
+            "pQTL and caQTL records absent",
+            "Context-dependent mRNA direction; absent layers are non-coverage",
+        ],
+        [
+            "Public signature reversal",
+            "Oliver 2024, Crohn 2023 and Garrido-Trigo 2023",
+            f"{positive_signatures}/3 cohorts positive",
+            f"median permutation P = {value_text(median_signature_p)}",
+            "Weak and cohort-dependent projection",
+        ],
+        [
+            "Virtual PRKCB knockdown",
+            "1,000 donor-block bootstrap replicates",
+            f'active JAK/STAT beta = {value_text(active_jak["mean"])}',
+            f'95% CI {interval_text(active_jak["ci_low"], active_jak["ci_high"])}',
+            "Computational prediction, not experimental causality",
+        ],
+    ]
 
-        selected_rows.sort(key=sort_value, reverse=spec.descending)
 
-    full_count = len(selected_rows)
-    if spec.max_rows is not None:
-        selected_rows = selected_rows[: spec.max_rows]
-    return selected_headers, selected_rows, full_count
+def pretty_experimental_support(value: object) -> str:
+    if value is None or (isinstance(value, float) and math.isnan(value)):
+        return "None"
+    mapping = {
+        "perturbseq_transcriptome": "Perturb-seq transcriptome",
+        "directional_variant_eqtl": "Directional variant eQTL",
+        "target_engagement": "Target engagement",
+    }
+    return mapping.get(str(value), str(value).replace("_", " "))
 
 
-def set_cell_margins(table, top: int = 30, start: int = 45, bottom: int = 30, end: int = 45) -> None:
+def pretty_risk_direction(value: object) -> str:
+    mapping = {
+        "risk_increases_target": "Risk allele increases target",
+        "risk_decreases_target": "Risk allele decreases target",
+    }
+    return mapping.get(str(value), str(value))
+
+
+def build_translation_table(source: pd.DataFrame) -> list[list[str]]:
+    rows = []
+    for _, row in source.sort_values("priority_rank").iterrows():
+        external = (
+            "None"
+            if int(row["external_cluster_count"]) == 0
+            else str(int(row["external_cluster_count"]))
+        )
+        stage = (
+            "None"
+            if pd.isna(row["clinical_stage"])
+            else str(row["clinical_stage"]).title()
+        )
+        drugs = (
+            "None"
+            if pd.isna(row["ibd_indication_drugs"])
+            else str(row["ibd_indication_drugs"]).replace(";", ", ")
+        )
+        rows.append(
+            [
+                str(int(row["priority_rank"])),
+                row["target"],
+                external,
+                value_text(bool(row["exact_variant_eqtl"])),
+                value_text(bool(row["formal_colocalization"])),
+                pretty_experimental_support(row["experimental_support"]),
+                stage,
+                drugs,
+                pretty_risk_direction(row["risk_effect_on_target"]),
+                row["translational_priority"],
+            ]
+        )
+    return rows
+
+
+def set_cell_margins(table) -> None:
     tbl_pr = table._tbl.tblPr
     margins = tbl_pr.first_child_found_in("w:tblCellMar")
     if margins is None:
         margins = OxmlElement("w:tblCellMar")
         tbl_pr.append(margins)
-    for edge, value in (("top", top), ("start", start), ("bottom", bottom), ("end", end)):
+    for edge, value in (("top", 35), ("start", 50), ("bottom", 35), ("end", 50)):
         node = margins.find(qn(f"w:{edge}"))
         if node is None:
             node = OxmlElement(f"w:{edge}")
@@ -675,7 +329,6 @@ def set_three_line_borders(table) -> None:
         element.set(qn("w:space"), "0")
         element.set(qn("w:color"), "000000")
         borders.append(element)
-
     for cell in table.rows[0].cells:
         tc_pr = cell._tc.get_or_add_tcPr()
         tc_borders = tc_pr.first_child_found_in("w:tcBorders")
@@ -688,6 +341,15 @@ def set_three_line_borders(table) -> None:
         bottom.set(qn("w:space"), "0")
         bottom.set(qn("w:color"), "000000")
         tc_borders.append(bottom)
+
+
+def set_fixed_layout(table) -> None:
+    tbl_pr = table._tbl.tblPr
+    layout = tbl_pr.first_child_found_in("w:tblLayout")
+    if layout is None:
+        layout = OxmlElement("w:tblLayout")
+        tbl_pr.append(layout)
+    layout.set(qn("w:type"), "fixed")
 
 
 def set_repeat_header(row) -> None:
@@ -704,52 +366,37 @@ def prevent_row_split(row) -> None:
     tr_pr.append(cant_split)
 
 
-def set_fixed_layout(table) -> None:
-    tbl_pr = table._tbl.tblPr
-    layout = tbl_pr.first_child_found_in("w:tblLayout")
-    if layout is None:
-        layout = OxmlElement("w:tblLayout")
-        tbl_pr.append(layout)
-    layout.set(qn("w:type"), "fixed")
-
-
-def calculate_widths(headers: list[str], rows: list[list[object]], total_width: float) -> list[float]:
+def column_widths(headers: list[str], rows: list[list[str]], total: float) -> list[float]:
     scores = []
     for index, header in enumerate(headers):
-        values = [format_value(row[index]) for row in rows[:60] if index < len(row)]
-        max_value = max((min(len(value), 36) for value in values), default=4)
-        score = max(5.5, min(36, max(len(header) * 0.72, max_value)))
-        scores.append(score)
+        values = [row[index] for row in rows]
+        max_text = max((min(len(value), 34) for value in values), default=8)
+        scores.append(max(7, min(36, max(len(header) * 0.75, max_text))))
     score_sum = sum(scores)
-    widths = [total_width * score / score_sum for score in scores]
-    minimum = min(0.43, total_width / max(len(headers), 1))
-    widths = [max(minimum, width) for width in widths]
+    widths = [total * score / score_sum for score in scores]
+    widths = [max(0.55, width) for width in widths]
     width_sum = sum(widths)
-    return [width * total_width / width_sum for width in widths]
+    return [width * total / width_sum for width in widths]
 
 
 def add_table(
     document: Document,
     headers: list[str],
-    rows: list[list[object]],
-    *,
+    rows: list[list[str]],
     font_size: float,
-    total_width: float,
 ) -> None:
+    total_width = 10.55
     table = document.add_table(rows=len(rows) + 1, cols=len(headers))
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     table.autofit = False
     set_fixed_layout(table)
     set_three_line_borders(table)
     set_cell_margins(table)
-    widths = calculate_widths(headers, rows, total_width)
-
-    for column_index, width in enumerate(widths):
-        table.columns[column_index].width = Inches(width)
-
+    widths = column_widths(headers, rows, total_width)
+    for index, width in enumerate(widths):
+        table.columns[index].width = Inches(width)
     for row_index, values in enumerate([headers, *rows]):
         row = table.rows[row_index]
-        row.height = None
         prevent_row_split(row)
         if row_index == 0:
             set_repeat_header(row)
@@ -766,7 +413,7 @@ def add_table(
                 if row_index == 0
                 else WD_ALIGN_PARAGRAPH.LEFT
             )
-            run = paragraph.add_run(format_value(value))
+            run = paragraph.add_run(str(value))
             run.font.name = "Times New Roman"
             run.font.size = Pt(font_size)
             if row_index == 0:
@@ -793,19 +440,15 @@ def style_document(document: Document) -> None:
     section.orientation = WD_ORIENT.LANDSCAPE
     section.page_width = Inches(11.69)
     section.page_height = Inches(8.27)
-    section.top_margin = Inches(0.45)
-    section.bottom_margin = Inches(0.45)
-    section.left_margin = Inches(0.48)
-    section.right_margin = Inches(0.48)
-
+    section.top_margin = Inches(0.5)
+    section.bottom_margin = Inches(0.5)
+    section.left_margin = Inches(0.5)
+    section.right_margin = Inches(0.5)
     styles = document.styles
     styles["Normal"].font.name = "Times New Roman"
     styles["Normal"].font.size = Pt(9)
     styles["Normal"].paragraph_format.space_after = Pt(0)
     styles["Normal"].paragraph_format.line_spacing = 1.0
-    for style_name in ["Title", "Heading 1", "Heading 2"]:
-        styles[style_name].font.name = "Times New Roman"
-
     footer = section.footer.paragraphs[0]
     footer.text = "Supplementary Tables | Page "
     footer.runs[0].font.name = "Times New Roman"
@@ -816,16 +459,15 @@ def style_document(document: Document) -> None:
 def add_title_page(document: Document) -> None:
     title = document.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    title.paragraph_format.space_before = Pt(50)
-    title.paragraph_format.space_after = Pt(18)
+    title.paragraph_format.space_before = Pt(70)
+    title.paragraph_format.space_after = Pt(20)
     run = title.add_run("Supplementary Tables")
     run.bold = True
     run.font.name = "Times New Roman"
     run.font.size = Pt(24)
-
     subtitle = document.add_paragraph()
     subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    subtitle.paragraph_format.space_after = Pt(20)
+    subtitle.paragraph_format.space_after = Pt(24)
     run = subtitle.add_run(
         "An evidence ladder for non-coding inflammatory bowel disease variants "
         "prioritizes intestinal macrophage regulatory mechanisms"
@@ -833,306 +475,255 @@ def add_title_page(document: Document) -> None:
     run.bold = True
     run.font.name = "Times New Roman"
     run.font.size = Pt(13)
-
     note = document.add_paragraph()
     note.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    note.paragraph_format.left_indent = Inches(1.2)
-    note.paragraph_format.right_indent = Inches(1.2)
+    note.paragraph_format.left_indent = Inches(1.25)
+    note.paragraph_format.right_indent = Inches(1.25)
     run = note.add_run(
-        "This document contains review-ready supplementary summaries. "
-        "The full row-level source tables and matrices are provided in "
-        "IBD_AlphaGenome2_supplementary_tables.xlsx."
+        "Supplementary Tables S1-S4 contain the priority benchmark, eQTL, "
+        "PRKCB mechanism and translational summaries. The complete 81-sheet "
+        "source workbook accompanies this document."
     )
     run.font.name = "Times New Roman"
     run.font.size = Pt(10)
-
     version = document.add_paragraph()
     version.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    version.paragraph_format.space_before = Pt(18)
+    version.paragraph_format.space_before = Pt(20)
     run = version.add_run("Version: 14 November 2026")
     run.font.name = "Times New Roman"
     run.font.size = Pt(9)
 
 
-def add_contents(document: Document, index_rows: list[dict[str, object]]) -> None:
-    document.add_page_break()
-    heading = document.add_paragraph()
-    heading.paragraph_format.keep_with_next = True
-    run = heading.add_run("Contents of Supplementary Tables")
-    run.bold = True
-    run.font.name = "Times New Roman"
-    run.font.size = Pt(14)
-    document.add_paragraph(
-        "Main Tables 1-11 remain in the manuscript. Supplementary Tables S1-S52 "
-        "contain additional analyses and are not duplicates of the main display tables."
-    )
-    headers = ["Table", "Title", "Source worksheet", "Rows"]
-    rows = [
-        [
-            row["supplementary_table"],
-            row["title"],
-            row["source_sheet"],
-            row["rows_in_word"],
-        ]
-        for row in index_rows
-    ]
-    add_table(document, headers, rows, font_size=7.8, total_width=10.55)
-
-
-def add_supplement_tables(document: Document, tables: list[dict[str, object]]) -> None:
-    for table_data in tables:
-        document.add_page_break()
-        caption = document.add_paragraph()
-        caption.paragraph_format.keep_with_next = True
-        caption.paragraph_format.space_after = Pt(5)
-        number = table_data["supplementary_table"]
-        run = caption.add_run(f"Supplementary Table {number}. ")
-        run.bold = True
-        run.font.name = "Times New Roman"
-        run.font.size = Pt(10)
-        run = caption.add_run(str(table_data["title"]))
-        run.bold = True
-        run.font.name = "Times New Roman"
-        run.font.size = Pt(10)
-
-        headers = table_data["headers"]
-        rows = table_data["rows"]
-        font_size = 7.4 if len(headers) >= 12 else 8.0
-        add_table(
-            document,
-            headers,
-            rows,
-            font_size=font_size,
-            total_width=10.55,
-        )
-
-        note = document.add_paragraph()
-        note.paragraph_format.space_before = Pt(4)
-        note.paragraph_format.space_after = Pt(0)
-        note.paragraph_format.line_spacing = 1.0
-        source_note = (
-            f'Source worksheet: {table_data["source_sheet"]}. '
-            f'{table_data["note"]}'
-        )
-        if table_data["status"] == "summarized":
-            source_note += (
-                f' This Word table shows {table_data["rows_in_word"]} of '
-                f'{table_data["full_rows_in_workbook"]} source rows.'
-            )
-        run = note.add_run(source_note)
-        run.font.name = "Times New Roman"
-        run.font.size = Pt(8)
-
-
-def add_workbook_index(document: Document, rows: list[dict[str, object]]) -> None:
-    document.add_page_break()
-    heading = document.add_paragraph()
-    heading.paragraph_format.keep_with_next = True
-    run = heading.add_run("Supplementary Workbook Index")
-    run.bold = True
-    run.font.name = "Times New Roman"
-    run.font.size = Pt(14)
-    document.add_paragraph(
-        "Every worksheet in the full supplementary workbook is listed below. "
-        "Large row-level tables remain in the workbook to preserve complete source data."
-    )
-    headers = ["Worksheet", "Source rows", "Source columns", "Disposition"]
-    table_rows = [
-        [
-            row["source_sheet"],
-            row["full_rows_in_workbook"],
-            row["source_columns"],
-            row["disposition"],
-        ]
-        for row in rows
-    ]
-    add_table(document, headers, table_rows, font_size=7.4, total_width=10.55)
-
-
-def infer_disposition(source: str, included: dict[str, dict[str, object]]) -> str:
-    if source in included:
-        return f'{included[source]["supplementary_table"]} ({included[source]["status"]})'
-    if source in MAIN_SHEET_DISPOSITION:
-        return MAIN_SHEET_DISPOSITION[source]
-    if source in FULL_DATA_DISPOSITION:
-        return FULL_DATA_DISPOSITION[source]
-    raise KeyError(f"No disposition assigned for worksheet {source}")
-
-
-def build_index(
-    workbook,
-    included: dict[str, dict[str, object]],
-) -> list[dict[str, object]]:
-    index_rows = []
-    for source in workbook.sheetnames:
-        worksheet = workbook[source]
-        full_rows = max(worksheet.max_row - 1, 0)
-        index_rows.append(
-            {
-                "source_sheet": source,
-                "full_rows_in_workbook": full_rows,
-                "source_columns": worksheet.max_column,
-                "disposition": infer_disposition(source, included),
-            }
-        )
-    return index_rows
-
-
-def write_index_csv(
-    table_rows: list[dict[str, object]],
-    workbook_rows: list[dict[str, object]],
+def add_supplement_table(
+    document: Document,
+    number: int,
+    title: str,
+    headers: list[str],
+    rows: list[list[str]],
+    note: str,
+    font_size: float,
 ) -> None:
+    document.add_page_break()
+    caption = document.add_paragraph()
+    caption.paragraph_format.keep_with_next = True
+    caption.paragraph_format.space_after = Pt(6)
+    run = caption.add_run(f"Supplementary Table S{number}. ")
+    run.bold = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(10)
+    run = caption.add_run(title)
+    run.bold = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(10)
+    add_table(document, headers, rows, font_size)
+    paragraph = document.add_paragraph()
+    paragraph.paragraph_format.space_before = Pt(5)
+    run = paragraph.add_run(note)
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(8)
+
+
+def main() -> None:
+    workbook = load_workbook(WORKBOOK, read_only=True)
+    metrics = pd.read_excel(WORKBOOK, sheet_name="Benchmark_metrics")
+    calibration = pd.read_excel(WORKBOOK, sheet_name="Benchmark_calibration")
+    triangulation = pd.read_excel(WORKBOOK, sheet_name="Top10_eQTL_triangulation")
+    coloc = pd.read_excel(WORKBOOK, sheet_name="Top10_coloc")
+    coloc_sensitivity = pd.read_excel(
+        WORKBOOK,
+        sheet_name="Top10_coloc_sensitivity",
+    )
+    translation = pd.read_excel(WORKBOOK, sheet_name="Clinical_translation")
+    mr = pd.read_excel(WORKBOOK, sheet_name="PRKCB_MR_estimates")
+    smr = pd.read_excel(WORKBOOK, sheet_name="PRKCB_SMR_HEIDI")
+    qtl = pd.read_excel(WORKBOOK, sheet_name="PRKCB_QTL_coverage")
+    signatures = pd.read_excel(WORKBOOK, sheet_name="PRKCB_signature_reversal")
+    virtual = pd.read_excel(
+        WORKBOOK,
+        sheet_name="PRKCB_virtual_bootstrap1000",
+    )
+
+    tables = [
+        {
+            "title": "Benchmark discrimination and calibration",
+            "headers": [
+                "Benchmark task",
+                "Model",
+                "Positive/negative",
+                "AUROC (95% CI)",
+                "AUPRC (95% CI)",
+                "Brier score",
+                "ECE",
+            ],
+            "rows": build_benchmark_table(metrics, calibration),
+            "note": (
+                "Source worksheets: Benchmark_metrics and Benchmark_calibration. "
+                "Intervals use locus-block bootstrap replicates. AUROC, AUPRC, "
+                "Brier score and ECE are shown for the two principal benchmark tasks."
+            ),
+            "font_size": 7.4,
+        },
+        {
+            "title": "Top 10 exact-variant eQTL triangulation and colocalization",
+            "headers": [
+                "Rank",
+                "Target",
+                "Variant",
+                "Matched eQTL datasets",
+                "Minimum P",
+                "Mismatched-target hits",
+                "Primary H4",
+                "H4 sensitivity range",
+                "Formal support",
+            ],
+            "rows": build_eqtl_table(
+                triangulation,
+                coloc,
+                coloc_sensitivity,
+                translation,
+            ),
+            "note": (
+                "Source worksheets: Top10_eQTL_triangulation, Top10_coloc, "
+                "Top10_coloc_sensitivity and Clinical_translation. "
+                "Mismatched-target pairs provide the negative-control comparison. "
+                "Formal support requires H4 >= 0.80 across sensitivity settings."
+            ),
+            "font_size": 7.0,
+        },
+        {
+            "title": "PRKCB mediation and virtual-perturbation evidence",
+            "headers": [
+                "Analysis",
+                "Dataset or comparison",
+                "Primary result",
+                "Uncertainty or secondary result",
+                "Interpretation boundary",
+            ],
+            "rows": build_prkcb_table(mr, smr, qtl, signatures, virtual),
+            "note": (
+                "Source worksheets: PRKCB_MR_estimates, PRKCB_SMR_HEIDI, "
+                "PRKCB_HEIDI_windows, PRKCB_QTL_coverage, "
+                "PRKCB_signature_reversal and PRKCB_virtual_bootstrap1000. "
+                "SMR and HEIDI analyses are summary-statistic implementations. "
+                "Virtual knockdown is not experimental evidence."
+            ),
+            "font_size": 7.2,
+        },
+        {
+            "title": "Indication-aware translational annotation for the Top 10 targets",
+            "headers": [
+                "Rank",
+                "Target",
+                "External cohorts",
+                "Exact eQTL",
+                "Formal coloc",
+                "Public perturbation",
+                "Clinical stage",
+                "IBD-indication drug",
+                "Risk direction",
+                "Translational priority",
+            ],
+            "rows": build_translation_table(translation),
+            "note": (
+                "Source worksheets: Clinical_translation, PRKCB_IBD_trial_search "
+                "and PRKCB_IBD_trial_results. Drug indications and target-stage "
+                "annotations are descriptive. No target met the prespecified "
+                "clinical treatment-recommendation boundary."
+            ),
+            "font_size": 6.7,
+        },
+    ]
+
+    document = Document()
+    style_document(document)
+    add_title_page(document)
+    for number, table in enumerate(tables, start=1):
+        add_supplement_table(
+            document,
+            number,
+            table["title"],
+            table["headers"],
+            table["rows"],
+            table["note"],
+            table["font_size"],
+        )
+    document.save(OUTPUT)
+    MANUSCRIPT_COPY.write_bytes(OUTPUT.read_bytes())
+
     INDEX_CSV.parent.mkdir(parents=True, exist_ok=True)
-    workbook_by_source = {row["source_sheet"]: row for row in workbook_rows}
+    source_map = {
+        1: "Benchmark_metrics; Benchmark_calibration",
+        2: (
+            "Top10_eQTL_triangulation; Top10_coloc; "
+            "Top10_coloc_sensitivity; Clinical_translation"
+        ),
+        3: (
+            "PRKCB_MR_estimates; PRKCB_SMR_HEIDI; PRKCB_HEIDI_windows; "
+            "PRKCB_QTL_coverage; PRKCB_signature_reversal; "
+            "PRKCB_virtual_bootstrap1000"
+        ),
+        4: (
+            "Clinical_translation; PRKCB_IBD_trial_search; "
+            "PRKCB_IBD_trial_results"
+        ),
+    }
     with INDEX_CSV.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(
             handle,
             fieldnames=[
                 "supplementary_table",
                 "title",
-                "source_sheet",
-                "status",
+                "source_sheets",
                 "rows_in_word",
-                "full_rows_in_workbook",
-                "source_columns",
-                "disposition",
+                "status",
             ],
         )
         writer.writeheader()
-        for row in table_rows:
-            workbook_row = workbook_by_source[row["source_sheet"]]
+        for number, table in enumerate(tables, start=1):
             writer.writerow(
                 {
-                    "supplementary_table": row["supplementary_table"],
-                    "title": row["title"],
-                    "source_sheet": row["source_sheet"],
-                    "status": row["status"],
-                    "rows_in_word": row["rows_in_word"],
-                    "full_rows_in_workbook": row["full_rows_in_workbook"],
-                    "source_columns": row["source_columns"],
-                    "disposition": workbook_row["disposition"],
-                }
-            )
-        included_sources = {row["source_sheet"] for row in table_rows}
-        for source in workbook_by_source:
-            if source in included_sources:
-                continue
-            row = workbook_by_source[source]
-            writer.writerow(
-                {
-                    "supplementary_table": "",
-                    "title": "",
-                    "source_sheet": source,
-                    "status": "not_expanded_in_word",
-                    "rows_in_word": 0,
-                    "full_rows_in_workbook": row["full_rows_in_workbook"],
-                    "source_columns": row["source_columns"],
-                    "disposition": row["disposition"],
+                    "supplementary_table": f"S{number}",
+                    "title": table["title"],
+                    "source_sheets": source_map[number],
+                    "rows_in_word": len(table["rows"]),
+                    "status": "included",
                 }
             )
 
-
-def audit_document(
-    document: Document,
-    table_rows: list[dict[str, object]],
-    workbook_rows: list[dict[str, object]],
-) -> dict[str, object]:
-    paragraphs = [paragraph.text.strip() for paragraph in document.paragraphs]
     captions = [
-        text
-        for text in paragraphs
-        if text.startswith("Supplementary Table S")
+        paragraph.text
+        for paragraph in document.paragraphs
+        if paragraph.text.startswith("Supplementary Table S")
     ]
-    caption_numbers = []
-    caption_titles = []
-    for caption in captions:
-        match = re.match(r"Supplementary Table S(\d+)\.\s+(.+)", caption)
-        if match:
-            caption_numbers.append(int(match.group(1)))
-            caption_titles.append(match.group(2))
-    expected_numbers = list(range(1, len(table_rows) + 1))
-    workbook_sources = {row["source_sheet"] for row in workbook_rows}
-    indexed_dispositions = [
-        row["disposition"] for row in workbook_rows if row["disposition"]
+    caption_numbers = [
+        int(re.match(r"Supplementary Table S(\d+)\.", caption).group(1))
+        for caption in captions
     ]
     checks = {
         "document_exists": OUTPUT.exists(),
-        "table_count_matches": len(document.tables) == len(table_rows) + 2,
-        "supplement_numbers_sequential": caption_numbers == expected_numbers,
-        "all_source_sheets_indexed": len(workbook_rows) == 81 and bool(workbook_sources),
-        "all_dispositions_assigned": all(indexed_dispositions),
-        "titles_unique": len(set(caption_titles)) == len(caption_titles),
-        "no_empty_tables": all(
-            len(table.rows) > 1 and len(table.columns) > 0
-            for table in document.tables
+        "four_word_tables": len(document.tables) == 4,
+        "four_supplement_captions": len(captions) == 4,
+        "numbers_sequential": caption_numbers == [1, 2, 3, 4],
+        "titles_unique": len(set(table["title"] for table in tables)) == 4,
+        "all_tables_have_rows": all(len(table["rows"]) > 0 for table in tables),
+        "no_main_table_duplicates": not any(
+            paragraph.text.startswith("Table ")
+            for paragraph in document.paragraphs
         ),
-        "no_main_table_captions_duplicated": not any(
-            re.match(r"^Table \d+\.", text)
-            for text in paragraphs
+        "all_source_notes_present": all(
+            any(table["note"] in paragraph.text for paragraph in document.paragraphs)
+            for table in tables
         ),
-        "all_tables_have_notes": all(
-            f'Source worksheet: {row["source_sheet"]}.'
-            in "\n".join(paragraphs)
-            for row in table_rows
-        ),
-        "all_tables_have_rows": all(int(row["rows_in_word"]) > 0 for row in table_rows),
     }
-    return {
+    audit = {
         "generated": datetime.now().astimezone().isoformat(),
         "output": str(OUTPUT),
-        "supplementary_tables": len(table_rows),
-        "word_tables_including_contents_and_index": len(document.tables),
-        "workbook_sheets_indexed": len(workbook_rows),
-        "included_sources": sum(row["status"] == "included" for row in table_rows),
-        "summarized_sources": sum(row["status"] == "summarized" for row in table_rows),
+        "supplementary_tables": 4,
+        "word_tables": len(document.tables),
+        "source_workbook_sheets": len(workbook.sheetnames),
         "all_checks_pass": all(checks.values()),
         "checks": checks,
     }
-
-
-def main() -> None:
-    if not WORKBOOK.exists():
-        raise FileNotFoundError(WORKBOOK)
-    workbook = load_workbook(WORKBOOK, read_only=True, data_only=True)
-    included: dict[str, dict[str, object]] = {}
-    table_rows: list[dict[str, object]] = []
-
-    for number, spec in enumerate(SPECS, start=1):
-        if spec.source not in workbook.sheetnames:
-            raise KeyError(f"Missing worksheet: {spec.source}")
-        headers, selected_rows, full_count = select_rows(
-            *read_sheet(workbook, spec.source),
-            spec,
-        )
-        status = "included" if len(selected_rows) == full_count else "summarized"
-        row = {
-            "supplementary_table": f"S{number}",
-            "title": spec.title,
-            "note": spec.note,
-            "source_sheet": spec.source,
-            "status": status,
-            "headers": headers,
-            "rows": selected_rows,
-            "rows_in_word": len(selected_rows),
-            "full_rows_in_workbook": full_count,
-            "source_columns": workbook[spec.source].max_column,
-        }
-        table_rows.append(row)
-        included[spec.source] = row
-
-    workbook_rows = build_index(workbook, included)
-    document = Document()
-    style_document(document)
-    add_title_page(document)
-    add_contents(document, table_rows)
-    add_supplement_tables(document, table_rows)
-    add_workbook_index(document, workbook_rows)
-    document.save(OUTPUT)
-    MANUSCRIPT_COPY.parent.mkdir(parents=True, exist_ok=True)
-    MANUSCRIPT_COPY.write_bytes(OUTPUT.read_bytes())
-
-    write_index_csv(table_rows, workbook_rows)
-    audit = audit_document(document, table_rows, workbook_rows)
     AUDIT_JSON.write_text(json.dumps(audit, indent=2), encoding="utf-8")
     print(json.dumps(audit, indent=2))
     if not audit["all_checks_pass"]:

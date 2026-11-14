@@ -1,22 +1,18 @@
 {
-  "generated": "2026-11-14T20:58:53.136114+08:00",
+  "generated": "2026-11-14T21:08:16.990910+08:00",
   "output": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\Supplementary_Tables.docx",
-  "supplementary_tables": 52,
-  "word_tables_including_contents_and_index": 54,
-  "workbook_sheets_indexed": 81,
-  "included_sources": 51,
-  "summarized_sources": 1,
+  "supplementary_tables": 4,
+  "word_tables": 4,
+  "source_workbook_sheets": 81,
   "all_checks_pass": true,
   "checks": {
     "document_exists": true,
-    "table_count_matches": true,
-    "supplement_numbers_sequential": true,
-    "all_source_sheets_indexed": true,
-    "all_dispositions_assigned": true,
+    "four_word_tables": true,
+    "four_supplement_captions": true,
+    "numbers_sequential": true,
     "titles_unique": true,
-    "no_empty_tables": true,
-    "no_main_table_captions_duplicated": true,
-    "all_tables_have_notes": true,
-    "all_tables_have_rows": true
+    "all_tables_have_rows": true,
+    "no_main_table_duplicates": true,
+    "all_source_notes_present": true
   }
 }

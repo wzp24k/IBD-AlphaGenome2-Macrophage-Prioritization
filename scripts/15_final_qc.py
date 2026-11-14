@@ -590,23 +590,35 @@ def main() -> None:
         "supplementary_table_audit_passes": supplementary_audit[
             "all_checks_pass"
         ],
-        "supplementary_table_count_52": supplementary_audit[
+        "supplementary_table_count_4": supplementary_audit[
             "supplementary_tables"
         ]
-        == 52,
-        "supplementary_workbook_sheets_indexed_81": supplementary_audit[
-            "workbook_sheets_indexed"
+        == 4,
+        "supplementary_source_workbook_sheets_81": supplementary_audit[
+            "source_workbook_sheets"
         ]
         == 81,
         "supplementary_numbers_sequential": supplementary_audit["checks"][
-            "supplement_numbers_sequential"
+            "numbers_sequential"
         ],
         "supplementary_titles_unique": supplementary_audit["checks"][
             "titles_unique"
         ],
         "supplementary_no_main_table_duplicates": supplementary_audit[
             "checks"
-        ]["no_main_table_captions_duplicated"],
+        ]["no_main_table_duplicates"],
+        "main_manuscript_contains_no_supplementary_table_bodies": (
+            len(document.tables) == 11
+            and not any(
+                bool(
+                    re.match(
+                        r"^Supplementary Table S\d+\.\s+",
+                        paragraph.text.strip(),
+                    )
+                )
+                for paragraph in document.paragraphs
+            )
+        ),
         "drawio_figure1_present": (
             ROOT / "Figure_1.drawio"
         ).exists()
@@ -1278,7 +1290,7 @@ def main() -> None:
         "- 1114 numeric audit: core cohort counts, pathway values, Perturb-seq effects and PRKCB mechanism statistics match source tables",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
-        "- Review-ready supplement: Supplementary_Tables.docx with 52 numbered tables and an 81-worksheet full-data index",
+        "- Review-ready supplement: Supplementary_Tables.docx with four priority tables; the complete 81-sheet source workbook accompanies it",
         "- Editable Figure 1 copy: Figure_1.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GTEx, GSE229472, GSE327124 and GSE175685 provide public molecular or perturbation evidence at the explicitly marked level",
     ]

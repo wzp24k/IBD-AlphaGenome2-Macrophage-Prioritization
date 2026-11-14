@@ -95,7 +95,7 @@ def main() -> None:
         "qc_checks": len(qc["checks"]),
         "qc_all_pass": qc["all_checks_pass"],
         "supplementary_tables": supplement["supplementary_tables"],
-        "workbook_sheets_indexed": supplement["workbook_sheets_indexed"],
+        "source_workbook_sheets": supplement["source_workbook_sheets"],
         "supplementary_all_checks_pass": supplement["all_checks_pass"],
         "references": reference_audit["references"],
         "each_reference_cited_once": not reference_audit[
