@@ -52,6 +52,14 @@
     "docx_has_text": true,
     "docx_has_eleven_tables": true,
     "docx_has_twelve_figures": true,
+    "supplementary_tables_present": true,
+    "supplementary_table_audit_passes": true,
+    "supplementary_table_count_52": true,
+    "supplementary_workbook_sheets_indexed_81": true,
+    "supplementary_numbers_sequential": true,
+    "supplementary_titles_unique": true,
+    "supplementary_no_main_table_duplicates": true,
+    "drawio_figure1_present": true,
     "docx_has_table11_caption": true,
     "docx_has_figure10_caption": true,
     "docx_has_figure11_caption": true,
@@ -539,7 +547,7 @@
     }
   },
   "docx": {
-    "paragraphs": 265,
+    "paragraphs": 269,
     "tables": 11,
     "inline_shapes": 12
   },

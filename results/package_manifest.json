@@ -1,6 +1,6 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "657bb5b715d911e8f1523719209c132c038d1d0d5c76812fff23a60b89c7cf88",
+  "package_sha256": "e57c5711efaa477b9f18ddf690e268d1812a645c188fed74474752eba6c19b49",
   "files": [
     {
       "path": "README.md",
@@ -14,8 +14,8 @@
     },
     {
       "path": "run_core_pipeline.ps1",
-      "sha256": "962971f2c5da1408e6e2cd00a06eb7a7ebc6e506306d2eb77985f2a96112d8d8",
-      "bytes": 3712
+      "sha256": "fea3f10b69b7f97930edbe927af92c63450f9492dd5ea6fa761414cbac59ac98",
+      "bytes": 3792
     },
     {
       "path": "config\\analysis.json",
@@ -24,23 +24,63 @@
     },
     {
       "path": "manuscript\\manuscript.md",
-      "sha256": "0059aa7e3aa13ec2d7ee0c5c5145304f78c70d7f154a1145bcc2ab8994b3ccf3",
-      "bytes": 80683
+      "sha256": "fe563739e2ecdc3135e51be93e62aa820db6b54d77903b0b916a457ce0cc3da7",
+      "bytes": 81461
+    },
+    {
+      "path": "manuscript\\Cover_Letter_Generic.md",
+      "sha256": "4dc7deb56030b2110aa0eb34c861e53f87c4b6ad6e826bdbe26458f363c08887",
+      "bytes": 2191
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "sha256": "6802e997548d408f902e3365053a22d58ec85b8a15347f079128eb3245c69b71",
-      "bytes": 5954710
+      "sha256": "3f38bc369a21a8171977de8a753b43abcd4efdba3efff2515ec784c67e5f4e0f",
+      "bytes": 5954874
     },
     {
       "path": "1114manuscript.docx",
-      "sha256": "6802e997548d408f902e3365053a22d58ec85b8a15347f079128eb3245c69b71",
-      "bytes": 5954710
+      "sha256": "3f38bc369a21a8171977de8a753b43abcd4efdba3efff2515ec784c67e5f4e0f",
+      "bytes": 5954874
+    },
+    {
+      "path": "Supplementary_Tables.docx",
+      "sha256": "cc5cecd6dabda2684a695304aaa5db726381ff4d1588db91e2b7b65fb2576d34",
+      "bytes": 102616
+    },
+    {
+      "path": "manuscript\\Supplementary_Tables.docx",
+      "sha256": "cc5cecd6dabda2684a695304aaa5db726381ff4d1588db91e2b7b65fb2576d34",
+      "bytes": 102616
+    },
+    {
+      "path": "Figure_1.drawio",
+      "sha256": "b3fcb6c2db263bed07f75020890b49e5b7f8c0b2326058354976abfb3f5a0084",
+      "bytes": 4542
+    },
+    {
+      "path": "Cover_Letter_Generic.docx",
+      "sha256": "78134bd42d5fcaebac75c5964662bff00b8393650cf9fa31c296d491e9ae4a7d",
+      "bytes": 37791
+    },
+    {
+      "path": "Cover_Letter_Generic.txt",
+      "sha256": "adcd8c3c55444b0beb5890a72da5c38e751ebd852f933dc9f3faf1db1f1561b5",
+      "bytes": 2211
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
       "sha256": "a2ed0eb3f66b0c641ae3cf816da1fb63833ea41491411dd510651237ebd8c976",
       "bytes": 2135806
+    },
+    {
+      "path": "results\\supplementary_tables_audit.json",
+      "sha256": "48569e0a95ef53086f9431fae65c50a4157c1acbd21030caed17132435b52038",
+      "bytes": 740
+    },
+    {
+      "path": "results\\tables\\supplementary_table_index.csv",
+      "sha256": "8c022e983381d40556b004a86f3b73e94442e174559373b22645ea9a19473e8b",
+      "bytes": 7073
     },
     {
       "path": "results\\OUTLINE_AUDIT.md",
@@ -149,7 +189,7 @@
     },
     {
       "path": "results\\1114_reference_audit.json",
-      "sha256": "4a090f839d29636ffcd18570a9e9757667233a040b2f50f825edbacdb02e6664",
+      "sha256": "76976680444b318262602dee9e813fd5218094e838741c82e1ee7c2f53a208f0",
       "bytes": 30412
     },
     {
@@ -174,17 +214,17 @@
     },
     {
       "path": "results\\FINAL_STATUS.md",
-      "sha256": "dbc49aec407b7117030650728c42e7ba995bf32f7d9807fbe3d7fd6af8756a01",
-      "bytes": 3810
+      "sha256": "df4a88f6ae419965d12af7f6dcf4e04313a31d10260d00187830e5476f24c07f",
+      "bytes": 3967
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "9cc738752ea06d60a0a2e95464e2cc3d8e911c9d1c02057aa72b7514dc819b39",
-      "bytes": 21850
+      "sha256": "879b174ffb1d3ae295330313e42fda4069f9da2f19087bc09522229c522b9dc9",
+      "bytes": 22217
     },
     {
       "path": "results\\template_docx_qc.json",
-      "sha256": "c5ca2500a9995e2d0f05e4ddae91b1866e2b938f52314c130f26c5f93d54a3a9",
+      "sha256": "f9177b26790fb33c35f835eb3e085ad4f49364397b1311c16f849e9311cc4b0d",
       "bytes": 2459
     },
     {
@@ -269,8 +309,8 @@
     },
     {
       "path": "scripts\\15_final_qc.py",
-      "sha256": "5fbfde8b97a353d8f01476b0c0735ef7b5f81cc1cd74493108e109928c82e020",
-      "bytes": 54162
+      "sha256": "a7adf970484031afcf9ae0811d1a036bbd5b65b309454c07ff1370a43860ee7d",
+      "bytes": 56385
     },
     {
       "path": "scripts\\16_build_active_ibd_conditioning.py",
@@ -511,6 +551,16 @@
       "path": "scripts\\64_apply_reviewer5_edits.py",
       "sha256": "93ba50305123cb780fd0fc77677cf36b791fcd2ccf269093827e0e595a7e34d2",
       "bytes": 2657
+    },
+    {
+      "path": "scripts\\65_build_generic_cover_letter.py",
+      "sha256": "4273c2277eb949abc685931017340b51cc930b0ffdad0a9957bb24ccf2b88e18",
+      "bytes": 2479
+    },
+    {
+      "path": "scripts\\66_build_supplementary_tables.py",
+      "sha256": "b30d295e67afd848af475da6b228d45601be7c4d1f144c47eba665297b2807a0",
+      "bytes": 40106
     },
     {
       "path": "scripts\\common.py",

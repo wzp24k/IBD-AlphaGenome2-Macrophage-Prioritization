@@ -48,11 +48,17 @@ is never included in generated outputs.
 
 - `manuscript\Manuscript_AlphaGenome2_IBD.docx`
 - `manuscript\manuscript.md`
+- `Supplementary_Tables.docx`
+- `manuscript\Supplementary_Tables.docx`
 - `results\IBD_AlphaGenome2_supplementary_tables.xlsx`
+- `results\tables\supplementary_table_index.csv`
+- `results\supplementary_tables_audit.json`
+- `Cover_Letter_Generic.docx`
 - `results\tables\ranked_lead_variants_final.csv`
 - `results\tables\ranked_variant_gene_candidates_final.csv`
 - `results\figures\figure1_analysis_flow.png` through `figure12_prkcb_mechanism.png`
 - `results\figures\figure1_analysis_flow.drawio`
+- `Figure_1.drawio`
 - `results\tables\ranked_lead_variants_active_ibd.csv`
 - `results\tables\active_ibd_validation_summary.json`
 - `results\tables\external_gwas_block_bootstrap_pathways.csv`

@@ -83,6 +83,8 @@ if (Test-Path $rscript) {
 $build_scripts = @(
     "13_build_deliverables.py",
     "25_build_template_docx.py",
+    "65_build_generic_cover_letter.py",
+    "66_build_supplementary_tables.py",
     "60_audit_1114_references.py",
     "62_audit_1114_figures_tables.py",
     "63_audit_1114_numeric_consistency.py",

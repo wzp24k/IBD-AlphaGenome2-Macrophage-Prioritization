@@ -184,6 +184,11 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    supplementary_audit = json.loads(
+        (ROOT / "results" / "supplementary_tables_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
     benchmark_coverage = json.loads(
         (table_dir / "benchmark_coverage_summary.json").read_text(
             encoding="utf-8"
@@ -407,6 +412,10 @@ def main() -> None:
     deliverable_files = [
         manuscript,
         ROOT / "manuscript" / "Manuscript_AlphaGenome2_IBD_general.docx",
+        ROOT / "Supplementary_Tables.docx",
+        ROOT / "manuscript" / "Supplementary_Tables.docx",
+        ROOT / "Figure_1.drawio",
+        ROOT / "Cover_Letter_Generic.docx",
         workbook_path,
         ROOT / "manuscript" / "manuscript.md",
         ROOT / "results" / "OUTLINE_AUDIT.md",
@@ -574,6 +583,34 @@ def main() -> None:
         "docx_has_text": len(document.paragraphs) > 100,
         "docx_has_eleven_tables": len(document.tables) == 11,
         "docx_has_twelve_figures": len(document.inline_shapes) == 12,
+        "supplementary_tables_present": (
+            ROOT / "Supplementary_Tables.docx"
+        ).exists()
+        and (ROOT / "manuscript" / "Supplementary_Tables.docx").exists(),
+        "supplementary_table_audit_passes": supplementary_audit[
+            "all_checks_pass"
+        ],
+        "supplementary_table_count_52": supplementary_audit[
+            "supplementary_tables"
+        ]
+        == 52,
+        "supplementary_workbook_sheets_indexed_81": supplementary_audit[
+            "workbook_sheets_indexed"
+        ]
+        == 81,
+        "supplementary_numbers_sequential": supplementary_audit["checks"][
+            "supplement_numbers_sequential"
+        ],
+        "supplementary_titles_unique": supplementary_audit["checks"][
+            "titles_unique"
+        ],
+        "supplementary_no_main_table_duplicates": supplementary_audit[
+            "checks"
+        ]["no_main_table_captions_duplicated"],
+        "drawio_figure1_present": (
+            ROOT / "Figure_1.drawio"
+        ).exists()
+        and (ROOT / "results" / "figures" / "figure1_analysis_flow.drawio").exists(),
         "docx_has_table11_caption": "Claim calibration for the eight evidence boundaries"
         in document_text,
         "docx_has_figure10_caption": "Robustness and orthogonal secondary analyses"
@@ -1241,6 +1278,8 @@ def main() -> None:
         "- 1114 numeric audit: core cohort counts, pathway values, Perturb-seq effects and PRKCB mechanism statistics match source tables",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
+        "- Review-ready supplement: Supplementary_Tables.docx with 52 numbered tables and an 81-worksheet full-data index",
+        "- Editable Figure 1 copy: Figure_1.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GTEx, GSE229472, GSE327124 and GSE175685 provide public molecular or perturbation evidence at the explicitly marked level",
     ]
     status_path = ROOT / "results" / "FINAL_STATUS.md"
@@ -1252,9 +1291,17 @@ def main() -> None:
         ROOT / "run_core_pipeline.ps1",
         ROOT / "config" / "analysis.json",
         ROOT / "manuscript" / "manuscript.md",
+        ROOT / "manuscript" / "Cover_Letter_Generic.md",
         manuscript,
         ROOT / "1114manuscript.docx",
+        ROOT / "Supplementary_Tables.docx",
+        ROOT / "manuscript" / "Supplementary_Tables.docx",
+        ROOT / "Figure_1.drawio",
+        ROOT / "Cover_Letter_Generic.docx",
+        ROOT / "Cover_Letter_Generic.txt",
         workbook_path,
+        ROOT / "results" / "supplementary_tables_audit.json",
+        ROOT / "results" / "tables" / "supplementary_table_index.csv",
         ROOT / "results" / "OUTLINE_AUDIT.md",
         ROOT / "results" / "PATHWAY_AUDIT.md",
         ROOT / "results" / "EXTERNAL_EXPERIMENTAL_AUDIT.md",
@@ -1314,6 +1361,10 @@ def main() -> None:
         ]
     )
     package_files = [path for path in package_files if path.exists()]
+    deduplicated_package_files = {}
+    for path in package_files:
+        deduplicated_package_files[str(path.resolve())] = path
+    package_files = list(deduplicated_package_files.values())
     package_path = ROOT / "IBD_AlphaGenome2_submission_package.zip"
     with zipfile.ZipFile(package_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for path in package_files:

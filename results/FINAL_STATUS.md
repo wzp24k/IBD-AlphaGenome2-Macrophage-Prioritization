@@ -40,4 +40,6 @@
 - 1114 numeric audit: core cohort counts, pathway values, Perturb-seq effects and PRKCB mechanism statistics match source tables
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio
+- Review-ready supplement: Supplementary_Tables.docx with 52 numbered tables and an 81-worksheet full-data index
+- Editable Figure 1 copy: Figure_1.drawio
 - Evidence boundary: UKB/MVP are external genetic evidence; GTEx, GSE229472, GSE327124 and GSE175685 provide public molecular or perturbation evidence at the explicitly marked level
