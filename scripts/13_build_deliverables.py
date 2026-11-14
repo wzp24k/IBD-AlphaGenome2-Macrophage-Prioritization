@@ -255,6 +255,14 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
                     clinical_summary["targets_with_ibd_indication_candidates"],
                 ],
                 [
+                    "Top10 direction-compatible IBD drug hypothesis",
+                    "; ".join(
+                        clinical_summary[
+                            "directionally_compatible_ibd_targets"
+                        ]
+                    ),
+                ],
+                [
                     "Clinical treatment recommendations supported",
                     clinical_summary[
                         "clinical_treatment_recommendations_supported"

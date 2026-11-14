@@ -202,6 +202,7 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
         "experimental_support",
         "tractable_modalities",
         "ibd_indication_level_candidate",
+        "directionally_compatible_ibd_drug",
         "clinical_stage",
     ]
     matrix = []
@@ -223,6 +224,7 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
                 1 if pd.notna(row.experimental_support) else 0,
                 1 if row.tractable_modalities else 0,
                 1 if row.ibd_indication_level_candidate else 0,
+                1 if row.directionally_compatible_ibd_drug else 0,
                 stage,
             ]
         )
@@ -241,6 +243,7 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
             "Experiment",
             "Tractable",
             "IBD drug",
+            "Direction",
             "Clinical",
         ],
         rotation=35,

@@ -775,6 +775,10 @@ def main() -> None:
         ]
         == 3
         and clinical_translation_summary[
+            "directionally_compatible_ibd_targets"
+        ]
+        == ["PRKCB"]
+        and clinical_translation_summary[
             "clinical_treatment_recommendations_supported"
         ]
         == 0,

@@ -116,14 +116,20 @@ def query_target(session: requests.Session, target_id: str) -> dict:
 
 def clinical_translation_status(
     ibd_indication: bool,
+    directionally_compatible: bool,
     clinical_stage_number: int,
     tractable: bool,
     validated: bool,
 ) -> tuple[str, str]:
+    if ibd_indication and directionally_compatible:
+        return (
+            "Clinical-stage IBD-indication signal, direction compatible",
+            "A clinical-stage IBD-indication drug has a target action compatible with the risk-allele expression direction; prospective efficacy and safety remain untested.",
+        )
     if ibd_indication:
         return (
-            "Clinical-stage IBD-indication signal",
-            "A clinical-stage drug lists an IBD, Crohn or ulcerative colitis indication; treatment use still requires directionality and trial-level evidence.",
+            "Clinical-stage IBD-indication signal, direction not aligned",
+            "An IBD-indication clinical candidate exists, but its action is not compatible with the risk-allele expression direction.",
         )
     if clinical_stage_number >= 5:
         return (
@@ -180,6 +186,12 @@ def main() -> None:
             "target",
         ]
     )
+    eqtl_lookups = pd.read_csv(
+        table_dir / "external_eqtl_all_variant_lookups.csv"
+    )
+    eqtl_lookups = eqtl_lookups[
+        eqtl_lookups["query_group"].eq("top10_matched")
+    ].copy()
 
     session = requests.Session()
     rows = []
@@ -187,6 +199,23 @@ def main() -> None:
     for row in lead.itertuples():
         target_symbol = str(row.l2g_target_symbol)
         target_id = str(row.l2g_target_id)
+        exact_lookup = eqtl_lookups[
+            eqtl_lookups["variant_id"].eq(row.variant_id)
+            & eqtl_lookups["target"].eq(target_symbol)
+        ].sort_values("pvalue")
+        eqtl_beta = (
+            float(exact_lookup.iloc[0]["beta"])
+            if not exact_lookup.empty
+            else None
+        )
+        study_beta = float(row.study_beta)
+        risk_effect_on_target = (
+            "risk_increases_target"
+            if eqtl_beta is not None and study_beta * eqtl_beta > 0
+            else "risk_decreases_target"
+            if eqtl_beta is not None
+            else "not_available"
+        )
         try:
             target = query_target(session, target_id)
         except Exception as exc:
@@ -276,6 +305,25 @@ def main() -> None:
             else ""
         )
         ibd_indication = bool(ibd_indication_drugs)
+        expected_actions = (
+            {"INHIBITOR", "ANTAGONIST", "NEGATIVE MODULATOR", "DEGRADER"}
+            if risk_effect_on_target == "risk_increases_target"
+            else {
+                "AGONIST",
+                "ACTIVATOR",
+                "POSITIVE MODULATOR",
+            }
+            if risk_effect_on_target == "risk_decreases_target"
+            else set()
+        )
+        directionally_compatible_actions = sorted(
+            action
+            for action in target_specific_actions
+            if action.upper() in expected_actions
+        )
+        directionally_compatible_ibd_drug = bool(
+            ibd_indication and directionally_compatible_actions
+        )
         pathways = [
             str(pathway.get("pathway", ""))
             for pathway in target.get("pathways") or []
@@ -303,10 +351,17 @@ def main() -> None:
         )
         priority, rationale = clinical_translation_status(
             ibd_indication,
+            directionally_compatible_ibd_drug,
             stage_number(max_stage),
             bool(modalities),
             independent_validation,
         )
+        if directionally_compatible_ibd_drug:
+            rationale = (
+                "A clinical-stage IBD-indication drug has a target action "
+                "compatible with the risk-allele expression direction, but "
+                "prospective efficacy and safety evidence are not established."
+            )
         rows.append(
             {
                 "priority_rank": int(row.priority_rank),
@@ -338,6 +393,12 @@ def main() -> None:
                 "target_specific_clinical_actions": "; ".join(
                     sorted(target_specific_actions)
                 ),
+                "risk_effect_on_target": risk_effect_on_target,
+                "eqtl_beta_at_best_target": eqtl_beta,
+                "directionally_compatible_clinical_actions": "; ".join(
+                    directionally_compatible_actions
+                ),
+                "directionally_compatible_ibd_drug": directionally_compatible_ibd_drug,
                 "minimum_mechanism_target_count": minimum_mechanism_target_count,
                 "clinical_treatment_recommendation_supported": False,
                 "clinical_recommendation_boundary": (
@@ -380,6 +441,15 @@ def main() -> None:
         ),
         "targets_with_target_specific_clinical_actions": int(
             frame["target_specific_clinical_actions"].ne("").sum()
+        ),
+        "targets_with_directionally_compatible_ibd_drug": int(
+            frame["directionally_compatible_ibd_drug"].sum()
+        ),
+        "directionally_compatible_ibd_targets": sorted(
+            frame.loc[
+                frame["directionally_compatible_ibd_drug"].astype(bool),
+                "target",
+            ].tolist()
         ),
         "targets_with_eqtl": int(frame["exact_variant_eqtl"].sum()),
         "targets_with_formal_coloc": int(

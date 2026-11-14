@@ -67,8 +67,11 @@ formal ancestry-specific validation.
 - Clinical-stage IBD/UC/Crohn-indication signals: CXCR2, PRKCB and
   MAP3K8, each at phase 2.
 - PDGFB and PLAU had non-IBD clinical candidates.
-- MAP3K8 had the cleanest combination of variant-to-gene evidence,
-  tractability and a target-specific inhibitor.
+- PRKCB was the only target with an IBD-indication drug action compatible
+  with the risk-allele expression direction.
+- CXCR2 and MAP3K8 risk alleles decrease target expression, whereas their
+  clinical-stage actions are antagonist or inhibitor, which is directionally
+  opposite.
 - PRKCB clinical pharmacology was dominated by pan-PKC inhibitors.
 - CXCR2 did not reach the primary colocalization threshold.
 - Clinical treatment recommendations supported: 0/10.
@@ -113,8 +116,10 @@ Conclusions not supported:
 
 Clinical-stage hypotheses supported for further research:
 
-- MAP3K8: strongest combined target-mapping, tractability and
-  target-specific phase 2 inhibitor signal.
-- PRKCB: strong target mapping with phase 2 pan-PKC pharmacology.
-- CXCR2: phase 2 antagonist/inhibitor signal without formal
-  colocalization support.
+- PRKCB: strong target mapping, phase 2 IBD-indication pharmacology and
+  direction-compatible inhibitor action; pan-PKC selectivity remains a
+  major limitation.
+- CXCR2: phase 2 IBD-indication antagonist/inhibitor signal without formal
+  colocalization support and with opposite risk-allele direction.
+- MAP3K8: strong target mapping and phase 2 inhibitor signal, but opposite
+  risk-allele direction.

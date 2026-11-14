@@ -10,11 +10,16 @@
   ],
   "targets_with_non_ibd_clinical_candidates": 2,
   "targets_with_target_specific_clinical_actions": 5,
+  "targets_with_directionally_compatible_ibd_drug": 1,
+  "directionally_compatible_ibd_targets": [
+    "PRKCB"
+  ],
   "targets_with_eqtl": 7,
   "targets_with_formal_coloc": 5,
   "translational_status_counts": {
     "Tractable target without IBD clinical candidate": 5,
-    "Clinical-stage IBD-indication signal": 3,
+    "Clinical-stage IBD-indication signal, direction not aligned": 2,
+    "Clinical-stage IBD-indication signal, direction compatible": 1,
     "Genetics-led target with limited tractability": 1,
     "Approved or phase-4 drug in non-IBD indication": 1
   },
