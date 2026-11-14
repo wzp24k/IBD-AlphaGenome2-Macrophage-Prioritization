@@ -154,6 +154,8 @@ def main() -> None:
             trial["sotrastaurin_remission_ci_low_percent"] < 0
             < trial["sotrastaurin_remission_ci_high_percent"]
             and "12.2%" in text
+            and "The publicly reported trial cited in this study is NCT00572585."
+            in text
         ),
         "claim_calibration_eight_rows": len(claims) == 8,
         "top28_active_support_21_and_17": (

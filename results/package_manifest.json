@@ -1,6 +1,6 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "1165fe16b9fdfc03beaa55552e5e647236c7cae2b2457cfde6f188aaea3c388b",
+  "package_sha256": "309e8732c22d09f68c4d64bec5d2ec73c1915796aa22d54aeb93fc77dc85cfd5",
   "files": [
     {
       "path": "README.md",
@@ -24,23 +24,23 @@
     },
     {
       "path": "manuscript\\manuscript.md",
-      "sha256": "baa6635665b91e4cb2abb15a50d304e1d94f5c9fdfc916bf01f8baa9aa7ee610",
-      "bytes": 80406
+      "sha256": "298cfb091e614c58d27beda635b9b31ffac572de8e42e0c37b8133ca8026d780",
+      "bytes": 80588
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "sha256": "f5d3784f5202dde304da9dd74dfc71f95e600bf357b84102789970a38b003fa5",
-      "bytes": 5954931
+      "sha256": "06d3e6cd7da91e0459a1f82bc90770c15c89c3b6d8566ac7d45ec916e1549ec5",
+      "bytes": 5954724
     },
     {
       "path": "1114manuscript.docx",
-      "sha256": "f5d3784f5202dde304da9dd74dfc71f95e600bf357b84102789970a38b003fa5",
-      "bytes": 5954931
+      "sha256": "06d3e6cd7da91e0459a1f82bc90770c15c89c3b6d8566ac7d45ec916e1549ec5",
+      "bytes": 5954724
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-      "sha256": "46f2efce752813873ee564c189ee3a18b924978f10eb0ee9c2da459c112afe86",
-      "bytes": 2135806
+      "sha256": "ff2014445bb592eb61795ec161c1ac1b5c30b02c8ddc4ade09537538cbf63bef",
+      "bytes": 2135807
     },
     {
       "path": "results\\OUTLINE_AUDIT.md",
@@ -114,13 +114,18 @@
     },
     {
       "path": "results\\REVIEWER2_1114_FULL_AUDIT.md",
-      "sha256": "1048229a9da62963cf08bf51c0a99d479a1a5799724b408ef1c6b5c55197caa1",
-      "bytes": 5891
+      "sha256": "9684d66c26e11d9641b92a9debb46160d058f0b9ea2300bdeb527cca6d55240c",
+      "bytes": 5909
     },
     {
       "path": "results\\REVIEWER3_1114_FULL_AUDIT.md",
       "sha256": "a9a3b0d39e659a201f7d22d1b978092d3ecd3cdfc76ea742fd4adeba74aa3091",
       "bytes": 5493
+    },
+    {
+      "path": "results\\REVIEWER4_1114_FULL_AUDIT.md",
+      "sha256": "555777a1ecadd7ec063d09c578ebdd67cc5327c7c9054aa96cd173e92e5f1fcd",
+      "bytes": 4004
     },
     {
       "path": "results\\1114_MANUSCRIPT_AUDIT.md",
@@ -129,8 +134,8 @@
     },
     {
       "path": "results\\1114_reference_audit.json",
-      "sha256": "d18c66ba657d654d7ed73719843ce19a6f69a190a44de74c6e1ebb945af85231",
-      "bytes": 30367
+      "sha256": "8b9c7a9e94a654e02b099cd992d72d337a96e68f1e24a3e6af12d5910a6d768f",
+      "bytes": 30409
     },
     {
       "path": "results\\1114_figure_table_audit.json",
@@ -159,8 +164,8 @@
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "0c01d243c676891236f57d762be4336f78162e3e51cc12d5ed87d2c0a60aa540",
-      "bytes": 21496
+      "sha256": "8aa9f056c26ed63fa9180ec3dec839784a74f9cb274a7a887e300b5dd81333a4",
+      "bytes": 21723
     },
     {
       "path": "results\\template_docx_qc.json",
@@ -249,8 +254,8 @@
     },
     {
       "path": "scripts\\15_final_qc.py",
-      "sha256": "19cee5c2e86141c5973af14889b7da69523347319f329cb0cba5b8f8c8540ffb",
-      "bytes": 52610
+      "sha256": "e048c743e1b6dc68994860d5f869d1f5c5ac6b89f4ca057cae68e4eae82ebe84",
+      "bytes": 53616
     },
     {
       "path": "scripts\\16_build_active_ibd_conditioning.py",
@@ -299,8 +304,8 @@
     },
     {
       "path": "scripts\\25_build_template_docx.py",
-      "sha256": "3693fad684b551b199110847840fe39111760162df8198e6da45cd50d5c93446",
-      "bytes": 18747
+      "sha256": "9adc370c2cabf84d1b9fb27a2f0969cc01d927f8f892db04fc6d7816b7c08ee4",
+      "bytes": 18775
     },
     {
       "path": "scripts\\26_template_docx_qc.py",
@@ -334,8 +339,8 @@
     },
     {
       "path": "scripts\\32_external_experimental_figure.py",
-      "sha256": "fc7c85ef0100957d1c1dc1676af9c76fe9b2d0f5e648923dbe06e04260b80b50",
-      "bytes": 7072
+      "sha256": "433f32ac5557b3858150876f1ad1211fab21a1a39d6669379aa04ba719a8d2b3",
+      "bytes": 7085
     },
     {
       "path": "scripts\\33_eqtl_catalogue_remaining_variants.py",
@@ -484,8 +489,8 @@
     },
     {
       "path": "scripts\\63_audit_1114_numeric_consistency.py",
-      "sha256": "fe19c0407cbdfc874da7d4642295ae17e021d71f5a4d99e49134026c0db9639d",
-      "bytes": 6795
+      "sha256": "a8192386e0328123d35e9862b5cbbe6863697389747d8049d55b11aeae284f09",
+      "bytes": 6897
     },
     {
       "path": "scripts\\common.py",
@@ -614,13 +619,13 @@
     },
     {
       "path": "results\\figures\\figure8_external_experimental_evidence.pdf",
-      "sha256": "25e715e8c2b26fee09582a071c3884dd0fbebdcbcfde070115be5cbf1ef51a55",
-      "bytes": 41771
+      "sha256": "fe017952a215f6d771eabe2ca77b07e48a24511ee929447bfa68247cd992c92a",
+      "bytes": 41992
     },
     {
       "path": "results\\figures\\figure8_external_experimental_evidence.png",
-      "sha256": "544952f8126616055d800ef1b3aea1a47d6dfc3c4313c5f85a96fd273f29d611",
-      "bytes": 309809
+      "sha256": "02d3cf2e19a52ccd780057cc17d815c972e0a48530b4127f2a71f7bfe1c1bb43",
+      "bytes": 309186
     },
     {
       "path": "results\\figures\\figure9_perturbseq_validation.pdf",

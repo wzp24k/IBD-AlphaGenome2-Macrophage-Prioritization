@@ -115,14 +115,14 @@ def main() -> None:
     )
     axes[0, 0].set_ylabel("")
     axes[0, 0].set_title(
-        "Experimental coverage of Tier 1 targets",
+        "Public evidence coverage of Tier 1 targets",
         loc="left",
         fontweight="bold",
     )
     axes[0, 0].text(
         0.02,
         -0.31,
-        f"Variant-level: {summary['tier1_variant_level_experimental']}/10; "
+        f"Variant-level public evidence: {summary['tier1_variant_level_experimental']}/10; "
         f"gene-level perturbation: {summary['tier1_gene_level_experimental']}/10; "
         f"gut cCRE: {summary['tier1_scatac_ccre']}/10",
         transform=axes[0, 0].transAxes,
@@ -159,7 +159,7 @@ def main() -> None:
     axes[0, 1].axhline(0, color=AXIS, linewidth=0.8)
     axes[0, 1].set_ylabel("Normalized effect")
     axes[0, 1].set_title(
-        "Variant-level experimental evidence",
+        "Variant-level public evidence",
         loc="left",
         fontweight="bold",
     )

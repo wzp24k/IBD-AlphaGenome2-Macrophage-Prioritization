@@ -39,7 +39,7 @@ PDGFB is presented as the leading macrophage-regulatory candidate. PRKCB is
 presented as the mechanistic-triangulation candidate. Gene-level perturbation,
 chromatin annotation and allele-specific evidence are not treated as equivalent.
 
-**Evidence Anchor**: text: "PDGFB is the leading macrophage-regulatory archetype."
+**Evidence Anchor**: text: "Among the Top 10, PDGFB is the leading macrophage-regulatory archetype."
 
 ### S3: Reproducibility and reporting controls are extensive
 

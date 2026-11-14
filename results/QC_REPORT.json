@@ -33,11 +33,16 @@
     "macrophage_comparator_wording_precise": true,
     "model_benchmark_limitation_reported": true,
     "clinical_evidence_boundary_reported": true,
+    "clinical_trial_number_consistent": true,
+    "public_evidence_terminology_precise": true,
+    "candidate_scope_restricted_to_top10": true,
+    "planned_impra_language": true,
     "manuscript_uses_evidence_ladder": true,
     "manuscript_distinguishes_candidate_archetypes": true,
     "main_narrative_audit_present": true,
     "reviewer2_1114_audit_present": true,
     "reviewer3_1114_audit_present": true,
+    "reviewer4_1114_audit_present": true,
     "all_tables_cited": true,
     "all_figures_cited": true,
     "positive_control_pass": true,
@@ -517,7 +522,7 @@
     },
     "figure8_external_experimental_evidence.png": {
       "dimensions": [
-        3627,
+        3631,
         2732
       ],
       "nonblank": true
@@ -620,7 +625,7 @@
   ],
   "api_key_leaks": [],
   "format_compliance": {
-    "abstract_words": 220,
+    "abstract_words": 221,
     "keywords": [
       "Inflammatory Bowel Disease",
       "Non-coding Variants",
@@ -628,7 +633,7 @@
       "Intestinal Macrophage",
       "Regulatory Genomics"
     ],
-    "max_sentence_words": 29,
+    "max_sentence_words": 28,
     "citation_order": [
       1,
       2,

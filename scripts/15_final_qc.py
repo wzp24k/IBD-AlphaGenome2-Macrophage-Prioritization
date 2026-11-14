@@ -511,6 +511,24 @@ def main() -> None:
         in markdown_text,
         "clinical_evidence_boundary_reported": "Prospective efficacy and target-selective safety data were not established"
         in markdown_text,
+        "clinical_trial_number_consistent": (
+            "The publicly reported trial cited in this study is NCT00572585."
+            in markdown_text
+        ),
+        "public_evidence_terminology_precise": (
+            "public molecular and perturbation evidence"
+            in document_text.lower()
+            and "exact variant-level experimental coverage"
+            not in document_text.lower()
+        ),
+        "candidate_scope_restricted_to_top10": (
+            "Among the Top 10, PDGFB is the leading" in document_text
+            and "The leading candidate was rs2143178" not in document_text
+        ),
+        "planned_impra_language": (
+            "planned lentiMPRA design" in document_text
+            and "prespecified PRKCB lentiMPRA" not in document_text
+        ),
         "manuscript_uses_evidence_ladder": (
             "evidence ladder" in document_text.lower()
             and sum(
@@ -537,6 +555,9 @@ def main() -> None:
         ).exists(),
         "reviewer3_1114_audit_present": (
             ROOT / "results" / "REVIEWER3_1114_FULL_AUDIT.md"
+        ).exists(),
+        "reviewer4_1114_audit_present": (
+            ROOT / "results" / "REVIEWER4_1114_FULL_AUDIT.md"
         ).exists(),
         "all_tables_cited": cited_tables == set(range(1, 12)),
         "all_figures_cited": cited_figures == set(range(1, 13)),
@@ -732,8 +753,8 @@ def main() -> None:
         in document_text
         and "attenuated" in document_text,
         "manuscript_reports_external_experiments": (
-            "Public experimental evidence" in document_text
-            or "External experimental evidence" in document_text
+            "Public molecular and perturbation evidence" in document_text
+            or "External molecular and perturbation evidence" in document_text
         )
         and (
             "cytokine endpoint" in document_text.lower()
@@ -1241,6 +1262,7 @@ def main() -> None:
         ROOT / "results" / "MAIN_NARRATIVE_REBUILD_AUDIT.md",
         ROOT / "results" / "REVIEWER2_1114_FULL_AUDIT.md",
         ROOT / "results" / "REVIEWER3_1114_FULL_AUDIT.md",
+        ROOT / "results" / "REVIEWER4_1114_FULL_AUDIT.md",
         ROOT / "results" / "1114_MANUSCRIPT_AUDIT.md",
         ROOT / "results" / "1114_reference_audit.json",
         ROOT / "results" / "1114_figure_table_audit.json",
