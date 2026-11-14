@@ -37,6 +37,7 @@
     "manuscript_distinguishes_candidate_archetypes": true,
     "main_narrative_audit_present": true,
     "reviewer2_1114_audit_present": true,
+    "reviewer3_1114_audit_present": true,
     "all_tables_cited": true,
     "all_figures_cited": true,
     "positive_control_pass": true,
@@ -530,7 +531,7 @@
     }
   },
   "docx": {
-    "paragraphs": 264,
+    "paragraphs": 265,
     "tables": 11,
     "inline_shapes": 12
   },
