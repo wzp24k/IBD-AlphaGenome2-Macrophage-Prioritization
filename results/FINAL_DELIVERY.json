@@ -47,7 +47,7 @@
   "numeric_consistency": true,
   "archive": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\_archive\\IBD_AlphaGenome2_FINAL_20261114_214724.zip",
   "archive_sha256": "e5050e1a27c5a09405087baf7fcb91bde9a5daffe10506330f2358df96547b5a",
-  "remote_status": "local_complete_remote_pending",
+  "remote_status": "pushed_origin_main",
   "files": [
     {
       "path": "1114manuscript.docx",
