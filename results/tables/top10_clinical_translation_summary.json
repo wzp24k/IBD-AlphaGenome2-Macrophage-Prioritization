@@ -3,6 +3,11 @@
   "targets_with_tractability": 9,
   "targets_with_clinical_candidates": 5,
   "targets_with_ibd_indication_candidates": 3,
+  "ibd_indication_targets": [
+    "CXCR2",
+    "MAP3K8",
+    "PRKCB"
+  ],
   "targets_with_non_ibd_clinical_candidates": 2,
   "targets_with_target_specific_clinical_actions": 5,
   "targets_with_eqtl": 7,
