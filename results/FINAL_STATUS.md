@@ -35,6 +35,7 @@
 - PRKCB robustness: leave-one-instrument-out MR remains positive; local HEIDI windows remain heterogeneous
 - PRKCB virtual JAK/STAT: negative across shrinkage 0.02-0.30 and 1,000 donor bootstrap replicates
 - Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references
+- 1114 manuscript audit: first use follows 1-42, every reference is cited once, and all citation occurrences link to reference bookmarks
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio
 - Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level

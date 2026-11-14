@@ -1,50 +1,57 @@
 ﻿{
-    "generated":  "2026-11-14T19:43:47.9724300+08:00",
-    "commit":  "5523a952b08da423c25e489474c1904ea3cc7014",
-    "remote_status":  "pushed",
-    "narrative":  "five-layer evidence ladder",
-    "robustness":  "MR leave-one-out, HEIDI windows, shrinkage and 1000 bootstrap",
-    "qc_checks":  135,
+    "generated":  "2026-11-14T19:53:12.5562618+08:00",
+    "target_manuscript":  "1114manuscript.docx",
+    "qc_checks":  145,
     "qc_all_pass":  true,
-    "figures":  12,
-    "tables":  11,
-    "xlsx_sheets":  81,
+    "references":  42,
+    "each_reference_cited_once":  true,
+    "pre_discussion_references":  27,
+    "discussion_references":  15,
+    "first_citation_order_sequential":  true,
+    "all_citation_occurrences_hyperlinked":  true,
+    "long_sentences_over_30":  0,
     "files":  [
                   {
-                      "path":  "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-                      "bytes":  5954556,
-                      "sha256":  "215DA451D852EA06C82E27D49A6669C733502A7EBE93AAA6E53B07F70228D8C4",
-                      "modified":  "2026-11-14T19:43:18.5295311+08:00"
+                      "path":  "1114manuscript.docx",
+                      "bytes":  5954494,
+                      "sha256":  "8D61E2B9973A68FB5488CEBE666EB88D540983BE17FBCD6F37E195937353048D",
+                      "modified":  "2026-11-14T19:52:38.1793838+08:00"
                   },
                   {
-                      "path":  "1113manuscript_revised.docx",
-                      "bytes":  5954556,
-                      "sha256":  "215DA451D852EA06C82E27D49A6669C733502A7EBE93AAA6E53B07F70228D8C4",
-                      "modified":  "2026-11-14T19:43:18.5295311+08:00"
+                      "path":  "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
+                      "bytes":  5954494,
+                      "sha256":  "8D61E2B9973A68FB5488CEBE666EB88D540983BE17FBCD6F37E195937353048D",
+                      "modified":  "2026-11-14T19:52:38.1793838+08:00"
                   },
                   {
                       "path":  "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
                       "bytes":  2135646,
-                      "sha256":  "26173448997E19805E6BE23999FB6B46B31D675B53579158111C3F6401F39F7B",
-                      "modified":  "2026-11-14T19:43:16.2319051+08:00"
+                      "sha256":  "C1AAF371E26343292F2BB8B0A036E3BADB88C0BD446A6F0B94216A003BCAE378",
+                      "modified":  "2026-11-14T19:52:35.8651072+08:00"
                   },
                   {
                       "path":  "IBD_AlphaGenome2_submission_package.zip",
-                      "bytes":  94503092,
-                      "sha256":  "ABFF5F486047FF377C4A6901421CFFAB693101362313931AEB56E127DCE4AB71",
-                      "modified":  "2026-11-14T19:43:27.0692404+08:00"
+                      "bytes":  100477444,
+                      "sha256":  "A71522434D8AC99FAB58A8338CA453F655F1505B103096E36C39429713DE558E",
+                      "modified":  "2026-11-14T19:53:03.7454639+08:00"
                   },
                   {
-                      "path":  "results\\figures\\figure12_prkcb_mechanism.png",
-                      "bytes":  543727,
-                      "sha256":  "CDF44F2118F35EA99CE898A44A895137E33DEADFD76A86C556EC85BF1DC96C5E",
-                      "modified":  "2026-11-14T19:24:15.0438291+08:00"
+                      "path":  "results\\1114_reference_audit.json",
+                      "bytes":  30293,
+                      "sha256":  "2BE3AD9D8424669F01D916E25A207BC8BD92DF0A7AAAC571B91CD8A1DD8876C9",
+                      "modified":  "2026-11-14T19:52:38.9887300+08:00"
+                  },
+                  {
+                      "path":  "results\\1114_MANUSCRIPT_AUDIT.md",
+                      "bytes":  1419,
+                      "sha256":  "1F7A5A5B1865E24F87B04486F2EFEAF6B46A58105785B9867C4750F03124D68B",
+                      "modified":  "2026-11-14T19:52:02.0134388+08:00"
                   },
                   {
                       "path":  "results\\QC_REPORT.json",
-                      "bytes":  20811,
-                      "sha256":  "DC67A41CD617C73EED4506EEFA28E9D75BD6D378E5738731A282AC0D905E0510",
-                      "modified":  "2026-11-14T19:43:21.5667308+08:00"
+                      "bytes":  21245,
+                      "sha256":  "DA202CD3954A556544193A84FF070F1C1280052B216B1C3B9592A30905E661D1",
+                      "modified":  "2026-11-14T19:52:57.6804844+08:00"
                   }
               ]
 }

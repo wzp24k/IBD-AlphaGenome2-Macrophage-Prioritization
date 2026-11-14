@@ -1,6 +1,6 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "abff5f486047ff377c4a6901421cffab693101362313931aeb56e127dce4ab71",
+  "package_sha256": "a71522434d8ac99fab58a8338ca453f655f1505b103096e36c39429713de558e",
   "files": [
     {
       "path": "README.md",
@@ -14,8 +14,8 @@
     },
     {
       "path": "run_core_pipeline.ps1",
-      "sha256": "836f02ef80933f2998e1017a9b7391bd2c865bc15027b978b9e26f7705454845",
-      "bytes": 3364
+      "sha256": "e70b79adcfb069ed036e8e8249fd7a6dada02aafd73d85269b60eb77bff83a2f",
+      "bytes": 3629
     },
     {
       "path": "config\\analysis.json",
@@ -24,17 +24,22 @@
     },
     {
       "path": "manuscript\\manuscript.md",
-      "sha256": "f038ddc7d963c91e455a3bd63d28a59dfa93c53fe49780b2e860ceb300339340",
-      "bytes": 79390
+      "sha256": "f01a87f0f7c5ce23cc3a5f843960de195404091183a94f36738fde3dc39c7359",
+      "bytes": 79188
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "sha256": "215da451d852ea06c82e27d49a6669c733502a7ebe93aaa6e53b07f70228d8c4",
-      "bytes": 5954556
+      "sha256": "8d61e2b9973a68fb5488cebe666eb88d540983be17fbcd6f37e195937353048d",
+      "bytes": 5954494
+    },
+    {
+      "path": "1114manuscript.docx",
+      "sha256": "8d61e2b9973a68fb5488cebe666eb88d540983be17fbcd6f37e195937353048d",
+      "bytes": 5954494
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-      "sha256": "26173448997e19805e6be23999fb6b46b31d675b53579158111c3f6401f39f7b",
+      "sha256": "c1aaf371e26343292f2bb8b0a036e3badb88c0bd446a6f0b94216a003bcae378",
       "bytes": 2135646
     },
     {
@@ -79,13 +84,13 @@
     },
     {
       "path": "results\\FORMAT_COMPLIANCE_1113.md",
-      "sha256": "ec2e06017081a92660d1284bfd0c36d163819aa685f13a1cea14a2a3097145a9",
-      "bytes": 2316
+      "sha256": "58ecc771e7544e40b128d95cd1fcfd5dc31ffd86231342f36d41c2791cccda73",
+      "bytes": 2468
     },
     {
       "path": "results\\CITATION_CROSSREF_AUDIT.md",
-      "sha256": "d6530f5b8a3274f7a70878831e75f40cfcc9cc8016eff18849179c6f7066b768",
-      "bytes": 964
+      "sha256": "6cfbfdd3111a510a526e084a480766b33d8b01c3d004622b93c7bedf69011255",
+      "bytes": 969
     },
     {
       "path": "results\\BENCHMARK_AND_TRANSLATION_AUDIT.md",
@@ -108,6 +113,16 @@
       "bytes": 2428
     },
     {
+      "path": "results\\1114_MANUSCRIPT_AUDIT.md",
+      "sha256": "1f7a5a5b1865e24f87b04486f2efeaf6b46a58105785b9867c4750f03124d68b",
+      "bytes": 1419
+    },
+    {
+      "path": "results\\1114_reference_audit.json",
+      "sha256": "2be3ad9d8424669f01d916e25a207bc8bd92df0a7aaac571b91cd8a1dd8876c9",
+      "bytes": 30293
+    },
+    {
       "path": "results\\REVIEWER1_AUDIT_1113.md",
       "sha256": "6bd49de3c7aba1f02cd0001e060e4240ebbcd7346ebd4560d987c4e3f80c90a9",
       "bytes": 3984
@@ -119,13 +134,13 @@
     },
     {
       "path": "results\\FINAL_STATUS.md",
-      "sha256": "b8929dd04dafc86944b490baea9adc3fc0b54965228f8d4d8b4b82b49c36ba17",
-      "bytes": 3435
+      "sha256": "ca72f44ee96614ef0179aef4bb6e4660815241a889dcdb48653c43d006c827b1",
+      "bytes": 3573
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "dc67a41cd617c73eed4506eefa28e9d75bd6d378e5738731a282ac0d905e0510",
-      "bytes": 20811
+      "sha256": "da202cd3954a556544193a84ff070f1c1280052b216b1c3b9592a30905e661d1",
+      "bytes": 21245
     },
     {
       "path": "results\\template_docx_qc.json",
@@ -214,8 +229,8 @@
     },
     {
       "path": "scripts\\15_final_qc.py",
-      "sha256": "68c1945e348acb6313bb57ead928ea71b61c384650bc2d3f4cfbf19280500117",
-      "bytes": 49635
+      "sha256": "b1cae68344338de34bbe6a237c9c5bba6a81cf9b2c3a7f617d5fbc40b633654c",
+      "bytes": 51078
     },
     {
       "path": "scripts\\16_build_active_ibd_conditioning.py",
@@ -364,8 +379,8 @@
     },
     {
       "path": "scripts\\45_audit_and_normalize_citations.py",
-      "sha256": "60c23d202ce0d6c5b7d7357a4421a5970b31c126421a3b7d8b371b9195efde7d",
-      "bytes": 10360
+      "sha256": "cc7fd748a637fd5f3e422ea472573bdd83e9d9a5f953d8f5573e610fd5257d4f",
+      "bytes": 10410
     },
     {
       "path": "scripts\\46_external_eqtl_variant_benchmark.py",
@@ -431,6 +446,16 @@
       "path": "scripts\\59_prkcb_mechanism_robustness.py",
       "sha256": "102c4a5f797835946041049f45c831959ddb4b2c8ca49d88ffb2bc87b22b35ef",
       "bytes": 11522
+    },
+    {
+      "path": "scripts\\60_audit_1114_references.py",
+      "sha256": "982ff945cca5605af79fb071e28f5036b578e4498ec8dcdacb30facca023d84f",
+      "bytes": 10638
+    },
+    {
+      "path": "scripts\\61_renumber_references_by_first_use.py",
+      "sha256": "6e2a976c7f990bb4494b3496a999dd25f06cab2e67eb2a459428749645d8d7eb",
+      "bytes": 5793
     },
     {
       "path": "scripts\\common.py",
@@ -1259,23 +1284,33 @@
     },
     {
       "path": "results\\tables\\reference_citation_audit.csv",
-      "sha256": "23c47acb7449d248ad7046ce3b2db71a0093c32c833095e20c65339db7d0b6d3",
-      "bytes": 942
+      "sha256": "e99c0a44d6d7c9dcb73d7d4dc9df612e7ae0f97130ac062f84431a79dbb03fad",
+      "bytes": 682
     },
     {
       "path": "results\\tables\\reference_citation_audit_summary.json",
-      "sha256": "d4534094ec6c0888042bc6b94f571ef7408cee27a9e31437c2e44411d37080b1",
-      "bytes": 1688
+      "sha256": "61803f4c8627565e557eaeb3b85b305c1f4ea05b072f127ae5cd92e07aa38d2f",
+      "bytes": 1602
     },
     {
       "path": "results\\tables\\reference_doi_verification.csv",
-      "sha256": "5d07c16e975b8a79747dc9e806da25a5d1018d909b1d902afa779b92d6dd07fe",
+      "sha256": "76b36c4cff4ab183640a293cb1914062fefd452c0bbe4832cdb47fa4fc800ad2",
       "bytes": 6738
     },
     {
       "path": "results\\tables\\reference_doi_verification_summary.json",
       "sha256": "587d4d84b0e1875dcd6ab9b7bd95ef27ee2c7c4e124be4edca7e9f40c923f4b6",
       "bytes": 123
+    },
+    {
+      "path": "results\\tables\\reference_renumbering_1114.csv",
+      "sha256": "8c2712166ff45d4e9a20c1cbf0856a67b0216e5e6afdd91ebdd904102b2d35df",
+      "bytes": 8613
+    },
+    {
+      "path": "results\\tables\\reference_renumbering_1114_summary.json",
+      "sha256": "54986f4004d6a837716a55d2c29120c89656df4342b25fa097beafce06e73912",
+      "bytes": 1346
     },
     {
       "path": "results\\tables\\scatac_pdgfb_topic_summary.json",

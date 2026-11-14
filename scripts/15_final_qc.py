@@ -169,6 +169,11 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    audit_1114 = json.loads(
+        (ROOT / "results" / "1114_reference_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
     benchmark_coverage = json.loads(
         (table_dir / "benchmark_coverage_summary.json").read_text(
             encoding="utf-8"
@@ -787,6 +792,33 @@ def main() -> None:
         "reference_count_42": len(reference_numbers) == 42,
         "citation_numbers_cover_1_to_42": sorted(set(citation_order))
         == list(range(1, 43)),
+        "citation_first_appearance_sequential": citation_order
+        == list(range(1, 43)),
+        "1114_reference_count_42": audit_1114["references"] == 42,
+        "1114_pre_discussion_27": audit_1114[
+            "pre_discussion_count"
+        ]
+        == 27,
+        "1114_discussion_15": audit_1114["discussion_count"] == 15,
+        "1114_each_reference_cited_once": not audit_1114[
+            "repeated_reference_numbers"
+        ],
+        "1114_groups_at_most_two": audit_1114[
+            "max_references_in_group"
+        ]
+        <= 2,
+        "1114_groups_sorted_unique": not audit_1114[
+            "groups_not_sorted_unique"
+        ],
+        "1114_first_citation_order_sequential": audit_1114[
+            "first_citation_order_1_to_42"
+        ],
+        "1114_all_citation_occurrences_hyperlinked": audit_1114[
+            "all_citation_occurrences_hyperlinked"
+        ],
+        "1114_no_sentence_over_30_words": not audit_1114[
+            "long_sentences_over_30"
+        ],
         "discussion_citations_exactly_15": citation_audit["all_checks_pass"]
         and citation_audit["discussion_exactly_15_references"],
         "pre_discussion_citations_exactly_27": citation_audit["all_checks_pass"]
@@ -1145,6 +1177,7 @@ def main() -> None:
         "- PRKCB robustness: leave-one-instrument-out MR remains positive; local HEIDI windows remain heterogeneous",
         "- PRKCB virtual JAK/STAT: negative across shrinkage 0.02-0.30 and 1,000 donor bootstrap replicates",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
+        "- 1114 manuscript audit: first use follows 1-42, every reference is cited once, and all citation occurrences link to reference bookmarks",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",
@@ -1159,6 +1192,7 @@ def main() -> None:
         ROOT / "config" / "analysis.json",
         ROOT / "manuscript" / "manuscript.md",
         manuscript,
+        ROOT / "1114manuscript.docx",
         workbook_path,
         ROOT / "results" / "OUTLINE_AUDIT.md",
         ROOT / "results" / "PATHWAY_AUDIT.md",
@@ -1174,6 +1208,8 @@ def main() -> None:
         ROOT / "results" / "PRKCB_MAP3K8_CLINICAL_FOLLOWUP_AUDIT.md",
         ROOT / "results" / "PRKCB_CAUSAL_MECHANISM_AUDIT.md",
         ROOT / "results" / "MAIN_NARRATIVE_REBUILD_AUDIT.md",
+        ROOT / "results" / "1114_MANUSCRIPT_AUDIT.md",
+        ROOT / "results" / "1114_reference_audit.json",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,

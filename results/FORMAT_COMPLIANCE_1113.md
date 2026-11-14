@@ -41,6 +41,8 @@ Date: 2026-11-13
 - 42 references, all verified as `journal-article` records in Crossref.
 - Every reference has a valid DOI.
 - Citation numbers follow first appearance from 1 to 42.
+- Each reference is cited once; citation groups contain at most two references.
+- Discussion cites 15 distinct references and earlier sections cite 27.
 - Every reference is cited in the manuscript.
 - No preprint, dataset record, website or non-journal source is included.
 

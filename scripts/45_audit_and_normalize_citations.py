@@ -177,6 +177,7 @@ def main() -> None:
             discussion_exactly_15,
             pre_discussion_exactly_27,
             discussion_majority_in_middle,
+            first_citation_sequence_valid,
         ]
     )
 
@@ -236,10 +237,10 @@ def main() -> None:
         f"- First citation order 1 to {len(references)}: {first_citation_sequence_valid}",
         f"- Markdown citation formatting updated: {changed}",
         "",
-        "The Discussion reuses 30 or more distinct sources where synthesis is",
-        "appropriate. Citation groups are ascending and unique. The Word manuscript",
-        "keeps clickable internal links but renders citation numbers in black",
-        "without underline.",
+        "Citation groups are ascending and unique, and first use follows",
+        "the order 1 to 42. The Discussion contains 15 distinct references.",
+        "The Word manuscript keeps clickable internal links but renders",
+        "citation numbers in black without underline.",
     ]
     (ROOT / "results" / "CITATION_CROSSREF_AUDIT.md").write_text(
         "\n".join(report_lines) + "\n",

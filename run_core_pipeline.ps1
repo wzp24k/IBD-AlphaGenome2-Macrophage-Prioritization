@@ -83,11 +83,15 @@ if (Test-Path $rscript) {
 $build_scripts = @(
     "13_build_deliverables.py",
     "25_build_template_docx.py",
+    "60_audit_1114_references.py",
     "26_template_docx_qc.py",
     "15_final_qc.py"
 )
 foreach ($script in $build_scripts) {
     Write-Host "Running $script"
+    if ($script -eq "60_audit_1114_references.py") {
+        Copy-Item -LiteralPath (Join-Path $PSScriptRoot "manuscript\Manuscript_AlphaGenome2_IBD.docx") -Destination (Join-Path $PSScriptRoot "1114manuscript.docx") -Force
+    }
     & $python (Join-Path $PSScriptRoot "scripts\$script")
     if ($LASTEXITCODE -ne 0) {
         throw "Pipeline step failed: $script"
