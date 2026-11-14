@@ -143,7 +143,7 @@ def build_docx(markdown_path: Path, output_path: Path, figure_dir: Path) -> None
         "figure5_ets2_background_null.png": "Figure 5. Positive-control effect in the empirical common-variant background.",
         "figure6_active_ibd_validation.png": "Figure 6. Activity-state evaluation and repeated-pool stability of prioritized loci.",
         "figure7_all_l2g_pathways.png": "Figure 7. External GWAS locus-block bootstrap after retaining all L2G target genes.",
-        "figure8_external_experimental_evidence.png": "Figure 8. External experimental evidence for Tier 1 candidates.",
+        "figure8_external_experimental_evidence.png": "Figure 8. Public molecular and perturbation evidence for Tier 1 candidates.",
         "figure9_perturbseq_validation.png": "Figure 9. GSE327644 primary human macrophage Perturb-seq.",
         "figure10_evidence_robustness.png": "Figure 10. Robustness and orthogonal secondary analyses.",
         "figure11_benchmark_translation.png": "Figure 11. External benchmarking, multi-cohort triangulation and translational annotation.",

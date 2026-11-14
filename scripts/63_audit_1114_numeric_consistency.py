@@ -55,6 +55,12 @@ def main() -> None:
     pathways = pd.read_csv(
         TABLE_DIR / "external_gwas_block_bootstrap_pathways.csv"
     )
+    benchmark_metrics = pd.read_csv(
+        TABLE_DIR / "benchmark_model_metrics.csv"
+    )
+    benchmark_deltas = pd.read_csv(
+        TABLE_DIR / "benchmark_model_deltas.csv"
+    )
     perturb = pd.read_csv(
         TABLE_DIR / "perturbseq_gse327644_target_knockdown.csv"
     )
@@ -121,6 +127,19 @@ def main() -> None:
             == 19
         ),
         "pathway_rows_4": len(pathways) == 4,
+        "benchmark_bootstrap_1000": bool(
+            benchmark_metrics["valid_bootstrap_replicates"]
+            .dropna()
+            .eq(1_000)
+            .all()
+            and benchmark_deltas["valid_bootstrap_replicates"].dropna().min()
+            == 999
+            and benchmark_deltas["valid_bootstrap_replicates"].dropna().max()
+            == 1_000
+            and "AUROC and AUPRC were estimated with 1,000" in text
+            and "Paired differences retained 999 valid replicates" in text
+            and "500 locus-block bootstrap replicates" not in text
+        ),
         "prkcb_mr_ivw_value": math.isclose(
             mechanism["ivw_beta"],
             0.051739900586056174,
@@ -175,6 +194,11 @@ def main() -> None:
         "model_novelty_wording_removed": (
             "model novelty" not in text
             and text.count("model prediction") >= 2
+        ),
+        "donor_percentile_definition": (
+            text.count("donor-derived macrophage absolute-effect percentile")
+            >= 4
+            and "donor-derived macrophage percentile" not in text
         ),
     }
     checks = {key: bool(value) for key, value in checks.items()}

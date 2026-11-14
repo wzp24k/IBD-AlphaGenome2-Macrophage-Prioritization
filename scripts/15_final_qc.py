@@ -562,6 +562,9 @@ def main() -> None:
         "reviewer5_1114_audit_present": (
             ROOT / "results" / "REVIEWER5_1114_FULL_AUDIT.md"
         ).exists(),
+        "reviewer6_1114_audit_present": (
+            ROOT / "results" / "REVIEWER6_1114_FULL_AUDIT.md"
+        ).exists(),
         "all_tables_cited": cited_tables == set(range(1, 12)),
         "all_figures_cited": cited_figures == set(range(1, 13)),
         "positive_control_pass": positive["all_checks_pass"],
@@ -1235,7 +1238,7 @@ def main() -> None:
         "- 1114 numeric audit: core cohort counts, pathway values, Perturb-seq effects and PRKCB mechanism statistics match source tables",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
-        "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",
+        "- Evidence boundary: UKB/MVP are external genetic evidence; GTEx, GSE229472, GSE327124 and GSE175685 provide public molecular or perturbation evidence at the explicitly marked level",
     ]
     status_path = ROOT / "results" / "FINAL_STATUS.md"
     status_path.write_text("\n".join(status_lines) + "\n", encoding="utf-8")
@@ -1267,6 +1270,7 @@ def main() -> None:
         ROOT / "results" / "REVIEWER3_1114_FULL_AUDIT.md",
         ROOT / "results" / "REVIEWER4_1114_FULL_AUDIT.md",
         ROOT / "results" / "REVIEWER5_1114_FULL_AUDIT.md",
+        ROOT / "results" / "REVIEWER6_1114_FULL_AUDIT.md",
         ROOT / "results" / "1114_MANUSCRIPT_AUDIT.md",
         ROOT / "results" / "1114_reference_audit.json",
         ROOT / "results" / "1114_figure_table_audit.json",

@@ -8,6 +8,7 @@
     "study_rows_sum_1490": true,
     "external_targets_510_73_19": true,
     "pathway_rows_4": true,
+    "benchmark_bootstrap_1000": true,
     "prkcb_mr_ivw_value": true,
     "prkcb_smr_and_susie": true,
     "prkcb_direction_discrepancy_reported": true,
@@ -18,7 +19,8 @@
     "top28_active_support_21_and_17": true,
     "top28_selection_bias_wording": true,
     "cedar2_exact_variant_precision": true,
-    "model_novelty_wording_removed": true
+    "model_novelty_wording_removed": true,
+    "donor_percentile_definition": true
   },
   "all_checks_pass": true,
   "source_values": {
