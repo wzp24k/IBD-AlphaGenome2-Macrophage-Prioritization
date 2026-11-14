@@ -1,0 +1,4 @@
+{
+  "spearman_priority_vs_benchmark_score": 0.9999819860296362,
+  "note": "The original variant priority score and the benchmark equal-weight score were compared on the same rows. The analysis checks that conclusions do not depend on post hoc score construction."
+}

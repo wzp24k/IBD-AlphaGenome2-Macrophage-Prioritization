@@ -69,6 +69,17 @@ formal ancestry-specific validation.
 
 Clinical-stage compounds were not assumed to be IBD-specific or effective.
 
+## Score-construction sensitivity
+
+- Spearman correlation between the original priority score and the
+  equal-weight benchmark score: 0.99998.
+- External support in both cohorts: AUROC 0.67297 for the original score
+  versus 0.67336 for the benchmark score.
+- Replicated exact-variant eQTL: AUROC 0.55956 versus 0.55921.
+
+The benchmark conclusions therefore do not depend on constructing a new
+post hoc score.
+
 ## Evidence boundary
 
 The exact-variant eQTL and colocalization results strengthen
@@ -76,3 +87,18 @@ variant-to-target evidence but remain observational. They do not establish
 variant causality. The MPRA and Perturb-seq resources had too few
 variant-level positive labels for stable AUROC estimation and are reported
 as coverage rather than used to create sparse or misleading metrics.
+
+Conclusions supported strongly:
+
+- Matched Top 10 target assignments are enriched for exact-variant eQTL
+  signal compared with mismatched targets.
+- Five Top 10 candidate genes show convergent exact-variant eQTL and formal
+  colocalization evidence across sensitivity settings.
+- The original priority score reproduces the benchmark-score result.
+
+Conclusions not supported:
+
+- Universal superiority of the combined framework over every single-score
+  baseline.
+- Variant causality from eQTL or colocalization alone.
+- IBD efficacy from clinical-stage drug annotations.

@@ -200,6 +200,11 @@ def main() -> None:
     benchmark_heldout = pd.read_csv(
         table_dir / "benchmark_heldout_validation.csv"
     )
+    benchmark_priority_summary = json.loads(
+        (
+            table_dir / "benchmark_priority_sensitivity_summary.json"
+        ).read_text(encoding="utf-8")
+    )
     template_qc = json.loads(
         (ROOT / "results" / "template_docx_qc.json").read_text(
             encoding="utf-8"
@@ -482,6 +487,7 @@ def main() -> None:
                 "Top10_coloc_sensitivity",
                 "Clinical_translation",
                 "Benchmark_coverage",
+                "Benchmark_priority_sensitivity",
             ]
         ),
         "perturbseq_thresholds_3_5_10": robustness["assignment_thresholds"]
@@ -744,6 +750,10 @@ def main() -> None:
             ].iloc[0]
             > 0.65
         ),
+        "original_priority_reproduces_benchmark": benchmark_priority_summary[
+            "spearman_priority_vs_benchmark_score"
+        ]
+        > 0.99,
         "clinical_translation_ten_targets": clinical_translation_summary[
             "targets_annotated"
         ]
