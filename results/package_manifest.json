@@ -1,6 +1,6 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "a287e54ded0807dfd2df76ca22b1e5501a155aec5f48aed242d0e301f2462c24",
+  "package_sha256": "86aee05d5788076af18f4564b7d51b149c8315b9f5eb9458869a101768e7e698",
   "files": [
     {
       "path": "README.md",
@@ -34,23 +34,23 @@
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "sha256": "907db0f41d0415c506b605477940b62a94c8992e704b113423db54e2c424ab50",
-      "bytes": 5954827
+      "sha256": "9c99df4c306ec00b6353a260c72711b29ad513f584e81d049c8885dba5be4211",
+      "bytes": 5922291
     },
     {
       "path": "1114manuscript.docx",
-      "sha256": "907db0f41d0415c506b605477940b62a94c8992e704b113423db54e2c424ab50",
-      "bytes": 5954827
+      "sha256": "9c99df4c306ec00b6353a260c72711b29ad513f584e81d049c8885dba5be4211",
+      "bytes": 5922291
     },
     {
       "path": "Supplementary_Tables.docx",
-      "sha256": "4d8b5bb00682ab5687dedf3dd59619b141a0541a22bdee5e41a697e91f87e48a",
-      "bytes": 42751
+      "sha256": "68a3b1eef41d7dffeb93f2e55a72c216c396073db103ea860a7b6fac3b8be2ea",
+      "bytes": 32954
     },
     {
       "path": "manuscript\\Supplementary_Tables.docx",
-      "sha256": "4d8b5bb00682ab5687dedf3dd59619b141a0541a22bdee5e41a697e91f87e48a",
-      "bytes": 42751
+      "sha256": "68a3b1eef41d7dffeb93f2e55a72c216c396073db103ea860a7b6fac3b8be2ea",
+      "bytes": 32954
     },
     {
       "path": "Figure_1.drawio",
@@ -219,7 +219,7 @@
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "17477b0cbd7dbd14a29f6976b417ab2d5d80e3cf8ce76cde941f3dac3a9e0272",
+      "sha256": "7e338084f6791ee8c1f7b767a84d13772cbde27fe21597885fceb3a07046443f",
       "bytes": 22284
     },
     {
@@ -289,8 +289,8 @@
     },
     {
       "path": "scripts\\11_make_figures.py",
-      "sha256": "154d39e23f22965f9bb8a852d4d78d3760b29de4fbfa308b39d25c7dd92c5618",
-      "bytes": 12828
+      "sha256": "6e48d2277846a2b577c12c88f92bb0857e4e156a42bab8580c2136c9c7b3be4a",
+      "bytes": 13596
     },
     {
       "path": "scripts\\12_sensitivity_and_controls.py",
@@ -329,8 +329,8 @@
     },
     {
       "path": "scripts\\19_active_ibd_figures.py",
-      "sha256": "948f39fd2e79b4466812615792fdd75e990cde2f0ee2344d2c160bd1585e27ce",
-      "bytes": 6506
+      "sha256": "a90aded3e59569abb4c006d41d136057b73fe5bb0486f23db6cf7e0c7b54285c",
+      "bytes": 7312
     },
     {
       "path": "scripts\\20_pathway_reenrichment.py",
@@ -634,17 +634,17 @@
     },
     {
       "path": "results\\figures\\figure2_quantile_vs_specificity.pdf",
-      "sha256": "a96ede252cd0b82100bc8d06d026939f809807ec810a4cc722412c571b2e9971",
-      "bytes": 80697
+      "sha256": "bc095081e7218d47977635c684bf462de9204458fa437754a243475b7703e4fb",
+      "bytes": 80761
     },
     {
       "path": "results\\figures\\figure2_quantile_vs_specificity.png",
-      "sha256": "d78be2ecb749b6c8a0368eda4709331d859660e6f19958cbc76e684997d22e9d",
-      "bytes": 386389
+      "sha256": "910e70a72645731c7993cfc42f3b8c34fba23091faf7cb1de43a8b39d9711490",
+      "bytes": 374386
     },
     {
       "path": "results\\figures\\figure3_top_candidate_heatmap.pdf",
-      "sha256": "e89d9f94dc4426dac6be2f7d2baae37811399b4269421cefb5b39a3fba32b7b9",
+      "sha256": "efaec2d358a79d4f5334ae826f83fe12c29a6b53f725313623e8cbb6611f11aa",
       "bytes": 34564
     },
     {
@@ -654,7 +654,7 @@
     },
     {
       "path": "results\\figures\\figure4_ets2_positive_control.pdf",
-      "sha256": "13884e8c4a1e442dd786c731f9509a91dcf82d29ce51e098b7555f967f76dfce",
+      "sha256": "8754b5339c711b238beba235da76563d74590132af1086cccdf0920db477805b",
       "bytes": 29009
     },
     {
@@ -664,7 +664,7 @@
     },
     {
       "path": "results\\figures\\figure5_ets2_background_null.pdf",
-      "sha256": "dc4d04bf080f63d667631d8f27c3bf0bb2600edcf072a572b3f35c189d8977c9",
+      "sha256": "2cc6bf11af46ee6fa360a539b07e5ff6e5b9462373a18b96345e823a3397047a",
       "bytes": 29077
     },
     {
@@ -674,13 +674,13 @@
     },
     {
       "path": "results\\figures\\figure6_active_ibd_validation.pdf",
-      "sha256": "91a0bf947e9fdb0a49e0eaa5413975fc2a4f05da0c5ec2c91ccd8ae7178dd894",
-      "bytes": 47003
+      "sha256": "19583adc7fc0d61269736a2359f4ac2522bfa7a8f03388112b2694ec3b9a0861",
+      "bytes": 47033
     },
     {
       "path": "results\\figures\\figure6_active_ibd_validation.png",
-      "sha256": "cb3d8d98958efea74c548ccd8eea2f836c74053a854b605171cf7330112abb7e",
-      "bytes": 433593
+      "sha256": "01d27794fa13824eea622d51f53ad8322e7e1904bc7a65ee4c346f84772c5a8e",
+      "bytes": 413434
     },
     {
       "path": "results\\figures\\figure7_all_l2g_pathways.pdf",

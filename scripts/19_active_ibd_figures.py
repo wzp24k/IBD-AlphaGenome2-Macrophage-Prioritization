@@ -105,20 +105,53 @@ def main() -> None:
     )
     axes[1].axhline(0, color=AXIS, lw=0.8)
     axes[1].axvline(0, color=AXIS, lw=0.8)
+    axes[1].margins(x=0.14, y=0.14)
+    label_genes = [
+        "PDGFB",
+        "TNFSF15",
+        "CHSY3",
+        "ABCB5",
+        "PRKCQ",
+    ]
+    labeled = pd.concat(
+        [
+            scatter[scatter["l2g_target_symbol"].eq(gene)].head(1)
+            for gene in label_genes
+        ],
+        ignore_index=True,
+    )
     texts = []
-    for row in scatter.head(12).itertuples():
+    for row in labeled.itertuples():
         texts.append(
             axes[1].text(
                 row.custom_macrophage_effect,
                 row.oliver_active_effect,
                 row.l2g_target_symbol,
-                fontsize=7,
+                fontsize=7.5,
+                bbox={
+                    "boxstyle": "round,pad=0.16",
+                    "facecolor": WHITE,
+                    "edgecolor": "none",
+                    "alpha": 0.82,
+                },
             )
         )
     adjust_text(
         texts,
-        arrowprops={"arrowstyle": "-", "color": AXIS, "lw": 0.5},
+        arrowprops={
+            "arrowstyle": "-",
+            "color": AXIS,
+            "lw": 0.45,
+            "shrinkA": 2,
+            "shrinkB": 3,
+        },
         ax=axes[1],
+        expand=(1.35, 1.65),
+        force_text=(0.45, 0.85),
+        force_static=(0.15, 0.25),
+        max_move=35,
+        iter_lim=300,
+        ensure_inside_axes=False,
     )
     axes[1].set_xlabel("Healthy macrophage effect")
     axes[1].set_ylabel("Active colitis macrophage effect")

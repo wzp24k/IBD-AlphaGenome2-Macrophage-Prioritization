@@ -202,20 +202,52 @@ def main() -> None:
     ax.axhline(0, color=AXIS, lw=0.8, ls="--")
     ax.axhline(0.25, color=BURGUNDY, lw=0.8, ls=":")
     ax.axvline(0.95, color=BURGUNDY, lw=0.8, ls=":")
+    label_genes = [
+        "PDGFB",
+        "PRKCB",
+        "CHSY3",
+        "PRKCQ",
+        "IL23R",
+    ]
+    labeled = pd.concat(
+        [
+            scatter[scatter["l2g_target_symbol"].eq(gene)].head(1)
+            for gene in label_genes
+        ],
+        ignore_index=True,
+    )
     texts = []
-    for row in scatter.head(12).itertuples():
+    for row in labeled.itertuples():
         texts.append(
             ax.text(
                 row.atlas_gi_max_abs_q,
                 row.live_specificity,
                 row.l2g_target_symbol,
-                fontsize=7,
+                fontsize=7.5,
+                bbox={
+                    "boxstyle": "round,pad=0.16",
+                    "facecolor": WHITE,
+                    "edgecolor": "none",
+                    "alpha": 0.82,
+                },
             )
         )
     adjust_text(
         texts,
-        arrowprops={"arrowstyle": "-", "color": AXIS, "lw": 0.5},
+        arrowprops={
+            "arrowstyle": "-",
+            "color": AXIS,
+            "lw": 0.45,
+            "shrinkA": 2,
+            "shrinkB": 3,
+        },
         ax=ax,
+        expand=(1.35, 1.65),
+        force_text=(0.45, 0.85),
+        force_static=(0.15, 0.25),
+        max_move=35,
+        iter_lim=300,
+        ensure_inside_axes=False,
     )
     ax.set_xlabel("AlphaGenome Atlas maximum absolute RNA-seq quantile")
     ax.set_ylabel("Macrophage-versus-control specificity percentile delta")

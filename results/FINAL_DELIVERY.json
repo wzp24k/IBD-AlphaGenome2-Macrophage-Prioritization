@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T21:09:16.683738+08:00",
+  "generated": "2026-11-14T21:19:33.225665+08:00",
   "target_manuscript": "1114manuscript.docx",
   "target_supplement": "Supplementary_Tables.docx",
   "qc_checks": 168,
@@ -42,29 +42,29 @@
     12
   ],
   "numeric_consistency": true,
-  "archive": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\_archive\\IBD_AlphaGenome2_FINAL_20261114_210916.zip",
-  "archive_sha256": "8a073df7d372a9d0580ef8de24f4b3f26433526843de31284302432c4a1949a6",
-  "remote_status": "pushed_origin_main",
+  "archive": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\_archive\\IBD_AlphaGenome2_FINAL_20261114_211933.zip",
+  "archive_sha256": "923a0a4573321cef25798276868313c054c8dde14c654d66437ae3b712dabf7f",
+  "remote_status": "local_complete_remote_pending",
   "files": [
     {
       "path": "1114manuscript.docx",
-      "bytes": 5954827,
-      "sha256": "907db0f41d0415c506b605477940b62a94c8992e704b113423db54e2c424ab50"
+      "bytes": 5922291,
+      "sha256": "9c99df4c306ec00b6353a260c72711b29ad513f584e81d049c8885dba5be4211"
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-      "bytes": 5954827,
-      "sha256": "907db0f41d0415c506b605477940b62a94c8992e704b113423db54e2c424ab50"
+      "bytes": 5922291,
+      "sha256": "9c99df4c306ec00b6353a260c72711b29ad513f584e81d049c8885dba5be4211"
     },
     {
       "path": "Supplementary_Tables.docx",
-      "bytes": 42751,
-      "sha256": "4d8b5bb00682ab5687dedf3dd59619b141a0541a22bdee5e41a697e91f87e48a"
+      "bytes": 32954,
+      "sha256": "68a3b1eef41d7dffeb93f2e55a72c216c396073db103ea860a7b6fac3b8be2ea"
     },
     {
       "path": "manuscript\\Supplementary_Tables.docx",
-      "bytes": 42751,
-      "sha256": "4d8b5bb00682ab5687dedf3dd59619b141a0541a22bdee5e41a697e91f87e48a"
+      "bytes": 32954,
+      "sha256": "68a3b1eef41d7dffeb93f2e55a72c216c396073db103ea860a7b6fac3b8be2ea"
     },
     {
       "path": "Figure_1.drawio",
@@ -89,7 +89,7 @@
     {
       "path": "results\\QC_REPORT.json",
       "bytes": 22284,
-      "sha256": "17477b0cbd7dbd14a29f6976b417ab2d5d80e3cf8ce76cde941f3dac3a9e0272"
+      "sha256": "7e338084f6791ee8c1f7b767a84d13772cbde27fe21597885fceb3a07046443f"
     },
     {
       "path": "results\\supplementary_tables_audit.json",
@@ -103,8 +103,8 @@
     },
     {
       "path": "IBD_AlphaGenome2_submission_package.zip",
-      "bytes": 100628894,
-      "sha256": "a287e54ded0807dfd2df76ca22b1e5501a155aec5f48aed242d0e301f2462c24"
+      "bytes": 100509365,
+      "sha256": "86aee05d5788076af18f4564b7d51b149c8315b9f5eb9458869a101768e7e698"
     }
   ]
 }
