@@ -84,6 +84,7 @@ def main() -> None:
         ROOT / "scripts" / "32_external_experimental_figure.py",
         ROOT / "scripts" / "35_perturbseq_figure.py",
         ROOT / "scripts" / "41_evidence_strengthening_figure.py",
+        ROOT / "scripts" / "51_benchmark_figure.py",
     ]
     lead = pd.read_csv(table_dir / "ranked_lead_variants_final.csv")
     summary = json.loads((table_dir / "analysis_summary.json").read_text(encoding="utf-8"))
@@ -166,6 +167,38 @@ def main() -> None:
         (table_dir / "reference_citation_audit_summary.json").read_text(
             encoding="utf-8"
         )
+    )
+    benchmark_coverage = json.loads(
+        (table_dir / "benchmark_coverage_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    eqtl_benchmark_summary = json.loads(
+        (table_dir / "external_eqtl_benchmark_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    top10_coloc_summary = json.loads(
+        (table_dir / "top10_eqtl_coloc_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    clinical_translation_summary = json.loads(
+        (table_dir / "top10_clinical_translation_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    benchmark_metrics = pd.read_csv(
+        table_dir / "benchmark_model_metrics.csv"
+    )
+    benchmark_deltas = pd.read_csv(
+        table_dir / "benchmark_model_deltas.csv"
+    )
+    benchmark_transport = pd.read_csv(
+        table_dir / "benchmark_cohort_transportability.csv"
+    )
+    benchmark_heldout = pd.read_csv(
+        table_dir / "benchmark_heldout_validation.csv"
     )
     template_qc = json.loads(
         (ROOT / "results" / "template_docx_qc.json").read_text(
@@ -396,14 +429,16 @@ def main() -> None:
         "clinical_use_boundary_reported": "not a diagnostic, prognostic or treatment-selection tool"
         in markdown_text,
         "all_tables_cited": cited_tables == set(range(1, 12)),
-        "all_figures_cited": cited_figures == set(range(1, 11)),
+        "all_figures_cited": cited_figures == set(range(1, 12)),
         "positive_control_pass": positive["all_checks_pass"],
         "docx_has_text": len(document.paragraphs) > 100,
         "docx_has_eleven_tables": len(document.tables) == 11,
-        "docx_has_ten_figures": len(document.inline_shapes) == 10,
+        "docx_has_eleven_figures": len(document.inline_shapes) == 11,
         "docx_has_table11_caption": "Claim calibration for the seven evidence boundaries"
         in document_text,
         "docx_has_figure10_caption": "Robustness and orthogonal secondary analyses"
+        in document_text,
+        "docx_has_figure11_caption": "External benchmarking, multi-cohort triangulation and translational annotation"
         in document_text,
         "xlsx_has_expected_sheets": all(
             sheet in workbook.sheetnames
@@ -436,6 +471,17 @@ def main() -> None:
                 "GSE175685_GSEA",
                 "GSEA_growth_sensitivity",
                 "Claim_calibration",
+                "Benchmark_metrics",
+                "Benchmark_deltas",
+                "Benchmark_calibration",
+                "Benchmark_transport",
+                "Benchmark_heldout",
+                "eQTL_variant_benchmark",
+                "Top10_eQTL_triangulation",
+                "Top10_coloc",
+                "Top10_coloc_sensitivity",
+                "Clinical_translation",
+                "Benchmark_coverage",
             ]
         ),
         "perturbseq_thresholds_3_5_10": robustness["assignment_thresholds"]
@@ -642,6 +688,70 @@ def main() -> None:
             "all_citation_groups_sorted_unique"
         ],
         "all_references_cited": not citation_audit["uncited_references"],
+        "eqtl_variant_benchmark_384": eqtl_benchmark_summary[
+            "variants_queried"
+        ]
+        == 384,
+        "top10_eqtl_7_vs_0": eqtl_benchmark_summary[
+            "top10_matched_nominal_pairs"
+        ]
+        == 7
+        and eqtl_benchmark_summary["top10_mismatched_nominal_pairs"] == 0,
+        "top10_eqtl_fisher_significant": top10_coloc_summary["fisher_p"]
+        < 0.01,
+        "formal_coloc_five_of_seven": top10_coloc_summary[
+            "coloc_supported_h4_ge_0_8"
+        ]
+        == 5
+        and top10_coloc_summary["coloc_evaluable"] == 7,
+        "benchmark_external_both_combined_auc": bool(
+            benchmark_metrics.loc[
+                benchmark_metrics["task"].eq(
+                    "External genetic support, both cohorts"
+                )
+                & benchmark_metrics["model"].eq("Combined"),
+                "auroc",
+            ].iloc[0]
+            > 0.60
+        ),
+        "combined_improves_over_l2g_external": bool(
+            benchmark_deltas.loc[
+                benchmark_deltas["task"].eq(
+                    "External genetic support, both cohorts"
+                )
+                & benchmark_deltas["baseline"].eq("L2G-only"),
+                "delta_auroc_ci_low",
+            ].iloc[0]
+            > 0
+        ),
+        "combined_not_universally_superior": bool(
+            benchmark_deltas.loc[
+                benchmark_deltas["task"].eq(
+                    "External genetic support, both cohorts"
+                )
+                & benchmark_deltas["baseline"].eq("PIP-only"),
+                "delta_auroc_ci_low",
+            ].iloc[0]
+            <= 0
+        ),
+        "cohort_transport_auc": bool(
+            benchmark_transport["auroc"].min() > 0.60
+        ),
+        "heldout_credible_set_auc": bool(
+            benchmark_heldout.loc[
+                benchmark_heldout["group_column"].eq("studyLocusId"),
+                "auroc",
+            ].iloc[0]
+            > 0.65
+        ),
+        "clinical_translation_ten_targets": clinical_translation_summary[
+            "targets_annotated"
+        ]
+        == 10
+        and clinical_translation_summary[
+            "translational_priority_counts"
+        ].get("High", 0)
+        == 3,
         "reference_bookmarks_and_hyperlinks": template_qc["checks"][
             "forty_two_reference_bookmarks"
         ]
@@ -774,7 +884,11 @@ def main() -> None:
         "- Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth",
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
-        "- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography",
+        "- Figure style: all Figure 1-11 scripts use the centralized six-color palette and shared typography",
+        "- External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10",
+        "- Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8",
+        "- Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614",
+        "- Clinical annotation: 9/10 Top 10 targets tractable and 5/10 with clinical candidates",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
@@ -801,6 +915,7 @@ def main() -> None:
         ROOT / "results" / "FIGURE_STYLE_AUDIT.md",
         ROOT / "results" / "FORMAT_COMPLIANCE_1113.md",
         ROOT / "results" / "CITATION_CROSSREF_AUDIT.md",
+        ROOT / "results" / "BENCHMARK_AND_TRANSLATION_AUDIT.md",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,

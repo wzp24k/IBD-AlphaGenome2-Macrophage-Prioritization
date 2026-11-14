@@ -19,7 +19,11 @@
 - Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth
 - GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization
 - Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
-- Figure style: all Figure 1-10 scripts use the centralized six-color palette and shared typography
+- Figure style: all Figure 1-11 scripts use the centralized six-color palette and shared typography
+- External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10
+- Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8
+- Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614
+- Clinical annotation: 9/10 Top 10 targets tractable and 5/10 with clinical candidates
 - Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio

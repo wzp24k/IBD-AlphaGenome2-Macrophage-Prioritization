@@ -18,7 +18,7 @@ prioritization of non-coding inflammatory bowel disease variants.
 
 - `scripts/`: numbered analysis, figure and audit scripts.
 - `config/`: analysis configuration.
-- `results/figures/`: final Figure 1-10 files, including the editable
+- `results/figures/`: final Figure 1-11 files, including the editable
   `figure1_analysis_flow.drawio` source.
 - `results/tables/`: aggregate results smaller than 20 MB.
 - `results/*.md`: evidence and quality-control audits.

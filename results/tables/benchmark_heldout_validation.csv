@@ -1,0 +1,3 @@
+label,group_column,n,positives,auroc,auprc,brier_score,note
+external_both,studyLocusId,371,14,0.6842737094837936,0.0790872105898935,0.20247761600822609,Nested grouped logistic benchmark; the original ranking was not refitted or changed.
+external_both,l2g_target_id,371,14,0.7152861144457783,0.08998832524993222,0.20723396950625989,Nested grouped logistic benchmark; the original ranking was not refitted or changed.

@@ -1,0 +1,56 @@
+{
+  "targets_evaluated": 7,
+  "targets_supported": 5,
+  "targets": [
+    {
+      "target": "CDYL2",
+      "minimum_H4": 0.08924979277483748,
+      "maximum_H4": 0.7281470791497363,
+      "primary_H4": 0.23147606051026118,
+      "sensitivity_supported": false
+    },
+    {
+      "target": "CXCR2",
+      "minimum_H4": 0.3527390637205333,
+      "maximum_H4": 0.9396498015222727,
+      "primary_H4": 0.7458874040996799,
+      "sensitivity_supported": false
+    },
+    {
+      "target": "DENND1B",
+      "minimum_H4": 0.25901426826033985,
+      "maximum_H4": 0.9995232324336404,
+      "primary_H4": 0.9877872890278118,
+      "sensitivity_supported": true
+    },
+    {
+      "target": "MAP3K8",
+      "minimum_H4": 0.9050632812037256,
+      "maximum_H4": 0.9998000360325964,
+      "primary_H4": 0.9990009792356044,
+      "sensitivity_supported": true
+    },
+    {
+      "target": "PDGFB",
+      "minimum_H4": 0.8989565731925488,
+      "maximum_H4": 0.9998000399613471,
+      "primary_H4": 0.9990009926800393,
+      "sensitivity_supported": true
+    },
+    {
+      "target": "PRKCB",
+      "minimum_H4": 0.9989971474938509,
+      "maximum_H4": 0.9997996788298341,
+      "primary_H4": 0.9989980123648916,
+      "sensitivity_supported": true
+    },
+    {
+      "target": "TNFSF15",
+      "minimum_H4": 0.9990009990009989,
+      "maximum_H4": 0.9998000399920016,
+      "primary_H4": 0.9990009990009989,
+      "sensitivity_supported": true
+    }
+  ],
+  "note": "Sensitivity varied sd_prior from 0.05 to 0.20 and p12 from 1e-5 to 5e-5. Support required primary H4 >= 0.8 and at least one sensitivity setting with H4 >= 0.8."
+}

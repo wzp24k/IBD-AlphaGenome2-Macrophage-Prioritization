@@ -1,0 +1,10 @@
+{
+  "top10_pairs": 10,
+  "matched_eqtl_hits": 7,
+  "mismatched_target_eqtl_hits": 0,
+  "fisher_odds_ratio": Infinity,
+  "fisher_p": 0.0030959752321981426,
+  "coloc_evaluable": 7,
+  "coloc_supported_h4_ge_0_8": 5,
+  "note": "Formal coloc.abf used the best exact-variant eQTL dataset for each matched top-10 pair. Mismatched target assignment provided the negative control."
+}

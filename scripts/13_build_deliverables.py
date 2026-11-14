@@ -146,6 +146,7 @@ def build_docx(markdown_path: Path, output_path: Path, figure_dir: Path) -> None
         "figure8_external_experimental_evidence.png": "Figure 8. External experimental evidence for Tier 1 candidates.",
         "figure9_perturbseq_validation.png": "Figure 9. GSE327644 primary human macrophage Perturb-seq.",
         "figure10_evidence_robustness.png": "Figure 10. Robustness and orthogonal secondary analyses.",
+        "figure11_benchmark_translation.png": "Figure 11. External benchmarking, multi-cohort triangulation and translational annotation.",
     }
     for filename, caption in captions.items():
         path = figure_dir / filename
@@ -170,6 +171,24 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         (table_dir / "experimental_eqtl_catalogue_summary.json").read_text(
             encoding="utf-8"
         )
+    )
+    eqtl_benchmark = json.loads(
+        (table_dir / "external_eqtl_benchmark_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    coloc_summary = json.loads(
+        (table_dir / "top10_eqtl_coloc_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    clinical_summary = json.loads(
+        (table_dir / "top10_clinical_translation_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    transport = pd.read_csv(
+        table_dir / "benchmark_cohort_transportability.csv"
     )
     prkcq = pd.read_csv(
         table_dir / "prkcq_repeated_pool_classification.csv"
@@ -199,6 +218,38 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
                 ["PRKCQ repeated-pool class", prkcq["classification"]],
                 ["External cohorts", "UKB_WGS_2025; MVP_2024"],
                 ["Locus-block bootstrap replicates", 2000],
+                [
+                    "Exact-variant eQTL benchmark pairs",
+                    eqtl_benchmark["variants_queried"],
+                ],
+                [
+                    "Top10 matched eQTL hits",
+                    f"{eqtl_benchmark['top10_matched_nominal_pairs']}/10",
+                ],
+                [
+                    "Top10 mismatched-target eQTL controls",
+                    f"{eqtl_benchmark['top10_mismatched_nominal_pairs']}/10",
+                ],
+                [
+                    "Formal Top10 colocalizations",
+                    f"{coloc_summary['coloc_supported_h4_ge_0_8']}/{coloc_summary['coloc_evaluable']}",
+                ],
+                [
+                    "UKB-to-MVP transport AUROC",
+                    float(transport.iloc[0]["auroc"]),
+                ],
+                [
+                    "MVP-to-UKB transport AUROC",
+                    float(transport.iloc[1]["auroc"]),
+                ],
+                [
+                    "Top10 tractable targets",
+                    clinical_summary["targets_with_tractability"],
+                ],
+                [
+                    "Top10 targets with clinical candidates",
+                    clinical_summary["targets_with_clinical_candidates"],
+                ],
             ],
             columns=["Metric", "Value"],
         ),
@@ -331,6 +382,39 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         "Score_overlap": pd.read_csv(table_dir / "score_topk_overlap.csv"),
         "Atlas_top_genes": pd.read_csv(table_dir / "atlas_variant_top_genes.csv"),
         "Live_summary": pd.read_csv(table_dir / "live_condition_score_summary.csv"),
+        "Benchmark_metrics": pd.read_csv(
+            table_dir / "benchmark_model_metrics.csv"
+        ),
+        "Benchmark_deltas": pd.read_csv(
+            table_dir / "benchmark_model_deltas.csv"
+        ),
+        "Benchmark_calibration": pd.read_csv(
+            table_dir / "benchmark_calibration_metrics.csv"
+        ),
+        "Benchmark_transport": pd.read_csv(
+            table_dir / "benchmark_cohort_transportability.csv"
+        ),
+        "Benchmark_heldout": pd.read_csv(
+            table_dir / "benchmark_heldout_validation.csv"
+        ),
+        "eQTL_variant_benchmark": pd.read_csv(
+            table_dir / "external_eqtl_variant_benchmark.csv"
+        ),
+        "Top10_eQTL_triangulation": pd.read_csv(
+            table_dir / "external_eqtl_top10_triangulation.csv"
+        ),
+        "Top10_coloc": pd.read_csv(
+            table_dir / "top10_eqtl_coloc_results.csv"
+        ),
+        "Top10_coloc_sensitivity": pd.read_csv(
+            table_dir / "top10_eqtl_coloc_sensitivity_summary.csv"
+        ),
+        "Clinical_translation": pd.read_csv(
+            table_dir / "top10_clinical_translation_annotation.csv"
+        ),
+        "Benchmark_coverage": flatten_json(
+            table_dir / "benchmark_coverage_summary.json"
+        ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
         for sheet_name, frame in sheets.items():

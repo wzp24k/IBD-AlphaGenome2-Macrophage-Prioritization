@@ -3,12 +3,13 @@
   "references": 42,
   "reference_numbers_sequential": true,
   "duplicate_reference_numbers": [],
-  "citation_groups": 35,
+  "citation_groups": 38,
   "all_citation_groups_sorted_unique": true,
   "citation_groups_at_most_two": true,
   "references_cited_more_than_once": [
     11,
     12,
+    18,
     21,
     24,
     26,
@@ -35,7 +36,7 @@
     40,
     42
   ],
-  "discussion_middle_citations": 16,
+  "discussion_middle_citations": 19,
   "discussion_end_citations": 1,
   "discussion_majority_in_middle": true,
   "pre_discussion_unique_references": 27,

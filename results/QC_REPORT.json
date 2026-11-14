@@ -38,9 +38,10 @@
     "positive_control_pass": true,
     "docx_has_text": true,
     "docx_has_eleven_tables": true,
-    "docx_has_ten_figures": true,
+    "docx_has_eleven_figures": true,
     "docx_has_table11_caption": true,
     "docx_has_figure10_caption": true,
+    "docx_has_figure11_caption": true,
     "xlsx_has_expected_sheets": true,
     "perturbseq_thresholds_3_5_10": true,
     "pdgfb_self_threshold_stable": true,
@@ -86,6 +87,16 @@
     "discussion_majority_citations_in_middle": true,
     "citation_groups_sorted_unique": true,
     "all_references_cited": true,
+    "eqtl_variant_benchmark_384": true,
+    "top10_eqtl_7_vs_0": true,
+    "top10_eqtl_fisher_significant": true,
+    "formal_coloc_five_of_seven": true,
+    "benchmark_external_both_combined_auc": true,
+    "combined_improves_over_l2g_external": true,
+    "combined_not_universally_superior": true,
+    "cohort_transport_auc": true,
+    "heldout_credible_set_auc": true,
+    "clinical_translation_ten_targets": true,
     "reference_bookmarks_and_hyperlinks": true,
     "figure1_drawio_valid": true,
     "all_reference_dois_verified": true,
@@ -396,6 +407,13 @@
       ],
       "nonblank": true
     },
+    "figure11_benchmark_translation.png": {
+      "dimensions": [
+        4189,
+        2599
+      ],
+      "nonblank": true
+    },
     "figure1_analysis_flow.png": {
       "dimensions": [
         2617,
@@ -461,9 +479,9 @@
     }
   },
   "docx": {
-    "paragraphs": 223,
+    "paragraphs": 236,
     "tables": 11,
-    "inline_shapes": 10
+    "inline_shapes": 11
   },
   "xlsx_sheets": [
     "Overview",
@@ -513,11 +531,22 @@
     "Threshold_sensitivity",
     "Score_overlap",
     "Atlas_top_genes",
-    "Live_summary"
+    "Live_summary",
+    "Benchmark_metrics",
+    "Benchmark_deltas",
+    "Benchmark_calibration",
+    "Benchmark_transport",
+    "Benchmark_heldout",
+    "eQTL_variant_benchmark",
+    "Top10_eQTL_triangulation",
+    "Top10_coloc",
+    "Top10_coloc_sensitivity",
+    "Clinical_translation",
+    "Benchmark_coverage"
   ],
   "api_key_leaks": [],
   "format_compliance": {
-    "abstract_words": 229,
+    "abstract_words": 242,
     "keywords": [
       "Inflammatory Bowel Disease",
       "Non-coding Variants",
@@ -570,9 +599,9 @@
       18,
       35
     ],
-    "citation_groups": 35,
+    "citation_groups": 38,
     "reference_bookmarks": 42,
-    "reference_hyperlinks": 56,
+    "reference_hyperlinks": 62,
     "cited_tables": [
       1,
       2,
@@ -596,7 +625,8 @@
       7,
       8,
       9,
-      10
+      10,
+      11
     ],
     "references": 42,
     "doi_audit": {

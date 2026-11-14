@@ -1,0 +1,26 @@
+{
+  "pair_level_rows": 384,
+  "external_genetic_any_positives": 46,
+  "external_genetic_both_positives": 14,
+  "eqtl_rows": 384,
+  "eqtl_any_positives": 140,
+  "eqtl_replicated_positives": 84,
+  "crispr_evaluable_pairs": 77,
+  "crispr_tnf_positives": 7,
+  "top10_exact_variant_eqtl": {
+    "variants_queried": 384,
+    "core_datasets_queried": 4,
+    "top10_datasets_queried": 8,
+    "query_errors": 0,
+    "variants_with_any_nominal_eqtl": 140,
+    "variants_with_replicated_nominal_eqtl": 84,
+    "top10_matched_nominal_pairs": 7,
+    "top10_mismatched_nominal_pairs": 0,
+    "note": "Exact-variant lookups used the nominated target from the primary analysis. Mismatched-target top-10 pairs provide a negative control."
+  },
+  "perturbseq_effective_targets": 2,
+  "perturbseq_evaluated_targets": 7,
+  "mpra_exact_variant_positives": 1,
+  "mpra_exact_variant_note": "One exact-variant macrophage MPRA positive control (ETS2); insufficient support for an AUROC estimate.",
+  "note": "AUROC/AUPRC were calculated only for tasks with at least ten positive and ten negative labels. Sparse MPRA and Perturb-seq evidence is reported as coverage, not used to fabricate metrics."
+}

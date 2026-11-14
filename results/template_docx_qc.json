@@ -11,7 +11,7 @@
     "body_size_matches": true,
     "body_line_spacing_matches": true,
     "eleven_tables": true,
-    "ten_figures": true,
+    "eleven_figures": true,
     "letter_page_size": true,
     "no_header": true,
     "no_footer": true,
@@ -40,11 +40,11 @@
     "7. References"
   ],
   "counts": {
-    "paragraphs": 223,
+    "paragraphs": 236,
     "tables": 11,
-    "figures": 10,
+    "figures": 11,
     "reference_bookmarks": 42,
-    "reference_hyperlinks": 56,
+    "reference_hyperlinks": 62,
     "discussion_unique_references": 15,
     "pre_discussion_unique_references": 27
   },

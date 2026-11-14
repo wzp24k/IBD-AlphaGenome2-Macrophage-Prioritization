@@ -1,0 +1,14 @@
+{
+  "targets_annotated": 10,
+  "targets_with_tractability": 9,
+  "targets_with_clinical_candidates": 5,
+  "targets_with_eqtl": 7,
+  "targets_with_formal_coloc": 5,
+  "translational_priority_counts": {
+    "Medium": 6,
+    "High": 3,
+    "Exploratory": 1
+  },
+  "errors": [],
+  "note": "Translational priority is a descriptive triage category based on tractability, clinical-stage annotations and available independent evidence. It is not a diagnostic, prognostic or treatment-selection score, and clinical-stage drugs are not necessarily IBD-specific."
+}

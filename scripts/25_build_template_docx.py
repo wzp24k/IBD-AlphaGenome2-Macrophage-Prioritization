@@ -370,6 +370,7 @@ def main() -> None:
         8: "Public experimental evidence",
         9: "Macrophage Perturb-seq and robustness",
         10: "Gene-expression programs and confounding",
+        11: "External benchmarking and translational triangulation",
     }
     subsection_count = {key: 0 for key in section_lookup}
     rendered_tables = set()
@@ -402,6 +403,7 @@ def main() -> None:
                     8: "figure8_external_experimental_evidence.png",
                     9: "figure9_perturbseq_validation.png",
                     10: "figure10_evidence_robustness.png",
+                    11: "figure11_benchmark_translation.png",
                 }[number],
                 figures[number],
                 width=width,
