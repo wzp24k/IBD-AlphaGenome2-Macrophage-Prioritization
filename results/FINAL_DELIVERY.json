@@ -1,9 +1,9 @@
 ﻿{
-    "generated":  "2026-11-14T20:07:05.5379605+08:00",
-    "commit":  "02825b5ce38c17918b6ca06293aaa4708520acc0",
+    "generated":  "2026-11-14T20:10:28.8379937+08:00",
+    "commit":  "be80fc4b408acf2429038636ee608b78bc635065",
     "remote_status":  "pushed",
     "target_manuscript":  "1114manuscript.docx",
-    "qc_checks":  150,
+    "qc_checks":  151,
     "qc_all_pass":  true,
     "references":  42,
     "each_reference_cited_once":  true,
@@ -15,30 +15,31 @@
     "all_tables_mentioned":  true,
     "all_figures_mentioned":  true,
     "numeric_consistency":  true,
+    "reviewer3_audit":  "results/REVIEWER3_1114_FULL_AUDIT.md",
     "files":  [
                   {
                       "path":  "1114manuscript.docx",
-                      "bytes":  5954795,
-                      "sha256":  "F8D02D5E94F8A39ECAD82206540BE4264B2B25018C17F7DFB58F38775A5E4742",
-                      "modified":  "2026-11-14T20:06:31.1995833+08:00"
+                      "bytes":  5954931,
+                      "sha256":  "F5D3784F5202DDE304DA9DD74DFC71F95E600BF357B84102789970A38B003FA5",
+                      "modified":  "2026-11-14T20:09:58.3665315+08:00"
                   },
                   {
                       "path":  "manuscript\\Manuscript_AlphaGenome2_IBD.docx",
-                      "bytes":  5954795,
-                      "sha256":  "F8D02D5E94F8A39ECAD82206540BE4264B2B25018C17F7DFB58F38775A5E4742",
-                      "modified":  "2026-11-14T20:06:31.1995833+08:00"
+                      "bytes":  5954931,
+                      "sha256":  "F5D3784F5202DDE304DA9DD74DFC71F95E600BF357B84102789970A38B003FA5",
+                      "modified":  "2026-11-14T20:09:58.3665315+08:00"
                   },
                   {
                       "path":  "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-                      "bytes":  2135805,
-                      "sha256":  "06EBF5177CC47698DBFE7DCC35416D83FC6FCBF7FD873ACF3D3E46FBC6C05851",
-                      "modified":  "2026-11-14T20:06:28.8142449+08:00"
+                      "bytes":  2135806,
+                      "sha256":  "46F2EFCE752813873EE564C189EE3A18B924978F10EB0EE9C2DA459C112AFE86",
+                      "modified":  "2026-11-14T20:09:56.0835510+08:00"
                   },
                   {
                       "path":  "IBD_AlphaGenome2_submission_package.zip",
-                      "bytes":  100485873,
-                      "sha256":  "B45587D71E7B1318216AC22AF0B63CC6C1FA85A04EB0EC6B191F57B630E9F70D",
-                      "modified":  "2026-11-14T20:06:42.3801733+08:00"
+                      "bytes":  100488805,
+                      "sha256":  "1165FE16B9FDFC03BEAA55552E5E647236C7CAE2B2457CFDE6F188AAEA3C388B",
+                      "modified":  "2026-11-14T20:10:08.6932323+08:00"
                   },
                   {
                       "path":  "results\\REVIEWER2_1114_FULL_AUDIT.md",
@@ -47,28 +48,34 @@
                       "modified":  "2026-11-14T20:06:07.5685713+08:00"
                   },
                   {
+                      "path":  "results\\REVIEWER3_1114_FULL_AUDIT.md",
+                      "bytes":  5493,
+                      "sha256":  "A9A3B0D39E659A201F7D22D1B978092D3ECD3CDFC76EA742FD4ADEBA74AA3091",
+                      "modified":  "2026-11-14T20:09:28.4483704+08:00"
+                  },
+                  {
                       "path":  "results\\1114_reference_audit.json",
-                      "bytes":  30331,
-                      "sha256":  "ACF1FB18D0315A966B8D44F170DAB5CA49FCA7EDD1DF954C48D42C8BB985662A",
-                      "modified":  "2026-11-14T20:06:32.0527222+08:00"
+                      "bytes":  30367,
+                      "sha256":  "D18C66BA657D654D7ED73719843CE19A6F69A190A44DE74C6E1EBB945AF85231",
+                      "modified":  "2026-11-14T20:09:59.2070246+08:00"
                   },
                   {
                       "path":  "results\\1114_figure_table_audit.json",
                       "bytes":  1601,
                       "sha256":  "F039F44D4EE20284E75AFA7D999F953E5350629535CD333FA8A9BE264D07DD8B",
-                      "modified":  "2026-11-14T20:06:32.4696764+08:00"
+                      "modified":  "2026-11-14T20:09:59.6204929+08:00"
                   },
                   {
                       "path":  "results\\1114_numeric_consistency_audit.json",
                       "bytes":  1139,
                       "sha256":  "6ADABFFFA8307A5904235271E36BA4D9E948AB484932CC1C996315487C85E54E",
-                      "modified":  "2026-11-14T20:06:33.2131573+08:00"
+                      "modified":  "2026-11-14T20:10:00.3504006+08:00"
                   },
                   {
                       "path":  "results\\QC_REPORT.json",
-                      "bytes":  21453,
-                      "sha256":  "E4C0C30C331F5460281D1BBD23B0AADE40B486E936BA3759634A577FD429D0A9",
-                      "modified":  "2026-11-14T20:06:36.2912290+08:00"
+                      "bytes":  21496,
+                      "sha256":  "0C01D243C676891236F57D762BE4336F78162E3E51CC12D5ED87D2C0A60AA540",
+                      "modified":  "2026-11-14T20:10:03.2223795+08:00"
                   }
               ]
 }
