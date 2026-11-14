@@ -97,6 +97,7 @@
     "cohort_transport_auc": true,
     "heldout_credible_set_auc": true,
     "original_priority_reproduces_benchmark": true,
+    "strict_eqtl_sensitivity_preserves_enrichment": true,
     "clinical_translation_ten_targets": true,
     "reference_bookmarks_and_hyperlinks": true,
     "figure1_drawio_valid": true,
@@ -410,7 +411,7 @@
     },
     "figure11_benchmark_translation.png": {
       "dimensions": [
-        4189,
+        4511,
         2599
       ],
       "nonblank": true
@@ -480,7 +481,7 @@
     }
   },
   "docx": {
-    "paragraphs": 238,
+    "paragraphs": 239,
     "tables": 11,
     "inline_shapes": 11
   },
@@ -544,7 +545,8 @@
     "Top10_coloc_sensitivity",
     "Clinical_translation",
     "Benchmark_coverage",
-    "Benchmark_priority_sensitivity"
+    "Benchmark_priority_sensitivity",
+    "Strict_eqtl_sensitivity"
   ],
   "api_key_leaks": [],
   "format_compliance": {

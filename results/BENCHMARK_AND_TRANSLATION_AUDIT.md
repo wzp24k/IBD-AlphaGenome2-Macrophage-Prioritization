@@ -9,6 +9,8 @@
 - Top 10 matched-target pairs queried across 8 datasets: 7/10 nominal.
 - Top 10 mismatched-target negative controls: 0/10 nominal.
 - Fisher exact test: P = 0.003.
+- Bonferroni threshold 0.05/8: 95 positive candidate-target pairs.
+- Top 10 under the strict threshold: still 7/10 matched and 0/10 controls.
 
 ## Formal colocalization
 
@@ -62,12 +64,18 @@ formal ancestry-specific validation.
 
 - Top 10 targets with tractable modalities: 9/10.
 - Top 10 targets with clinical candidates: 5/10.
-- Descriptive high-priority clinical-translation contexts: CXCR2,
-  PRKCB and MAP3K8.
-- INAVA had limited tractability annotation and was retained as
-  exploratory.
+- Clinical-stage IBD/UC/Crohn-indication signals: CXCR2, PRKCB and
+  MAP3K8, each at phase 2.
+- PDGFB and PLAU had non-IBD clinical candidates.
+- MAP3K8 had the cleanest combination of variant-to-gene evidence,
+  tractability and a target-specific inhibitor.
+- PRKCB clinical pharmacology was dominated by pan-PKC inhibitors.
+- CXCR2 did not reach the primary colocalization threshold.
+- Clinical treatment recommendations supported: 0/10.
 
-Clinical-stage compounds were not assumed to be IBD-specific or effective.
+Clinical-stage IBD-indication signals are drug-repurposing hypotheses.
+Treatment recommendations require established therapeutic direction,
+target selectivity, prospective efficacy and safety evidence.
 
 ## Score-construction sensitivity
 
@@ -102,3 +110,11 @@ Conclusions not supported:
   baseline.
 - Variant causality from eQTL or colocalization alone.
 - IBD efficacy from clinical-stage drug annotations.
+
+Clinical-stage hypotheses supported for further research:
+
+- MAP3K8: strongest combined target-mapping, tractability and
+  target-specific phase 2 inhibitor signal.
+- PRKCB: strong target mapping with phase 2 pan-PKC pharmacology.
+- CXCR2: phase 2 antagonist/inhibitor signal without formal
+  colocalization support.

@@ -38,6 +38,27 @@ query TargetTranslation($id: String!) {
           name
           drugType
           maximumClinicalStage
+          indications {
+            count
+            rows {
+              maxClinicalStage
+              disease {
+                id
+                name
+              }
+            }
+          }
+          mechanismsOfAction {
+            rows {
+              mechanismOfAction
+              actionType
+              targetName
+              targets {
+                id
+                approvedSymbol
+              }
+            }
+          }
         }
       }
     }
@@ -93,22 +114,46 @@ def query_target(session: requests.Session, target_id: str) -> dict:
     return payload["data"]["target"]
 
 
-def translation_class(
+def clinical_translation_status(
+    ibd_indication: bool,
     clinical_stage_number: int,
     tractable: bool,
     validated: bool,
 ) -> tuple[str, str]:
-    if clinical_stage_number >= 3 and validated:
-        return "High", "Clinical-stage target with independent IBD evidence"
+    if ibd_indication:
+        return (
+            "Clinical-stage IBD-indication signal",
+            "A clinical-stage drug lists an IBD, Crohn or ulcerative colitis indication; treatment use still requires directionality and trial-level evidence.",
+        )
+    if clinical_stage_number >= 5:
+        return (
+            "Approved or phase-4 drug in non-IBD indication",
+            "Clinical-stage pharmacology exists, but the listed indication is not IBD.",
+        )
     if clinical_stage_number >= 3:
-        return "Medium", "Clinical-stage target without direct evidence in this study"
+        return (
+            "Clinical-stage drug in non-IBD indication",
+            "Clinical-stage pharmacology exists, but the listed indication is not IBD.",
+        )
     if tractable and validated:
-        return "Medium", "Tractable target with independent IBD evidence"
+        return (
+            "Tractable target without IBD clinical candidate",
+            "Tractability and independent IBD evidence support preclinical prioritization only.",
+        )
     if tractable:
-        return "Exploratory", "Tractable target with early translational annotation"
+        return (
+            "Tractable target without clinical candidate",
+            "Tractability supports assay or compound development, not treatment use.",
+        )
     if validated:
-        return "Exploratory", "Genetics-led target with limited tractability annotation"
-    return "Low", "Limited tractability and independent validation"
+        return (
+            "Genetics-led target with limited tractability",
+            "Independent IBD evidence exists, but no clinical-stage pharmacology was identified.",
+        )
+    return (
+        "Limited translational annotation",
+        "Neither tractability nor independent IBD evidence was sufficient for treatment positioning.",
+    )
 
 
 def main() -> None:
@@ -175,6 +220,62 @@ def main() -> None:
             for drug in drugs
         ]
         max_stage = max(stages, key=stage_number) if stages else ""
+        ibd_indication_drugs = set()
+        non_ibd_indication_drugs = set()
+        ibd_indication_stages = []
+        target_specific_actions = set()
+        minimum_mechanism_target_count = None
+        for candidate in drugs:
+            drug = candidate.get("drug") or {}
+            drug_name = str(drug.get("name") or "")
+            indications = (drug.get("indications") or {}).get("rows") or []
+            for indication in indications:
+                disease_name = str(
+                    (indication.get("disease") or {}).get("name") or ""
+                ).lower()
+                stage = str(indication.get("maxClinicalStage") or "")
+                if disease_name in IBD_NAMES:
+                    if drug_name:
+                        ibd_indication_drugs.add(drug_name)
+                    ibd_indication_stages.append(stage)
+                elif drug_name:
+                    non_ibd_indication_drugs.add(drug_name)
+            mechanisms = (
+                (drug.get("mechanismsOfAction") or {}).get("rows") or []
+            )
+            mechanism_targets = set()
+            for mechanism in mechanisms:
+                current_targets = {
+                    str(
+                        mechanism_target.get("id")
+                        or mechanism_target.get("approvedSymbol")
+                        or ""
+                    )
+                    for mechanism_target in mechanism.get("targets") or []
+                }
+                current_targets = {
+                    value for value in current_targets if value
+                }
+                mechanism_targets.update(current_targets)
+                target_name = str(mechanism.get("targetName") or "")
+                if target_name == target_symbol or target_id in current_targets:
+                    action = str(mechanism.get("actionType") or "")
+                    if action:
+                        target_specific_actions.add(action)
+            if mechanism_targets:
+                count = len({value for value in mechanism_targets if value})
+                if count:
+                    minimum_mechanism_target_count = (
+                        count
+                        if minimum_mechanism_target_count is None
+                        else min(minimum_mechanism_target_count, count)
+                    )
+        max_ibd_stage = (
+            max(ibd_indication_stages, key=stage_number)
+            if ibd_indication_stages
+            else ""
+        )
+        ibd_indication = bool(ibd_indication_drugs)
         pathways = [
             str(pathway.get("pathway", ""))
             for pathway in target.get("pathways") or []
@@ -200,7 +301,8 @@ def main() -> None:
             or pd.notna(row.experimental_support)
             or target_symbol in eqtl_hits
         )
-        priority, rationale = translation_class(
+        priority, rationale = clinical_translation_status(
+            ibd_indication,
             stage_number(max_stage),
             bool(modalities),
             independent_validation,
@@ -225,6 +327,23 @@ def main() -> None:
                 ),
                 "clinical_stage": max_stage,
                 "drug_names": "; ".join(drug_names[:8]),
+                "ibd_indication_level_candidate": ibd_indication,
+                "ibd_indication_clinical_stage": max_ibd_stage,
+                "ibd_indication_drugs": "; ".join(
+                    sorted(ibd_indication_drugs)
+                ),
+                "non_ibd_indication_drug_count": len(
+                    non_ibd_indication_drugs
+                ),
+                "target_specific_clinical_actions": "; ".join(
+                    sorted(target_specific_actions)
+                ),
+                "minimum_mechanism_target_count": minimum_mechanism_target_count,
+                "clinical_treatment_recommendation_supported": False,
+                "clinical_recommendation_boundary": (
+                    "No IBD-indication clinical-stage drug and directionality "
+                    "evidence are jointly available."
+                ),
                 "ibd_associated_diseases": "; ".join(ibd_scores),
                 "top_associated_diseases": "; ".join(top_diseases),
                 "ibd_relevant_pathways": " | ".join(relevant_pathways[:12]),
@@ -246,19 +365,38 @@ def main() -> None:
         "targets_with_clinical_candidates": int(
             frame["clinical_candidate_count"].gt(0).sum()
         ),
+        "targets_with_ibd_indication_candidates": int(
+            frame["ibd_indication_level_candidate"].sum()
+        ),
+        "ibd_indication_targets": sorted(
+            frame.loc[
+                frame["ibd_indication_level_candidate"].astype(bool),
+                "target",
+            ].tolist()
+        ),
+        "targets_with_non_ibd_clinical_candidates": int(
+            frame["clinical_candidate_count"].gt(0).sum()
+            - frame["ibd_indication_level_candidate"].sum()
+        ),
+        "targets_with_target_specific_clinical_actions": int(
+            frame["target_specific_clinical_actions"].ne("").sum()
+        ),
         "targets_with_eqtl": int(frame["exact_variant_eqtl"].sum()),
         "targets_with_formal_coloc": int(
             frame["formal_colocalization"].sum()
         ),
-        "translational_priority_counts": frame[
+        "translational_status_counts": frame[
             "translational_priority"
         ].value_counts().to_dict(),
+        "clinical_treatment_recommendations_supported": int(
+            frame["clinical_treatment_recommendation_supported"].sum()
+        ),
         "errors": errors,
         "note": (
-            "Translational priority is a descriptive triage category based on "
-            "tractability, clinical-stage annotations and available independent "
-            "evidence. It is not a diagnostic, prognostic or treatment-selection "
-            "score, and clinical-stage drugs are not necessarily IBD-specific."
+            "Clinical-stage drugs were checked for IBD, Crohn and ulcerative "
+            "colitis indications and target-specific mechanisms. No treatment "
+            "recommendation is issued because an IBD indication and established "
+            "therapeutic direction are not jointly available."
         ),
     }
     (table_dir / "top10_clinical_translation_summary.json").write_text(

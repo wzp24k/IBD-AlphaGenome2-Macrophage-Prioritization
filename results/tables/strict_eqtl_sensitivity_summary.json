@@ -1,0 +1,9 @@
+{
+  "strict_threshold": 0.00625,
+  "strict_positive_pairs": 95,
+  "top10_matched_strict_hits": 7,
+  "top10_mismatched_strict_hits": 0,
+  "fisher_odds_ratio": Infinity,
+  "fisher_p": 0.0030959752321981426,
+  "note": "A conservative Bonferroni threshold across eight myeloid datasets was applied to exact-variant eQTL labels. Formal colocalization was not redefined by this label."
+}

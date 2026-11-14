@@ -2,13 +2,18 @@
   "targets_annotated": 10,
   "targets_with_tractability": 9,
   "targets_with_clinical_candidates": 5,
+  "targets_with_ibd_indication_candidates": 3,
+  "targets_with_non_ibd_clinical_candidates": 2,
+  "targets_with_target_specific_clinical_actions": 5,
   "targets_with_eqtl": 7,
   "targets_with_formal_coloc": 5,
-  "translational_priority_counts": {
-    "Medium": 6,
-    "High": 3,
-    "Exploratory": 1
+  "translational_status_counts": {
+    "Tractable target without IBD clinical candidate": 5,
+    "Clinical-stage IBD-indication signal": 3,
+    "Genetics-led target with limited tractability": 1,
+    "Approved or phase-4 drug in non-IBD indication": 1
   },
+  "clinical_treatment_recommendations_supported": 0,
   "errors": [],
-  "note": "Translational priority is a descriptive triage category based on tractability, clinical-stage annotations and available independent evidence. It is not a diagnostic, prognostic or treatment-selection score, and clinical-stage drugs are not necessarily IBD-specific."
+  "note": "Clinical-stage drugs were checked for IBD, Crohn and ulcerative colitis indications and target-specific mechanisms. No treatment recommendation is issued because an IBD indication and established therapeutic direction are not jointly available."
 }

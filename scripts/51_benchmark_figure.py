@@ -201,6 +201,7 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
         "formal_colocalization",
         "experimental_support",
         "tractable_modalities",
+        "ibd_indication_level_candidate",
         "clinical_stage",
     ]
     matrix = []
@@ -221,6 +222,7 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
                 1 if row.formal_colocalization else 0,
                 1 if pd.notna(row.experimental_support) else 0,
                 1 if row.tractable_modalities else 0,
+                1 if row.ibd_indication_level_candidate else 0,
                 stage,
             ]
         )
@@ -232,7 +234,15 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
     axis.imshow(matrix, aspect="auto", cmap=cmap, vmin=0, vmax=4)
     axis.set_xticks(np.arange(len(columns)))
     axis.set_xticklabels(
-        ["External", "eQTL", "Coloc", "Experiment", "Tractable", "Clinical"],
+        [
+            "External",
+            "eQTL",
+            "Coloc",
+            "Experiment",
+            "Tractable",
+            "IBD drug",
+            "Clinical",
+        ],
         rotation=35,
         ha="right",
         fontsize=7,
@@ -251,7 +261,12 @@ def translation_panel(axis, frame: pd.DataFrame) -> None:
                 fontsize=6,
                 color=WHITE if value >= 3 else INK,
             )
-    axis.set_title("Clinical-translation annotation", loc="left", fontweight="bold")
+    axis.set_title(
+        "Clinical-stage context (not a treatment recommendation)",
+        loc="left",
+        fontweight="bold",
+        fontsize=9,
+    )
     axis.set_xticks(np.arange(-0.5, len(columns), 1), minor=True)
     axis.set_yticks(np.arange(-0.5, len(ordered), 1), minor=True)
     axis.grid(which="minor", color=WHITE, linewidth=2)

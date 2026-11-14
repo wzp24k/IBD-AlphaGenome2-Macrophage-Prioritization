@@ -205,6 +205,11 @@ def main() -> None:
             table_dir / "benchmark_priority_sensitivity_summary.json"
         ).read_text(encoding="utf-8")
     )
+    strict_eqtl_summary = json.loads(
+        (
+            table_dir / "strict_eqtl_sensitivity_summary.json"
+        ).read_text(encoding="utf-8")
+    )
     template_qc = json.loads(
         (ROOT / "results" / "template_docx_qc.json").read_text(
             encoding="utf-8"
@@ -488,6 +493,7 @@ def main() -> None:
                 "Clinical_translation",
                 "Benchmark_coverage",
                 "Benchmark_priority_sensitivity",
+                "Strict_eqtl_sensitivity",
             ]
         ),
         "perturbseq_thresholds_3_5_10": robustness["assignment_thresholds"]
@@ -754,14 +760,24 @@ def main() -> None:
             "spearman_priority_vs_benchmark_score"
         ]
         > 0.99,
+        "strict_eqtl_sensitivity_preserves_enrichment": strict_eqtl_summary[
+            "strict_positive_pairs"
+        ]
+        == 95
+        and strict_eqtl_summary["top10_matched_strict_hits"] == 7
+        and strict_eqtl_summary["top10_mismatched_strict_hits"] == 0,
         "clinical_translation_ten_targets": clinical_translation_summary[
             "targets_annotated"
         ]
         == 10
         and clinical_translation_summary[
-            "translational_priority_counts"
-        ].get("High", 0)
-        == 3,
+            "targets_with_ibd_indication_candidates"
+        ]
+        == 3
+        and clinical_translation_summary[
+            "clinical_treatment_recommendations_supported"
+        ]
+        == 0,
         "reference_bookmarks_and_hyperlinks": template_qc["checks"][
             "forty_two_reference_bookmarks"
         ]
@@ -898,7 +914,7 @@ def main() -> None:
         "- External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10",
         "- Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8",
         "- Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614",
-        "- Clinical annotation: 9/10 Top 10 targets tractable and 5/10 with clinical candidates",
+        "- Clinical annotation: 3/10 Top 10 targets have phase 2 IBD-indication drug signals; 0/10 meet a treatment-recommendation boundary",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",

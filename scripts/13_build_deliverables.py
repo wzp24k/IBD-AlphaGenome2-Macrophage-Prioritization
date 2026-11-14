@@ -250,6 +250,16 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
                     "Top10 targets with clinical candidates",
                     clinical_summary["targets_with_clinical_candidates"],
                 ],
+                [
+                    "Top10 targets with IBD-indication clinical candidates",
+                    clinical_summary["targets_with_ibd_indication_candidates"],
+                ],
+                [
+                    "Clinical treatment recommendations supported",
+                    clinical_summary[
+                        "clinical_treatment_recommendations_supported"
+                    ],
+                ],
             ],
             columns=["Metric", "Value"],
         ),
@@ -417,6 +427,9 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         ),
         "Benchmark_priority_sensitivity": pd.read_csv(
             table_dir / "benchmark_priority_sensitivity.csv"
+        ),
+        "Strict_eqtl_sensitivity": pd.read_csv(
+            table_dir / "strict_eqtl_sensitivity_metrics.csv"
         ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:

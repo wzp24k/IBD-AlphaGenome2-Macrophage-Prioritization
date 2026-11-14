@@ -23,7 +23,7 @@
 - External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10
 - Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8
 - Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614
-- Clinical annotation: 9/10 Top 10 targets tractable and 5/10 with clinical candidates
+- Clinical annotation: 3/10 Top 10 targets have phase 2 IBD-indication drug signals; 0/10 meet a treatment-recommendation boundary
 - Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio
