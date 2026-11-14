@@ -164,6 +164,18 @@ def main() -> None:
             and "21 were concordant" in text
             and "Seventeen were concordant" in text
         ),
+        "top28_selection_bias_wording": (
+            "Among the preselected top 28 loci" in text
+            and "not driven only by absolute-effect outliers" not in text
+        ),
+        "cedar2_exact_variant_precision": (
+            "supports the locus-level direction" in text
+            and "but not the exact variant in a colon macrophage node" in text
+        ),
+        "model_novelty_wording_removed": (
+            "model novelty" not in text
+            and text.count("model prediction") >= 2
+        ),
     }
     checks = {key: bool(value) for key, value in checks.items()}
     report = {

@@ -15,7 +15,10 @@
     "prkcq_il23r_perturbseq_values": true,
     "clinical_trial_values": true,
     "claim_calibration_eight_rows": true,
-    "top28_active_support_21_and_17": true
+    "top28_active_support_21_and_17": true,
+    "top28_selection_bias_wording": true,
+    "cedar2_exact_variant_precision": true,
+    "model_novelty_wording_removed": true
   },
   "all_checks_pass": true,
   "source_values": {

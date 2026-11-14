@@ -609,7 +609,7 @@
           33
         ]
       ],
-      "text": "The main contribution is an evidence ladder that separates genetic plausibility from model novelty, cell-context specificity, independent validation and causal inference. Fine-mapping answers whether a variant remains plausible after LD [28,29]. Atlas calibration answers whether a predicted effect is unusual against common variation [30,31]. Live and donor-conditioned models answer different cell-context questions. These axes are related, but they are not interchangeable [32,33]."
+      "text": "The main contribution is an evidence ladder that separates genetic plausibility from model prediction, cell-context specificity, independent validation and causal inference. Fine-mapping answers whether a variant remains plausible after LD [28,29]. Atlas calibration answers whether a predicted effect is unusual against common variation [30,31]. Live and donor-conditioned models answer different cell-context questions. These axes are related, but they are not interchangeable [32,33]."
     },
     {
       "paragraph_index": 183,

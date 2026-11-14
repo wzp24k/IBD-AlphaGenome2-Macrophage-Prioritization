@@ -559,6 +559,9 @@ def main() -> None:
         "reviewer4_1114_audit_present": (
             ROOT / "results" / "REVIEWER4_1114_FULL_AUDIT.md"
         ).exists(),
+        "reviewer5_1114_audit_present": (
+            ROOT / "results" / "REVIEWER5_1114_FULL_AUDIT.md"
+        ).exists(),
         "all_tables_cited": cited_tables == set(range(1, 12)),
         "all_figures_cited": cited_figures == set(range(1, 13)),
         "positive_control_pass": positive["all_checks_pass"],
@@ -1263,6 +1266,7 @@ def main() -> None:
         ROOT / "results" / "REVIEWER2_1114_FULL_AUDIT.md",
         ROOT / "results" / "REVIEWER3_1114_FULL_AUDIT.md",
         ROOT / "results" / "REVIEWER4_1114_FULL_AUDIT.md",
+        ROOT / "results" / "REVIEWER5_1114_FULL_AUDIT.md",
         ROOT / "results" / "1114_MANUSCRIPT_AUDIT.md",
         ROOT / "results" / "1114_reference_audit.json",
         ROOT / "results" / "1114_figure_table_audit.json",
