@@ -1,0 +1,59 @@
+{
+  "drug_selectivity_rows": 8,
+  "prkcb_specific_drugs": [
+    "ENZASTAURIN",
+    "RUBOXISTAURIN"
+  ],
+  "pan_pkc_drugs": [
+    "CEP-2563",
+    "GSK-690693",
+    "MIDOSTAURIN",
+    "SOTRASTAURIN",
+    "UCN-01"
+  ],
+  "cedar2": {
+    "status": "available",
+    "macrophage_like_nodes": [
+      "Node_len_4_pos_6",
+      "leaf_TC_immune_28_pos_5"
+    ],
+    "prkcb_significant_gut_rows": 20,
+    "prkcb_significant_macrophage_rows": 0,
+    "prkcb_exact_variant_blood_rows": 1,
+    "note": "CEDAR2 significant-eQTL tables were queried. The full 1.5 GB macrophage nominal file was not exhaustively parsed because the significant macrophage node contained no PRKCB eQTL row."
+  },
+  "clinical_trials": {
+    "sotrastaurin_ibd_trials": 1,
+    "enzastaurin_ibd_trials": 0,
+    "sotrastaurin_efficacy_signal": "Posterior probability of any clinical-remission improvement was 95.5%, but the 95% credibility interval crossed zero and the probability of a >=20% difference was only 14.2%.",
+    "sotrastaurin_safety": "Higher any-AE and gastrointestinal/renal AE frequencies than placebo; serious AE frequency was not higher in the small trial.",
+    "treatment_recommendation": "Not supported: small early-terminated phase 2b study, no primary publication, no confirmatory trial and no target-selective drug."
+  },
+  "sotrastaurin_clinical_remission_difference_percent": 12.2,
+  "sotrastaurin_remission_ci_low_percent": -2.1,
+  "sotrastaurin_remission_ci_high_percent": 27.4,
+  "sotrastaurin_probability_any_improvement_percent": 95.5,
+  "sotrastaurin_probability_ge20_percent": 14.2,
+  "clinical_treatment_recommendation_supported": false,
+  "risk_direction": [
+    {
+      "target": "PRKCB",
+      "variant": "chr16:23853326:C>A",
+      "study_beta_alt": 0.1742461085461535,
+      "eqtl_beta_alt": 1.13796,
+      "risk_effect_on_target": "risk_increases_target",
+      "expected_therapeutic_action": "inhibition"
+    },
+    {
+      "target": "MAP3K8",
+      "variant": "chr10:30433979:G>C",
+      "study_beta_alt": 0.08547830383829348,
+      "eqtl_beta_alt": -0.257966,
+      "risk_effect_on_target": "risk_decreases_target",
+      "expected_therapeutic_action": "activation"
+    }
+  ],
+  "mpra_design_status": "rs7404003 is already included in the prespecified top-three lentiMPRA package with three 251-bp windows, both alleles, six donors and resting/LPS/IFN-gamma/IL-23 conditions. No result exists.",
+  "crispri_status": "Gene-level PRKCB CRISPRi remains complementary, not allele-specific. Four independent guides plus safe-harbor and non-targeting controls should measure PRKCB, TNF, IL23A, CXCL10 and NF-kB readouts.",
+  "treatment_recommendation": "No clinical treatment recommendation is supported. Sotrastaurin has a small early-terminated phase 2b UC study with an uncertain efficacy interval and no target-selective pharmacology."
+}

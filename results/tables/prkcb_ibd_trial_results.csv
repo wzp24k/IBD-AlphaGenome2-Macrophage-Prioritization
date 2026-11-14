@@ -1,0 +1,3 @@
+drug,nct_id,indication,phase,dose,randomized,clinical_remission,posterior_difference,partial_mayo_change_day29,any_adverse_event,serious_adverse_event,status,publication,source
+sotrastaurin,NCT00572585,active moderate-to-severe ulcerative colitis,Phase 2b,"300 mg bid for 2 weeks, then 200 mg bid for 2 weeks",42 sotrastaurin; 18 placebo,6/36 (16.7%) vs 0/17 (0%),12.2% (95% CrI -2.1 to 27.4),-3.7 vs -1.9,31/42 (73.8%) vs 10/18 (55.6%),3/42 (7.1%) vs 2/18 (11.1%),completed but terminated early for strategic reasons,No peer-reviewed primary publication listed by trial report,Novartis CAEB071A2210 trial report and ClinicalTrials.gov
+enzastaurin,,No IBD trial identified,,,,,,,,,not tested in IBD in ClinicalTrials.gov search,,ClinicalTrials.gov API

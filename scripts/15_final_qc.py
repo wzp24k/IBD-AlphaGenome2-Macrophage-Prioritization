@@ -210,6 +210,11 @@ def main() -> None:
             table_dir / "strict_eqtl_sensitivity_summary.json"
         ).read_text(encoding="utf-8")
     )
+    prkcb_followup = json.loads(
+        (
+            table_dir / "prkcb_map3k8_followup_summary.json"
+        ).read_text(encoding="utf-8")
+    )
     template_qc = json.loads(
         (ROOT / "results" / "template_docx_qc.json").read_text(
             encoding="utf-8"
@@ -494,6 +499,12 @@ def main() -> None:
                 "Benchmark_coverage",
                 "Benchmark_priority_sensitivity",
                 "Strict_eqtl_sensitivity",
+                "PRKCB_drug_selectivity",
+                "PRKCB_IBD_trial_search",
+                "PRKCB_IBD_trial_results",
+                "PRKCB_CEDAR2_eQTL",
+                "PRKCB_MAP3K8_direction",
+                "PRKCB_followup_summary",
             ]
         ),
         "perturbseq_thresholds_3_5_10": robustness["assignment_thresholds"]
@@ -766,6 +777,44 @@ def main() -> None:
         == 95
         and strict_eqtl_summary["top10_matched_strict_hits"] == 7
         and strict_eqtl_summary["top10_mismatched_strict_hits"] == 0,
+        "sotrastaurin_ibd_trial_data_present": prkcb_followup[
+            "clinical_trials"
+        ]["sotrastaurin_ibd_trials"]
+        == 1
+        and prkcb_followup["clinical_trials"][
+            "enzastaurin_ibd_trials"
+        ]
+        == 0,
+        "sotrastaurin_efficacy_interval_crosses_zero": prkcb_followup[
+            "sotrastaurin_remission_ci_low_percent"
+        ]
+        < 0
+        < prkcb_followup[
+            "sotrastaurin_remission_ci_high_percent"
+        ],
+        "sotrastaurin_pan_pkc": "SOTRASTAURIN"
+        in prkcb_followup["pan_pkc_drugs"],
+        "prkcb_selective_drugs_no_ibd_trial": all(
+            drug in prkcb_followup["prkcb_specific_drugs"]
+            for drug in ["ENZASTAURIN", "RUBOXISTAURIN"]
+        )
+        and prkcb_followup["clinical_trials"]["enzastaurin_ibd_trials"] == 0,
+        "cedar2_no_macrophage_prkcb_eqtl": prkcb_followup["cedar2"][
+            "prkcb_significant_macrophage_rows"
+        ]
+        == 0,
+        "cedar2_exact_variant_blood_signal": prkcb_followup["cedar2"][
+            "prkcb_exact_variant_blood_rows"
+        ]
+        == 1,
+        "map3k8_requires_activation_not_inhibition": any(
+            row["target"] == "MAP3K8"
+            and row["expected_therapeutic_action"] == "activation"
+            for row in prkcb_followup["risk_direction"]
+        ),
+        "no_clinical_treatment_recommendation": not prkcb_followup[
+            "clinical_treatment_recommendation_supported"
+        ],
         "clinical_translation_ten_targets": clinical_translation_summary[
             "targets_annotated"
         ]
@@ -919,6 +968,8 @@ def main() -> None:
         "- Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8",
         "- Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614",
         "- Clinical annotation: 3/10 Top 10 targets have phase 2 IBD-indication drug signals; 0/10 meet a treatment-recommendation boundary",
+        "- Sotrastaurin UC trial: 6/36 versus 0/17 clinical remission, posterior difference 12.2% (95% CrI -2.1 to 27.4); early-terminated and not confirmatory",
+        "- CEDAR2 independent eQTL: PRKCB significant in 20 gut rows but 0 macrophage-like nodes; exact rs7404003 significant in granulocytes only",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
@@ -946,11 +997,13 @@ def main() -> None:
         ROOT / "results" / "FORMAT_COMPLIANCE_1113.md",
         ROOT / "results" / "CITATION_CROSSREF_AUDIT.md",
         ROOT / "results" / "BENCHMARK_AND_TRANSLATION_AUDIT.md",
+        ROOT / "results" / "PRKCB_MAP3K8_CLINICAL_FOLLOWUP_AUDIT.md",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,
         ROOT / "results" / "QC_REPORT.json",
         ROOT / "results" / "template_docx_qc.json",
+        ROOT / "data" / "external" / "clinical" / "NCT00572585_results.pdf",
     ]
     package_files.extend(sorted((ROOT / "scripts").glob("*.py")))
     package_files.extend(sorted((ROOT / "results" / "figures").glob("*")))

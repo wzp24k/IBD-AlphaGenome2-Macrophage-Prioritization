@@ -98,6 +98,14 @@
     "heldout_credible_set_auc": true,
     "original_priority_reproduces_benchmark": true,
     "strict_eqtl_sensitivity_preserves_enrichment": true,
+    "sotrastaurin_ibd_trial_data_present": true,
+    "sotrastaurin_efficacy_interval_crosses_zero": true,
+    "sotrastaurin_pan_pkc": true,
+    "prkcb_selective_drugs_no_ibd_trial": true,
+    "cedar2_no_macrophage_prkcb_eqtl": true,
+    "cedar2_exact_variant_blood_signal": true,
+    "map3k8_requires_activation_not_inhibition": true,
+    "no_clinical_treatment_recommendation": true,
     "clinical_translation_ten_targets": true,
     "reference_bookmarks_and_hyperlinks": true,
     "figure1_drawio_valid": true,
@@ -481,7 +489,7 @@
     }
   },
   "docx": {
-    "paragraphs": 239,
+    "paragraphs": 244,
     "tables": 11,
     "inline_shapes": 11
   },
@@ -546,7 +554,13 @@
     "Clinical_translation",
     "Benchmark_coverage",
     "Benchmark_priority_sensitivity",
-    "Strict_eqtl_sensitivity"
+    "Strict_eqtl_sensitivity",
+    "PRKCB_drug_selectivity",
+    "PRKCB_IBD_trial_search",
+    "PRKCB_IBD_trial_results",
+    "PRKCB_CEDAR2_eQTL",
+    "PRKCB_MAP3K8_direction",
+    "PRKCB_followup_summary"
   ],
   "api_key_leaks": [],
   "format_compliance": {

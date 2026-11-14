@@ -1,0 +1,3 @@
+target,variant,study_beta_alt,eqtl_beta_alt,risk_effect_on_target,expected_therapeutic_action
+PRKCB,chr16:23853326:C>A,0.1742461085461535,1.13796,risk_increases_target,inhibition
+MAP3K8,chr10:30433979:G>C,0.08547830383829348,-0.257966,risk_decreases_target,activation

@@ -36,6 +36,7 @@ $scripts = @(
     "51_benchmark_figure.py",
     "52_priority_score_benchmark_sensitivity.py",
     "53_strict_eqtl_sensitivity.py",
+    "54_prkcb_clinical_translation_followup.py",
     "31_integrate_external_experimental_data.py",
     "33_eqtl_catalogue_remaining_variants.py",
     "32_external_experimental_figure.py",

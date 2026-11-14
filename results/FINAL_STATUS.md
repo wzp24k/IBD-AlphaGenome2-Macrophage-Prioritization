@@ -24,6 +24,8 @@
 - Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8
 - Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614
 - Clinical annotation: 3/10 Top 10 targets have phase 2 IBD-indication drug signals; 0/10 meet a treatment-recommendation boundary
+- Sotrastaurin UC trial: 6/36 versus 0/17 clinical remission, posterior difference 12.2% (95% CrI -2.1 to 27.4); early-terminated and not confirmatory
+- CEDAR2 independent eQTL: PRKCB significant in 20 gut rows but 0 macrophage-like nodes; exact rs7404003 significant in granulocytes only
 - Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio

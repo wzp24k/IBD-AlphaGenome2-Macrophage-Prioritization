@@ -187,6 +187,11 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
             encoding="utf-8"
         )
     )
+    prkcb_followup = json.loads(
+        (table_dir / "prkcb_map3k8_followup_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
     transport = pd.read_csv(
         table_dir / "benchmark_cohort_transportability.csv"
     )
@@ -267,6 +272,38 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
                     clinical_summary[
                         "clinical_treatment_recommendations_supported"
                     ],
+                ],
+                [
+                    "Sotrastaurin UC clinical remission",
+                    "6/36 versus 0/17",
+                ],
+                [
+                    "Sotrastaurin remission difference",
+                    f"{prkcb_followup['sotrastaurin_clinical_remission_difference_percent']}% "
+                    f"(95% CrI {prkcb_followup['sotrastaurin_remission_ci_low_percent']} "
+                    f"to {prkcb_followup['sotrastaurin_remission_ci_high_percent']})",
+                ],
+                [
+                    "PRKCB pan-PKC drugs",
+                    "; ".join(prkcb_followup["pan_pkc_drugs"]),
+                ],
+                [
+                    "PRKCB-selective drugs without IBD trial",
+                    "; ".join(prkcb_followup["prkcb_specific_drugs"]),
+                ],
+                [
+                    "CEDAR2 PRKCB macrophage eQTL rows",
+                    prkcb_followup["cedar2"][
+                        "prkcb_significant_macrophage_rows"
+                    ],
+                ],
+                [
+                    "MAP3K8 direction-compatible strategy",
+                    next(
+                        row["expected_therapeutic_action"]
+                        for row in prkcb_followup["risk_direction"]
+                        if row["target"] == "MAP3K8"
+                    ),
                 ],
             ],
             columns=["Metric", "Value"],
@@ -438,6 +475,24 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         ),
         "Strict_eqtl_sensitivity": pd.read_csv(
             table_dir / "strict_eqtl_sensitivity_metrics.csv"
+        ),
+        "PRKCB_drug_selectivity": pd.read_csv(
+            table_dir / "prkcb_map3k8_drug_selectivity.csv"
+        ),
+        "PRKCB_IBD_trial_search": pd.read_csv(
+            table_dir / "prkcb_ibd_trial_search.csv"
+        ),
+        "PRKCB_IBD_trial_results": pd.read_csv(
+            table_dir / "prkcb_ibd_trial_results.csv"
+        ),
+        "PRKCB_CEDAR2_eQTL": pd.read_csv(
+            table_dir / "prkcb_cedar2_independent_eqtl.csv"
+        ),
+        "PRKCB_MAP3K8_direction": pd.read_csv(
+            table_dir / "prkcb_map3k8_risk_direction.csv"
+        ),
+        "PRKCB_followup_summary": flatten_json(
+            table_dir / "prkcb_map3k8_followup_summary.json"
         ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
