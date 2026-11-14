@@ -1,0 +1,6 @@
+molecular_layer,source,exact_variant_coverage,association_supported,observed_direction,interpretation
+mRNA expression,GTEx_v10_colon_eQTL,True,True,-0.17135509848594666,colon direction available
+mRNA expression,eight_myeloid_eQTL_datasets,True,True,positive_in_all_eight,myeloid eQTL direction
+splicing,GTEx_v10_sQTL,True,False,,no exact-variant sQTL returned
+protein,Open_Targets_integrated_evidence,False,False,,no exact-variant pQTL record
+chromatin accessibility,Open_Targets_integrated_evidence,False,False,,no exact-variant caQTL record

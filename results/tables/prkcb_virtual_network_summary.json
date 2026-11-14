@@ -1,0 +1,33 @@
+{
+  "method": "public perturbation signature projection and linear-Gaussian virtual knockdown",
+  "virtual_perturbation_is_experimental": false,
+  "cohorts": [
+    "Oliver2024",
+    "Crohn2023",
+    "Garrido2023"
+  ],
+  "prkcb_signature_reversal_cohorts_positive": 2,
+  "prkcb_signature_reversal_cohort_consistency": 0.6666666666666666,
+  "median_prkcb_signature_correlation": 0.011827743915346406,
+  "median_prkcb_permutation_p": 0.09659034096590341,
+  "states_evaluated": [
+    "healthy",
+    "active"
+  ],
+  "network_genes": 50,
+  "pathways": {
+    "healthy": {
+      "TNF/NF-kB": -0.022116683773415215,
+      "JAK/STAT": -0.0074361046294619815,
+      "IL-23": 0.007393486518987322,
+      "Chemokine": 0.007320953042250085
+    },
+    "active": {
+      "TNF/NF-kB": -0.010731004606550743,
+      "JAK/STAT": -0.023957292627312127,
+      "IL-23": 0.0042244073760619874,
+      "Chemokine": 0.021496834304855238
+    }
+  },
+  "boundary": "The virtual knockdown is a conditional Gaussian network prediction. It is not CellOracle, Perturb-seq or primary macrophage CRISPR evidence. Public overexpression data are gene-level and not allele-specific."
+}

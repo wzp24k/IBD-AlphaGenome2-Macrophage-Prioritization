@@ -87,7 +87,7 @@ def main() -> None:
         .paragraph_format.line_spacing
         == template.styles["Normal"].paragraph_format.line_spacing,
         "eleven_tables": len(manuscript.tables) == 11,
-        "eleven_figures": len(manuscript.inline_shapes) == 11,
+        "twelve_figures": len(manuscript.inline_shapes) == 12,
         "letter_page_size": (
             manuscript_section.page_width == 7772400
             and manuscript_section.page_height == 10058400

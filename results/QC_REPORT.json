@@ -38,10 +38,11 @@
     "positive_control_pass": true,
     "docx_has_text": true,
     "docx_has_eleven_tables": true,
-    "docx_has_eleven_figures": true,
+    "docx_has_twelve_figures": true,
     "docx_has_table11_caption": true,
     "docx_has_figure10_caption": true,
     "docx_has_figure11_caption": true,
+    "docx_has_figure12_caption": true,
     "xlsx_has_expected_sheets": true,
     "perturbseq_thresholds_3_5_10": true,
     "pdgfb_self_threshold_stable": true,
@@ -106,6 +107,17 @@
     "cedar2_exact_variant_blood_signal": true,
     "map3k8_requires_activation_not_inhibition": true,
     "no_clinical_treatment_recommendation": true,
+    "prkcb_ld_matched_877": true,
+    "prkcb_mr_instruments_3": true,
+    "prkcb_mr_ivw_positive": true,
+    "prkcb_smr_significant": true,
+    "prkcb_susie_h4_supported": true,
+    "prkcb_heidi_heterogeneous_all_pruned_consistent": true,
+    "prkcb_qtl_mrna_only_two_layers": true,
+    "prkcb_signature_reversal_two_of_three": true,
+    "prkcb_virtual_jak_stat_negative_ci": true,
+    "prkcb_virtual_labeled_prediction": true,
+    "prkcb_mechanism_audit_present": true,
     "clinical_translation_ten_targets": true,
     "reference_bookmarks_and_hyperlinks": true,
     "figure1_drawio_valid": true,
@@ -424,6 +436,13 @@
       ],
       "nonblank": true
     },
+    "figure12_prkcb_mechanism.png": {
+      "dimensions": [
+        4454,
+        2738
+      ],
+      "nonblank": true
+    },
     "figure1_analysis_flow.png": {
       "dimensions": [
         2617,
@@ -489,9 +508,9 @@
     }
   },
   "docx": {
-    "paragraphs": 244,
+    "paragraphs": 259,
     "tables": 11,
-    "inline_shapes": 11
+    "inline_shapes": 12
   },
   "xlsx_sheets": [
     "Overview",
@@ -560,11 +579,21 @@
     "PRKCB_IBD_trial_results",
     "PRKCB_CEDAR2_eQTL",
     "PRKCB_MAP3K8_direction",
-    "PRKCB_followup_summary"
+    "PRKCB_followup_summary",
+    "PRKCB_MR_estimates",
+    "PRKCB_MR_instruments",
+    "PRKCB_MR_Steiger",
+    "PRKCB_SMR_HEIDI",
+    "PRKCB_SuSiE_coloc",
+    "PRKCB_SuSiE_credible_sets",
+    "PRKCB_QTL_coverage",
+    "PRKCB_signature_reversal",
+    "PRKCB_virtual_pathways",
+    "PRKCB_virtual_bootstrap"
   ],
   "api_key_leaks": [],
   "format_compliance": {
-    "abstract_words": 242,
+    "abstract_words": 249,
     "keywords": [
       "Inflammatory Bowel Disease",
       "Non-coding Variants",
@@ -644,7 +673,8 @@
       8,
       9,
       10,
-      11
+      11,
+      12
     ],
     "references": 42,
     "doi_audit": {

@@ -19,13 +19,18 @@
 - Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth
 - GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization
 - Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
-- Figure style: all Figure 1-11 scripts use the centralized six-color palette and shared typography
+- Figure style: all Figure 1-12 scripts use the centralized six-color palette and shared typography
 - External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10
 - Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8
 - Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614
 - Clinical annotation: 3/10 Top 10 targets have phase 2 IBD-indication drug signals; 0/10 meet a treatment-recommendation boundary
 - Sotrastaurin UC trial: 6/36 versus 0/17 clinical remission, posterior difference 12.2% (95% CrI -2.1 to 27.4); early-terminated and not confirmatory
 - CEDAR2 independent eQTL: PRKCB significant in 20 gut rows but 0 macrophage-like nodes; exact rs7404003 significant in granulocytes only
+- PRKCB LD-aware MR: 877 matched variants, 3 approximately independent instruments, IVW beta 0.0517 (P < 0.001)
+- PRKCB SMR/HEIDI-style: SMR P < 0.001; full-region heterogeneity P < 0.001 and pruned-subset P = 0.368
+- PRKCB SuSiE-coloc: primary L=5 shared credible-set H4 = 1.0
+- PRKCB molecular QTL coverage: exact mRNA support only; sQTL, pQTL and caQTL were not covered
+- PRKCB public signature reversal: 2/3 cohorts positive but weak; virtual knockdown predicts lower active-macrophage JAK/STAT
 - Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio

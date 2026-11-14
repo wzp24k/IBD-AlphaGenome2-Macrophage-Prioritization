@@ -1,0 +1,21 @@
+{
+  "method": "SuSiE-coloc with 1000 Genomes EUR LD",
+  "variant_region": "chr16:23.70-23.95 Mb",
+  "variants_used": 877,
+  "gwas_samples": 398668,
+  "eqtl_samples": 191,
+  "credible_sets_gwas_primary": 5,
+  "credible_sets_eqtl_primary": 3,
+  "primary_L": 5,
+  "primary_p12": 5e-06,
+  "primary_max_H4": 1,
+  "primary_shared_credible_pair": [
+    {
+      "hit1": "rs779674735",
+      "hit2": "rs779674735"
+    }
+  ],
+  "supported_H4_ge_0_8": true,
+  "sensitivity_max_H4": 1,
+  "note": "This is fine-mapped colocalization with an external LD reference. Shared credible sets support a shared causal variant hypothesis but do not establish the molecular mechanism experimentally."
+}

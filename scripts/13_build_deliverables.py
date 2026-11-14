@@ -147,6 +147,7 @@ def build_docx(markdown_path: Path, output_path: Path, figure_dir: Path) -> None
         "figure9_perturbseq_validation.png": "Figure 9. GSE327644 primary human macrophage Perturb-seq.",
         "figure10_evidence_robustness.png": "Figure 10. Robustness and orthogonal secondary analyses.",
         "figure11_benchmark_translation.png": "Figure 11. External benchmarking, multi-cohort triangulation and translational annotation.",
+        "figure12_prkcb_mechanism.png": "Figure 12. PRKCB computational mechanism triangulation.",
     }
     for filename, caption in captions.items():
         path = figure_dir / filename
@@ -189,6 +190,21 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
     )
     prkcb_followup = json.loads(
         (table_dir / "prkcb_map3k8_followup_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    prkcb_mechanism = json.loads(
+        (table_dir / "prkcb_causal_mechanism_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    prkcb_susie = json.loads(
+        (table_dir / "prkcb_susie_coloc_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    prkcb_virtual = json.loads(
+        (table_dir / "prkcb_virtual_network_summary.json").read_text(
             encoding="utf-8"
         )
     )
@@ -304,6 +320,34 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
                         for row in prkcb_followup["risk_direction"]
                         if row["target"] == "MAP3K8"
                     ),
+                ],
+                [
+                    "PRKCB MR instruments",
+                    prkcb_mechanism["primary_instruments"],
+                ],
+                [
+                    "PRKCB IVW beta",
+                    prkcb_mechanism["ivw_beta"],
+                ],
+                [
+                    "PRKCB IVW P",
+                    prkcb_mechanism["ivw_p"],
+                ],
+                [
+                    "PRKCB SMR P",
+                    prkcb_mechanism["smr_p"],
+                ],
+                [
+                    "PRKCB SuSiE-coloc H4",
+                    prkcb_susie["primary_max_H4"],
+                ],
+                [
+                    "PRKCB exact QTL layers supported",
+                    prkcb_mechanism["qtl_layers_with_exact_variant_support"],
+                ],
+                [
+                    "PRKCB virtual active JAK/STAT",
+                    prkcb_virtual["pathways"]["active"]["JAK/STAT"],
                 ],
             ],
             columns=["Metric", "Value"],
@@ -493,6 +537,40 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         ),
         "PRKCB_followup_summary": flatten_json(
             table_dir / "prkcb_map3k8_followup_summary.json"
+        ),
+        "PRKCB_MR_estimates": pd.read_csv(
+            table_dir / "prkcb_mr_estimates.csv"
+        ),
+        "PRKCB_MR_instruments": pd.read_csv(
+            table_dir / "prkcb_mr_instruments.csv"
+        ),
+        "PRKCB_MR_Steiger": pd.read_csv(
+            table_dir / "prkcb_mr_steiger.csv"
+        ),
+        "PRKCB_SMR_HEIDI": pd.concat(
+            [
+                pd.read_csv(table_dir / "prkcb_smr_estimates.csv"),
+                pd.read_csv(table_dir / "prkcb_heidi_sensitivity.csv"),
+            ],
+            ignore_index=True,
+        ),
+        "PRKCB_SuSiE_coloc": pd.read_csv(
+            table_dir / "prkcb_susie_coloc_sensitivity.csv"
+        ),
+        "PRKCB_SuSiE_credible_sets": pd.read_csv(
+            table_dir / "prkcb_susie_credible_sets.csv"
+        ),
+        "PRKCB_QTL_coverage": pd.read_csv(
+            table_dir / "prkcb_molecular_qtl_coverage.csv"
+        ),
+        "PRKCB_signature_reversal": pd.read_csv(
+            table_dir / "prkcb_signature_reversal.csv"
+        ),
+        "PRKCB_virtual_pathways": pd.read_csv(
+            table_dir / "prkcb_virtual_pathway_effects.csv"
+        ),
+        "PRKCB_virtual_bootstrap": pd.read_csv(
+            table_dir / "prkcb_virtual_pathway_bootstrap_summary.csv"
         ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:

@@ -1,0 +1,4 @@
+method,variant_set,nsnp,smr_beta_reference,q,effective_df,p,median_abs_residual,heterogeneity_status
+HEIDI_style_LD_aware_heterogeneity,all_ld_matched,877,0.05140778234735843,68274.73102037176,876.0,0.0,0.02216555283138247,heterogeneous
+HEIDI_style_LD_aware_heterogeneity,ld_pruned_r2_0.1,3,0.05140778234735843,2.0017344292875427,2.0,0.36756054902687035,0.000701028155646953,consistent
+HEIDI_style_LD_aware_heterogeneity,ld_pruned_r2_0.01,3,0.05140778234735843,2.0017344292875427,2.0,0.36756054902687035,0.000701028155646953,consistent

@@ -371,6 +371,7 @@ def main() -> None:
         9: "Macrophage Perturb-seq and robustness",
         10: "Gene-expression programs and confounding",
         11: "External benchmarking and translational triangulation",
+        12: "LD-aware PRKCB mediation and computational mechanism triangulation",
     }
     subsection_count = {key: 0 for key in section_lookup}
     rendered_tables = set()
@@ -404,6 +405,7 @@ def main() -> None:
                     9: "figure9_perturbseq_validation.png",
                     10: "figure10_evidence_robustness.png",
                     11: "figure11_benchmark_translation.png",
+                    12: "figure12_prkcb_mechanism.png",
                 }[number],
                 figures[number],
                 width=width,

@@ -37,5 +37,6 @@ available.
 ## Scope
 
 The palette is defined centrally in `scripts/figure_palette.py` and used by the
-scripts that generate Figure 1 through Figure 10. No quantitative values,
-statistical comparisons, labels, or figure legends were changed.
+scripts that generate Figure 1 through Figure 12. Figure 12 applies the same
+palette to MR, regional coupling, SuSiE-colocalization, QTL coverage,
+signature projection and virtual-knockdown panels.

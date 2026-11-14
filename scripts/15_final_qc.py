@@ -85,6 +85,7 @@ def main() -> None:
         ROOT / "scripts" / "35_perturbseq_figure.py",
         ROOT / "scripts" / "41_evidence_strengthening_figure.py",
         ROOT / "scripts" / "51_benchmark_figure.py",
+        ROOT / "scripts" / "58_prkcb_mechanism_figure.py",
     ]
     lead = pd.read_csv(table_dir / "ranked_lead_variants_final.csv")
     summary = json.loads((table_dir / "analysis_summary.json").read_text(encoding="utf-8"))
@@ -215,6 +216,28 @@ def main() -> None:
             table_dir / "prkcb_map3k8_followup_summary.json"
         ).read_text(encoding="utf-8")
     )
+    prkcb_mechanism = json.loads(
+        (
+            table_dir / "prkcb_causal_mechanism_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    prkcb_susie = json.loads(
+        (
+            table_dir / "prkcb_susie_coloc_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    prkcb_virtual = json.loads(
+        (
+            table_dir / "prkcb_virtual_network_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    prkcb_mr = pd.read_csv(table_dir / "prkcb_mr_estimates.csv")
+    prkcb_heidi = pd.read_csv(table_dir / "prkcb_heidi_sensitivity.csv")
+    prkcb_qtl = pd.read_csv(table_dir / "prkcb_molecular_qtl_coverage.csv")
+    prkcb_reversal = pd.read_csv(table_dir / "prkcb_signature_reversal.csv")
+    prkcb_virtual_bootstrap = pd.read_csv(
+        table_dir / "prkcb_virtual_pathway_bootstrap_summary.csv"
+    )
     template_qc = json.loads(
         (ROOT / "results" / "template_docx_qc.json").read_text(
             encoding="utf-8"
@@ -325,6 +348,21 @@ def main() -> None:
         gsea["target"].eq("CHSY3")
         & gsea["Term"].eq("IL-6/JAK/STAT3 Signaling")
     ]
+    prkcb_ivw = prkcb_mr[
+        prkcb_mr["clump_r2_threshold"].eq(0.01)
+        & prkcb_mr["method"].eq("IVW_random_effects")
+    ].iloc[0]
+    prkcb_heidi_all = prkcb_heidi[
+        prkcb_heidi["variant_set"].eq("all_ld_matched")
+    ].iloc[0]
+    prkcb_heidi_pruned = prkcb_heidi[
+        prkcb_heidi["variant_set"].eq("ld_pruned_r2_0.1")
+    ].iloc[0]
+    prkcb_jak_virtual = prkcb_virtual_bootstrap[
+        prkcb_virtual_bootstrap["state"].eq("active")
+        & prkcb_virtual_bootstrap["target"].eq("PRKCB")
+        & prkcb_virtual_bootstrap["pathway"].eq("JAK/STAT")
+    ].iloc[0]
 
     figure_checks = {}
     for path in sorted(figure_dir.glob("*.png")):
@@ -444,16 +482,18 @@ def main() -> None:
         "clinical_use_boundary_reported": "not a diagnostic, prognostic or treatment-selection tool"
         in markdown_text,
         "all_tables_cited": cited_tables == set(range(1, 12)),
-        "all_figures_cited": cited_figures == set(range(1, 12)),
+        "all_figures_cited": cited_figures == set(range(1, 13)),
         "positive_control_pass": positive["all_checks_pass"],
         "docx_has_text": len(document.paragraphs) > 100,
         "docx_has_eleven_tables": len(document.tables) == 11,
-        "docx_has_eleven_figures": len(document.inline_shapes) == 11,
+        "docx_has_twelve_figures": len(document.inline_shapes) == 12,
         "docx_has_table11_caption": "Claim calibration for the seven evidence boundaries"
         in document_text,
         "docx_has_figure10_caption": "Robustness and orthogonal secondary analyses"
         in document_text,
         "docx_has_figure11_caption": "External benchmarking, multi-cohort triangulation and translational annotation"
+        in document_text,
+        "docx_has_figure12_caption": "PRKCB computational mechanism triangulation"
         in document_text,
         "xlsx_has_expected_sheets": all(
             sheet in workbook.sheetnames
@@ -505,6 +545,16 @@ def main() -> None:
                 "PRKCB_CEDAR2_eQTL",
                 "PRKCB_MAP3K8_direction",
                 "PRKCB_followup_summary",
+                "PRKCB_MR_estimates",
+                "PRKCB_MR_instruments",
+                "PRKCB_MR_Steiger",
+                "PRKCB_SMR_HEIDI",
+                "PRKCB_SuSiE_coloc",
+                "PRKCB_SuSiE_credible_sets",
+                "PRKCB_QTL_coverage",
+                "PRKCB_signature_reversal",
+                "PRKCB_virtual_pathways",
+                "PRKCB_virtual_bootstrap",
             ]
         ),
         "perturbseq_thresholds_3_5_10": robustness["assignment_thresholds"]
@@ -815,6 +865,57 @@ def main() -> None:
         "no_clinical_treatment_recommendation": not prkcb_followup[
             "clinical_treatment_recommendation_supported"
         ],
+        "prkcb_ld_matched_877": prkcb_mechanism[
+            "ld_matched_variants"
+        ]
+        == 877,
+        "prkcb_mr_instruments_3": prkcb_mechanism[
+            "primary_instruments"
+        ]
+        == 3,
+        "prkcb_mr_ivw_positive": bool(
+            prkcb_ivw["estimate"] > 0 and prkcb_ivw["p"] < 0.001
+        ),
+        "prkcb_smr_significant": prkcb_mechanism["smr_p"] < 0.001,
+        "prkcb_susie_h4_supported": bool(
+            prkcb_susie["supported_H4_ge_0_8"]
+            and prkcb_susie["primary_max_H4"] >= 0.8
+        ),
+        "prkcb_heidi_heterogeneous_all_pruned_consistent": bool(
+            prkcb_heidi_all["p"] < 0.05
+            and prkcb_heidi_pruned["p"] >= 0.05
+        ),
+        "prkcb_qtl_mrna_only_two_layers": int(
+            prkcb_qtl["association_supported"].sum()
+        )
+        == 2
+        and not prkcb_qtl.loc[
+            prkcb_qtl["molecular_layer"].isin(
+                ["splicing", "protein", "chromatin accessibility"]
+            ),
+            "association_supported",
+        ].any(),
+        "prkcb_signature_reversal_two_of_three": int(
+            (
+                prkcb_reversal[
+                    prkcb_reversal["target"].eq("PRKCB")
+                ]["correlation"]
+                > 0
+            ).sum()
+        )
+        == 2,
+        "prkcb_virtual_jak_stat_negative_ci": bool(
+            prkcb_jak_virtual["ci_high"] < 0
+        ),
+        "prkcb_virtual_labeled_prediction": (
+            "not CellOracle, Perturb-seq or primary CRISPR evidence"
+            in document_text
+            and "computational mechanism triangulation"
+            in document_text.lower()
+        ),
+        "prkcb_mechanism_audit_present": (
+            ROOT / "results" / "PRKCB_CAUSAL_MECHANISM_AUDIT.md"
+        ).exists(),
         "clinical_translation_ten_targets": clinical_translation_summary[
             "targets_annotated"
         ]
@@ -963,13 +1064,18 @@ def main() -> None:
         "- Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth",
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
         "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
-        "- Figure style: all Figure 1-11 scripts use the centralized six-color palette and shared typography",
+        "- Figure style: all Figure 1-12 scripts use the centralized six-color palette and shared typography",
         "- External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10",
         "- Formal colocalization: 5 of 7 eQTL-positive Top 10 pairs supported at H4 >= 0.8",
         "- Benchmark transport: UKB-to-MVP AUROC 0.633 and MVP-to-UKB AUROC 0.614",
         "- Clinical annotation: 3/10 Top 10 targets have phase 2 IBD-indication drug signals; 0/10 meet a treatment-recommendation boundary",
         "- Sotrastaurin UC trial: 6/36 versus 0/17 clinical remission, posterior difference 12.2% (95% CrI -2.1 to 27.4); early-terminated and not confirmatory",
         "- CEDAR2 independent eQTL: PRKCB significant in 20 gut rows but 0 macrophage-like nodes; exact rs7404003 significant in granulocytes only",
+        "- PRKCB LD-aware MR: 877 matched variants, 3 approximately independent instruments, IVW beta 0.0517 (P < 0.001)",
+        "- PRKCB SMR/HEIDI-style: SMR P < 0.001; full-region heterogeneity P < 0.001 and pruned-subset P = 0.368",
+        "- PRKCB SuSiE-coloc: primary L=5 shared credible-set H4 = 1.0",
+        "- PRKCB molecular QTL coverage: exact mRNA support only; sQTL, pQTL and caQTL were not covered",
+        "- PRKCB public signature reversal: 2/3 cohorts positive but weak; virtual knockdown predicts lower active-macrophage JAK/STAT",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
@@ -998,6 +1104,7 @@ def main() -> None:
         ROOT / "results" / "CITATION_CROSSREF_AUDIT.md",
         ROOT / "results" / "BENCHMARK_AND_TRANSLATION_AUDIT.md",
         ROOT / "results" / "PRKCB_MAP3K8_CLINICAL_FOLLOWUP_AUDIT.md",
+        ROOT / "results" / "PRKCB_CAUSAL_MECHANISM_AUDIT.md",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,
@@ -1006,6 +1113,7 @@ def main() -> None:
         ROOT / "data" / "external" / "clinical" / "NCT00572585_results.pdf",
     ]
     package_files.extend(sorted((ROOT / "scripts").glob("*.py")))
+    package_files.extend(sorted((ROOT / "scripts").glob("*.R")))
     package_files.extend(sorted((ROOT / "results" / "figures").glob("*")))
     package_files.extend(sorted((ROOT / "results" / "tables").glob("*")))
     package_files.extend(
@@ -1024,6 +1132,11 @@ def main() -> None:
             ROOT / "data" / "processed" / "variant_set_summary.csv",
             ROOT / "data" / "processed" / "frequency_matched_background.csv",
             ROOT / "data" / "processed" / "cell_conditioning_summary.csv",
+            ROOT / "data" / "external" / "1000G_3202_samples_ped_population.txt",
+            ROOT
+            / "data"
+            / "external"
+            / "PRKCB_BLUEPRINT_monocyte_eqtl_region.csv",
         ]
     )
     package_files = [path for path in package_files if path.exists()]

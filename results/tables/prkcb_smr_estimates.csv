@@ -1,0 +1,2 @@
+method,variant,eqtl_beta,eqtl_se,gwas_beta,gwas_se,smr_beta,smr_se,smr_p
+SMR_style_single_instrument,rs7404003,1.13796,0.0469621,0.0585,0.0096,0.05140778234735843,0.008698821874742363,3.426465034718483e-09

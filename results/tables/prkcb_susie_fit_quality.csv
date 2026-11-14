@@ -1,0 +1,4 @@
+L,gwas_converged,eqtl_converged,gwas_credible_sets,eqtl_credible_sets,gwas_min_abs_credible_pip,eqtl_min_abs_credible_pip
+1,TRUE,TRUE,0,1,,0.974339099828897
+3,TRUE,TRUE,3,3,1,0.988072310569635
+5,TRUE,TRUE,5,3,1,0.988072310569635

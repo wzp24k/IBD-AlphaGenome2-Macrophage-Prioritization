@@ -15,7 +15,7 @@ Date: 2026-11-13
 
 ## Text and statistics
 
-- Structured abstract: 226 words.
+- Structured abstract: 249 words.
 - Abstract labels: Background, Methods, Results and Conclusion.
 - Keywords: five title-case terms.
 - No prose sentence exceeds 30 words.
@@ -27,14 +27,14 @@ Date: 2026-11-13
 ## Figures and tables
 
 - Figure 1 is a four-stage technical roadmap.
-- Figures 2-10 use a unified six-color palette.
+- Figures 2-12 use a unified six-color palette.
 - Multi-panel figures include A-F panel labels and captions below.
 - Figure types include bubble, heatmap, bar, interval, ECDF, strip, line and
   concordance displays.
 - Tables 1-11 are sequential, three-line tables with interpretation notes.
-- The figure-generation pipeline remains the validated Python implementation.
-  R 4.6.2 and ggplot2 are installed, but switching plotting engines was not
-  required to satisfy the visual and data-integrity requirements.
+- The main figure-generation pipeline remains Python. R 4.5.3 is used only for
+  SuSiE fine-mapping and colocalization; Figure 12 is rendered in Python from
+  the exported R results.
 
 ## References
 

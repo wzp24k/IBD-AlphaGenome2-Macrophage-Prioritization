@@ -1,0 +1,4 @@
+source,variant,target,tissue,effect,p_value,status,observed_direction
+GTEx_v10_sQTL,rs7404003,PRKCB,all_tissues,,,available,
+GTEx_v10_sQTL,rs7404003,PRKCB,Colon_Sigmoid,,,available,
+GTEx_v10_sQTL,rs7404003,PRKCB,Colon_Transverse,,,available,

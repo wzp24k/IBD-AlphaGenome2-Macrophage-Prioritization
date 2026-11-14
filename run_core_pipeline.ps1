@@ -37,8 +37,10 @@ $scripts = @(
     "52_priority_score_benchmark_sensitivity.py",
     "53_strict_eqtl_sensitivity.py",
     "54_prkcb_clinical_translation_followup.py",
+    "55_prkcb_causal_mechanism.py",
     "31_integrate_external_experimental_data.py",
     "33_eqtl_catalogue_remaining_variants.py",
+    "57_prkcb_perturbation_and_virtual_knockdown.py",
     "32_external_experimental_figure.py",
     "35_perturbseq_figure.py",
     "41_evidence_strengthening_figure.py",
@@ -48,14 +50,39 @@ $scripts = @(
     "23_weighted_pathway_rank_tests.py",
     "24_all_variant_l2g_pathway.py",
     "22_pathway_figure.py",
-    "14_validate_positive_control.py",
+    "14_validate_positive_control.py"
+)
+
+foreach ($script in $scripts) {
+    Write-Host "Running $script"
+    & $python (Join-Path $PSScriptRoot "scripts\$script")
+    if ($LASTEXITCODE -ne 0) {
+        throw "Pipeline step failed: $script"
+    }
+}
+
+$rscript = "C:\Users\Administrator\miniforge3\Scripts\Rscript.exe"
+if (Test-Path $rscript) {
+    Write-Host "Running 56_prkcb_susie_coloc.R"
+    & $rscript (Join-Path $PSScriptRoot "scripts\56_prkcb_susie_coloc.R") $PSScriptRoot
+    if ($LASTEXITCODE -ne 0) {
+        throw "Pipeline step failed: 56_prkcb_susie_coloc.R"
+    }
+    & $python (Join-Path $PSScriptRoot "scripts\58_prkcb_mechanism_figure.py")
+    if ($LASTEXITCODE -ne 0) {
+        throw "Pipeline step failed: 58_prkcb_mechanism_figure.py"
+    }
+} else {
+    throw "Rscript is required for SuSiE-colocalization."
+}
+
+$build_scripts = @(
     "13_build_deliverables.py",
     "25_build_template_docx.py",
     "26_template_docx_qc.py",
     "15_final_qc.py"
 )
-
-foreach ($script in $scripts) {
+foreach ($script in $build_scripts) {
     Write-Host "Running $script"
     & $python (Join-Path $PSScriptRoot "scripts\$script")
     if ($LASTEXITCODE -ne 0) {
