@@ -18,7 +18,7 @@
 - CAMK2A colocalization: no support; primary H4=0.09 and maximum sensitivity H4 below 0.80
 - Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth
 - GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization
-- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
+- Claim calibration: eight evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive
 - Main narrative: five-layer evidence ladder with PDGFB and PRKCB as complementary candidate archetypes
 - Figure style: all Figure 1-12 scripts use the centralized six-color palette and shared typography
 - External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10
@@ -36,6 +36,8 @@
 - PRKCB virtual JAK/STAT: negative across shrinkage 0.02-0.30 and 1,000 donor bootstrap replicates
 - Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references
 - 1114 manuscript audit: first use follows 1-42, every reference is cited once, and all citation occurrences link to reference bookmarks
+- 1114 display-item audit: Tables 1-11 and Figures 1-12 all have body references and matching captions
+- 1114 numeric audit: core cohort counts, pathway values, Perturb-seq effects and PRKCB mechanism statistics match source tables
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio
 - Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level

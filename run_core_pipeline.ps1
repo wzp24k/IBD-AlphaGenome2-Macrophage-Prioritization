@@ -84,6 +84,8 @@ $build_scripts = @(
     "13_build_deliverables.py",
     "25_build_template_docx.py",
     "60_audit_1114_references.py",
+    "62_audit_1114_figures_tables.py",
+    "63_audit_1114_numeric_consistency.py",
     "26_template_docx_qc.py",
     "15_final_qc.py"
 )

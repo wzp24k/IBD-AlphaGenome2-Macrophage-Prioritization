@@ -1,0 +1,36 @@
+{
+  "source_manuscript": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\manuscript\\manuscript.md",
+  "checks": {
+    "primary_variants_395": true,
+    "independent_loci_281": true,
+    "atlas_scored_373": true,
+    "tier_counts_sum_281": true,
+    "study_rows_sum_1490": true,
+    "external_targets_510_73_19": true,
+    "pathway_rows_4": true,
+    "prkcb_mr_ivw_value": true,
+    "prkcb_smr_and_susie": true,
+    "prkcb_direction_discrepancy_reported": true,
+    "pdgfb_perturbseq_values": true,
+    "prkcq_il23r_perturbseq_values": true,
+    "clinical_trial_values": true,
+    "claim_calibration_eight_rows": true,
+    "top28_active_support_21_and_17": true
+  },
+  "all_checks_pass": true,
+  "source_values": {
+    "primary_variants": 395,
+    "independent_loci": 281,
+    "tier_1": 10,
+    "tier_2": 57,
+    "tier_3": 138,
+    "tier_4": 76,
+    "external_genes": 510,
+    "externally_supported_genes": 73,
+    "top28_multicohort_supported": 21,
+    "top28_strictly_replicated": 17,
+    "gtex_prkcb_nes": -0.17135509848594666,
+    "monocyte_prkcb_beta": 1.13796,
+    "claim_rows": 8
+  }
+}

@@ -174,6 +174,16 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    figure_table_1114 = json.loads(
+        (ROOT / "results" / "1114_figure_table_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    numeric_1114 = json.loads(
+        (ROOT / "results" / "1114_numeric_consistency_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
     benchmark_coverage = json.loads(
         (table_dir / "benchmark_coverage_summary.json").read_text(
             encoding="utf-8"
@@ -522,13 +532,16 @@ def main() -> None:
         "main_narrative_audit_present": (
             ROOT / "results" / "MAIN_NARRATIVE_REBUILD_AUDIT.md"
         ).exists(),
+        "reviewer2_1114_audit_present": (
+            ROOT / "results" / "REVIEWER2_1114_FULL_AUDIT.md"
+        ).exists(),
         "all_tables_cited": cited_tables == set(range(1, 12)),
         "all_figures_cited": cited_figures == set(range(1, 13)),
         "positive_control_pass": positive["all_checks_pass"],
         "docx_has_text": len(document.paragraphs) > 100,
         "docx_has_eleven_tables": len(document.tables) == 11,
         "docx_has_twelve_figures": len(document.inline_shapes) == 12,
-        "docx_has_table11_caption": "Claim calibration for the seven evidence boundaries"
+        "docx_has_table11_caption": "Claim calibration for the eight evidence boundaries"
         in document_text,
         "docx_has_figure10_caption": "Robustness and orthogonal secondary analyses"
         in document_text,
@@ -658,7 +671,7 @@ def main() -> None:
             and chsy3_il6.iloc[0]["NES"] > 0
             and chsy3_il6.iloc[0]["FDR q-val"] < 0.05
         ),
-        "claim_calibration_7_rows": len(claims) == 7,
+        "claim_calibration_8_rows": len(claims) == 8,
         "gsea_growth_pc1_fraction": bool(
             gsea_growth_summary["growth_pc1_metadata"][
                 "pc1_variance_explained"
@@ -734,7 +747,7 @@ def main() -> None:
         in document_text,
         "manuscript_reports_claim_calibration": "Evidence boundary and claim calibration"
         in document_text
-        and "seven evidence boundaries" in document_text,
+        and "eight evidence boundaries" in document_text,
         "manuscript_reports_growth_sensitivity": "growth-PC1-residualized"
         in document_text,
         "manuscript_reports_interval_boundary": any(
@@ -818,6 +831,19 @@ def main() -> None:
         ],
         "1114_no_sentence_over_30_words": not audit_1114[
             "long_sentences_over_30"
+        ],
+        "1114_all_tables_mentioned": figure_table_1114[
+            "all_tables_mentioned"
+        ],
+        "1114_all_figure_table_captions": bool(
+            figure_table_1114["all_table_captions_present"]
+            and figure_table_1114["all_figure_captions_present"]
+        ),
+        "1114_all_figures_mentioned": figure_table_1114[
+            "all_figures_mentioned"
+        ],
+        "1114_numeric_consistency": numeric_1114[
+            "all_checks_pass"
         ],
         "discussion_citations_exactly_15": citation_audit["all_checks_pass"]
         and citation_audit["discussion_exactly_15_references"],
@@ -1160,7 +1186,7 @@ def main() -> None:
         "- CAMK2A colocalization: no support; primary H4=0.09 and maximum sensitivity H4 below 0.80",
         "- Perturb-seq robustness: 3/5/10 UMI thresholds, leave-one-out and donor-blocked checks used full gene-library depth",
         "- GSEA confounding sensitivity: proliferation PC1 explains 23.2% of growth-gene variance; only CHSY3 TNF/NF-kB retains FDR < 0.05 after residualization",
-        "- Claim calibration: seven evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
+        "- Claim calibration: eight evidence boundaries are reported in Table 11; no non-significant or uncovered result is relabeled positive",
         "- Main narrative: five-layer evidence ladder with PDGFB and PRKCB as complementary candidate archetypes",
         "- Figure style: all Figure 1-12 scripts use the centralized six-color palette and shared typography",
         "- External eQTL benchmark: 384 candidate-target pairs; Top 10 matched 7/10 versus mismatched 0/10",
@@ -1178,6 +1204,8 @@ def main() -> None:
         "- PRKCB virtual JAK/STAT: negative across shrinkage 0.02-0.30 and 1,000 donor bootstrap replicates",
         "- Citation structure: 42 sequential reference entries, 27 distinct references before Discussion and 15 distinct references within Discussion; each citation group contains at most two references",
         "- 1114 manuscript audit: first use follows 1-42, every reference is cited once, and all citation occurrences link to reference bookmarks",
+        "- 1114 display-item audit: Tables 1-11 and Figures 1-12 all have body references and matching captions",
+        "- 1114 numeric audit: core cohort counts, pathway values, Perturb-seq effects and PRKCB mechanism statistics match source tables",
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GSE229472, GSE327124 and GSE175685 provide public experimental evidence at the explicitly marked variant or gene level",
@@ -1208,8 +1236,11 @@ def main() -> None:
         ROOT / "results" / "PRKCB_MAP3K8_CLINICAL_FOLLOWUP_AUDIT.md",
         ROOT / "results" / "PRKCB_CAUSAL_MECHANISM_AUDIT.md",
         ROOT / "results" / "MAIN_NARRATIVE_REBUILD_AUDIT.md",
+        ROOT / "results" / "REVIEWER2_1114_FULL_AUDIT.md",
         ROOT / "results" / "1114_MANUSCRIPT_AUDIT.md",
         ROOT / "results" / "1114_reference_audit.json",
+        ROOT / "results" / "1114_figure_table_audit.json",
+        ROOT / "results" / "1114_numeric_consistency_audit.json",
         ROOT / "results" / "REVIEWER1_AUDIT_1113.md",
         ROOT / "results" / "REVIEWER2_3_AUDIT_1113.md",
         status_path,

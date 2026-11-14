@@ -657,7 +657,7 @@
           41
         ]
       ],
-      "text": "PRKCB is the mechanistic-triangulation archetype. Its risk allele is associated with higher monocyte expression [41]. Public overexpression shows that PRKCB perturbation changes inflammatory programs. IVW and weighted-median MR were positive, SMR was significant and SuSiE-colocalization reached H4 = 1.0. MR-Egger changed direction with few instruments. HEIDI-style heterogeneity was also strong across the full region. The shared signal is therefore local to matched credible sets and coexists with context-dependent regional effects."
+      "text": "PRKCB is the mechanistic-triangulation archetype. Its risk allele is associated with higher monocyte expression [41]. The GTEx sigmoid-colon eQTL points in the opposite direction. Public overexpression shows that PRKCB perturbation changes inflammatory programs. IVW and weighted-median MR were positive, SMR was significant and SuSiE-colocalization reached H4 = 1.0. MR-Egger changed direction with few instruments. HEIDI-style heterogeneity was also strong across the full region. The shared signal is local to matched credible sets and includes context-dependent effects."
     },
     {
       "paragraph_index": 189,
