@@ -189,6 +189,11 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    strobe_mr_audit = json.loads(
+        (ROOT / "results" / "strobe_mr_checklist_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
     benchmark_coverage = json.loads(
         (table_dir / "benchmark_coverage_summary.json").read_text(
             encoding="utf-8"
@@ -414,6 +419,8 @@ def main() -> None:
         ROOT / "manuscript" / "Manuscript_AlphaGenome2_IBD_general.docx",
         ROOT / "Supplementary_Tables.docx",
         ROOT / "manuscript" / "Supplementary_Tables.docx",
+        ROOT / "STROBE-MR_Checklist_Filled.docx",
+        ROOT / "manuscript" / "STROBE-MR_Checklist_Filled.docx",
         ROOT / "Figure_1.drawio",
         ROOT / "Cover_Letter_Generic.docx",
         workbook_path,
@@ -619,6 +626,19 @@ def main() -> None:
                 for paragraph in document.paragraphs
             )
         ),
+        "strobe_mr_checklist_present": (
+            ROOT / "STROBE-MR_Checklist_Filled.docx"
+        ).exists()
+        and (
+            ROOT / "manuscript" / "STROBE-MR_Checklist_Filled.docx"
+        ).exists(),
+        "strobe_mr_checklist_audit_passes": strobe_mr_audit[
+            "all_checks_pass"
+        ],
+        "strobe_mr_all_20_items_completed": strobe_mr_audit["checks"][
+            "all_20_main_items_present"
+        ]
+        and strobe_mr_audit["checks"]["all_main_items_completed"],
         "drawio_figure1_present": (
             ROOT / "Figure_1.drawio"
         ).exists()
@@ -1291,6 +1311,7 @@ def main() -> None:
         "- Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number",
         "- Editable Figure 1: results/figures/figure1_analysis_flow.drawio",
         "- Review-ready supplement: Supplementary_Tables.docx with four priority tables; the complete 81-sheet source workbook accompanies it",
+        "- STROBE-MR checklist: STROBE-MR_Checklist_Filled.docx, completed for the secondary PRKCB two-sample MR component",
         "- Editable Figure 1 copy: Figure_1.drawio",
         "- Evidence boundary: UKB/MVP are external genetic evidence; GTEx, GSE229472, GSE327124 and GSE175685 provide public molecular or perturbation evidence at the explicitly marked level",
     ]
@@ -1308,11 +1329,14 @@ def main() -> None:
         ROOT / "1114manuscript.docx",
         ROOT / "Supplementary_Tables.docx",
         ROOT / "manuscript" / "Supplementary_Tables.docx",
+        ROOT / "STROBE-MR_Checklist_Filled.docx",
+        ROOT / "manuscript" / "STROBE-MR_Checklist_Filled.docx",
         ROOT / "Figure_1.drawio",
         ROOT / "Cover_Letter_Generic.docx",
         ROOT / "Cover_Letter_Generic.txt",
         workbook_path,
         ROOT / "results" / "supplementary_tables_audit.json",
+        ROOT / "results" / "strobe_mr_checklist_audit.json",
         ROOT / "results" / "tables" / "supplementary_table_index.csv",
         ROOT / "results" / "OUTLINE_AUDIT.md",
         ROOT / "results" / "PATHWAY_AUDIT.md",

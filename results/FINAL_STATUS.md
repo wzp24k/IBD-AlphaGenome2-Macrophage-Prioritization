@@ -41,5 +41,6 @@
 - Word cross-references: 42 reference bookmarks with clickable internal hyperlinks from every in-text citation number
 - Editable Figure 1: results/figures/figure1_analysis_flow.drawio
 - Review-ready supplement: Supplementary_Tables.docx with four priority tables; the complete 81-sheet source workbook accompanies it
+- STROBE-MR checklist: STROBE-MR_Checklist_Filled.docx, completed for the secondary PRKCB two-sample MR component
 - Editable Figure 1 copy: Figure_1.drawio
 - Evidence boundary: UKB/MVP are external genetic evidence; GTEx, GSE229472, GSE327124 and GSE175685 provide public molecular or perturbation evidence at the explicitly marked level

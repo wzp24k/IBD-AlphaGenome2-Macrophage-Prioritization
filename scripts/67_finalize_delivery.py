@@ -30,6 +30,11 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    strobe_mr = json.loads(
+        (ROOT / "results" / "strobe_mr_checklist_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
     reference_audit = json.loads(
         (ROOT / "results" / "1114_reference_audit.json").read_text(
             encoding="utf-8"
@@ -46,12 +51,15 @@ def main() -> None:
         ROOT / "manuscript" / "Manuscript_AlphaGenome2_IBD.docx",
         ROOT / "Supplementary_Tables.docx",
         ROOT / "manuscript" / "Supplementary_Tables.docx",
+        ROOT / "STROBE-MR_Checklist_Filled.docx",
+        ROOT / "manuscript" / "STROBE-MR_Checklist_Filled.docx",
         ROOT / "Figure_1.drawio",
         ROOT / "Cover_Letter_Generic.docx",
         ROOT / "Cover_Letter_Generic.txt",
         ROOT / "results" / "IBD_AlphaGenome2_supplementary_tables.xlsx",
         ROOT / "results" / "QC_REPORT.json",
         ROOT / "results" / "supplementary_tables_audit.json",
+        ROOT / "results" / "strobe_mr_checklist_audit.json",
         ROOT / "results" / "tables" / "supplementary_table_index.csv",
         ROOT / "IBD_AlphaGenome2_submission_package.zip",
     ]
@@ -97,6 +105,9 @@ def main() -> None:
         "supplementary_tables": supplement["supplementary_tables"],
         "source_workbook_sheets": supplement["source_workbook_sheets"],
         "supplementary_all_checks_pass": supplement["all_checks_pass"],
+        "strobe_mr_checklist": "STROBE-MR_Checklist_Filled.docx",
+        "strobe_mr_main_items": strobe_mr["main_items"],
+        "strobe_mr_all_checks_pass": strobe_mr["all_checks_pass"],
         "references": reference_audit["references"],
         "each_reference_cited_once": not reference_audit[
             "repeated_reference_numbers"

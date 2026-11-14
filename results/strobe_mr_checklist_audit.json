@@ -1,0 +1,17 @@
+{
+  "generated": "2026-11-14T21:46:36.183796+08:00",
+  "template": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\work\\STROBE-MR-checklist-fillable-official.docx",
+  "output": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\STROBE-MR_Checklist_Filled.docx",
+  "main_items": 20,
+  "completed_rows": 50,
+  "blank_main_items": [],
+  "all_checks_pass": true,
+  "checks": {
+    "official_table_present": true,
+    "all_20_main_items_present": true,
+    "all_main_items_completed": true,
+    "supplementary_subitems_completed": true,
+    "mr_role_identified_as_secondary": true,
+    "page_references_present": true
+  }
+}

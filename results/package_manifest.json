@@ -1,6 +1,6 @@
 {
   "package_file": "IBD_AlphaGenome2_submission_package.zip",
-  "package_sha256": "86aee05d5788076af18f4564b7d51b149c8315b9f5eb9458869a101768e7e698",
+  "package_sha256": "24556081440ba1a6e9ce8d3c4389040e90c3973bfd63f2bd68d45c92d1647dde",
   "files": [
     {
       "path": "README.md",
@@ -14,8 +14,8 @@
     },
     {
       "path": "run_core_pipeline.ps1",
-      "sha256": "fea3f10b69b7f97930edbe927af92c63450f9492dd5ea6fa761414cbac59ac98",
-      "bytes": 3792
+      "sha256": "c1521f7d754940a95cb68fe9940453c90bc1ee351c0f8f953fbafd63629080f5",
+      "bytes": 3831
     },
     {
       "path": "config\\analysis.json",
@@ -39,8 +39,8 @@
     },
     {
       "path": "1114manuscript.docx",
-      "sha256": "9c99df4c306ec00b6353a260c72711b29ad513f584e81d049c8885dba5be4211",
-      "bytes": 5922291
+      "sha256": "51b381887fb62a5e8f5376adaeb5a38ad8e0ac10b383acd3dafe2252db72a945",
+      "bytes": 4283921
     },
     {
       "path": "Supplementary_Tables.docx",
@@ -51,6 +51,16 @@
       "path": "manuscript\\Supplementary_Tables.docx",
       "sha256": "68a3b1eef41d7dffeb93f2e55a72c216c396073db103ea860a7b6fac3b8be2ea",
       "bytes": 32954
+    },
+    {
+      "path": "STROBE-MR_Checklist_Filled.docx",
+      "sha256": "20ae126c44cbb964c6ada4f1478ef2e64aec82b19cd96a7e2fff480fe3eaa4f4",
+      "bytes": 35863
+    },
+    {
+      "path": "manuscript\\STROBE-MR_Checklist_Filled.docx",
+      "sha256": "20ae126c44cbb964c6ada4f1478ef2e64aec82b19cd96a7e2fff480fe3eaa4f4",
+      "bytes": 35863
     },
     {
       "path": "Figure_1.drawio",
@@ -76,6 +86,11 @@
       "path": "results\\supplementary_tables_audit.json",
       "sha256": "a71a953bf992b70b83f5fae675c5047552460813db00e3167eb5d308210fbbed",
       "bytes": 562
+    },
+    {
+      "path": "results\\strobe_mr_checklist_audit.json",
+      "sha256": "179b38b15d9a18d30235fb8584126f76f58d406c05b6f79cecce6f3b178d9c58",
+      "bytes": 656
     },
     {
       "path": "results\\tables\\supplementary_table_index.csv",
@@ -214,13 +229,13 @@
     },
     {
       "path": "results\\FINAL_STATUS.md",
-      "sha256": "82f33dfbd6405dfa287fa97917beef3ae6874d3502931d02090767541d2756e1",
-      "bytes": 3987
+      "sha256": "8b203ca7f2ec416c673632971e6f887c2fd46a6012c56816d39abb15399bad22",
+      "bytes": 4102
     },
     {
       "path": "results\\QC_REPORT.json",
-      "sha256": "7e338084f6791ee8c1f7b767a84d13772cbde27fe21597885fceb3a07046443f",
-      "bytes": 22284
+      "sha256": "050b2475d1cb47577079637b01ca3c2daa8a76d17a4b602eca281e65f83a035b",
+      "bytes": 22420
     },
     {
       "path": "results\\template_docx_qc.json",
@@ -309,8 +324,8 @@
     },
     {
       "path": "scripts\\15_final_qc.py",
-      "sha256": "351e3dd793d9262e49ac54cd8ea8ca7b74570102fbf3a577f14f8e2c51aae475",
-      "bytes": 56790
+      "sha256": "04614ad154124bb588e317e29af7a0c6a99106478c37153182616ab9ab447e90",
+      "bytes": 57863
     },
     {
       "path": "scripts\\16_build_active_ibd_conditioning.py",
@@ -564,8 +579,13 @@
     },
     {
       "path": "scripts\\67_finalize_delivery.py",
-      "sha256": "6961a913fae9214d48f50d313dc9fe392e7d4aac64c96630bdcdc4c83ff021c5",
-      "bytes": 4645
+      "sha256": "6915d8601a04dc3394796662256644fda33c3cf00092f8f510f4ea1af6e30d58",
+      "bytes": 5157
+    },
+    {
+      "path": "scripts\\68_build_strobe_mr_checklist.py",
+      "sha256": "d333daf1ab787ad5819b6bfdd2c47d8ab4b6189e07814cfa97c5ccac2a1eae65",
+      "bytes": 18285
     },
     {
       "path": "scripts\\common.py",
