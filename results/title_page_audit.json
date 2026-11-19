@@ -1,0 +1,22 @@
+{
+  "generated": "2026-11-19T20:17:49.105895+08:00",
+  "output": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\Title_Page.docx",
+  "copy": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\manuscript\\Title_Page.docx",
+  "paragraphs": 17,
+  "tables": 0,
+  "figures": 0,
+  "all_checks_pass": true,
+  "checks": {
+    "title_present": true,
+    "nine_authors_present": true,
+    "four_affiliations_present": true,
+    "co_first_author_note_present": true,
+    "corresponding_author_present": true,
+    "title_page_summary_present": true,
+    "keywords_present": true,
+    "article_metrics_present": true,
+    "funding_present": true,
+    "competing_interests_present": true,
+    "single_page_layout": true
+  }
+}

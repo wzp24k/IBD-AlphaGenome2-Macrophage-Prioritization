@@ -1,0 +1,22 @@
+{
+  "pqtl_datasets": [
+    "SomaScan_PKC_beta",
+    "SomaScan_PKCB2",
+    "deCODE_curated"
+  ],
+  "pqtl_instruments": {
+    "SomaScan_PKC_beta": 5,
+    "SomaScan_PKCB2": 3,
+    "deCODE_curated": 1
+  },
+  "ibd_mr_tests": 12,
+  "ibd_positive_direction": 9,
+  "ibd_nominal_p_lt_0_05": 3,
+  "coloc_tests": 8,
+  "coloc_h4_ge_0_8": 0,
+  "phewas_phenotypes_queried": 3,
+  "phewas_phenotypes_evaluable": 2,
+  "phewas_nominal_p_lt_0_05": 0,
+  "phewas_fdr_lt_0_05": 0,
+  "primary_phewas_pqtl_dataset": "deCODE_curated"
+}

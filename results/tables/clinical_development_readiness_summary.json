@@ -1,0 +1,22 @@
+{
+  "targets": 10,
+  "highest_readiness": [
+    "PRKCB"
+  ],
+  "top_score": 7.5,
+  "top_target": "PRKCB",
+  "pqtl_mr_support": [
+    "PRKCB"
+  ],
+  "pqtl_coloc_support": [],
+  "treatment_response_support": [
+    "PRKCB"
+  ],
+  "clinical_stage_targets": [
+    "PRKCB",
+    "PDGFB",
+    "MAP3K8",
+    "CXCR2",
+    "PLAU"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "datasets": [
+    "GSE14580",
+    "GSE111761"
+  ],
+  "samples": {
+    "GSE14580": 24,
+    "GSE111761": 6
+  },
+  "macrophage_genes_present": 16,
+  "prkcb_network_genes_present": 45,
+  "features_tested": 4,
+  "meta_ci_excluding_zero": 2
+}

@@ -1,0 +1,160 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="L6oIcUMPGgWAjiqPZ9vc" name="Graphical Abstract">
+    <mxGraphModel dx="3535" dy="1898" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="id5GYyGfIfIZhaQi53pw-64" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="900" width="1600" x="26.995862068965607" y="110.00344827586207" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-17" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="900" width="1600" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-18" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=28;fontStyle=1;fontColor=#000000;" value="From non-coding IBD risk variants to macrophage regulatory targets" vertex="1">
+          <mxGeometry height="48" width="1490" x="55" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-19" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=24;fontColor=#000000;" value="An evidence ladder integrates genetic fine-mapping, regulatory prediction, primary human macrophage context and public perturbation" vertex="1">
+          <mxGeometry height="32" width="1450" x="57" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-20" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#F7FAF6;strokeColor=#DCE8DF;strokeWidth=2;fontColor=#000000;fontSize=17;" value="" vertex="1">
+          <mxGeometry height="590" width="350" x="55" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-21" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#000000;" value="1  INPUT" vertex="1">
+          <mxGeometry height="34" width="250" x="82" y="171" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-22" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#E3EA96;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#000000;" value="IBD non-coding credible sets" vertex="1">
+          <mxGeometry height="42" width="294" x="83" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-23" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#AAD09D;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#000000;fontSize=16;" value="&lt;b style=&quot;font-size: 38px;&quot;&gt;395&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;non-coding variants&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="136" x="83" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-24" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#FDC089;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#000000;fontSize=16;" value="&lt;b style=&quot;font-size: 38px;&quot;&gt;281&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;credible sets&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="136" x="241" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-25" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=16;fontStyle=1;fontColor=#000000;" value="Fine-mapped variant universe" vertex="1">
+          <mxGeometry height="26" width="265" x="83" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-26" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" style="endArrow=none;html=1;rounded=0;strokeColor=#5C5C5C;strokeWidth=3;fontColor=#000000;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="88" y="480" as="sourcePoint" />
+            <mxPoint x="372" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-27" parent="id5GYyGfIfIZhaQi53pw-64" style="ellipse;whiteSpace=wrap;html=1;fillColor=#66BC98;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="108" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-28" parent="id5GYyGfIfIZhaQi53pw-64" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E3EA96;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="181" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-29" parent="id5GYyGfIfIZhaQi53pw-64" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FDC089;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="254" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-30" parent="id5GYyGfIfIZhaQi53pw-64" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E26844;strokeColor=#FFFFFF;strokeWidth=2;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="327" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-31" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=19;fontColor=#000000;" value="PIP" vertex="1">
+          <mxGeometry height="20" width="40" x="100" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-32" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=19;fontColor=#000000;" value="L2G" vertex="1">
+          <mxGeometry height="20" width="40" x="173" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-33" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=19;fontColor=#000000;" value="Atlas" vertex="1">
+          <mxGeometry height="20" width="48" x="243" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-34" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=19;fontColor=#000000;" value="Macrophage" vertex="1">
+          <mxGeometry height="20" width="72" x="305" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-35" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AAD09D;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#000000;" value="Primary human macrophages&lt;br&gt;Healthy and active IBD states" vertex="1">
+          <mxGeometry height="76" width="294" x="83" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-36" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=19;fontColor=#000000;" value="Public genetic and molecular resources" vertex="1">
+          <mxGeometry height="26" width="340" x="62.00413793103439" y="653.9965517241379" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-37" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E7E7E1;strokeWidth=2;fontColor=#000000;fontSize=18;" value="" vertex="1">
+          <mxGeometry height="590" width="650" x="455" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-38" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#000000;" value="2  EVIDENCE LADDER" vertex="1">
+          <mxGeometry height="34" width="340" x="482" y="171" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-39" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#E3EA96;strokeColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#000000;spacingLeft=22;" value="&lt;b&gt;1  Fine-mapping and target assignment&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;Credible sets + L2G + variant-to-gene evidence&lt;/span&gt;" vertex="1">
+          <mxGeometry height="72" width="575" x="490" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-40" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#AAD09D;strokeColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#000000;spacingLeft=22;" value="&lt;b&gt;2  AlphaGenome 2 regulatory prediction&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;Genome-calibrated RNA-seq and chromatin effects&lt;/span&gt;" vertex="1">
+          <mxGeometry height="72" width="575" x="490" y="322" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-41" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#FDC089;strokeColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#000000;spacingLeft=22;" value="&lt;b&gt;3  Macrophage and disease-state context&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;Donor-derived macrophages + active IBD pools&lt;/span&gt;" vertex="1">
+          <mxGeometry height="72" width="575" x="490" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-42" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#E26844;strokeColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#000000;spacingLeft=22;" value="&lt;b&gt;4  Independent genetics and public perturbation&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;UKB + MVP, CRISPR screens and Perturb-seq&lt;/span&gt;" vertex="1">
+          <mxGeometry height="72" width="575" x="490" y="506" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-43" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#8A233F;strokeColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;spacingLeft=22;" value="&lt;b&gt;5  PRKCB mechanistic triangulation&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;Myeloid eQTL + MR + SMR/HEIDI + SuSiE-coloc&lt;/span&gt;" vertex="1">
+          <mxGeometry height="72" width="575" x="490" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-44" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" source="id5GYyGfIfIZhaQi53pw-39" style="endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#8A233F;strokeWidth=2;fontColor=#000000;" target="id5GYyGfIfIZhaQi53pw-40" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-45" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" source="id5GYyGfIfIZhaQi53pw-40" style="endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#8A233F;strokeWidth=2;fontColor=#000000;" target="id5GYyGfIfIZhaQi53pw-41" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-46" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" source="id5GYyGfIfIZhaQi53pw-41" style="endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#8A233F;strokeWidth=2;fontColor=#000000;" target="id5GYyGfIfIZhaQi53pw-42" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-47" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" source="id5GYyGfIfIZhaQi53pw-42" style="endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#8A233F;strokeWidth=2;fontColor=#000000;" target="id5GYyGfIfIZhaQi53pw-43" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-48" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#8A233F;strokeColor=none;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="590" width="355" x="1190" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-49" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#FFFFFF;" value="3  PRIORITIZED OUTPUT" vertex="1">
+          <mxGeometry height="34" width="300" x="1218" y="171" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-50" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#AAD09D;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#000000;fontSize=19;" value="&lt;b style=&quot;font-size: 61px;&quot;&gt;10&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;Tier 1 loci&lt;/span&gt;" vertex="1">
+          <mxGeometry height="112" width="299" x="1218" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-51" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#FDC089;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#000000;fontSize=19;" value="&lt;b style=&quot;font-size: 31px;&quot;&gt;PDGFB&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 21px;&quot;&gt;Leading macrophage-regulatory candidate&lt;/span&gt;" vertex="1">
+          <mxGeometry height="88" width="299" x="1218" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-52" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#E3EA96;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#000000;fontSize=19;" value="&lt;b style=&quot;font-size: 31px;&quot;&gt;PRKCB&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 21px;&quot;&gt;Mechanistic-triangulation candidate&lt;/span&gt;" vertex="1">
+          <mxGeometry height="88" width="299" x="1218" y="466" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-53" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=19;fontColor=#000000;" value="&lt;b&gt;Evidence-stratified targets&lt;/b&gt;&lt;br&gt;Macrophage-specific hypotheses&lt;br&gt;for functional validation and&lt;br&gt;translational prioritization" vertex="1">
+          <mxGeometry height="138" width="299" x="1218" y="577" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-54" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" style="endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#5C5C5C;strokeWidth=3;fontColor=#000000;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="440" as="sourcePoint" />
+            <mxPoint x="455" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-55" edge="1" parent="id5GYyGfIfIZhaQi53pw-64" style="endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#5C5C5C;strokeWidth=3;fontColor=#000000;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1105" y="440" as="sourcePoint" />
+            <mxPoint x="1190" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-56" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7FAF6;strokeColor=#E7E7E1;strokeWidth=2;fontColor=#000000;fontSize=17;" value="" vertex="1">
+          <mxGeometry height="90" width="1490" x="55" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-57" parent="id5GYyGfIfIZhaQi53pw-64" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#000000;" value="EVIDENCE CLASSES" vertex="1">
+          <mxGeometry height="26" width="176" x="78.00413793103439" y="791.9965517241379" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-58" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#E3EA96;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#000000;" value="Genetic fine-mapping" vertex="1">
+          <mxGeometry height="38" width="205" x="268" y="786" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-59" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#AAD09D;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#000000;" value="Regulatory prediction" vertex="1">
+          <mxGeometry height="38" width="205" x="529" y="786" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-60" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#FDC089;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#000000;" value="Macrophage context" vertex="1">
+          <mxGeometry height="38" width="205" x="783" y="786" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-61" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#E26844;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#000000;" value="Public perturbation" vertex="1">
+          <mxGeometry height="38" width="205" x="1053" y="786" as="geometry" />
+        </mxCell>
+        <mxCell id="id5GYyGfIfIZhaQi53pw-62" parent="id5GYyGfIfIZhaQi53pw-64" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#8A233F;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;" value="Mechanistic mediation" vertex="1">
+          <mxGeometry height="38" width="220" x="1315" y="786" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

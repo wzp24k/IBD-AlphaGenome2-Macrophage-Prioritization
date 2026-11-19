@@ -1,0 +1,11 @@
+priority_rank,target,genetic_transport_score,disease_specific_score,exact_eqtl_score,colocalization_score,public_perturbation_score,pqtl_mr_score,pqtl_colocalization_score,treatment_response_score,clinical_stage_score,direction_compatible_score,readiness_score_0_10,readiness_class,clinical_stage,ibd_indication_drugs,risk_effect_on_target,translational_priority
+5,PRKCB,0.0,0.5,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,7.5,Highest,APPROVAL,SOTRASTAURIN,risk_increases_target,"Clinical-stage IBD-indication signal, direction compatible"
+3,PDGFB,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,5.0,High,WITHDRAWAL,,risk_decreases_target,Tractable target without IBD clinical candidate
+7,MAP3K8,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,4.0,Moderate,PHASE_2,TILPISERTIB,risk_decreases_target,"Clinical-stage IBD-indication signal, direction not aligned"
+1,TNFSF15,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,Moderate,,,risk_decreases_target,Tractable target without IBD clinical candidate
+2,CXCR2,0.0,0.5,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,2.5,Exploratory,PHASE_3,ELUBRIXIN; NAVARIXIN; NAVARIXIN ANHYDROUS,risk_decreases_target,"Clinical-stage IBD-indication signal, direction not aligned"
+10,DENND1B,0.0,0.5,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,2.5,Exploratory,,,risk_decreases_target,Tractable target without IBD clinical candidate
+4,CDYL2,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,Exploratory,,,risk_decreases_target,Tractable target without IBD clinical candidate
+6,INAVA,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,Exploratory,,,risk_increases_target,Genetics-led target with limited tractability
+8,CHSY3,0.0,0.5,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.5,Exploratory,,,risk_decreases_target,Tractable target without IBD clinical candidate
+9,PLAU,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,Exploratory,PHASE_4,,risk_decreases_target,Approved or phase-4 drug in non-IBD indication

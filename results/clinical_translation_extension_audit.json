@@ -1,0 +1,48 @@
+{
+  "document": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\1119manuscript.docx",
+  "tables": 12,
+  "figures": 13,
+  "table_mentions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "figure_mentions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "all_checks_pass": true,
+  "checks": {
+    "twelve_tables": true,
+    "thirteen_figures": true,
+    "table_mentions_1_to_12": true,
+    "figure_mentions_1_to_13": true,
+    "table_captions_1_to_12": true,
+    "figure_captions_1_to_13": true,
+    "figure13_embedded": true,
+    "methods_extension_present": true,
+    "results_extension_present": true,
+    "table12_positive": true,
+    "workbook_extensions_present": true
+  }
+}

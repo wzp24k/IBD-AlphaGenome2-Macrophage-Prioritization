@@ -48,16 +48,30 @@ is never included in generated outputs.
 
 - `manuscript\Manuscript_AlphaGenome2_IBD.docx`
 - `manuscript\manuscript.md`
+- `1119manuscript.docx`
+- `Title_Page.docx`
+- `STROBE-MR_Checklist_1119.docx`
 - `Supplementary_Tables.docx`
 - `manuscript\Supplementary_Tables.docx`
+- `Graphical_Abstract.drawio`
 - `results\IBD_AlphaGenome2_supplementary_tables.xlsx`
 - `results\tables\supplementary_table_index.csv`
 - `results\supplementary_tables_audit.json`
+- `results\clinical_translation_extension_audit.json`
+- `results\CLINICAL_TRANSLATION_EXTENSION_AUDIT.md`
+- `results\tables\top10_cd_uc_target_support.csv`
+- `results\tables\prkcb_cross_ancestry_mr.csv`
+- `results\tables\pqtl_cis_mr_ibd.csv`
+- `results\tables\pqtl_ibd_colocalization.csv`
+- `results\tables\prkcb_pqtl_phewas_mr.csv`
+- `results\tables\treatment_response_meta_analysis.csv`
+- `results\tables\clinical_development_readiness_matrix.csv`
 - `Cover_Letter_Generic.docx`
 - `results\tables\ranked_lead_variants_final.csv`
 - `results\tables\ranked_variant_gene_candidates_final.csv`
 - `results\figures\figure1_analysis_flow.png` through `figure12_prkcb_mechanism.png`
 - `results\figures\figure1_analysis_flow.drawio`
+- `results\figures\figure13_clinical_translation.png`
 - `Figure_1.drawio`
 - `results\tables\ranked_lead_variants_active_ibd.csv`
 - `results\tables\active_ibd_validation_summary.json`

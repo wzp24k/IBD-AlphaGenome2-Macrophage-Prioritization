@@ -1,0 +1,4 @@
+nsnp,beta,se,p,q_p,phenotype,gwas_id,sample_size,pqtl_dataset,fdr
+1,-0.06707134572418315,0.05897873273865885,0.2554495079026725,,Coronary artery disease,ebi-a-GCST005195,547261.0,deCODE_curated,0.48896556403521974
+0,,,,,Body mass index,ieu-b-40,681275.0,deCODE_curated,
+1,-0.0012546240242627634,0.0018131583002013508,0.48896556403521974,,Rheumatoid arthritis,ebi-a-GCST90038685,484598.0,deCODE_curated,0.48896556403521974

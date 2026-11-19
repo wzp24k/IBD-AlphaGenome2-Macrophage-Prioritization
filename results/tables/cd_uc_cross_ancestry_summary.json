@@ -1,0 +1,11 @@
+{
+  "targets": 10,
+  "cd_supported_targets_l2g_ge_0_5": 5,
+  "uc_supported_targets_l2g_ge_0_5": 6,
+  "both_disease_targets": 4,
+  "prkcb_tests": 4,
+  "prkcb_positive_direction": 4,
+  "prkcb_nominal_p_lt_0_05": 4,
+  "prkcb_eas_beta": 0.04842035155496477,
+  "prkcb_eas_p": 0.00040929659954276463
+}

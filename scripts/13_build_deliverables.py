@@ -598,6 +598,30 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         "PRKCB_virtual_bootstrap1000": pd.read_csv(
             table_dir / "prkcb_virtual_bootstrap_1000_summary.csv"
         ),
+        "CD_UC_target_support": pd.read_csv(
+            table_dir / "top10_cd_uc_target_support.csv"
+        ),
+        "PRKCB_cross_ancestry_MR": pd.read_csv(
+            table_dir / "prkcb_cross_ancestry_mr.csv"
+        ),
+        "pQTL_cis_MR": pd.read_csv(
+            table_dir / "pqtl_cis_mr_ibd.csv"
+        ),
+        "pQTL_colocalization": pd.read_csv(
+            table_dir / "pqtl_ibd_colocalization.csv"
+        ),
+        "PheW_MR": pd.read_csv(
+            table_dir / "prkcb_pqtl_phewas_mr.csv"
+        ),
+        "Treatment_response_programs": pd.read_csv(
+            table_dir / "treatment_response_program_associations.csv"
+        ),
+        "Treatment_response_meta": pd.read_csv(
+            table_dir / "treatment_response_meta_analysis.csv"
+        ),
+        "Clinical_readiness": pd.read_csv(
+            table_dir / "clinical_development_readiness_matrix.csv"
+        ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
         for sheet_name, frame in sheets.items():

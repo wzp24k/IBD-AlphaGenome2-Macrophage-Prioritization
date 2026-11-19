@@ -1,0 +1,15 @@
+{
+  "document": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\1119manuscript.docx",
+  "backup": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\_archive\\1119manuscript_before_figure_number_fix.docx",
+  "changed": [
+    "PRKCQ repeated-pool effects",
+    "The external background contained"
+  ],
+  "all_checks_pass": true,
+  "checks": {
+    "prkcq_reference_fixed": true,
+    "background_reference_fixed": true,
+    "activity_caption_fixed": true,
+    "figure_caption_sequence_has_five_six": true
+  }
+}

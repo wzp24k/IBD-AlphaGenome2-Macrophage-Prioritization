@@ -1,0 +1,13 @@
+{
+  "output": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\STROBE-MR_Checklist_1119.docx",
+  "copy": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\manuscript\\STROBE-MR_Checklist_1119.docx",
+  "all_checks_pass": true,
+  "checks": {
+    "mentions_1119": true,
+    "mentions_cross_ancestry": true,
+    "mentions_pqtl": true,
+    "mentions_phewas": true,
+    "same_template_table": true,
+    "all_20_items_present": true
+  }
+}

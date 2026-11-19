@@ -481,7 +481,7 @@ def add_title_page(document: Document) -> None:
     note.paragraph_format.right_indent = Inches(1.25)
     run = note.add_run(
         "Supplementary Tables S1-S4 contain the priority benchmark, eQTL, "
-        "PRKCB mechanism and translational summaries. The complete 81-sheet "
+        "PRKCB mechanism and translational summaries. The complete "
         "source workbook accompanies this document."
     )
     run.font.name = "Times New Roman"

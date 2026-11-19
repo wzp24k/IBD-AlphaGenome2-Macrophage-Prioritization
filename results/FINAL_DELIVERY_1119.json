@@ -1,0 +1,17 @@
+{
+  "generated": "2026-11-19T20:22:19.351717+08:00",
+  "manuscript": "1119manuscript.docx",
+  "title_page": "Title_Page.docx",
+  "supplement": "Supplementary_Tables.docx",
+  "strobe_mr": "STROBE-MR_Checklist_1119.docx",
+  "references": 42,
+  "each_reference_cited_once": true,
+  "all_citations_hyperlinked": true,
+  "long_sentences_over_30": 0,
+  "clinical_translation_audit_pass": true,
+  "tables": 12,
+  "figures": 13,
+  "package": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\IBD_1119_clinical_translation_submission_package.zip",
+  "package_sha256": "3ce0b4c6be5855a32dc3d9b603e5378bc17d529f8fe40fb8cf84a780d4729b35",
+  "package_files": 44
+}
