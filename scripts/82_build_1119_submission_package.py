@@ -74,6 +74,10 @@ def main() -> None:
         table_dir / "benchmark_incremental_model_metrics.csv",
         table_dir / "benchmark_incremental_model_deltas.csv",
         table_dir / "benchmark_incremental_model_summary.json",
+        table_dir / "expanded_macrophage_benchmark_pairs.csv",
+        table_dir / "expanded_macrophage_benchmark_metrics.csv",
+        table_dir / "expanded_macrophage_benchmark_delta.csv",
+        table_dir / "expanded_macrophage_benchmark_summary.json",
         table_dir / "public_prkcb_evidence_recheck.json",
         table_dir / "prkcb_sun2018_pqtl_README.md",
         table_dir / "prkcb_sun2018_pqtl_metadata.json",
@@ -106,6 +110,7 @@ def main() -> None:
         "87_fetch_sun2018_prkcb_cis_pqtl.py",
         "88_sun2018_pqtl_analysis.py",
         "89_rebuild_translational_narrative.py",
+        "90_expanded_macrophage_benchmark.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())

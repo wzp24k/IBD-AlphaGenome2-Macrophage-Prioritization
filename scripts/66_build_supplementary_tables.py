@@ -141,6 +141,8 @@ def build_prkcb_table(
     qtl: pd.DataFrame,
     signatures: pd.DataFrame,
     virtual: pd.DataFrame,
+    sun_pqtl_mr: pd.DataFrame,
+    sun_pqtl_coloc: pd.DataFrame,
 ) -> list[list[str]]:
     mr_001 = mr[mr["clump_r2_threshold"].eq(0.01)]
     ivw = mr_001[mr_001["method"].eq("IVW_random_effects")].iloc[0]
@@ -164,6 +166,10 @@ def build_prkcb_table(
         qtl["source"].eq("eight_myeloid_eQTL_datasets")
     ].iloc[0]
     sqtl = qtl[qtl["source"].eq("GTEx_v10_sQTL")].iloc[0]
+    pqtl_mr = sun_pqtl_mr[sun_pqtl_mr["outcome"].eq("IBD_combined")].iloc[0]
+    pqtl_coloc = sun_pqtl_coloc[
+        sun_pqtl_coloc["outcome"].eq("IBD_combined")
+    ].iloc[0]
     return [
         [
             "Two-sample MR, IVW",
@@ -223,8 +229,10 @@ def build_prkcb_table(
             f'Colon NES = {value_text(mrna_colon["observed_direction"])}; '
             f'myeloid = {mrna_myeloid["observed_direction"]}',
             f'sQTL covered = {value_text(sqtl["exact_variant_coverage"])}; '
-            "pQTL and caQTL records absent",
-            "Context-dependent mRNA direction; absent layers are non-coverage",
+            f'pQTL beta = {value_text(pqtl_mr["beta"])}, '
+            f'P = {value_text(pqtl_mr["p"])}; '
+            f'pQTL H4 = {value_text(pqtl_coloc["H4"])}',
+            "Context-dependent mRNA direction; strong Sun 2018 pQTL support",
         ],
         [
             "Public signature reversal",
@@ -542,6 +550,8 @@ def main() -> None:
         WORKBOOK,
         sheet_name="PRKCB_virtual_bootstrap1000",
     )
+    sun_pqtl_mr = pd.read_excel(WORKBOOK, sheet_name="Sun2018_pQTL_MR")
+    sun_pqtl_coloc = pd.read_excel(WORKBOOK, sheet_name="Sun2018_pQTL_coloc")
 
     tables = [
         {
@@ -559,7 +569,8 @@ def main() -> None:
             "note": (
                 "Source worksheets: Benchmark_metrics, Benchmark_calibration, "
                 "Benchmark_incremental_metrics, Benchmark_incremental_deltas, "
-                "Sun2018_pQTL_cis, Sun2018_pQTL_MR and Sun2018_pQTL_coloc. "
+                "Sun2018_pQTL_cis, Sun2018_pQTL_MR, Sun2018_pQTL_coloc, "
+                "Expanded_macrophage_metrics and Expanded_macrophage_delta. "
                 "Intervals use locus-block bootstrap replicates. AUROC, AUPRC, "
                 "Brier score and ECE are shown for the two principal benchmark tasks."
             ),
@@ -601,11 +612,20 @@ def main() -> None:
                 "Uncertainty or secondary result",
                 "Interpretation boundary",
             ],
-            "rows": build_prkcb_table(mr, smr, qtl, signatures, virtual),
+            "rows": build_prkcb_table(
+                mr,
+                smr,
+                qtl,
+                signatures,
+                virtual,
+                sun_pqtl_mr,
+                sun_pqtl_coloc,
+            ),
             "note": (
                 "Source worksheets: PRKCB_MR_estimates, PRKCB_SMR_HEIDI, "
                 "PRKCB_HEIDI_windows, PRKCB_QTL_coverage, "
                 "PRKCB_signature_reversal and PRKCB_virtual_bootstrap1000. "
+                "Sun2018_pQTL_MR and Sun2018_pQTL_coloc provide the protein layer. "
                 "SMR and HEIDI analyses are summary-statistic implementations. "
                 "Virtual knockdown is not experimental evidence."
             ),

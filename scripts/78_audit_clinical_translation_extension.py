@@ -74,6 +74,15 @@ def write_markdown_report() -> None:
     incremental_any = incremental["prespecified_by_task"][
         "External genetic support, any cohort"
     ]
+    expanded = json.loads(
+        (
+            ROOT
+            / "results"
+            / "tables"
+            / "expanded_macrophage_benchmark_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    expanded_models = {row["model"]: row for row in expanded["models"]}
     lines = [
         "# Clinical translation extension",
         "",
@@ -123,6 +132,12 @@ def write_markdown_report() -> None:
         f"{incremental_any['delta_auroc_ci_high']:.3f}).",
         "- The advantage was not stable for support in both cohorts or "
         "replicated exact-variant eQTL.",
+        f"- Expanded macrophage-state benchmark: {expanded['n_pairs']:,} pairs, "
+        f"{expanded['positives']} positives, AUROC "
+        f"{expanded_models['PIP+context']['mean_auroc']:.3f} for PIP+context versus "
+        f"{expanded_models['PIP-only']['mean_auroc']:.3f} for PIP-only; "
+        f"PIP+L2G+Atlas reached "
+        f"{expanded_models['PIP+L2G+Atlas']['mean_auroc']:.3f}.",
         "",
         "## Parallel robustness checks",
         "",
@@ -204,6 +219,8 @@ def main() -> None:
         "Sun2018_pQTL_cis",
         "Sun2018_pQTL_MR",
         "Sun2018_pQTL_coloc",
+        "Expanded_macrophage_metrics",
+        "Expanded_macrophage_delta",
     }
     checks = {
         "twelve_tables": len(document.tables) == 12,
@@ -232,6 +249,8 @@ def main() -> None:
         and float(readiness_rows["PRKCB"]["pqtl_mr_score"]) == 1.0,
         "incremental_benchmark_present": "Repeated grouped out-of-fold models"
         in body,
+        "expanded_benchmark_present": "expanded macrophage-state benchmark"
+        in body.lower(),
         "public_causal_coverage_recheck_present": "Public MPRA and macrophage "
         "CRISPRi resources currently lack" in body,
         "translational_narrative_audit_pass": narrative_audit[

@@ -1,0 +1,104 @@
+{
+  "label": "active_disease_multicohort_supported",
+  "n_pairs": 901,
+  "n_credible_sets": 276,
+  "n_targets": 510,
+  "positives": 43,
+  "repetitions": 20,
+  "splits": 5,
+  "workers": 12,
+  "models": [
+    {
+      "model": "PIP-only",
+      "features": "pip",
+      "n": 901,
+      "positives": 43,
+      "repetitions": 20,
+      "mean_auroc": 0.3961348728790589,
+      "mean_auprc": 0.03916492115323249,
+      "consensus_auroc": 0.3585948934786144,
+      "consensus_auprc": 0.036606826798527906
+    },
+    {
+      "model": "PIP+L2G",
+      "features": "pip;l2g_score",
+      "n": 901,
+      "positives": 43,
+      "repetitions": 20,
+      "mean_auroc": 0.535934027213097,
+      "mean_auprc": 0.09159843293740712,
+      "consensus_auroc": 0.5333116495907193,
+      "consensus_auprc": 0.10698948765917954
+    },
+    {
+      "model": "PIP+Atlas",
+      "features": "pip;atlas_global_max_abs_q",
+      "n": 901,
+      "positives": 43,
+      "repetitions": 20,
+      "mean_auroc": 0.8428389440017346,
+      "mean_auprc": 0.18688082894323416,
+      "consensus_auroc": 0.8470483005366727,
+      "consensus_auprc": 0.19982010365446506
+    },
+    {
+      "model": "PIP+L2G+Atlas",
+      "features": "pip;l2g_score;atlas_global_max_abs_q",
+      "n": 901,
+      "positives": 43,
+      "repetitions": 20,
+      "mean_auroc": 0.8479874776386405,
+      "mean_auprc": 0.26984434394406254,
+      "consensus_auroc": 0.8500298151460941,
+      "consensus_auprc": 0.2930502810266108
+    },
+    {
+      "model": "PIP+Live",
+      "features": "pip;live_specificity",
+      "n": 901,
+      "positives": 43,
+      "repetitions": 20,
+      "mean_auroc": 0.719400173469941,
+      "mean_auprc": 0.1598808756736239,
+      "consensus_auroc": 0.7217433729061636,
+      "consensus_auprc": 0.17039628899756604
+    },
+    {
+      "model": "PIP+context",
+      "features": "pip;l2g_score;atlas_global_max_abs_q;live_specificity;custom_macrophage_percentile",
+      "n": 901,
+      "positives": 43,
+      "repetitions": 20,
+      "mean_auroc": 0.978047921071177,
+      "mean_auprc": 0.7636440219732574,
+      "consensus_auroc": 0.9789396649861766,
+      "consensus_auprc": 0.7727776117390652
+    }
+  ],
+  "delta": {
+    "delta_auroc": 0.6226904481586935,
+    "delta_auroc_ci_low": 0.508939331326053,
+    "delta_auroc_ci_high": 0.7292448256765705,
+    "delta_auprc": 0.7207940835387746,
+    "delta_auprc_ci_low": 0.520210645835848,
+    "delta_auprc_ci_high": 0.863324835573212,
+    "bootstrap_replicates": 2000,
+    "baseline": "PIP-only",
+    "comparison": "PIP+context"
+  },
+  "genetic_delta": {
+    "delta_auroc": 0.4950737372354844,
+    "delta_auroc_ci_low": 0.40418237782775235,
+    "delta_auroc_ci_high": 0.5877380300557066,
+    "delta_auprc": 0.20895507310241163,
+    "delta_auprc_ci_low": 0.10949078276856362,
+    "delta_auprc_ci_high": 0.33327925103476613,
+    "bootstrap_replicates": 2000,
+    "baseline": "PIP-only",
+    "comparison": "PIP+L2G+Atlas"
+  },
+  "primary_model": "PIP+context",
+  "genetic_model": "PIP+L2G+Atlas",
+  "model_note": "PIP+context is the prespecified primary model. The genetic/model-only PIP+L2G+Atlas model is reported as a complementary comparison.",
+  "note": "The expanded benchmark uses the active-disease multicohort macrophage-state label available for all 901 variant-target pairs. Both the full macrophage-context model and the genetic/model-only comparator are reported."
+}

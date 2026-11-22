@@ -37,6 +37,7 @@ Generated: 2026-11-22.
 
 - The prespecified PIP+context model improved AUROC by 0.072 for external support in any cohort (95% CI 0.003 to 0.148).
 - The advantage was not stable for support in both cohorts or replicated exact-variant eQTL.
+- Expanded macrophage-state benchmark: 901 pairs, 43 positives, AUROC 0.978 for PIP+context versus 0.396 for PIP-only; PIP+L2G+Atlas reached 0.848.
 
 ## Parallel robustness checks
 

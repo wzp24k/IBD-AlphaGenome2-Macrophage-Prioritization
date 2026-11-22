@@ -215,6 +215,12 @@ def append_workbook_sheets() -> None:
         "Sun2018_pQTL_coloc": pd.read_csv(
             TABLE_DIR / "prkcb_sun2018_pqtl_coloc.csv"
         ),
+        "Expanded_macrophage_metrics": pd.read_csv(
+            TABLE_DIR / "expanded_macrophage_benchmark_metrics.csv"
+        ),
+        "Expanded_macrophage_delta": pd.read_csv(
+            TABLE_DIR / "expanded_macrophage_benchmark_delta.csv"
+        ),
     }
     workbook = load_workbook(WORKBOOK)
     header_fill = PatternFill("solid", fgColor="1F4E78")
@@ -289,6 +295,17 @@ def main() -> None:
             encoding="utf-8"
         )
     )
+    expanded_benchmark = json.loads(
+        (TABLE_DIR / "expanded_macrophage_benchmark_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    expanded_models = {
+        row["model"]: row for row in expanded_benchmark["models"]
+    }
+    expanded_primary = expanded_models["PIP+context"]
+    expanded_pip = expanded_models["PIP-only"]
+    expanded_genetic = expanded_models["PIP+L2G+Atlas"]
     incremental_primary = incremental_benchmark["prespecified_by_task"]
     incremental_any = incremental_primary["External genetic support, any cohort"]
     incremental_both = incremental_primary["External genetic support, both cohorts"]
@@ -313,7 +330,16 @@ def main() -> None:
         f"{incremental_eqtl['delta_auroc_ci_high']:.3f}) "
         "for replicated exact-variant eQTL. "
         "The increase was therefore endpoint-specific and strongest at the broad "
-        "external-support screen."
+        "external-support screen. The expanded macrophage-state benchmark "
+        f"included {expanded_benchmark['n_pairs']:,} variant-target pairs from "
+        f"{expanded_benchmark['n_credible_sets']} credible sets. The PIP+context "
+        f"model reached mean AUROC {expanded_primary['mean_auroc']:.3f}, "
+        f"compared with {expanded_pip['mean_auroc']:.3f} for "
+        f"PIP-only. The paired AUROC difference was "
+        f"{expanded_benchmark['delta']['delta_auroc']:.3f} "
+        f"(95% CI {expanded_benchmark['delta']['delta_auroc_ci_low']:.3f} to "
+        f"{expanded_benchmark['delta']['delta_auroc_ci_high']:.3f}). The "
+        f"PIP+L2G+Atlas model reached {expanded_genetic['mean_auroc']:.3f}."
     )
     discussion_benchmark_paragraph = (
         "Repeated grouped out-of-fold benchmarking showed a prespecified gain "

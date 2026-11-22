@@ -61,8 +61,9 @@ def main() -> None:
         table.rows[13].cells[4],
         "Addressed. The main analysis used inverse-variance weighting, weighted "
         "median and MR-Egger. Cross-ancestry PRKCB MR was repeated in East Asian "
-        "IBD, and pQTL cis-MR used SomaScan and curated deCODE instruments. A "
-        "targeted PheW-MR panel provided an initial safety screen. A Steiger-style "
+        "IBD. Sun 2018 plasma cis-pQTL provided a strong one-instrument protein "
+        "layer, with SomaScan and curated deCODE retained as sensitivity analyses. "
+        "A targeted PheW-MR panel provided an initial safety screen. A Steiger-style "
         "check assessed direction.",
     )
     set_cell(
@@ -70,16 +71,16 @@ def main() -> None:
         "Addressed. Combined-IBD IVW beta was 0.0517 log odds per SD "
         "(P = 3.25e-18). Crohn beta was 0.0351 (P = 1.68e-5), UC beta was 0.0672 "
         "(P = 1.38e-19), and East Asian IBD beta was 0.0518 (P = 1.20e-4). "
-        "SomaScan PKCB2 pQTL MR was positive for combined IBD and UC. Curated "
-        "deCODE pQTL MR was positive for East Asian IBD.",
+        "Sun 2018 plasma pQTL MR was positive in all four outcomes, with "
+        "colocalization H4 = 0.998 in combined IBD and UC.",
     )
     set_cell(
         table.rows[51].cells[4],
         "Addressed. Findings cover European/multi-ancestry IBD and an East Asian "
-        "IBD replication for PRKCB. pQTL MR is exploratory because available "
-        "protein instruments have limited regional colocalization support. "
-        "Generalization to other myeloid tissues, disease states and exposure "
-        "timings will require further cohorts.",
+        "IBD replication for PRKCB. The primary Sun 2018 pQTL uses one independent "
+        "instrument; Crohn and East Asian colocalization provide the next "
+        "protein-layer extension. Generalization to other myeloid tissues, disease "
+        "states and exposure timings will require further cohorts.",
     )
     document.save(OUTPUT)
     COPY.parent.mkdir(parents=True, exist_ok=True)

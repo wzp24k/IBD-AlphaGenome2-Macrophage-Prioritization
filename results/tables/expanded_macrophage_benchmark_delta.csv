@@ -1,0 +1,2 @@
+delta_auroc,delta_auroc_ci_low,delta_auroc_ci_high,delta_auprc,delta_auprc_ci_low,delta_auprc_ci_high,bootstrap_replicates,baseline,comparison
+0.6226904481586935,0.508939331326053,0.7292448256765705,0.7207940835387746,0.520210645835848,0.863324835573212,2000,PIP-only,PIP+context
