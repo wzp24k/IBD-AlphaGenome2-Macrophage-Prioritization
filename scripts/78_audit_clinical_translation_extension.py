@@ -173,6 +173,11 @@ def main() -> None:
         }
     figure_hash = hashlib.sha256(FIGURE.read_bytes()).hexdigest()
     workbook = load_workbook(WORKBOOK, read_only=True)
+    narrative_audit = json.loads(
+        (ROOT / "results" / "translational_narrative_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
     readiness_rows = {}
     with (
         ROOT
@@ -227,8 +232,11 @@ def main() -> None:
         and float(readiness_rows["PRKCB"]["pqtl_mr_score"]) == 1.0,
         "incremental_benchmark_present": "Repeated grouped out-of-fold models"
         in body,
-        "public_causal_coverage_recheck_present": "public-resource recheck"
-        in body,
+        "public_causal_coverage_recheck_present": "Public MPRA and macrophage "
+        "CRISPRi resources currently lack" in body,
+        "translational_narrative_audit_pass": narrative_audit[
+            "all_checks_pass"
+        ],
     }
     report = {
         "document": str(DOCX),

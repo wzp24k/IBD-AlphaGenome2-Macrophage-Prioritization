@@ -45,6 +45,7 @@ def main() -> None:
         ROOT / "results" / "CLINICAL_TRANSLATION_EXTENSION_AUDIT.md",
         ROOT / "results" / "clinical_translation_extension_audit.json",
         ROOT / "results" / "1119_reference_audit.json",
+        ROOT / "results" / "translational_narrative_audit.json",
         ROOT / "results" / "title_page_audit.json",
         ROOT / "results" / "strobe_mr_1119_audit.json",
         table_dir / "top10_cd_uc_target_support.csv",
@@ -104,6 +105,7 @@ def main() -> None:
         "86_public_evidence_recheck.py",
         "87_fetch_sun2018_prkcb_cis_pqtl.py",
         "88_sun2018_pqtl_analysis.py",
+        "89_rebuild_translational_narrative.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())

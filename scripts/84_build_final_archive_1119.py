@@ -27,6 +27,7 @@ FILES = [
     ROOT / "results" / "tables" / "benchmark_incremental_model_summary.json",
     ROOT / "results" / "tables" / "prkcb_sun2018_pqtl_summary.json",
     ROOT / "results" / "1119_reference_audit.json",
+    ROOT / "results" / "translational_narrative_audit.json",
     ROOT / "results" / "title_page_audit.json",
     ROOT / "results" / "strobe_mr_1119_audit.json",
     ROOT / "results" / "package_manifest_1119.json",

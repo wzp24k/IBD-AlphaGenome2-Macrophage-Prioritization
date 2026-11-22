@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-22T21:30:16.213292+08:00",
+  "generated": "2026-11-22T21:42:14.554730+08:00",
   "manuscript": "1119manuscript.docx",
   "title_page": "Title_Page.docx",
   "supplement": "Supplementary_Tables.docx",
@@ -12,6 +12,6 @@
   "tables": 12,
   "figures": 13,
   "package": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\IBD_1119_clinical_translation_submission_package.zip",
-  "package_sha256": "3607ccee483d5cfc486bc1bb4a72402579ba15392fb546255a59cf4d6167267a",
-  "package_files": 74
+  "package_sha256": "c08d654ea5901eba39d2c070bfe476a370a2829966840571a360344af8b79d09",
+  "package_files": 76
 }

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-22T21:30:16.054173+08:00",
+  "generated": "2026-11-22T21:42:14.397270+08:00",
   "package": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\IBD_1119_clinical_translation_submission_package.zip",
-  "sha256": "3607ccee483d5cfc486bc1bb4a72402579ba15392fb546255a59cf4d6167267a",
+  "sha256": "c08d654ea5901eba39d2c070bfe476a370a2829966840571a360344af8b79d09",
   "files": [
     {
       "path": "1119manuscript.docx",
-      "bytes": 4000831,
-      "sha256": "75a5ecb5c3c2c7a99007ec76a39e175801cbe9c89855a1f704c7da0ea83d14c9"
+      "bytes": 4000731,
+      "sha256": "53c721bca065687d273d7bdcd9faed248923ef7ec19313182708b894ceb8e4a0"
     },
     {
       "path": "Cover_Letter_Generic.docx",
@@ -30,8 +30,8 @@
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD_clinical_translation.docx",
-      "bytes": 4000831,
-      "sha256": "75a5ecb5c3c2c7a99007ec76a39e175801cbe9c89855a1f704c7da0ea83d14c9"
+      "bytes": 4000731,
+      "sha256": "53c721bca065687d273d7bdcd9faed248923ef7ec19313182708b894ceb8e4a0"
     },
     {
       "path": "PRKCB_Sun2018_cis_pQTL_20261122.zip",
@@ -50,8 +50,8 @@
     },
     {
       "path": "results\\clinical_translation_extension_audit.json",
-      "bytes": 1077,
-      "sha256": "b65867d6179298df4a48ac01701fd45e17e02a6790e81d07aa1405a6def7fb5b"
+      "bytes": 1126,
+      "sha256": "39188f8bd2775292baf22df059ffb1de9afa1822d2a93b09ba6f595c914bb777"
     },
     {
       "path": "results\\CLINICAL_TRANSLATION_EXTENSION_AUDIT.md",
@@ -70,8 +70,8 @@
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-      "bytes": 2428934,
-      "sha256": "9c01257a5d071ded6c7846588ffba4cee16d38a2a0bbd53c16bfd9ac5105c6ca"
+      "bytes": 2428933,
+      "sha256": "e21f555e577fbaf83fbe41af3c371376c3abd2294ce9a11722397c376a42c71a"
     },
     {
       "path": "results\\PUBLIC_PRKCB_EVIDENCE_RECHECK.md",
@@ -276,7 +276,12 @@
     {
       "path": "results\\title_page_audit.json",
       "bytes": 753,
-      "sha256": "2466cb149b0cd908c54d7eab86cceffb4f9c48d3fff3b9fc93176a278c6da6b2"
+      "sha256": "e11f26b2649183d151827718a0780156d971ba2cea5e527a896020e9714f5087"
+    },
+    {
+      "path": "results\\translational_narrative_audit.json",
+      "bytes": 569,
+      "sha256": "d381b22a42b454d73102f406cdcc6e0eed098385a0f4b80799b7544d071fdcf7"
     },
     {
       "path": "scripts\\72_cd_uc_cross_ancestry_validation.py",
@@ -310,8 +315,8 @@
     },
     {
       "path": "scripts\\78_audit_clinical_translation_extension.py",
-      "bytes": 9761,
-      "sha256": "7421b32cd871d2dd012cfbbba50761d9fdc9ee634a6e844fbc59a40241e2d3c2"
+      "bytes": 10060,
+      "sha256": "532f09b3b525d4d6e95188d797b8ccb22f2ee14c1b4a3bbe0f80c3dcf016a87f"
     },
     {
       "path": "scripts\\79_fix_1119_figure_numbering.py",
@@ -320,8 +325,8 @@
     },
     {
       "path": "scripts\\80_update_1119_abstract_and_key_messages.py",
-      "bytes": 5743,
-      "sha256": "979b47fb0817ac38e1cbbd4c954ecaf110d60faecb2fe6e0255d2d1805334cc6"
+      "bytes": 7312,
+      "sha256": "f8916739c528c80cf2d969a6301be67ec28ed54f87f56f1d99f35bb5f1296d52"
     },
     {
       "path": "scripts\\81_update_strobe_mr_1119.py",
@@ -330,8 +335,8 @@
     },
     {
       "path": "scripts\\82_build_1119_submission_package.py",
-      "bytes": 7157,
-      "sha256": "34fe6a297e769ec341da56102c56265681c11ddd19e4cd7cacf7b51609ea6559"
+      "bytes": 7271,
+      "sha256": "d71a8f4dc58ddebaafbe779cf33a346be338270fd029ec64b856d417b42b463e"
     },
     {
       "path": "scripts\\83_parallel_clinical_robustness.py",
@@ -359,19 +364,24 @@
       "sha256": "2485ce06a211c1ec6b44564bbd72cfa6c179d7d71970f252facbd6d372128a3d"
     },
     {
+      "path": "scripts\\89_rebuild_translational_narrative.py",
+      "bytes": 7727,
+      "sha256": "a7f7985b20cdc88c2e950f61fa4869a6a2bb55fb4f4b7eea63b54c7a968715cd"
+    },
+    {
       "path": "STROBE-MR_Checklist_1119.docx",
       "bytes": 33818,
-      "sha256": "c6ee4acc9ac7e19ce44dd9af7205adb1c54b1b2ff7bd8088da2bf03db23173dd"
+      "sha256": "889fccff5af7de64fbd9877585e6b1278cd0e9e55375f44ec5e9850399fec8d8"
     },
     {
       "path": "Supplementary_Tables.docx",
       "bytes": 42785,
-      "sha256": "021a7f87ca0d87ef72ab091bc2e661d742569cb192c17b08ced698212553ba77"
+      "sha256": "62398dc6be05e46607e7a5893fee7f9c451e7de0605ab5b3d9041f6b00105dbf"
     },
     {
       "path": "Title_Page.docx",
-      "bytes": 37726,
-      "sha256": "8de5a9d4dfc6f350c2818bdca83d3c448eacad8d9ba2c4f684c255b981bf80ee"
+      "bytes": 37778,
+      "sha256": "84234efc0a240045e19dc4749ad2c8a295777e29aaa7dcf797a819156d89c358"
     }
   ]
 }

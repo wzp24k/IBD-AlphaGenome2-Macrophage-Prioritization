@@ -62,6 +62,15 @@ def main() -> None:
                 )
             replace_text(paragraph, replacement)
             changed.append("abstract_methods")
+        elif text.startswith("Background:"):
+            replacement = text.replace(
+                "A useful prioritization system integrates model prediction, "
+                "cell-context specificity and causal evidence.",
+                "Prioritization integrates model prediction, cell-context "
+                "specificity and translational evidence.",
+            )
+            replace_text(paragraph, replacement)
+            changed.append("abstract_background")
         elif text.startswith("Results:"):
             replacement = text.replace(
                 "Virtual knockdown predicted lower active-macrophage JAK/STAT "
@@ -74,6 +83,11 @@ def main() -> None:
                 "highest for translational readiness.",
                 "A strong cis-pQTL supported PRKCB protein in combined IBD and UC; "
                 "cross-ancestry MR and treatment-response programs ranked it highest.",
+            )
+            replacement = replacement.replace(
+                "Its three instruments and regional heterogeneity defined the scope "
+                "of the mediation signal.",
+                "Three instruments and regional heterogeneity defined the mediation signal.",
             )
             if "strong cis-pQTL" not in replacement:
                 replacement += (
@@ -89,15 +103,26 @@ def main() -> None:
                 "Cross-ancestry, pQTL and treatment-response analyses identify "
                 "PRKCB as the leading translation candidate.",
                 "A strong cis-pQTL, cross-ancestry MR and treatment-response "
-                "programs prioritize PRKCB as a target hypothesis.",
+                "programs make PRKCB the leading candidate for experimental "
+                "validation and drug development assessment.",
             )
-            if "target hypothesis" not in replacement:
+            if "leading candidate for experimental validation" not in replacement:
                 replacement += (
                     " A strong cis-pQTL, cross-ancestry MR and treatment-response "
-                    "programs prioritize PRKCB as a target hypothesis."
+                    "programs make PRKCB the leading candidate for experimental "
+                    "validation and drug development assessment."
                 )
             replace_text(paragraph, replacement)
             changed.append("key_message_3")
+        elif text.startswith("Conclusion:"):
+            replace_text(
+                paragraph,
+                "Conclusion: The evidence ladder converts a large credible-set "
+                "inventory into mechanistically stratified macrophage candidates. "
+                "PDGFB leads macrophage-regulatory follow-up, and PRKCB meets "
+                "criteria for experimental validation and drug development assessment.",
+            )
+            changed.append("abstract_conclusion")
 
     document.save(DOCX)
     COPY.write_bytes(DOCX.read_bytes())
@@ -115,7 +140,8 @@ def main() -> None:
     checks = {
         "methods_updated": "strong cis-pQTL" in "\n".join(paragraphs),
         "results_updated": "supported PRKCB protein in combined IBD and UC" in "\n".join(paragraphs),
-        "key_message_updated": "target hypothesis" in "\n".join(paragraphs),
+        "key_message_updated": "leading candidate for experimental validation" in "\n".join(paragraphs),
+        "conclusion_updated": "PRKCB meets criteria for experimental validation" in "\n".join(paragraphs),
         "abstract_250_or_less": abstract_words <= 250,
     }
     audit = {

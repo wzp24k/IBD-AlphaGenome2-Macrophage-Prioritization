@@ -21,15 +21,16 @@ MANUSCRIPT_COPY = ROOT / "manuscript" / "Title_Page.docx"
 AUDIT = ROOT / "results" / "title_page_audit.json"
 
 TITLE = (
-    "An evidence ladder for non-coding inflammatory bowel disease variants "
+    "A computational translational evidence ladder for non-coding inflammatory "
+    "bowel disease variants "
     "prioritizes intestinal macrophage regulatory mechanisms"
 )
 SHORT_SUMMARY = (
     "An evidence ladder integrating fine-mapping, AlphaGenome 2 predictions, "
-    "macrophage context, independent genetic evidence, public perturbation data "
-    "and LD-aware analyses prioritizes non-coding inflammatory bowel disease "
-    "variants, identifying PDGFB as the leading macrophage-regulatory candidate "
-    "and PRKCB as the mechanistic-triangulation candidate."
+    "macrophage context, independent genetic evidence, a strong cis-pQTL and "
+    "treatment-response programs identifies PRKCB as the leading translational "
+    "candidate for experimental validation and drug development assessment, "
+    "alongside PDGFB as the leading macrophage-regulatory candidate."
 )
 AUTHORS = [
     ("Zhipeng Wang", "1*"),
@@ -56,7 +57,7 @@ AFFILIATIONS = [
 ]
 KEYWORDS = (
     "Inflammatory Bowel Disease; Non-coding Variants; AlphaGenome; "
-    "Intestinal Macrophage; Regulatory Genomics"
+    "Intestinal Macrophage; Regulatory Genomics; cis-pQTL; Translational Prioritization"
 )
 
 
