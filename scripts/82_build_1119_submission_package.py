@@ -113,6 +113,8 @@ def main() -> None:
         "89_rebuild_translational_narrative.py",
         "90_expanded_macrophage_benchmark.py",
         "91_normalize_p_values.py",
+        "92_add_similar_paper_comparisons.py",
+        "93_audit_1119_references.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())
