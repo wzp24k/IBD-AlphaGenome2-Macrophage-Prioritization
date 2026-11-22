@@ -67,9 +67,9 @@ def main() -> None:
     )
     set_cell(
         table.rows[32].cells[4],
-        "Addressed. Combined-IBD IVW beta was 0.0511 log odds per SD "
-        "(P = 1.07e-17). Crohn beta was 0.0351 (P = 1.91e-5), UC beta was 0.0661 "
-        "(P = 7.83e-19), and East Asian IBD beta was 0.0484 (P = 4.09e-4). "
+        "Addressed. Combined-IBD IVW beta was 0.0517 log odds per SD "
+        "(P = 3.25e-18). Crohn beta was 0.0351 (P = 1.68e-5), UC beta was 0.0672 "
+        "(P = 1.38e-19), and East Asian IBD beta was 0.0518 (P = 1.20e-4). "
         "SomaScan PKCB2 pQTL MR was positive for combined IBD and UC. Curated "
         "deCODE pQTL MR was positive for East Asian IBD.",
     )

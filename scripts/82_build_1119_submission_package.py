@@ -60,6 +60,7 @@ def main() -> None:
         table_dir / "treatment_response_meta_analysis.csv",
         table_dir / "treatment_response_summary.json",
         table_dir / "clinical_development_readiness_matrix.csv",
+        table_dir / "clinical_readiness_rank_sensitivity.csv",
         table_dir / "clinical_development_readiness_summary.json",
     ]
     script_names = [

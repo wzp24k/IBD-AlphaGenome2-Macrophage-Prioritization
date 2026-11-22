@@ -622,6 +622,9 @@ def build_workbook(table_dir: Path, output_path: Path) -> None:
         "Clinical_readiness": pd.read_csv(
             table_dir / "clinical_development_readiness_matrix.csv"
         ),
+        "Clinical_readiness_rank_sensitivity": pd.read_csv(
+            table_dir / "clinical_readiness_rank_sensitivity.csv"
+        ),
     }
     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
         for sheet_name, frame in sheets.items():

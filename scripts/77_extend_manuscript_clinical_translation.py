@@ -127,7 +127,7 @@ def add_readiness_table(document: Document) -> object:
                 "Yes" if row["exact_eqtl_score"] else "No",
                 "Yes" if row["colocalization_score"] else "No",
                 "Yes" if row["public_perturbation_score"] else "No",
-                "Yes" if row["pqtl_mr_score"] else "No",
+                row["pqtl_evidence_class"],
                 "Yes" if row["treatment_response_score"] else "No",
                 str(row["clinical_stage"])
                 if pd.notna(row["clinical_stage"])
@@ -182,13 +182,18 @@ def append_workbook_sheets() -> None:
         "Clinical_readiness": pd.read_csv(
             TABLE_DIR / "clinical_development_readiness_matrix.csv"
         ),
+        "Clinical_readiness_rank_sensitivity": pd.read_csv(
+            TABLE_DIR / "clinical_readiness_rank_sensitivity.csv"
+        ),
     }
     workbook = load_workbook(WORKBOOK)
     header_fill = PatternFill("solid", fgColor="1F4E78")
     for sheet_name, frame in tables.items():
-        if sheet_name in workbook.sheetnames:
-            del workbook[sheet_name]
-        worksheet = workbook.create_sheet(sheet_name)
+        safe_name = sheet_name[:31]
+        for existing in list(workbook.sheetnames):
+            if existing.startswith(sheet_name[:20]):
+                del workbook[existing]
+        worksheet = workbook.create_sheet(safe_name)
         worksheet.append(list(frame.columns))
         for row in frame.itertuples(index=False, name=None):
             worksheet.append(list(row))
@@ -280,7 +285,7 @@ def main() -> None:
         new_paragraph(
             document,
             "PRKCB cis-MR was positive across combined IBD, Crohn, UC and East "
-            "Asian IBD cohorts. Estimates ranged from 0.035 to 0.066 log OR per "
+            "Asian IBD cohorts. Estimates ranged from 0.035 to 0.067 log OR per "
             "expression SD, and all four tests reached P < 0.001 (Figure 13A-B).",
         ),
         new_paragraph(
@@ -301,11 +306,12 @@ def main() -> None:
         ),
         new_paragraph(
             document,
-            "The readiness matrix ranked PRKCB highest at 7.5 of 10, followed by "
+            "The readiness matrix ranked PRKCB highest at 6.0 of 10, followed by "
             "PDGFB at 5.0 and MAP3K8 at 4.0 (Table 12; Figure 13D). PRKCB combined "
             "cross-ancestry genetics, colocalization, public perturbation, pQTL "
             "direction, treatment-response programs and a direction-compatible "
-            "clinical-stage signal.",
+            "clinical-stage signal. PRKCB remained first under evidence-only and "
+            "clinical-weighted scoring and second under treatment-excluded scoring.",
         ),
         new_paragraph(
             document,

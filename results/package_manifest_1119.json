@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-19T20:22:19.142332+08:00",
+  "generated": "2026-11-22T20:29:35.982585+08:00",
   "package": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\IBD_1119_clinical_translation_submission_package.zip",
-  "sha256": "3ce0b4c6be5855a32dc3d9b603e5378bc17d529f8fe40fb8cf84a780d4729b35",
+  "sha256": "921da368cf87b0b6381bc4e78b9ed89e8f505ce092fa3bfae7e3f3a8e6c4be94",
   "files": [
     {
       "path": "1119manuscript.docx",
-      "bytes": 3990962,
-      "sha256": "5901e4bfee044d884d2555e47401f34ae766899c20fd58465b7d32a8e6aeb7f3"
+      "bytes": 3994315,
+      "sha256": "9f48dfc8cb75d606e82a22267f28ea9035a11330b8349ab3090dad386e2ecf0b"
     },
     {
       "path": "Cover_Letter_Generic.docx",
@@ -30,8 +30,8 @@
     },
     {
       "path": "manuscript\\Manuscript_AlphaGenome2_IBD_clinical_translation.docx",
-      "bytes": 3990962,
-      "sha256": "5901e4bfee044d884d2555e47401f34ae766899c20fd58465b7d32a8e6aeb7f3"
+      "bytes": 3994315,
+      "sha256": "9f48dfc8cb75d606e82a22267f28ea9035a11330b8349ab3090dad386e2ecf0b"
     },
     {
       "path": "README.md",
@@ -50,23 +50,23 @@
     },
     {
       "path": "results\\CLINICAL_TRANSLATION_EXTENSION_AUDIT.md",
-      "bytes": 2309,
-      "sha256": "1de3982cbc5f39082c602d9f9697fdacbe357b6137fab6470756d6730a14d9ef"
+      "bytes": 2579,
+      "sha256": "3fe48096c800b9dec35811ef702808e64906bbe665896573e8b85a58bcfe7fc0"
     },
     {
       "path": "results\\figures\\figure13_clinical_translation.pdf",
-      "bytes": 40935,
-      "sha256": "c60f75b2f6d763c45e5b5d7b56b93220b2673253e619aa81520b1d08018ab3b8"
+      "bytes": 40913,
+      "sha256": "e1c69ed3ed3cab337e3d02a18aba778c1f651447a06ef85764576e5d029d674f"
     },
     {
       "path": "results\\figures\\figure13_clinical_translation.png",
-      "bytes": 287555,
-      "sha256": "848e54e14c57fe3e5de7a1478b3e49283e7b5f7ee6ee3dabd5717038252f53ba"
+      "bytes": 290608,
+      "sha256": "799e7d17a7e5ace87006168e36291dcab27f1e2003153c1db156ca87eef39384"
     },
     {
       "path": "results\\IBD_AlphaGenome2_supplementary_tables.xlsx",
-      "bytes": 2148116,
-      "sha256": "6101ef5ffd8a22d13b1019f92f972829145f10570fb865ee83a49ea84f098f36"
+      "bytes": 2149513,
+      "sha256": "777a33c3c3fc43b88c7679cf7b8f9aa8998800c365d149b2e14d047cdeea295f"
     },
     {
       "path": "results\\strobe_mr_1119_audit.json",
@@ -76,17 +76,22 @@
     {
       "path": "results\\tables\\cd_uc_cross_ancestry_summary.json",
       "bytes": 305,
-      "sha256": "59f263ba3bbc5a6f693ebc36bbf168bf7a973f427b34ac0db9032ad7bbb4cfe3"
+      "sha256": "a45eccbf486bec3e50eec19eabcf8d1fb9fdb743ebe70d1a85453d320e994e6d"
     },
     {
       "path": "results\\tables\\clinical_development_readiness_matrix.csv",
-      "bytes": 1863,
-      "sha256": "801b4ccf2d8fe4370dd07cf4eeeafa4cced3937d2abd56fbdb73e9427f7a231c"
+      "bytes": 2361,
+      "sha256": "0672c041a4720669ced04ea36771655ac44837f509faceae50883828c2cb20c5"
     },
     {
       "path": "results\\tables\\clinical_development_readiness_summary.json",
-      "bytes": 345,
-      "sha256": "5cebb8db331b91c07c6ad05acd4fb4e0aa98fcfbc38b369ec7bfe5ab7782749a"
+      "bytes": 449,
+      "sha256": "6d3e999e6a9831b86897e46e813a12dadba6bbe12dc83123e6b7fde717967bdd"
+    },
+    {
+      "path": "results\\tables\\clinical_readiness_rank_sensitivity.csv",
+      "bytes": 365,
+      "sha256": "676bf18f8f0f44a601f6a9589467dd120cc41fc5b9cb32fb49fba967b251cae4"
     },
     {
       "path": "results\\tables\\pqtl_cis_instruments.csv",
@@ -110,13 +115,13 @@
     },
     {
       "path": "results\\tables\\prkcb_cross_ancestry_harmonized.csv",
-      "bytes": 785,
-      "sha256": "c1c105b16903cb53de29c2f4528b75f1a7815ef6df39719f270e5339048acd27"
+      "bytes": 1138,
+      "sha256": "cb26b26d5c818a39f627493ed4d3ca5dfa383206fc71cbd89188efc6290f094a"
     },
     {
       "path": "results\\tables\\prkcb_cross_ancestry_mr.csv",
-      "bytes": 553,
-      "sha256": "ce6c642b6adf210b9c2d1b7160bc30b67c92ef28d75b9e0ab46ced815b9c9038"
+      "bytes": 542,
+      "sha256": "eaa8ecab634faced7dbdc1559857babec56e598d3a276c98537307865849a73d"
     },
     {
       "path": "results\\tables\\prkcb_pqtl_phewas_mr.csv",
@@ -155,8 +160,8 @@
     },
     {
       "path": "scripts\\72_cd_uc_cross_ancestry_validation.py",
-      "bytes": 11574,
-      "sha256": "e54c3eac9e8fd0ba435e5822b0a8ccaecb84de9f8764257b5e394fccf43be7d0"
+      "bytes": 12237,
+      "sha256": "af8538f074cdc07e3b372d4e5bec92a547932c88ab74154d7ece88ae5b081e05"
     },
     {
       "path": "scripts\\73_pqtl_mr_coloc_phewas.py",
@@ -165,13 +170,13 @@
     },
     {
       "path": "scripts\\74_treatment_response_programs.py",
-      "bytes": 12459,
-      "sha256": "4d531b218c0cd56d9d4d7df540fe6c6b8386270e4182d60cd7bc0c3ae8583602"
+      "bytes": 13071,
+      "sha256": "3aa4257bcf3926e3e46f3c547f17021477efd27a38b4b66908557d6595f9534d"
     },
     {
       "path": "scripts\\75_clinical_readiness_matrix.py",
-      "bytes": 6631,
-      "sha256": "4d46a9f3f532e3b91ab48e8c66b21a16eb0590857c87820799d4fac1e7f6481a"
+      "bytes": 9402,
+      "sha256": "706169d8e01795c995ceee8ed664f50e1bfff186c04bf3e58c9a61a81a3d5b49"
     },
     {
       "path": "scripts\\76_clinical_translation_figure.py",
@@ -180,13 +185,13 @@
     },
     {
       "path": "scripts\\77_extend_manuscript_clinical_translation.py",
-      "bytes": 14813,
-      "sha256": "4310e2768c05ef4760696d3ddccb89c918c0eb40e01c84c9f7787c4f6ca7a025"
+      "bytes": 15163,
+      "sha256": "162fd4f7a9eb2ef093ae9b5d24ede4e1ac56a5c4830676ce28afb10c846c54cc"
     },
     {
       "path": "scripts\\78_audit_clinical_translation_extension.py",
-      "bytes": 3363,
-      "sha256": "9b26019ed59d008988adf1392b8c855c9eaaf137a3618c188da9161df472be3f"
+      "bytes": 3406,
+      "sha256": "1afeb9f3dbe22362e316d623e1413e2638113e123900a037e61c8afc1d5fcd4f"
     },
     {
       "path": "scripts\\79_fix_1119_figure_numbering.py",
@@ -201,22 +206,22 @@
     {
       "path": "scripts\\81_update_strobe_mr_1119.py",
       "bytes": 4235,
-      "sha256": "ed26a574458f65f6edc836876daacaca4ec712cfb9ddd017aef0102ec8cf80a1"
+      "sha256": "5ddf6126e8b878fa3e4a88cee8ba597bafd4256b4eedf1706b0ba0080fc65206"
     },
     {
       "path": "scripts\\82_build_1119_submission_package.py",
-      "bytes": 5499,
-      "sha256": "1848f16868c7e4b2dd2a424af8439cf471952903771048b1d21cd15fd40c8feb"
+      "bytes": 5562,
+      "sha256": "ab46f27ec8b74eaff73069e6f02caa450d2b8a7ab222fba26ca187ffcd6fba99"
     },
     {
       "path": "STROBE-MR_Checklist_1119.docx",
-      "bytes": 33819,
-      "sha256": "f0458e8d141b1aa56483f7430d509b611c711e5c1bd124d15b3b6cf788daea47"
+      "bytes": 33818,
+      "sha256": "736db16513bb5ab6ac95f6ec69ad59330d53b06b3e6cc5e800a10acbbf7a0e45"
     },
     {
       "path": "Supplementary_Tables.docx",
       "bytes": 42745,
-      "sha256": "233e7d05d57836e464b6c93e9a83f0cab7fc0f2dba7f1f974d6403bdcc8a8931"
+      "sha256": "5793e36da9713b7843877a0bb60df7ccdfcc0f8a7b61c913228b7151d4c797d0"
     },
     {
       "path": "Title_Page.docx",

@@ -8,10 +8,10 @@ Generated: 19 November 2026
 - Top 10 targets supported by UC credible-set L2G at score >= 0.5: 6.
 - Targets supported in both diseases: 4.
 - PRKCB cis-MR was positive in all four outcome cohorts:
-  - Combined IBD: beta = 0.0511, P = 1.07e-17.
-  - Crohn disease: beta = 0.0351, P = 1.91e-5.
-  - Ulcerative colitis: beta = 0.0661, P = 7.83e-19.
-  - East Asian IBD: beta = 0.0484, P = 4.09e-4.
+  - Combined IBD: beta = 0.0517, P = 3.25e-18.
+  - Crohn disease: beta = 0.0351, P = 1.68e-5.
+  - Ulcerative colitis: beta = 0.0672, P = 1.38e-19.
+  - East Asian IBD: beta = 0.0518, P = 1.20e-4.
 
 ## 2. pQTL, colocalization and PheW-MR
 
@@ -35,10 +35,11 @@ Generated: 19 November 2026
 
 ## 4. Clinical development readiness
 
-- PRKCB: 7.5/10, highest readiness class.
+- PRKCB: 6.0/10, high readiness class and highest-ranked target.
 - PDGFB: 5.0/10, high.
 - MAP3K8: 4.0/10, moderate.
-- PRKCB combined cross-disease genetics, cross-ancestry MR, exact eQTL, eQTL colocalization, public perturbation, positive pQTL direction, treatment-response programs and direction-compatible clinical-stage annotation.
+- PRKCB combined cross-disease genetics, cross-ancestry MR, exact eQTL, eQTL colocalization, positive exploratory pQTL direction, treatment-response programs and direction-compatible clinical-stage annotation. The pQTL contribution is weighted at 0.5 because available pQTL instruments are not genome-wide significant.
+- Across four weighting schemes, PRKCB ranked first under evidence-only and clinical-weighted scoring and second under treatment-excluded scoring.
 
 ## Interpretation boundary
 

@@ -172,11 +172,18 @@ def program_score(
     expression: pd.DataFrame,
     genes: list[str],
     minimum_genes: int = 4,
+    gene_weights: dict[str, float] | None = None,
 ) -> tuple[pd.Series, int]:
     present = [gene for gene in genes if gene in expression.index]
     if len(present) < minimum_genes:
         return pd.Series(np.nan, index=expression.columns), len(present)
-    return expression.loc[present].mean(axis=0), len(present)
+    if gene_weights is None:
+        return expression.loc[present].mean(axis=0), len(present)
+    weighted = expression.loc[present].multiply(
+        pd.Series({gene: gene_weights.get(gene, 1.0) for gene in present}),
+        axis=0,
+    )
+    return weighted.mean(axis=0), len(present)
 
 
 def smd_analysis(
@@ -263,7 +270,14 @@ def random_effect_meta(frame: pd.DataFrame) -> dict[str, float]:
 
 def main() -> None:
     virtual = pd.read_csv(TABLE_DIR / "prkcb_virtual_knockdown_genes.csv")
-    network_genes = sorted(set(virtual["gene"].astype(str)))
+    virtual["gene"] = virtual["gene"].astype(str)
+    network_genes = sorted(set(virtual["gene"]))
+    network_weights = (
+        virtual.groupby("gene")["predicted_log_expression_delta"]
+        .mean()
+        .map(lambda value: 1.0 if value < 0 else -1.0 if value > 0 else 0.0)
+        .to_dict()
+    )
 
     rows = []
     score_tables = []
@@ -278,7 +292,12 @@ def main() -> None:
         selected_labels = [label for label in labels if label is not None]
         expression = expression[selected_columns]
         normalized = zscore_rows(expression)
-        prkcb_program, prkcb_n = program_score(normalized, network_genes, 5)
+        prkcb_program, prkcb_n = program_score(
+            normalized,
+            network_genes,
+            5,
+            gene_weights=network_weights,
+        )
         macrophage_program, macrophage_n = program_score(normalized, MACROPHAGE_GENES, 5)
         features = {
             "PRKCB_expression": normalized.loc["PRKCB"] if "PRKCB" in normalized.index else pd.Series(np.nan, index=normalized.columns),

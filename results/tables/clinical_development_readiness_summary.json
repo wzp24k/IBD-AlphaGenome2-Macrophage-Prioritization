@@ -1,9 +1,7 @@
 {
   "targets": 10,
-  "highest_readiness": [
-    "PRKCB"
-  ],
-  "top_score": 7.5,
+  "highest_readiness": [],
+  "top_score": 6.0,
   "top_target": "PRKCB",
   "pqtl_mr_support": [
     "PRKCB"
@@ -18,5 +16,10 @@
     "MAP3K8",
     "CXCR2",
     "PLAU"
-  ]
+  ],
+  "prkcb_rank_min": 1,
+  "prkcb_rank_max": 2,
+  "pdgfb_rank_min": 1,
+  "pdgfb_rank_max": 2,
+  "ranking_schemes": 4
 }

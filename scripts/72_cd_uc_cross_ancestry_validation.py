@@ -95,7 +95,8 @@ def harmonize_outcome(
     )
     merged = instruments.merge(
         outcomes,
-        on="position",
+        left_on="rsid",
+        right_on="rsid_outcome",
         suffixes=("_eqtl", "_outcome"),
     )
     kept = []
@@ -104,16 +105,36 @@ def harmonize_outcome(
         other = str(row["other_allele_eqtl"]).upper()
         outcome_effect = str(row["effect_allele_outcome"]).upper()
         outcome_other = str(row["other_allele_outcome"]).upper()
-        if outcome_effect == effect and outcome_other == other:
+        same_effect = (
+            outcome_effect == effect
+            or outcome_effect.startswith(effect)
+            or effect.startswith(outcome_effect)
+        )
+        same_other = (
+            outcome_other == other
+            or outcome_other.startswith(other)
+            or other.startswith(outcome_other)
+        )
+        swapped_effect = (
+            outcome_effect == other
+            or outcome_effect.startswith(other)
+            or other.startswith(outcome_effect)
+        )
+        swapped_other = (
+            outcome_other == effect
+            or outcome_other.startswith(effect)
+            or effect.startswith(outcome_other)
+        )
+        if same_effect and same_other:
             beta = float(row["beta"])
-        elif outcome_effect == other and outcome_other == effect:
+        elif swapped_effect and swapped_other:
             beta = -float(row["beta"])
         else:
             continue
         kept.append(
             {
                 "rsid": row["rsid"],
-                "position": int(row["position"]),
+                "position": int(row["position_eqtl"]),
                 "effect_allele": effect,
                 "other_allele": other,
                 "eqtl_beta": float(row["eql_beta"]),

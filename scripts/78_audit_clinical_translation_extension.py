@@ -60,6 +60,7 @@ def main() -> None:
         "Treatment_response_programs",
         "Treatment_response_meta",
         "Clinical_readiness",
+        "Clinical_readiness_rank_sensiti",
     }
     checks = {
         "twelve_tables": len(document.tables) == 12,
