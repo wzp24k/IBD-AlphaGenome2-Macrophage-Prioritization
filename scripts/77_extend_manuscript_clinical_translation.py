@@ -286,7 +286,8 @@ def main() -> None:
             document,
             "PRKCB cis-MR was positive across combined IBD, Crohn, UC and East "
             "Asian IBD cohorts. Estimates ranged from 0.035 to 0.067 log OR per "
-            "expression SD, and all four tests reached P < 0.001 (Figure 13A-B).",
+            "expression SD, and all four tests reached P < 0.001 (Figure 13A-B). "
+            "Leave-one-instrument-out estimates remained positive.",
         ),
         new_paragraph(
             document,
@@ -294,7 +295,9 @@ def main() -> None:
             "The SomaScan PKCB2 dataset supported combined IBD and UC, while the "
             "deCODE instrument supported East Asian IBD. Regional pQTL "
             "colocalization defined a graded H4 distribution for future pQTL "
-            "reference expansion.",
+            "reference expansion. Across 20 MR sensitivity tests, 70% retained a "
+            "positive direction. Seventy-two colocalization-prior combinations "
+            "reached a maximum H4 of 0.185, so pQTL evidence remains exploratory.",
         ),
         new_paragraph(
             document,
@@ -302,7 +305,9 @@ def main() -> None:
             "responders than nonresponders (meta-analysis SMD = -2.04; 95% CI "
             "-3.76 to -0.33; P = 0.020). The macrophage marker program showed the "
             "same direction (SMD = -1.13; 95% CI -2.11 to -0.14; P = 0.025; "
-            "Figure 13C).",
+            "Figure 13C). A 20,000-label permutation gave P = 0.0002 for the "
+            "PRKCB network program and P = 0.0036 for the macrophage marker "
+            "program.",
         ),
         new_paragraph(
             document,
@@ -311,7 +316,9 @@ def main() -> None:
             "cross-ancestry genetics, colocalization, public perturbation, pQTL "
             "direction, treatment-response programs and a direction-compatible "
             "clinical-stage signal. PRKCB remained first under evidence-only and "
-            "clinical-weighted scoring and second under treatment-excluded scoring.",
+            "clinical-weighted scoring and second under treatment-excluded scoring. "
+            "Across 100,000 randomized weightings, PRKCB ranked first in 70.1% and "
+            "top two in 90.4% of draws.",
         ),
         new_paragraph(
             document,
@@ -337,7 +344,8 @@ def main() -> None:
             "Figure 13. Clinical translation extension. (A) Crohn and UC "
             "target-level L2G support. (B) PRKCB cis-MR across IBD, Crohn, UC and "
             "East Asian cohorts. (C) Public anti-TNF response-program "
-            "meta-analysis. (D) Clinical development readiness matrix.",
+            "meta-analysis. (D) Clinical development readiness matrix with "
+            "weight-bootstrap rank probabilities.",
         )
     )
     for element in extension_elements:

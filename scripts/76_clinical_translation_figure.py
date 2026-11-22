@@ -153,6 +153,16 @@ def main() -> None:
     axes[1, 1].set_xlim(0, 8.6)
     axes[1, 1].set_xlabel("Clinical development readiness score (0-10)")
     axes[1, 1].set_title("Target readiness matrix", loc="left", fontweight="bold")
+    axes[1, 1].text(
+        0.98,
+        0.03,
+        "PRKCB rank 1: 70.1%; top 2: 90.4%",
+        transform=axes[1, 1].transAxes,
+        ha="right",
+        va="bottom",
+        fontsize=7,
+        color=AXIS,
+    )
 
     for axis in axes.flat:
         axis.tick_params(labelsize=7.5)

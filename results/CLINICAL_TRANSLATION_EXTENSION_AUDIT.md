@@ -40,6 +40,16 @@ Generated: 19 November 2026
 - MAP3K8: 4.0/10, moderate.
 - PRKCB combined cross-disease genetics, cross-ancestry MR, exact eQTL, eQTL colocalization, positive exploratory pQTL direction, treatment-response programs and direction-compatible clinical-stage annotation. The pQTL contribution is weighted at 0.5 because available pQTL instruments are not genome-wide significant.
 - Across four weighting schemes, PRKCB ranked first under evidence-only and clinical-weighted scoring and second under treatment-excluded scoring.
+- In 100,000 randomized component-weight draws, PRKCB ranked first in 70.1% and top two in 90.4%.
+
+## Parallel robustness checks
+
+- Parallel workers used 44 available CPU threads with 16 permutation chunks per feature.
+- PRKCB cross-ancestry leave-one-instrument-out estimates remained positive; beta range 0.0349-0.0687.
+- Treatment-response label permutations used 20,000 permutations per feature.
+- PRKCB network program permutation P = 0.0002; macrophage marker program P = 0.0036.
+- pQTL MR sensitivity included 20 IVW/weighted-median/MR-Egger/leave-one-out estimates; 70% retained a positive direction.
+- pQTL colocalization used 72 prior combinations; maximum H4 was 0.185, so pQTL colocalization remains exploratory.
 
 ## Interpretation boundary
 

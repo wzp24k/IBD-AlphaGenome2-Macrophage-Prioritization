@@ -1,0 +1,22 @@
+{
+  "cpu_count": 44,
+  "permutation_chunks": 16,
+  "treatment_permutations_per_feature": 20000,
+  "readiness_weight_draws": 100000,
+  "prkcb_cross_ancestry_all_leave_one_out_positive": true,
+  "prkcb_cross_ancestry_min_leave_one_out_beta": 0.03494629322269626,
+  "prkcb_cross_ancestry_max_leave_one_out_beta": 0.06873701402933835,
+  "treatment_permutation_significant_features": [
+    "PRKCB_network_program",
+    "macrophage_marker_program"
+  ],
+  "treatment_permutation_min_p": 0.000199990000499975,
+  "pqtl_sensitivity_tests": 20,
+  "pqtl_positive_sensitivity_fraction": 0.7,
+  "pqtl_coloc_sensitivity_tests": 72,
+  "pqtl_coloc_sensitivity_max_h4": 0.18484747525310705,
+  "draws": 100000,
+  "prkcb_probability_rank_1": 0.70106,
+  "prkcb_probability_top_2": 0.90372,
+  "prkcb_median_rank": 1.0
+}

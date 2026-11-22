@@ -14,6 +14,7 @@ $scripts = @(
     "66_build_supplementary_tables.py",
     "71_build_title_page.py",
     "78_audit_clinical_translation_extension.py",
+    "83_parallel_clinical_robustness.py",
     "82_build_1119_submission_package.py"
 )
 

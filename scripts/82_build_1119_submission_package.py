@@ -49,19 +49,26 @@ def main() -> None:
         table_dir / "top10_cd_uc_target_support.csv",
         table_dir / "prkcb_cross_ancestry_harmonized.csv",
         table_dir / "prkcb_cross_ancestry_mr.csv",
+        table_dir / "prkcb_cross_ancestry_leave_one_out.csv",
         table_dir / "cd_uc_cross_ancestry_summary.json",
         table_dir / "pqtl_cis_instruments.csv",
         table_dir / "pqtl_cis_mr_ibd.csv",
+        table_dir / "pqtl_mr_sensitivity.csv",
+        table_dir / "pqtl_ibd_harmonized.csv",
         table_dir / "pqtl_ibd_colocalization.csv",
+        table_dir / "pqtl_coloc_prior_sensitivity.csv",
         table_dir / "prkcb_pqtl_phewas_mr.csv",
         table_dir / "pqtl_translation_summary.json",
         table_dir / "treatment_response_program_associations.csv",
         table_dir / "treatment_response_sample_scores.csv",
         table_dir / "treatment_response_meta_analysis.csv",
+        table_dir / "treatment_response_permutation.csv",
         table_dir / "treatment_response_summary.json",
         table_dir / "clinical_development_readiness_matrix.csv",
         table_dir / "clinical_readiness_rank_sensitivity.csv",
+        table_dir / "clinical_readiness_weight_bootstrap.csv",
         table_dir / "clinical_development_readiness_summary.json",
+        table_dir / "clinical_translation_robustness_summary.json",
     ]
     script_names = [
         "72_cd_uc_cross_ancestry_validation.py",
@@ -75,6 +82,7 @@ def main() -> None:
         "80_update_1119_abstract_and_key_messages.py",
         "81_update_strobe_mr_1119.py",
         "82_build_1119_submission_package.py",
+        "83_parallel_clinical_robustness.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())
