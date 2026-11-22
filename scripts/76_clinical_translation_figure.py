@@ -39,6 +39,9 @@ def main() -> None:
     cross = pd.read_csv(table_dir / "prkcb_cross_ancestry_mr.csv")
     treatment = pd.read_csv(table_dir / "treatment_response_meta_analysis.csv")
     readiness = pd.read_csv(table_dir / "clinical_development_readiness_matrix.csv")
+    readiness_rank = pd.read_csv(
+        table_dir / "clinical_readiness_weight_bootstrap.csv"
+    ).set_index("target").loc["PRKCB"]
 
     support = support.sort_values("priority_rank")
     heat = support.set_index("target")[["max_l2g_crohn", "max_l2g_uc"]]
@@ -156,7 +159,8 @@ def main() -> None:
     axes[1, 1].text(
         0.98,
         0.03,
-        "PRKCB rank 1: 70.1%; top 2: 90.4%",
+        f"PRKCB rank 1: {readiness_rank['probability_rank_1']:.1%}; "
+        f"top 2: {readiness_rank['probability_top_2']:.1%}",
         transform=axes[1, 1].transAxes,
         ha="right",
         va="bottom",

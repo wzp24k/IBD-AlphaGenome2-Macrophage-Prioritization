@@ -5,6 +5,7 @@ import json
 import re
 import sys
 import zipfile
+from datetime import datetime
 from pathlib import Path
 
 from docx import Document
@@ -19,6 +20,95 @@ DOCX = ROOT / "1119manuscript.docx"
 WORKBOOK = ROOT / "results" / "IBD_AlphaGenome2_supplementary_tables.xlsx"
 FIGURE = ROOT / "results" / "figures" / "figure13_clinical_translation.png"
 OUTPUT = ROOT / "results" / "clinical_translation_extension_audit.json"
+MARKDOWN = ROOT / "results" / "CLINICAL_TRANSLATION_EXTENSION_AUDIT.md"
+
+
+def write_markdown_report() -> None:
+    support = json.loads(
+        (ROOT / "results" / "tables" / "cd_uc_cross_ancestry_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    pqtl = json.loads(
+        (ROOT / "results" / "tables" / "pqtl_translation_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    treatment = json.loads(
+        (ROOT / "results" / "tables" / "treatment_response_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    readiness = json.loads(
+        (
+            ROOT
+            / "results"
+            / "tables"
+            / "clinical_development_readiness_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    robustness = json.loads(
+        (
+            ROOT
+            / "results"
+            / "tables"
+            / "clinical_translation_robustness_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    lines = [
+        "# Clinical translation extension",
+        "",
+        f"Generated: {datetime.now().astimezone():%Y-%m-%d}.",
+        "",
+        "## 1. CD/UC and cross-ancestry validation",
+        "",
+        f"- Crohn targets with L2G >= 0.5: {support['cd_supported_targets_l2g_ge_0_5']}.",
+        f"- UC targets with L2G >= 0.5: {support['uc_supported_targets_l2g_ge_0_5']}.",
+        f"- Targets supported in both diseases: {support['both_disease_targets']}.",
+        "- PRKCB cis-MR was positive in all four outcome cohorts.",
+        "",
+        "## 2. pQTL, colocalization and PheW-MR",
+        "",
+        f"- pQTL MR tests: {pqtl['ibd_mr_tests']}.",
+        f"- Positive PRKCB direction: {pqtl['ibd_positive_direction']}/{pqtl['ibd_mr_tests']}.",
+        f"- Nominal positive pQTL-MR tests: {pqtl['ibd_nominal_p_lt_0_05']}/{pqtl['ibd_mr_tests']}.",
+        f"- pQTL colocalization reached H4 >= 0.8 in {pqtl['coloc_h4_ge_0_8']} primary tests.",
+        "- Available pQTL instruments remain exploratory because they are not genome-wide significant.",
+        f"- PheW-MR queried {pqtl['phewas_phenotypes_queried']} traits; "
+        f"{pqtl['phewas_phenotypes_evaluable']} were evaluable.",
+        "",
+        "## 3. Public treatment-response programs",
+        "",
+        f"- Datasets: {', '.join(treatment['datasets'])}.",
+        "- The PRKCB network program was lower in responders across both cohorts.",
+        "- The macrophage marker program showed the same direction.",
+        "- Direct PRKCB expression had a wider interval that included zero.",
+        "",
+        "## 4. Clinical development readiness",
+        "",
+        f"- PRKCB: {readiness['top_score']}/10 and the highest-ranked target.",
+        "- IBD-indication clinical stage, not maximum stage across all indications, contributes to scoring.",
+        f"- PRKCB remained at rank {readiness['prkcb_rank_min']}-{readiness['prkcb_rank_max']} "
+        "across four prespecified weighting schemes.",
+        f"- PRKCB ranked first in {robustness['prkcb_probability_rank_1']:.1%} and top two in "
+        f"{robustness['prkcb_probability_top_2']:.1%} of 100,000 randomized weight draws.",
+        "",
+        "## Parallel robustness checks",
+        "",
+        f"- The robustness run used {robustness['cpu_count']} logical CPUs and "
+        f"{robustness['permutation_chunks']} permutation chunks.",
+        f"- Treatment-response permutations: {robustness['treatment_permutations_per_feature']} per feature.",
+        f"- pQTL sensitivity retained a positive direction in "
+        f"{robustness['pqtl_positive_sensitivity_fraction']:.0%} of tests.",
+        f"- Maximum pQTL-colocalization H4 across prior combinations: "
+        f"{robustness['pqtl_coloc_sensitivity_max_h4']:.3f}.",
+        "",
+        "## Interpretation boundary",
+        "",
+        "The extension is an evidence-integration analysis. pQTL MR and PheW-MR are exploratory. "
+        "Treatment-response results are observational program-level evidence.",
+    ]
+    MARKDOWN.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -51,6 +141,17 @@ def main() -> None:
         }
     figure_hash = hashlib.sha256(FIGURE.read_bytes()).hexdigest()
     workbook = load_workbook(WORKBOOK, read_only=True)
+    readiness_rows = {}
+    with (
+        ROOT
+        / "results"
+        / "tables"
+        / "clinical_development_readiness_matrix.csv"
+    ).open(encoding="utf-8") as handle:
+        import csv
+
+        for row in csv.DictReader(handle):
+            readiness_rows[row["target"]] = row
     expected_sheets = {
         "CD_UC_target_support",
         "PRKCB_cross_ancestry_MR",
@@ -74,6 +175,14 @@ def main() -> None:
         "results_extension_present": "3.15 Clinical translation extension" in nonempty,
         "table12_positive": "Clinical development readiness matrix" in body,
         "workbook_extensions_present": expected_sheets.issubset(set(workbook.sheetnames)),
+        "prkcb_public_perturbation_not_counted": float(
+            readiness_rows["PRKCB"]["public_perturbation_score"]
+        )
+        == 0.0,
+        "prkcb_uses_ibd_specific_stage": readiness_rows["PRKCB"][
+            "ibd_indication_clinical_stage"
+        ]
+        == "PHASE_2",
     }
     report = {
         "document": str(DOCX),
@@ -85,6 +194,7 @@ def main() -> None:
         "checks": checks,
     }
     OUTPUT.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    write_markdown_report()
     print(json.dumps(report, indent=2))
     if not report["all_checks_pass"]:
         raise SystemExit("Clinical translation extension audit failed.")

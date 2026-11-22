@@ -12,14 +12,12 @@
   ],
   "clinical_stage_targets": [
     "PRKCB",
-    "PDGFB",
     "MAP3K8",
-    "CXCR2",
-    "PLAU"
+    "CXCR2"
   ],
   "prkcb_rank_min": 1,
   "prkcb_rank_max": 2,
   "pdgfb_rank_min": 1,
-  "pdgfb_rank_max": 2,
+  "pdgfb_rank_max": 3,
   "ranking_schemes": 4
 }

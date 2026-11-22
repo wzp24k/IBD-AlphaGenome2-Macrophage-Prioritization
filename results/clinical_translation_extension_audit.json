@@ -43,6 +43,8 @@
     "methods_extension_present": true,
     "results_extension_present": true,
     "table12_positive": true,
-    "workbook_extensions_present": true
+    "workbook_extensions_present": true,
+    "prkcb_public_perturbation_not_counted": true,
+    "prkcb_uses_ibd_specific_stage": true
   }
 }

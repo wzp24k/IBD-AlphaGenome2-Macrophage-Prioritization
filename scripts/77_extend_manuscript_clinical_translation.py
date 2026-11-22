@@ -107,7 +107,7 @@ def add_readiness_table(document: Document) -> object:
         "Perturbation",
         "pQTL MR",
         "Response",
-        "Drug stage",
+        "IBD stage",
         "Score",
         "Class",
     ]
@@ -120,6 +120,11 @@ def add_readiness_table(document: Document) -> object:
             if row["disease_specific_score"] > 0
             else "None"
         )
+        pqtl_label = (
+            "Not assessed"
+            if pd.isna(row["pqtl_evidence_class"])
+            else str(row["pqtl_evidence_class"])
+        )
         rows.append(
             [
                 row["target"],
@@ -127,10 +132,11 @@ def add_readiness_table(document: Document) -> object:
                 "Yes" if row["exact_eqtl_score"] else "No",
                 "Yes" if row["colocalization_score"] else "No",
                 "Yes" if row["public_perturbation_score"] else "No",
-                row["pqtl_evidence_class"],
+                pqtl_label,
                 "Yes" if row["treatment_response_score"] else "No",
-                str(row["clinical_stage"])
-                if pd.notna(row["clinical_stage"])
+                str(row["ibd_indication_clinical_stage"]).replace("_", " ").title()
+                if pd.notna(row["ibd_indication_clinical_stage"])
+                and str(row["ibd_indication_clinical_stage"]).strip()
                 else "None",
                 f'{row["readiness_score_0_10"]:.1f}',
                 row["readiness_class"],
@@ -219,6 +225,43 @@ def main() -> None:
     shutil.copy2(SOURCE, BACKUP)
     document = Document(SOURCE)
 
+    support_summary = json.loads(
+        (TABLE_DIR / "cd_uc_cross_ancestry_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    pqtl_summary = json.loads(
+        (TABLE_DIR / "pqtl_translation_summary.json").read_text(encoding="utf-8")
+    )
+    cross_mr = pd.read_csv(TABLE_DIR / "prkcb_cross_ancestry_mr.csv")
+    treatment_meta = pd.read_csv(
+        TABLE_DIR / "treatment_response_meta_analysis.csv"
+    ).set_index("feature")
+    treatment_perm = pd.read_csv(
+        TABLE_DIR / "treatment_response_permutation.csv"
+    ).set_index("feature")
+    readiness = pd.read_csv(
+        TABLE_DIR / "clinical_development_readiness_matrix.csv"
+    ).sort_values(["readiness_score_0_10", "priority_rank"], ascending=[False, True])
+    robustness = json.loads(
+        (TABLE_DIR / "clinical_translation_robustness_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    prkcb_network = treatment_meta.loc["PRKCB_network_program"]
+    macrophage_meta = treatment_meta.loc["macrophage_marker_program"]
+    direct_prkcb = treatment_meta.loc["PRKCB_expression"]
+    prkcb_network_perm = treatment_perm.loc[
+        "PRKCB_network_program", "permutation_p_two_sided"
+    ]
+    macrophage_perm = treatment_perm.loc[
+        "macrophage_marker_program", "permutation_p_two_sided"
+    ]
+    prkcb_score = float(
+        readiness.loc[readiness["target"].eq("PRKCB"), "readiness_score_0_10"].iloc[0]
+    )
+    second_score = float(readiness["readiness_score_0_10"].iloc[1])
+
     methods_anchor = next(
         paragraph
         for paragraph in document.paragraphs
@@ -278,22 +321,30 @@ def main() -> None:
         new_heading(document, "3.15 Clinical translation extension"),
         new_paragraph(
             document,
-            "Disease-stratified target support was present for five targets in "
-            "Crohn disease and six targets in UC, with four targets supported in "
-            "both diseases (Table 12).",
+            "Disease-stratified target support was present for "
+            f"{support_summary['cd_supported_targets_l2g_ge_0_5']} targets in "
+            "Crohn disease and "
+            f"{support_summary['uc_supported_targets_l2g_ge_0_5']} targets in UC, with "
+            f"{support_summary['both_disease_targets']} targets supported in both "
+            "diseases (Table 12).",
         ),
         new_paragraph(
             document,
             "PRKCB cis-MR was positive across combined IBD, Crohn, UC and East "
-            "Asian IBD cohorts. Estimates ranged from 0.035 to 0.067 log OR per "
+            "Asian IBD cohorts. Estimates ranged from "
+            f"{cross_mr['beta'].min():.3f} to {cross_mr['beta'].max():.3f} "
+            "log OR per "
             "expression SD, and all four tests reached P < 0.001 (Figure 13A-B). "
             "Leave-one-instrument-out estimates remained positive.",
         ),
         new_paragraph(
             document,
-            "pQTL MR showed a positive PRKCB direction in nine of twelve tests. "
+            "pQTL MR showed a positive PRKCB direction in "
+            f"{pqtl_summary['ibd_positive_direction']} of "
+            f"{pqtl_summary['ibd_mr_tests']} tests. "
             "The SomaScan PKCB2 dataset supported combined IBD and UC, while the "
-            "deCODE instrument supported East Asian IBD. Regional pQTL "
+            "deCODE instrument supported East Asian IBD at nominal P < 0.05. "
+            "Regional pQTL "
             "colocalization defined a graded H4 distribution for future pQTL "
             "reference expansion. Across 20 MR sensitivity tests, 70% retained a "
             "positive direction. Seventy-two colocalization-prior combinations "
@@ -302,23 +353,33 @@ def main() -> None:
         new_paragraph(
             document,
             "In public anti-TNF datasets, the PRKCB network program was lower in "
-            "responders than nonresponders (meta-analysis SMD = -2.04; 95% CI "
-            "-3.76 to -0.33; P = 0.020). The macrophage marker program showed the "
-            "same direction (SMD = -1.13; 95% CI -2.11 to -0.14; P = 0.025; "
-            "Figure 13C). A 20,000-label permutation gave P = 0.0002 for the "
-            "PRKCB network program and P = 0.0036 for the macrophage marker "
-            "program.",
+            "responders than nonresponders "
+            f"(meta-analysis SMD = {prkcb_network['smd']:.2f}; 95% CI "
+            f"{prkcb_network['ci_low']:.2f} to {prkcb_network['ci_high']:.2f}; "
+            f"P = {prkcb_network['p']:.3f}). The macrophage marker program showed the "
+            "same direction "
+            f"(SMD = {macrophage_meta['smd']:.2f}; 95% CI "
+            f"{macrophage_meta['ci_low']:.2f} to {macrophage_meta['ci_high']:.2f}; "
+            f"P = {macrophage_meta['p']:.3f}; Figure 13C). A 20,000-label "
+            f"permutation gave P = {prkcb_network_perm:.4f} for the "
+            f"PRKCB network program and P = {macrophage_perm:.4f} for the macrophage marker "
+            "program. Direct PRKCB expression showed the same direction but a "
+            f"wider interval (SMD = {direct_prkcb['smd']:.2f}; 95% CI "
+            f"{direct_prkcb['ci_low']:.2f} to {direct_prkcb['ci_high']:.2f}).",
         ),
         new_paragraph(
             document,
-            "The readiness matrix ranked PRKCB highest at 6.0 of 10, followed by "
-            "PDGFB at 5.0 and MAP3K8 at 4.0 (Table 12; Figure 13D). PRKCB combined "
-            "cross-ancestry genetics, colocalization, public perturbation, pQTL "
-            "direction, treatment-response programs and a direction-compatible "
-            "clinical-stage signal. PRKCB remained first under evidence-only and "
-            "clinical-weighted scoring and second under treatment-excluded scoring. "
-            "Across 100,000 randomized weightings, PRKCB ranked first in 70.1% and "
-            "top two in 90.4% of draws.",
+            f"The readiness matrix ranked PRKCB highest at {prkcb_score:.1f} of 10, "
+            "followed by PDGFB and MAP3K8 at "
+            f"{second_score:.1f} (Table 12; Figure 13D). PRKCB combined "
+            "cross-ancestry genetics, colocalization, pQTL direction, "
+            "treatment-response programs and an IBD clinical-stage signal with "
+            "compatible pharmacological direction. PRKCB ranked first under the "
+            "primary, evidence-only and clinical-weighted schemes, and tied for "
+            "second when treatment response was excluded. Across "
+            f"{robustness['readiness_weight_draws']:,} randomized weightings, PRKCB "
+            f"ranked first in {robustness['prkcb_probability_rank_1']:.1%} and top two "
+            f"in {robustness['prkcb_probability_top_2']:.1%} of draws.",
         ),
         new_paragraph(
             document,
@@ -333,7 +394,7 @@ def main() -> None:
             "The score is an evidence-integration summary. Components are genetic "
             "transport, disease-specific support, exact-variant eQTL, "
             "colocalization, public perturbation, pQTL MR, treatment-response "
-            "program, clinical stage and direction compatibility.",
+            "program, IBD clinical stage and direction compatibility.",
         )
     )
     figure_paragraph = add_figure(document)

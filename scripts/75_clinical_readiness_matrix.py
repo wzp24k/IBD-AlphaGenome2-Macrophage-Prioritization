@@ -110,8 +110,14 @@ def main() -> None:
             pqtl_evidence_class = "None"
         pqtl_coloc_score = 1.0 if float(row.get("pqtl_coloc_max_h4", 0) or 0) >= 0.8 else 0.0
         treatment_score = 1.0 if bool(row.get("treatment_response_support", False)) else 0.0
-        clinical_stage = 1.0 if pd.notna(row.get("clinical_stage")) else 0.0
-        direction_compatible = 1.0 if pd.notna(row.get("directionally_compatible_clinical_actions")) and str(row.get("directionally_compatible_clinical_actions")).strip() not in {"", "nan"} else 0.0
+        ibd_stage_value = row.get("ibd_indication_clinical_stage")
+        ibd_stage_text = (
+            "" if pd.isna(ibd_stage_value) else str(ibd_stage_value).strip()
+        )
+        clinical_stage = 1.0 if ibd_stage_text not in {"", "nan", "none"} else 0.0
+        direction_compatible = 1.0 if as_bool(
+            row.get("directionally_compatible_ibd_drug", False)
+        ) else 0.0
         score = sum(
             [
                 genetic_transport,
@@ -171,7 +177,8 @@ def main() -> None:
                     if score >= 3
                     else "Exploratory"
                 ),
-                "clinical_stage": row.get("clinical_stage", ""),
+                "ibd_indication_clinical_stage": ibd_stage_text,
+                "any_indication_clinical_stage": row.get("clinical_stage", ""),
                 "ibd_indication_drugs": row.get("ibd_indication_drugs", ""),
                 "risk_effect_on_target": row.get("risk_effect_on_target", ""),
                 "translational_priority": row.get("translational_priority", ""),

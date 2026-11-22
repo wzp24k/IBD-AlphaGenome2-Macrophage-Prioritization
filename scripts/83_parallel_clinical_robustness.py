@@ -19,7 +19,7 @@ from common import ROOT
 TABLE_DIR = ROOT / "results" / "tables"
 OUTPUT = TABLE_DIR / "clinical_translation_robustness_summary.json"
 N_PERMUTATIONS = 20_000
-PERMUTATION_CHUNKS = max(4, min(os.cpu_count() or 4, 16))
+PERMUTATION_CHUNKS = max(4, min(os.cpu_count() or 4, 44))
 
 
 def _load_module(name: str, path: Path):
