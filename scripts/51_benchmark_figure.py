@@ -350,14 +350,7 @@ def main() -> None:
             ha="left",
             va="bottom",
         )
-    fig.suptitle(
-        "External benchmarking, multi-cohort triangulation and translational annotation",
-        x=0.02,
-        ha="left",
-        fontsize=15,
-        fontweight="bold",
-    )
-    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    fig.tight_layout()
     save(fig, figure_dir / "figure11_benchmark_translation")
     print("Wrote figure11_benchmark_translation")
 

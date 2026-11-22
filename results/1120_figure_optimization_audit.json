@@ -1,0 +1,24 @@
+{
+  "document": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\1120manuscript.docx",
+  "backup": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\_archive\\1120manuscript_before_figure_optimization.docx",
+  "figures_replaced": 13,
+  "media_changed": [
+    "word/media/image5.png",
+    "word/media/image10.png",
+    "word/media/image4.png",
+    "word/media/image9.png",
+    "word/media/image8.png",
+    "word/media/image12.png",
+    "word/media/image3.png",
+    "word/media/image7.png",
+    "word/media/image2.png",
+    "word/media/image11.png",
+    "word/media/image1.png",
+    "word/media/image6.png",
+    "word/media/image13.png"
+  ],
+  "document_xml_unchanged": true,
+  "nonmedia_entries_unchanged": true,
+  "all_checks_pass": true,
+  "optimized_sha256": "d8be313b9724fb7e8a273aba494d2ba86bc506104ef57496c8c1efc9e48dddf3"
+}

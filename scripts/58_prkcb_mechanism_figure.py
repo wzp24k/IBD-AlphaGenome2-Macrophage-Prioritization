@@ -394,22 +394,7 @@ def main() -> None:
     signature_panel(axes[4], reversal)
     virtual_panel(axes[5], virtual)
     label_panels(axes)
-    fig.suptitle(
-        "PRKCB computational mechanism triangulation",
-        x=0.02,
-        ha="left",
-        fontsize=15,
-        fontweight="bold",
-    )
-    fig.text(
-        0.02,
-        0.012,
-        "MR, SMR/HEIDI-style, SuSiE-coloc and virtual knockdown are computational inference. "
-        "They do not replace allele-specific MPRA or primary macrophage perturbation.",
-        fontsize=7,
-        color=INK,
-    )
-    fig.tight_layout(rect=[0, 0.03, 1, 0.95])
+    fig.tight_layout()
     base = figure_dir / "figure12_prkcb_mechanism"
     fig.savefig(base.with_suffix(".png"), dpi=300, bbox_inches="tight")
     fig.savefig(base.with_suffix(".pdf"), bbox_inches="tight")
