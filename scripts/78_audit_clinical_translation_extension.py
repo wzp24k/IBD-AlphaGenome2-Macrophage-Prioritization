@@ -34,6 +34,14 @@ def write_markdown_report() -> None:
             encoding="utf-8"
         )
     )
+    sun_pqtl = json.loads(
+        (
+            ROOT
+            / "results"
+            / "tables"
+            / "prkcb_sun2018_pqtl_summary.json"
+        ).read_text(encoding="utf-8")
+    )
     treatment = json.loads(
         (ROOT / "results" / "tables" / "treatment_response_summary.json").read_text(
             encoding="utf-8"
@@ -80,12 +88,14 @@ def write_markdown_report() -> None:
         "",
         "## 2. pQTL, colocalization and PheW-MR",
         "",
-        f"- pQTL MR tests: {pqtl['ibd_mr_tests']}.",
-        f"- Positive PRKCB direction: {pqtl['ibd_positive_direction']}/{pqtl['ibd_mr_tests']}.",
-        f"- Nominal positive pQTL-MR tests: {pqtl['ibd_nominal_p_lt_0_05']}/{pqtl['ibd_mr_tests']}.",
-        f"- pQTL colocalization reached H4 >= 0.8 in {pqtl['coloc_h4_ge_0_8']} primary tests.",
-        "- Available pQTL instruments remain exploratory because they are not genome-wide significant.",
-        "- Exploratory pQTL evidence contributed at most 0.25 of 10 points.",
+        f"- Sun 2018 plasma pQTL variants: {sun_pqtl['pqtl_variants']:,}.",
+        f"- Independent pQTL instruments: {sun_pqtl['independent_instruments']}.",
+        f"- Positive pQTL-MR outcomes: {sun_pqtl['positive_direction']}/"
+        f"{sun_pqtl['mr_tests']}.",
+        f"- Colocalization H4 >= 0.8: {sun_pqtl['coloc_h4_ge_0_8']}/"
+        f"{sun_pqtl['coloc_tests']} outcomes.",
+        f"- Maximum H4: {sun_pqtl['max_h4']:.3f}.",
+        "- Legacy SomaScan and curated pQTL results remain sensitivity analyses.",
         f"- PheW-MR queried {pqtl['phewas_phenotypes_queried']} traits; "
         f"{pqtl['phewas_phenotypes_evaluable']} were evaluable.",
         "",
@@ -100,8 +110,8 @@ def write_markdown_report() -> None:
         "",
         f"- PRKCB: {readiness['top_score']}/10 and the highest-ranked target.",
         "- IBD-indication clinical stage, not maximum stage across all indications, contributes to scoring.",
-        f"- PRKCB remained at rank {readiness['prkcb_rank_min']}-{readiness['prkcb_rank_max']} "
-        "across four prespecified weighting schemes.",
+        f"- PRKCB ranked {readiness['prkcb_rank_min']} across four prespecified "
+        "weighting schemes.",
         f"- PRKCB ranked first in {robustness['prkcb_probability_rank_1']:.1%} and top two in "
         f"{robustness['prkcb_probability_top_2']:.1%} of 100,000 randomized weight draws.",
         "",
@@ -126,8 +136,9 @@ def write_markdown_report() -> None:
         "",
         "## Interpretation boundary",
         "",
-        "The extension is an evidence-integration analysis. pQTL MR and PheW-MR are exploratory. "
-        "Treatment-response results are observational program-level evidence.",
+        "The extension is an evidence-integration analysis. The primary Sun 2018 "
+        "pQTL is a one-instrument protein layer. Legacy pQTL and PheW-MR are "
+        "exploratory. Treatment-response results are observational program-level evidence.",
     ]
     MARKDOWN.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -185,6 +196,9 @@ def main() -> None:
         "Clinical_readiness_rank_sensiti",
         "Benchmark_incremental_metrics",
         "Benchmark_incremental_deltas",
+        "Sun2018_pQTL_cis",
+        "Sun2018_pQTL_MR",
+        "Sun2018_pQTL_coloc",
     }
     checks = {
         "twelve_tables": len(document.tables) == 12,
@@ -206,10 +220,11 @@ def main() -> None:
             "ibd_indication_clinical_stage"
         ]
         == "PHASE_2",
-        "pqtl_exploratory_weight_capped": float(
-            readiness_rows["PRKCB"]["pqtl_mr_score"]
-        )
-        <= 0.25,
+        "pqtl_strong_support_in_score": readiness_rows["PRKCB"][
+            "pqtl_evidence_class"
+        ]
+        == "Strong"
+        and float(readiness_rows["PRKCB"]["pqtl_mr_score"]) == 1.0,
         "incremental_benchmark_present": "Repeated grouped out-of-fold models"
         in body,
         "public_causal_coverage_recheck_present": "public-resource recheck"

@@ -39,6 +39,7 @@ def main() -> None:
     repeated_sentences = [
         "Cross-ancestry, pQTL and treatment-response analyses extended the clinical translation layer.",
         "Cross-ancestry MR and treatment-response programs ranked PRKCB highest for translational readiness.",
+        "A strong cis-pQTL supported PRKCB protein in combined IBD and UC; cross-ancestry MR and treatment-response programs ranked it highest.",
         "Cross-ancestry, pQTL and treatment-response analyses identify PRKCB as the leading translation candidate.",
     ]
     for paragraph in document.paragraphs:
@@ -48,10 +49,16 @@ def main() -> None:
                 text = text.replace(f"{sentence} {sentence}", sentence)
         if text.startswith("Methods:"):
             replacement = text
-            if "Cross-ancestry, pQTL and treatment-response" not in replacement:
+            replacement = replacement.replace(
+                "Cross-ancestry, pQTL and treatment-response analyses extended "
+                "the clinical translation layer.",
+                "Cross-ancestry MR, a strong cis-pQTL and treatment-response "
+                "programs extended the translational layer.",
+            )
+            if "strong cis-pQTL" not in replacement:
                 replacement += (
-                    " Cross-ancestry, pQTL and treatment-response analyses extended "
-                    "the clinical translation layer."
+                    " Cross-ancestry MR, a strong cis-pQTL and treatment-response "
+                    "programs extended the translational layer."
                 )
             replace_text(paragraph, replacement)
             changed.append("abstract_methods")
@@ -62,19 +69,32 @@ def main() -> None:
                 "Garrido macrophages.",
                 "Virtual knockdown supported JAK/STAT modulation.",
             )
-            if "Cross-ancestry MR and treatment-response" not in replacement:
+            replacement = replacement.replace(
+                "Cross-ancestry MR and treatment-response programs ranked PRKCB "
+                "highest for translational readiness.",
+                "A strong cis-pQTL supported PRKCB protein in combined IBD and UC; "
+                "cross-ancestry MR and treatment-response programs ranked it highest.",
+            )
+            if "strong cis-pQTL" not in replacement:
                 replacement += (
-                    " Cross-ancestry MR and treatment-response programs ranked PRKCB "
-                    "highest for translational readiness."
+                    " A strong cis-pQTL supported PRKCB protein in combined IBD and "
+                    "UC; cross-ancestry MR and treatment-response programs ranked it "
+                    "highest."
                 )
             replace_text(paragraph, replacement)
             changed.append("abstract_results")
         elif text.startswith("The framework converts genetic credible sets"):
             replacement = text
-            if "Cross-ancestry, pQTL and treatment-response" not in replacement:
+            replacement = replacement.replace(
+                "Cross-ancestry, pQTL and treatment-response analyses identify "
+                "PRKCB as the leading translation candidate.",
+                "A strong cis-pQTL, cross-ancestry MR and treatment-response "
+                "programs prioritize PRKCB as a target hypothesis.",
+            )
+            if "target hypothesis" not in replacement:
                 replacement += (
-                    " Cross-ancestry, pQTL and treatment-response analyses identify "
-                    "PRKCB as the leading translation candidate."
+                    " A strong cis-pQTL, cross-ancestry MR and treatment-response "
+                    "programs prioritize PRKCB as a target hypothesis."
                 )
             replace_text(paragraph, replacement)
             changed.append("key_message_3")
@@ -93,9 +113,9 @@ def main() -> None:
         re.findall(r"[A-Za-z0-9][A-Za-z0-9'./-]*", abstract_text)
     )
     checks = {
-        "methods_updated": "Cross-ancestry, pQTL and treatment-response" in "\n".join(paragraphs),
-        "results_updated": "Cross-ancestry MR and treatment-response" in "\n".join(paragraphs),
-        "key_message_updated": "leading translation candidate" in "\n".join(paragraphs),
+        "methods_updated": "strong cis-pQTL" in "\n".join(paragraphs),
+        "results_updated": "supported PRKCB protein in combined IBD and UC" in "\n".join(paragraphs),
+        "key_message_updated": "target hypothesis" in "\n".join(paragraphs),
         "abstract_250_or_less": abstract_words <= 250,
     }
     audit = {

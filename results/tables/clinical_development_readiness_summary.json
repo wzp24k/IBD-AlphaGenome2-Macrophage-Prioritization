@@ -1,12 +1,21 @@
 {
   "targets": 10,
-  "highest_readiness": [],
-  "top_score": 5.75,
+  "highest_readiness": [
+    "PRKCB"
+  ],
+  "top_score": 7.5,
   "top_target": "PRKCB",
   "pqtl_mr_support": [
     "PRKCB"
   ],
-  "pqtl_coloc_support": [],
+  "pqtl_coloc_support": [
+    "PRKCB"
+  ],
+  "pqtl_primary_dataset": "Sun2018_QTD000584",
+  "pqtl_strong_outcomes": [
+    "IBD_combined",
+    "UC"
+  ],
   "treatment_response_support": [
     "PRKCB"
   ],
@@ -16,8 +25,8 @@
     "CXCR2"
   ],
   "prkcb_rank_min": 1,
-  "prkcb_rank_max": 4,
-  "pdgfb_rank_min": 1,
+  "prkcb_rank_max": 1,
+  "pdgfb_rank_min": 2,
   "pdgfb_rank_max": 3,
   "ranking_schemes": 4
 }

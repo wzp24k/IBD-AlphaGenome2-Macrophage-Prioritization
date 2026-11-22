@@ -206,6 +206,15 @@ def append_workbook_sheets() -> None:
         "Benchmark_incremental_deltas": pd.read_csv(
             TABLE_DIR / "benchmark_incremental_model_deltas.csv"
         ),
+        "Sun2018_pQTL_cis": pd.read_csv(
+            TABLE_DIR / "prkcb_sun2018_pqtl_cis_grch38.csv"
+        ),
+        "Sun2018_pQTL_MR": pd.read_csv(
+            TABLE_DIR / "prkcb_sun2018_pqtl_mr_ibd.csv"
+        ),
+        "Sun2018_pQTL_coloc": pd.read_csv(
+            TABLE_DIR / "prkcb_sun2018_pqtl_coloc.csv"
+        ),
     }
     workbook = load_workbook(WORKBOOK)
     header_fill = PatternFill("solid", fgColor="1F4E78")
@@ -247,6 +256,15 @@ def main() -> None:
     )
     pqtl_summary = json.loads(
         (TABLE_DIR / "pqtl_translation_summary.json").read_text(encoding="utf-8")
+    )
+    sun_pqtl_mr = pd.read_csv(
+        TABLE_DIR / "prkcb_sun2018_pqtl_mr_ibd.csv"
+    ).set_index("outcome")
+    sun_pqtl_coloc = pd.read_csv(
+        TABLE_DIR / "prkcb_sun2018_pqtl_coloc.csv"
+    ).set_index("outcome")
+    sun_pqtl_summary = json.loads(
+        (TABLE_DIR / "prkcb_sun2018_pqtl_summary.json").read_text(encoding="utf-8")
     )
     cross_mr = pd.read_csv(TABLE_DIR / "prkcb_cross_ancestry_mr.csv")
     treatment_meta = pd.read_csv(
@@ -359,10 +377,10 @@ def main() -> None:
         new_paragraph(
             document,
             "Disease-specific target support was summarized from Crohn and UC "
-            "credible-set L2G predictions. pQTL MR used SomaScan PRKCB datasets "
-            "and a curated deCODE pQTL. Regional colocalization used shared "
-            "variants. A targeted PheW-MR panel used available OpenGWAS safety "
-            "phenotypes.",
+            "credible-set L2G predictions. The primary pQTL analysis used the "
+            "Sun 2018 plasma pQTL cis-window in GRCh38. Regional colocalization "
+            "used shared variants. Older SomaScan and curated pQTL results were "
+            "retained as sensitivity analyses.",
         ),
         new_paragraph(
             document,
@@ -377,7 +395,8 @@ def main() -> None:
             "A 0-10 translational research priority matrix combined genetic "
             "transport, disease-specific support, eQTL, colocalization, public "
             "perturbation, treatment response, IBD clinical stage and direction "
-            "compatibility. Exploratory pQTL evidence was capped at 0.25 point.",
+            "compatibility. A strong one-instrument Sun 2018 pQTL layer was "
+            "included; legacy pQTL data were capped at 0.25 point as sensitivity.",
         ),
     ]
     # The original reproducibility subsection follows the new methods block.
@@ -421,17 +440,18 @@ def main() -> None:
         ),
         new_paragraph(
             document,
-            "pQTL MR showed a positive PRKCB direction in "
-            f"{pqtl_summary['ibd_positive_direction']} of "
-            f"{pqtl_summary['ibd_mr_tests']} tests. "
-            "The SomaScan PKCB2 dataset supported combined IBD and UC, while the "
-            "deCODE instrument supported East Asian IBD at nominal P < 0.05. "
-            "Regional pQTL "
-            "colocalization defined a graded H4 distribution for future pQTL "
-            "reference expansion. Across 20 MR sensitivity tests, 70% retained a "
-            "positive direction. Seventy-two colocalization-prior combinations "
-            "reached a maximum H4 of 0.185, so pQTL evidence remained exploratory "
-            "and contributed at most 0.25 of 10 points.",
+            "The Sun 2018 plasma pQTL provided "
+            f"{sun_pqtl_summary['pqtl_variants']:,} PRKCB cis variants in GRCh38. "
+            "One LD-independent instrument was available. pQTL MR was positive in "
+            "all four IBD outcomes. The combined-IBD estimate was "
+            f"{sun_pqtl_mr.loc['IBD_combined', 'beta']:.3f} "
+            f"(P = {sun_pqtl_mr.loc['IBD_combined', 'p']:.2e}). Crohn, UC and "
+            "East Asian IBD were also positive. Colocalization reached "
+            f"H4 = {sun_pqtl_coloc.loc['IBD_combined', 'H4']:.3f} for combined IBD "
+            f"and H4 = {sun_pqtl_coloc.loc['UC', 'H4']:.3f} for UC. Crohn and East "
+            f"Asian H4 values were {sun_pqtl_coloc.loc['Crohn', 'H4']:.3f} and "
+            f"{sun_pqtl_coloc.loc['IBD_EAS', 'H4']:.3f}. The older SomaScan and "
+            "curated deCODE panel remained a sensitivity analysis.",
         ),
         new_paragraph(
             document,
@@ -462,7 +482,8 @@ def main() -> None:
             f"The readiness matrix ranked PRKCB highest at {prkcb_score:.1f} of 10, "
             "followed by PDGFB and MAP3K8 at "
             f"{second_score:.1f} (Table 12; Figure 13D). PRKCB combined "
-            "cross-ancestry genetics, colocalization, exploratory pQTL direction, "
+            "cross-ancestry genetics, colocalization, a strong one-instrument "
+            "pQTL signal, "
             "treatment-response programs and an IBD clinical-stage signal with "
             "compatible pharmacological direction. PRKCB ranked "
             f"{int(readiness_ranks['readiness_score_0_10_rank'])} under the "
@@ -489,9 +510,9 @@ def main() -> None:
             document,
             "The score is an evidence-integration summary. Components are genetic "
             "transport, disease-specific support, exact-variant eQTL, "
-            "colocalization, public perturbation, treatment-response program, "
-            "IBD clinical stage and direction compatibility. Exploratory pQTL "
-            "evidence is displayed separately with a maximum contribution of 0.25.",
+            "colocalization, public perturbation, pQTL, treatment-response program, "
+            "IBD clinical stage and direction compatibility. The strong pQTL "
+            "contribution uses one LD-independent instrument.",
         )
     )
     figure_paragraph = add_figure(document)

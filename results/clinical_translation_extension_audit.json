@@ -46,7 +46,7 @@
     "workbook_extensions_present": true,
     "prkcb_public_perturbation_not_counted": true,
     "prkcb_uses_ibd_specific_stage": true,
-    "pqtl_exploratory_weight_capped": true,
+    "pqtl_strong_support_in_score": true,
     "incremental_benchmark_present": true,
     "public_causal_coverage_recheck_present": true
   }

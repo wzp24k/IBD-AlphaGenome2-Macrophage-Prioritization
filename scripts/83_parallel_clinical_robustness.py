@@ -19,7 +19,7 @@ from common import ROOT
 TABLE_DIR = ROOT / "results" / "tables"
 OUTPUT = TABLE_DIR / "clinical_translation_robustness_summary.json"
 N_PERMUTATIONS = 20_000
-PERMUTATION_CHUNKS = max(4, min(os.cpu_count() or 4, 44))
+PERMUTATION_CHUNKS = max(4, min(os.cpu_count() or 4, 12))
 
 
 def _load_module(name: str, path: Path):
@@ -424,6 +424,11 @@ def main() -> None:
     pqtl_coloc = pqtl_coloc_sensitivity()
     treatment_perm = treatment_response_permutations()
     readiness_ranks, readiness_summary = readiness_weight_bootstrap()
+    sun_pqtl = json.loads(
+        (
+            TABLE_DIR / "prkcb_sun2018_pqtl_summary.json"
+        ).read_text(encoding="utf-8")
+    )
 
     summary = {
         "cpu_count": os.cpu_count(),
@@ -452,6 +457,7 @@ def main() -> None:
         ),
         "pqtl_coloc_sensitivity_tests": int(len(pqtl_coloc)),
         "pqtl_coloc_sensitivity_max_h4": float(pqtl_coloc["H4"].max()),
+        "sun2018_pqtl": sun_pqtl,
         **readiness_summary,
     }
     OUTPUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")

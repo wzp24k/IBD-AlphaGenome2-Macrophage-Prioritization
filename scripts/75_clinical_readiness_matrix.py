@@ -27,6 +27,19 @@ def main() -> None:
     pqtl_mr = pd.read_csv(TABLE_DIR / "pqtl_cis_mr_ibd.csv")
     pqtl_coloc = pd.read_csv(TABLE_DIR / "pqtl_ibd_colocalization.csv")
     treatment = pd.read_csv(TABLE_DIR / "treatment_response_meta_analysis.csv")
+    sun_mr = pd.read_csv(TABLE_DIR / "prkcb_sun2018_pqtl_mr_ibd.csv").set_index(
+        "outcome"
+    )
+    sun_coloc = pd.read_csv(TABLE_DIR / "prkcb_sun2018_pqtl_coloc.csv").set_index(
+        "outcome"
+    )
+    sun_strong = bool(
+        (
+            sun_mr["p"].lt(5e-8)
+            & sun_coloc["H4"].ge(0.8)
+        ).any()
+    )
+    sun_coloc_strong = bool(sun_coloc["H4"].ge(0.8).any())
 
     merged = clinical.merge(
         support.drop(columns=["priority_rank", "variant"]),
@@ -109,6 +122,11 @@ def main() -> None:
             pqtl_mr_score = 0.0
             pqtl_evidence_class = "None"
         pqtl_coloc_score = 1.0 if float(row.get("pqtl_coloc_max_h4", 0) or 0) >= 0.8 else 0.0
+        if str(row["target"]).upper() == "PRKCB" and sun_strong:
+            pqtl_mr_score = 1.0
+            pqtl_evidence_class = "Strong"
+        if str(row["target"]).upper() == "PRKCB" and sun_coloc_strong:
+            pqtl_coloc_score = 1.0
         treatment_score = 1.0 if bool(row.get("treatment_response_support", False)) else 0.0
         ibd_stage_value = row.get("ibd_indication_clinical_stage")
         ibd_stage_text = (
@@ -161,6 +179,20 @@ def main() -> None:
                 "pqtl_mr_score": pqtl_mr_score,
                 "pqtl_evidence_class": pqtl_evidence_class,
                 "pqtl_colocalization_score": pqtl_coloc_score,
+                "pqtl_in_composite_score": bool(
+                    str(row["target"]).upper() == "PRKCB"
+                    and (sun_strong or sun_coloc_strong)
+                ),
+                "pqtl_primary_dataset": (
+                    "Sun2018_QTD000584"
+                    if str(row["target"]).upper() == "PRKCB" and sun_strong
+                    else "legacy_sensitivity"
+                ),
+                "pqtl_strong_outcomes": ";".join(
+                    sun_coloc.index[sun_coloc["H4"].ge(0.8)].astype(str)
+                )
+                if str(row["target"]).upper() == "PRKCB"
+                else "",
                 "treatment_response_score": treatment_score,
                 "clinical_stage_score": clinical_stage,
                 "direction_compatible_score": direction_compatible,
@@ -239,6 +271,10 @@ def main() -> None:
         "pqtl_coloc_support": output.loc[
             output["pqtl_colocalization_score"].gt(0), "target"
         ].tolist(),
+        "pqtl_primary_dataset": "Sun2018_QTD000584",
+        "pqtl_strong_outcomes": sun_coloc.index[
+            sun_coloc["H4"].ge(0.8)
+        ].astype(str).tolist(),
         "treatment_response_support": output.loc[
             output["treatment_response_score"].gt(0), "target"
         ].tolist(),

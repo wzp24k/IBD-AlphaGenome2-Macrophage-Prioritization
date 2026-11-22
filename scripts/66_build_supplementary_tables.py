@@ -558,7 +558,8 @@ def main() -> None:
             "rows": build_benchmark_table(metrics, calibration),
             "note": (
                 "Source worksheets: Benchmark_metrics, Benchmark_calibration, "
-                "Benchmark_incremental_metrics and Benchmark_incremental_deltas. "
+                "Benchmark_incremental_metrics, Benchmark_incremental_deltas, "
+                "Sun2018_pQTL_cis, Sun2018_pQTL_MR and Sun2018_pQTL_coloc. "
                 "Intervals use locus-block bootstrap replicates. AUROC, AUPRC, "
                 "Brier score and ECE are shown for the two principal benchmark tasks."
             ),

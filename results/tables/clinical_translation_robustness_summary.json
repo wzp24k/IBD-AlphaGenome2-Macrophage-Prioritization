@@ -1,6 +1,6 @@
 {
   "cpu_count": 44,
-  "permutation_chunks": 44,
+  "permutation_chunks": 12,
   "treatment_permutations_per_feature": 20000,
   "readiness_weight_draws": 100000,
   "prkcb_cross_ancestry_all_leave_one_out_positive": true,
@@ -10,13 +10,30 @@
     "PRKCB_network_program",
     "macrophage_marker_program"
   ],
-  "treatment_permutation_min_p": 0.0002999850007499625,
+  "treatment_permutation_min_p": 9.99950002499875e-05,
   "pqtl_sensitivity_tests": 20,
   "pqtl_positive_sensitivity_fraction": 0.7,
   "pqtl_coloc_sensitivity_tests": 72,
   "pqtl_coloc_sensitivity_max_h4": 0.18484747525310705,
+  "sun2018_pqtl": {
+    "pqtl_dataset": "Sun2018_QTD000584",
+    "assembly": "GRCh38",
+    "region": "chr16:23,300,000-23,950,000",
+    "samples": 3301,
+    "pqtl_variants": 2701,
+    "independent_instruments": 1,
+    "instrument_rsids": [
+      "rs12598807"
+    ],
+    "mr_tests": 4,
+    "positive_direction": 4,
+    "nominal_p_lt_0_05": 4,
+    "coloc_tests": 4,
+    "coloc_h4_ge_0_8": 2,
+    "max_h4": 0.9980026475259736
+  },
   "draws": 100000,
-  "prkcb_probability_rank_1": 0.77071,
-  "prkcb_probability_top_2": 0.90361,
+  "prkcb_probability_rank_1": 0.92527,
+  "prkcb_probability_top_2": 0.97615,
   "prkcb_median_rank": 1.0
 }

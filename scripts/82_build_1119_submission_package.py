@@ -38,6 +38,7 @@ def main() -> None:
         ROOT / "Graphical_Abstract.drawio",
         ROOT / "Graphical_Abstract.png",
         ROOT / "Figure_1.drawio",
+        ROOT / "PRKCB_Sun2018_cis_pQTL_20261122.zip",
         ROOT / "results" / "IBD_AlphaGenome2_supplementary_tables.xlsx",
         ROOT / "results" / "figures" / "figure13_clinical_translation.png",
         ROOT / "results" / "figures" / "figure13_clinical_translation.pdf",
@@ -73,6 +74,17 @@ def main() -> None:
         table_dir / "benchmark_incremental_model_deltas.csv",
         table_dir / "benchmark_incremental_model_summary.json",
         table_dir / "public_prkcb_evidence_recheck.json",
+        table_dir / "prkcb_sun2018_pqtl_README.md",
+        table_dir / "prkcb_sun2018_pqtl_metadata.json",
+        table_dir / "prkcb_sun2018_pqtl_cis_grch38.csv",
+        table_dir / "prkcb_sun2018_pqtl_key_variants.csv",
+        table_dir / "prkcb_sun2018_pqtl_ld_matched.csv",
+        table_dir / "prkcb_sun2018_pqtl_ld_matrix.csv",
+        table_dir / "prkcb_sun2018_pqtl_ld_variants.csv",
+        table_dir / "prkcb_sun2018_pqtl_instruments.csv",
+        table_dir / "prkcb_sun2018_pqtl_mr_ibd.csv",
+        table_dir / "prkcb_sun2018_pqtl_coloc.csv",
+        table_dir / "prkcb_sun2018_pqtl_summary.json",
         ROOT / "results" / "PUBLIC_PRKCB_EVIDENCE_RECHECK.md",
     ]
     script_names = [
@@ -90,6 +102,8 @@ def main() -> None:
         "83_parallel_clinical_robustness.py",
         "85_benchmark_incremental_model.py",
         "86_public_evidence_recheck.py",
+        "87_fetch_sun2018_prkcb_cis_pqtl.py",
+        "88_sun2018_pqtl_analysis.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())

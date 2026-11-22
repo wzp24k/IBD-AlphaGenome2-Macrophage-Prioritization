@@ -11,12 +11,12 @@ Generated: 2026-11-22.
 
 ## 2. pQTL, colocalization and PheW-MR
 
-- pQTL MR tests: 12.
-- Positive PRKCB direction: 9/12.
-- Nominal positive pQTL-MR tests: 3/12.
-- pQTL colocalization reached H4 >= 0.8 in 0 primary tests.
-- Available pQTL instruments remain exploratory because they are not genome-wide significant.
-- Exploratory pQTL evidence contributed at most 0.25 of 10 points.
+- Sun 2018 plasma pQTL variants: 2,701.
+- Independent pQTL instruments: 1.
+- Positive pQTL-MR outcomes: 4/4.
+- Colocalization H4 >= 0.8: 2/4 outcomes.
+- Maximum H4: 0.998.
+- Legacy SomaScan and curated pQTL results remain sensitivity analyses.
 - PheW-MR queried 3 traits; 2 were evaluable.
 
 ## 3. Public treatment-response programs
@@ -28,10 +28,10 @@ Generated: 2026-11-22.
 
 ## 4. Clinical development readiness
 
-- PRKCB: 5.75/10 and the highest-ranked target.
+- PRKCB: 7.5/10 and the highest-ranked target.
 - IBD-indication clinical stage, not maximum stage across all indications, contributes to scoring.
-- PRKCB remained at rank 1-4 across four prespecified weighting schemes.
-- PRKCB ranked first in 77.1% and top two in 90.4% of 100,000 randomized weight draws.
+- PRKCB ranked 1 across four prespecified weighting schemes.
+- PRKCB ranked first in 92.5% and top two in 97.6% of 100,000 randomized weight draws.
 
 ## 5. Held-out incremental benchmark
 
@@ -40,11 +40,11 @@ Generated: 2026-11-22.
 
 ## Parallel robustness checks
 
-- The robustness run used 44 logical CPUs and 44 permutation chunks.
+- The robustness run used 44 logical CPUs and 12 permutation chunks.
 - Treatment-response permutations: 20000 per feature.
 - pQTL sensitivity retained a positive direction in 70% of tests.
 - Maximum pQTL-colocalization H4 across prior combinations: 0.185.
 
 ## Interpretation boundary
 
-The extension is an evidence-integration analysis. pQTL MR and PheW-MR are exploratory. Treatment-response results are observational program-level evidence.
+The extension is an evidence-integration analysis. The primary Sun 2018 pQTL is a one-instrument protein layer. Legacy pQTL and PheW-MR are exploratory. Treatment-response results are observational program-level evidence.

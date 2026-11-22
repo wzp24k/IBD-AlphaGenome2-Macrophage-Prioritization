@@ -8,6 +8,8 @@ $env:NUMEXPR_NUM_THREADS = "1"
 $scripts = @(
     "72_cd_uc_cross_ancestry_validation.py",
     "73_pqtl_mr_coloc_phewas.py",
+    "87_fetch_sun2018_prkcb_cis_pqtl.py",
+    "88_sun2018_pqtl_analysis.py",
     "74_treatment_response_programs.py",
     "75_clinical_readiness_matrix.py",
     "83_parallel_clinical_robustness.py",

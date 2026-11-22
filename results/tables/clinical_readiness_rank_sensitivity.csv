@@ -1,8 +1,8 @@
 priority_rank,target,readiness_score_0_10_rank,evidence_only_score_rank,clinical_weighted_score_rank,no_treatment_score_rank,rank_min,rank_max
-5,PRKCB,1,2,1,4,1,4
-3,PDGFB,2,1,3,1,1,3
-7,MAP3K8,2,3,2,2,2,3
-1,TNFSF15,4,3,5,2,2,5
+5,PRKCB,1,1,1,1,1,1
+3,PDGFB,2,2,3,2,2,3
+7,MAP3K8,2,3,2,3,2,3
+1,TNFSF15,4,3,5,3,3,5
 2,CXCR2,5,8,4,8,4,8
 10,DENND1B,5,5,6,5,5,6
 4,CDYL2,7,6,7,6,6,7
