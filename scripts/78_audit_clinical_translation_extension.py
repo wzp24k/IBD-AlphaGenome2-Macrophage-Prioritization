@@ -55,6 +55,17 @@ def write_markdown_report() -> None:
             / "clinical_translation_robustness_summary.json"
         ).read_text(encoding="utf-8")
     )
+    incremental = json.loads(
+        (
+            ROOT
+            / "results"
+            / "tables"
+            / "benchmark_incremental_model_summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    incremental_any = incremental["prespecified_by_task"][
+        "External genetic support, any cohort"
+    ]
     lines = [
         "# Clinical translation extension",
         "",
@@ -74,6 +85,7 @@ def write_markdown_report() -> None:
         f"- Nominal positive pQTL-MR tests: {pqtl['ibd_nominal_p_lt_0_05']}/{pqtl['ibd_mr_tests']}.",
         f"- pQTL colocalization reached H4 >= 0.8 in {pqtl['coloc_h4_ge_0_8']} primary tests.",
         "- Available pQTL instruments remain exploratory because they are not genome-wide significant.",
+        "- Exploratory pQTL evidence contributed at most 0.25 of 10 points.",
         f"- PheW-MR queried {pqtl['phewas_phenotypes_queried']} traits; "
         f"{pqtl['phewas_phenotypes_evaluable']} were evaluable.",
         "",
@@ -92,6 +104,15 @@ def write_markdown_report() -> None:
         "across four prespecified weighting schemes.",
         f"- PRKCB ranked first in {robustness['prkcb_probability_rank_1']:.1%} and top two in "
         f"{robustness['prkcb_probability_top_2']:.1%} of 100,000 randomized weight draws.",
+        "",
+        "## 5. Held-out incremental benchmark",
+        "",
+        f"- The prespecified PIP+context model improved AUROC by "
+        f"{incremental_any['delta_auroc']:.3f} for external support in any cohort "
+        f"(95% CI {incremental_any['delta_auroc_ci_low']:.3f} to "
+        f"{incremental_any['delta_auroc_ci_high']:.3f}).",
+        "- The advantage was not stable for support in both cohorts or "
+        "replicated exact-variant eQTL.",
         "",
         "## Parallel robustness checks",
         "",
@@ -162,6 +183,8 @@ def main() -> None:
         "Treatment_response_meta",
         "Clinical_readiness",
         "Clinical_readiness_rank_sensiti",
+        "Benchmark_incremental_metrics",
+        "Benchmark_incremental_deltas",
     }
     checks = {
         "twelve_tables": len(document.tables) == 12,
@@ -183,6 +206,14 @@ def main() -> None:
             "ibd_indication_clinical_stage"
         ]
         == "PHASE_2",
+        "pqtl_exploratory_weight_capped": float(
+            readiness_rows["PRKCB"]["pqtl_mr_score"]
+        )
+        <= 0.25,
+        "incremental_benchmark_present": "Repeated grouped out-of-fold models"
+        in body,
+        "public_causal_coverage_recheck_present": "public-resource recheck"
+        in body,
     }
     report = {
         "document": str(DOCX),

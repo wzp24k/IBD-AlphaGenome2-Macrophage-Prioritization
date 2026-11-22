@@ -16,6 +16,7 @@ Generated: 2026-11-22.
 - Nominal positive pQTL-MR tests: 3/12.
 - pQTL colocalization reached H4 >= 0.8 in 0 primary tests.
 - Available pQTL instruments remain exploratory because they are not genome-wide significant.
+- Exploratory pQTL evidence contributed at most 0.25 of 10 points.
 - PheW-MR queried 3 traits; 2 were evaluable.
 
 ## 3. Public treatment-response programs
@@ -27,10 +28,15 @@ Generated: 2026-11-22.
 
 ## 4. Clinical development readiness
 
-- PRKCB: 6.0/10 and the highest-ranked target.
+- PRKCB: 5.75/10 and the highest-ranked target.
 - IBD-indication clinical stage, not maximum stage across all indications, contributes to scoring.
-- PRKCB remained at rank 1-2 across four prespecified weighting schemes.
-- PRKCB ranked first in 80.8% and top two in 92.3% of 100,000 randomized weight draws.
+- PRKCB remained at rank 1-4 across four prespecified weighting schemes.
+- PRKCB ranked first in 77.1% and top two in 90.4% of 100,000 randomized weight draws.
+
+## 5. Held-out incremental benchmark
+
+- The prespecified PIP+context model improved AUROC by 0.072 for external support in any cohort (95% CI 0.003 to 0.148).
+- The advantage was not stable for support in both cohorts or replicated exact-variant eQTL.
 
 ## Parallel robustness checks
 

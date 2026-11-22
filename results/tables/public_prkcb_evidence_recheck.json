@@ -1,0 +1,63 @@
+{
+  "generated": "2026-11-22T20:55:50.872984+08:00",
+  "scope": "Public literature and local GEO/OpenGWAS resource recheck for PRKCB variant-level and macrophage perturbation evidence.",
+  "exact_variant_literature_counts": {
+    "\"rs7404003\"": 0,
+    "\"rs9806836\"": 0,
+    "\"rs144833389\"": 0
+  },
+  "targeted_literature_queries": [
+    {
+      "query": "\"rs7404003\"",
+      "hit_count": 0,
+      "status": "ok"
+    },
+    {
+      "query": "\"rs9806836\"",
+      "hit_count": 0,
+      "status": "ok"
+    },
+    {
+      "query": "\"rs144833389\"",
+      "hit_count": 0,
+      "status": "ok"
+    },
+    {
+      "query": "\"PRKCB MPRA\"",
+      "hit_count": 0,
+      "status": "ok"
+    },
+    {
+      "query": "\"PRKCB CRISPR macrophage\"",
+      "hit_count": 0,
+      "status": "ok"
+    },
+    {
+      "query": "\"PRKCB Perturb-seq\"",
+      "hit_count": 0,
+      "status": "ok"
+    }
+  ],
+  "pqtl_datasets_local_catalog": [
+    {
+      "dataset_id": "prot-a-2370",
+      "trait": "Protein kinase C beta type (splice variant beta-II)",
+      "source": "OpenGWAS"
+    },
+    {
+      "dataset_id": "prot-c-5475_10_3",
+      "trait": "PKC-B-II",
+      "source": "OpenGWAS"
+    },
+    {
+      "dataset_id": "deCODE_curated",
+      "trait": "PRKCB curated deCODE instrument",
+      "source": "curated"
+    }
+  ],
+  "prkcb_in_gse327644_perturbseq": false,
+  "prkcb_in_primary_macrophage_crispr": false,
+  "exact_variant_mpra_identified": false,
+  "macrophage_crispri_identified": false,
+  "interpretation": "No public exact-variant MPRA or macrophage CRISPRi coverage was identified for the PRKCB instruments in the queried resources."
+}

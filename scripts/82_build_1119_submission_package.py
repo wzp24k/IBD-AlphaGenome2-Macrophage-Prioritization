@@ -69,6 +69,11 @@ def main() -> None:
         table_dir / "clinical_readiness_weight_bootstrap.csv",
         table_dir / "clinical_development_readiness_summary.json",
         table_dir / "clinical_translation_robustness_summary.json",
+        table_dir / "benchmark_incremental_model_metrics.csv",
+        table_dir / "benchmark_incremental_model_deltas.csv",
+        table_dir / "benchmark_incremental_model_summary.json",
+        table_dir / "public_prkcb_evidence_recheck.json",
+        ROOT / "results" / "PUBLIC_PRKCB_EVIDENCE_RECHECK.md",
     ]
     script_names = [
         "72_cd_uc_cross_ancestry_validation.py",
@@ -83,6 +88,8 @@ def main() -> None:
         "81_update_strobe_mr_1119.py",
         "82_build_1119_submission_package.py",
         "83_parallel_clinical_robustness.py",
+        "85_benchmark_incremental_model.py",
+        "86_public_evidence_recheck.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())

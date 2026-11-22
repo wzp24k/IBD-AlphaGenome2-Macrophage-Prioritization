@@ -103,7 +103,7 @@ def main() -> None:
             pqtl_mr_score = 1.0
             pqtl_evidence_class = "Strong"
         elif pqtl_positive:
-            pqtl_mr_score = 0.5
+            pqtl_mr_score = 0.25
             pqtl_evidence_class = "Exploratory"
         else:
             pqtl_mr_score = 0.0

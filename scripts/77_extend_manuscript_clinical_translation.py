@@ -55,6 +55,15 @@ def new_heading(document: Document, text: str):
     return paragraph
 
 
+def replace_paragraph_text(paragraph, text: str) -> None:
+    for child in list(paragraph._p):
+        if child.tag != qn("w:pPr"):
+            paragraph._p.remove(child)
+    run = paragraph.add_run(text)
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+
+
 def move_before(anchor, element) -> None:
     if hasattr(element, "_p"):
         child = element._p
@@ -191,13 +200,19 @@ def append_workbook_sheets() -> None:
         "Clinical_readiness_rank_sensitivity": pd.read_csv(
             TABLE_DIR / "clinical_readiness_rank_sensitivity.csv"
         ),
+        "Benchmark_incremental_metrics": pd.read_csv(
+            TABLE_DIR / "benchmark_incremental_model_metrics.csv"
+        ),
+        "Benchmark_incremental_deltas": pd.read_csv(
+            TABLE_DIR / "benchmark_incremental_model_deltas.csv"
+        ),
     }
     workbook = load_workbook(WORKBOOK)
     header_fill = PatternFill("solid", fgColor="1F4E78")
     for sheet_name, frame in tables.items():
         safe_name = sheet_name[:31]
         for existing in list(workbook.sheetnames):
-            if existing.startswith(sheet_name[:20]):
+            if existing == safe_name:
                 del workbook[existing]
         worksheet = workbook.create_sheet(safe_name)
         worksheet.append(list(frame.columns))
@@ -243,11 +258,77 @@ def main() -> None:
     readiness = pd.read_csv(
         TABLE_DIR / "clinical_development_readiness_matrix.csv"
     ).sort_values(["readiness_score_0_10", "priority_rank"], ascending=[False, True])
+    readiness_ranks = pd.read_csv(
+        TABLE_DIR / "clinical_readiness_rank_sensitivity.csv"
+    ).set_index("target").loc["PRKCB"]
     robustness = json.loads(
         (TABLE_DIR / "clinical_translation_robustness_summary.json").read_text(
             encoding="utf-8"
         )
     )
+    incremental_benchmark = json.loads(
+        (TABLE_DIR / "benchmark_incremental_model_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    incremental_primary = incremental_benchmark["prespecified_by_task"]
+    incremental_any = incremental_primary["External genetic support, any cohort"]
+    incremental_both = incremental_primary["External genetic support, both cohorts"]
+    incremental_eqtl = incremental_primary["Exact-variant eQTL, replicated"]
+    more_than_pip_paragraph = (
+        "Repeated grouped out-of-fold models compared PIP alone with PIP plus "
+        "L2G, Atlas, live specificity and macrophage-context features. "
+        f"The analysis used {incremental_benchmark['repetitions']} repeats of "
+        f"{incremental_benchmark['splits']}-fold splits and locus-block bootstrap "
+        "confidence intervals. For external support in any cohort, the "
+        "prespecified PIP+context model changed AUROC by "
+        f"{incremental_any['delta_auroc']:.3f} (95% CI "
+        f"{incremental_any['delta_auroc_ci_low']:.3f} to "
+        f"{incremental_any['delta_auroc_ci_high']:.3f}). "
+        "The changes were "
+        f"{incremental_both['delta_auroc']:.3f} (95% CI "
+        f"{incremental_both['delta_auroc_ci_low']:.3f} to "
+        f"{incremental_both['delta_auroc_ci_high']:.3f}) "
+        "for support in both cohorts and "
+        f"{incremental_eqtl['delta_auroc']:.3f} (95% CI "
+        f"{incremental_eqtl['delta_auroc_ci_low']:.3f} to "
+        f"{incremental_eqtl['delta_auroc_ci_high']:.3f}) "
+        "for replicated exact-variant eQTL. "
+        "The increase was therefore endpoint-specific and strongest at the broad "
+        "external-support screen."
+    )
+    discussion_benchmark_paragraph = (
+        "Repeated grouped out-of-fold benchmarking showed a prespecified gain "
+        "over PIP for external support in any cohort, but not for support in both "
+        "cohorts or replicated exact-variant eQTL. The framework therefore adds "
+        "value as a broad external-evidence screen and retains component-level "
+        "interpretation for stricter endpoints."
+    )
+    mechanism_limitation_paragraph = (
+        "Candidate-level mechanisms. PRKCB combines three approximately "
+        "independent MR instruments, regional heterogeneity, monocyte eQTL and "
+        "matched-credible-set colocalization. PRKCQ, IL23R and CAMK2A add "
+        "transcript, pathway and colocalization evidence. No public "
+        "exact-variant MPRA or macrophage CRISPRi covers the PRKCB instruments. "
+        "Allele-resolved perturbation and transcript-verified CRISPRi will define "
+        "the causal step for each candidate."
+    )
+    for paragraph in document.paragraphs:
+        text = paragraph.text.strip()
+        if text.startswith("External benchmarks were constructed"):
+            replace_paragraph_text(
+                paragraph,
+                text
+                + " Repeated grouped out-of-fold models compared PIP alone with "
+                "PIP plus L2G, Atlas, live specificity and macrophage-context "
+                "features.",
+            )
+        elif text.startswith("For external support in both genetic cohorts"):
+            replace_paragraph_text(paragraph, more_than_pip_paragraph)
+        elif text.startswith("Benchmarking defined the incremental performance"):
+            replace_paragraph_text(paragraph, discussion_benchmark_paragraph)
+        elif text.startswith("Candidate-level mechanisms."):
+            replace_paragraph_text(paragraph, mechanism_limitation_paragraph)
     prkcb_network = treatment_meta.loc["PRKCB_network_program"]
     macrophage_meta = treatment_meta.loc["macrophage_marker_program"]
     direct_prkcb = treatment_meta.loc["PRKCB_expression"]
@@ -293,9 +374,10 @@ def main() -> None:
         ),
         new_paragraph(
             document,
-            "A 0-10 readiness matrix combined genetic transport, disease-specific "
-            "support, eQTL, colocalization, public perturbation, pQTL, treatment "
-            "response, clinical stage and direction compatibility.",
+            "A 0-10 translational research priority matrix combined genetic "
+            "transport, disease-specific support, eQTL, colocalization, public "
+            "perturbation, treatment response, IBD clinical stage and direction "
+            "compatibility. Exploratory pQTL evidence was capped at 0.25 point.",
         ),
     ]
     # The original reproducibility subsection follows the new methods block.
@@ -348,7 +430,15 @@ def main() -> None:
             "colocalization defined a graded H4 distribution for future pQTL "
             "reference expansion. Across 20 MR sensitivity tests, 70% retained a "
             "positive direction. Seventy-two colocalization-prior combinations "
-            "reached a maximum H4 of 0.185, so pQTL evidence remains exploratory.",
+            "reached a maximum H4 of 0.185, so pQTL evidence remained exploratory "
+            "and contributed at most 0.25 of 10 points.",
+        ),
+        new_paragraph(
+            document,
+            "A public-resource recheck found no exact-variant MPRA or macrophage "
+            "CRISPRi data for the three PRKCB instruments. PRKCB remains a "
+            "mechanistically triangulated candidate; allele-resolved PRKCB "
+            "perturbation is the decisive external experiment.",
         ),
         new_paragraph(
             document,
@@ -372,11 +462,17 @@ def main() -> None:
             f"The readiness matrix ranked PRKCB highest at {prkcb_score:.1f} of 10, "
             "followed by PDGFB and MAP3K8 at "
             f"{second_score:.1f} (Table 12; Figure 13D). PRKCB combined "
-            "cross-ancestry genetics, colocalization, pQTL direction, "
+            "cross-ancestry genetics, colocalization, exploratory pQTL direction, "
             "treatment-response programs and an IBD clinical-stage signal with "
-            "compatible pharmacological direction. PRKCB ranked first under the "
-            "primary, evidence-only and clinical-weighted schemes, and tied for "
-            "second when treatment response was excluded. Across "
+            "compatible pharmacological direction. PRKCB ranked "
+            f"{int(readiness_ranks['readiness_score_0_10_rank'])} under the "
+            "primary scheme, "
+            f"{int(readiness_ranks['evidence_only_score_rank'])} under "
+            "evidence-only scoring, "
+            f"{int(readiness_ranks['clinical_weighted_score_rank'])} under "
+            "clinical-weighted scoring and "
+            f"{int(readiness_ranks['no_treatment_score_rank'])} when treatment "
+            "response was excluded. Across "
             f"{robustness['readiness_weight_draws']:,} randomized weightings, PRKCB "
             f"ranked first in {robustness['prkcb_probability_rank_1']:.1%} and top two "
             f"in {robustness['prkcb_probability_top_2']:.1%} of draws.",
@@ -393,8 +489,9 @@ def main() -> None:
             document,
             "The score is an evidence-integration summary. Components are genetic "
             "transport, disease-specific support, exact-variant eQTL, "
-            "colocalization, public perturbation, pQTL MR, treatment-response "
-            "program, IBD clinical stage and direction compatibility.",
+            "colocalization, public perturbation, treatment-response program, "
+            "IBD clinical stage and direction compatibility. Exploratory pQTL "
+            "evidence is displayed separately with a maximum contribution of 0.25.",
         )
     )
     figure_paragraph = add_figure(document)

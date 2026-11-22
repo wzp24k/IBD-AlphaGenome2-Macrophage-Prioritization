@@ -11,6 +11,8 @@ $scripts = @(
     "74_treatment_response_programs.py",
     "75_clinical_readiness_matrix.py",
     "83_parallel_clinical_robustness.py",
+    "85_benchmark_incremental_model.py",
+    "86_public_evidence_recheck.py",
     "76_clinical_translation_figure.py",
     "77_extend_manuscript_clinical_translation.py",
     "79_fix_1119_figure_numbering.py",

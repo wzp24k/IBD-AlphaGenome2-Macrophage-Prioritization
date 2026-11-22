@@ -1,7 +1,7 @@
 {
   "targets": 10,
   "highest_readiness": [],
-  "top_score": 6.0,
+  "top_score": 5.75,
   "top_target": "PRKCB",
   "pqtl_mr_support": [
     "PRKCB"
@@ -16,7 +16,7 @@
     "CXCR2"
   ],
   "prkcb_rank_min": 1,
-  "prkcb_rank_max": 2,
+  "prkcb_rank_max": 4,
   "pdgfb_rank_min": 1,
   "pdgfb_rank_max": 3,
   "ranking_schemes": 4
