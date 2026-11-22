@@ -1,0 +1,29 @@
+{
+  "source": "eQTL Catalogue QTS000035 / QTD000584",
+  "study": "Sun 2018 plasma pQTL",
+  "trait": "PRKCB.5475.10.3..1",
+  "trait_object": "ENSG00000166501",
+  "assembly": "GRCh38",
+  "requested_region": "chr16:23,300,000-23,950,000",
+  "observed_region": {
+    "start": 23300993,
+    "end": 23949568
+  },
+  "samples": 3301,
+  "variants": 2701,
+  "unique_rsids": 2634,
+  "ld_matched_variants": 865,
+  "lead_variant": {
+    "variant_id": "chr16:23847471:T:C",
+    "rsid": "rs28474709",
+    "position_grch38": 23847471,
+    "other_allele": "T",
+    "effect_allele": "C",
+    "beta": 0.0826196,
+    "se": 0.0118068,
+    "maf": 0.436231,
+    "p": 3.14109e-12
+  },
+  "output": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\results\\tables\\prkcb_sun2018_pqtl_cis_grch38.csv",
+  "ld_matrix": "D:\\TT paper\\1111Systematic Prioritization of Non-coding\\results\\tables\\prkcb_sun2018_pqtl_ld_matrix.csv"
+}

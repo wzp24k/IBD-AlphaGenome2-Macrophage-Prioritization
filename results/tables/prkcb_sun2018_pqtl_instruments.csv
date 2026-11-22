@@ -1,0 +1,2 @@
+variant_id,rsid,chromosome,position_grch38,other_allele,effect_allele,beta,se,maf,p,n_alt_alleles,n_total_alleles,imputation_r2,molecular_trait_id,gene_id,source,assembly,position
+chr16:23847123:G:A,rs12598807,chr16,23847123,G,A,0.0808907,0.0116916,0.433051,5.45661e-12,3743,6602,0.97046,PRKCB.5475.10.3..1,ENSG00000166501,Sun_2018_eQTL_Catalogue_QTD000584,GRCh38,23847123

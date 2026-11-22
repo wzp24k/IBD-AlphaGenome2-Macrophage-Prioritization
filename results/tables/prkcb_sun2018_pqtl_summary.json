@@ -1,0 +1,17 @@
+{
+  "pqtl_dataset": "Sun2018_QTD000584",
+  "assembly": "GRCh38",
+  "region": "chr16:23,300,000-23,950,000",
+  "samples": 3301,
+  "pqtl_variants": 2701,
+  "independent_instruments": 1,
+  "instrument_rsids": [
+    "rs12598807"
+  ],
+  "mr_tests": 4,
+  "positive_direction": 4,
+  "nominal_p_lt_0_05": 4,
+  "coloc_tests": 4,
+  "coloc_h4_ge_0_8": 2,
+  "max_h4": 0.9980026475259736
+}
