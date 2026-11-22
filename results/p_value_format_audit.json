@@ -1,0 +1,6 @@
+{
+  "replacements": 36,
+  "remaining_noncanonical": [],
+  "rule": "P >= 0.001 uses three decimals; P < 0.001 is written P < 0.001",
+  "all_checks_pass": true
+}

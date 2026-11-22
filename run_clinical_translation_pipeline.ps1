@@ -21,6 +21,7 @@ $scripts = @(
     "79_fix_1119_figure_numbering.py",
     "80_update_1119_abstract_and_key_messages.py",
     "89_rebuild_translational_narrative.py",
+    "91_normalize_p_values.py",
     "81_update_strobe_mr_1119.py",
     "66_build_supplementary_tables.py",
     "71_build_title_page.py",

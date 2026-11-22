@@ -46,6 +46,7 @@ def main() -> None:
         ROOT / "results" / "clinical_translation_extension_audit.json",
         ROOT / "results" / "1119_reference_audit.json",
         ROOT / "results" / "translational_narrative_audit.json",
+        ROOT / "results" / "p_value_format_audit.json",
         ROOT / "results" / "title_page_audit.json",
         ROOT / "results" / "strobe_mr_1119_audit.json",
         table_dir / "top10_cd_uc_target_support.csv",
@@ -111,6 +112,7 @@ def main() -> None:
         "88_sun2018_pqtl_analysis.py",
         "89_rebuild_translational_narrative.py",
         "90_expanded_macrophage_benchmark.py",
+        "91_normalize_p_values.py",
     ]
     files.extend(ROOT / "scripts" / name for name in script_names)
     files = sorted({path.resolve(): path for path in files if path.exists()}.values())
